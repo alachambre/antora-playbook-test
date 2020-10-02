@@ -1,0 +1,3167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Define and deploy the Business Data Model (BDM) | Bonita documentation 2.0</title>
+<link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12.0/define-and-deploy-the-bdm.html">
+<link rel="stylesheet" href="../../_/css/site.css">
+<script src="../../_/js/vendor/jquery.js"></script>
+<link rel="schema.dcterms" href="https://purl.org/dc/terms/">
+<meta name="dcterms.subject" content="bonita">
+<meta name="dcterms.identifier" content="7.12.0">
+<meta name="generator" content="Antora 2.3.4">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+</head>
+<body class="article">
+<header class="header fixed-top">
+  <div class="header-top-row">
+      <div class="container">
+          <nav class="navbar navbar-expand-md flex-nowrap justify-content-between navbar-new-top">
+
+              <a class="navbar-brand" href="http://localhost:8080/documentation/bonita/7.12.0/index.html">
+                <img src="../../_/img/couchbase-documentation-logo.svg" alt="Couchbase" />
+              </a>
+              <button class="navbar-burger" data-target="topbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+          </nav>
+      </div>
+  </div>
+  <div class="header-bottom-row" id="topbar-menu">
+    <div class="container">
+        <nav  class="navbar navbar-new-bottom">
+
+              <div class="navbar-collapse collapse" id="navbar2">
+                <ul class="navbar-nav w-100 justify-content-start">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Server
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Mobile
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Cloud
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      SDKs
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Tutorials
+                      <span class="arrow">
+                        <i class="fas fa-arrow-right"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="primary-action">
+                <form class="navbar-item search">
+                  <input type="text" placeholder="Search Docs" class="query" id="search-query" />
+                  <button type="button" class="search-btn">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+                <div class="parent-site">
+                  <a href="https://www.couchbase.com">
+                    Couchbase.com
+                  </a>
+                </div>
+                <a class="btn btn-primary try-btn" href="https://www.couchbase.com/downloads">
+                  Try Free
+                </a>
+              </div>
+
+        </nav>
+    </div>
+   </div>
+</header>
+<div class="body container">
+<nav class="nav">
+<div class="left-sidebar-menu">
+<div class="version-control-box">
+<div class="component-frame">
+<div class="frame-icon">
+<img src="../../_/img/server-icon.png" alt="">
+</div>
+<div class="frame-body">
+<h4 class="title"><span class="">Bonita</span></h4>
+<a class="frame-link component" href="index.html"> <span class="version">7.12.0</span></a>
+</div>
+</div>
+</div>
+<div class="nav-menu">
+<ul class="nav-list">
+<li class="nav-item " data-depth="0">
+
+<ul class="nav-list">
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_getting-started-tutorial.adoc">Getting started tutorial</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="what-is-bonita.html">What is Bonita?</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-studio-download-installation.html">Download and install</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="draw-bpmn-diagram.html">Draw a BPMN diagram</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="define-business-data-model.html">Define business data model (BDM)</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="declare-business-variables.html">Declare business variables</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="declare-contracts.html">Declare contracts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="create-web-user-interfaces.html">Create web user Interfaces</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="define-who-can-do-what.html">Define who can do what</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="configure-email-connector.html">Configure an email connector</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="design-application-page.html">Design an application page</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="create-application.html">Create an application</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="release-notes.html">Release notes</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="migration-tool.html">Migration tool change log</a>
+</span>
+</li>
+<li class="nav-item is-current-path is-active is-active-depth-2  " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_application-and-process-design.adoc">Application and Process Design</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-overview.html">Bonita overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_application-and-process-design-overview.adoc">Application and process design overview</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="key-concepts.html">Key concepts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="comparison-of-7-x-and-6-x.html">Comparison of 7.x and 6.x</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="lifecycle-and-profiles.html">Lifecycle and profiles</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="design-methodology.html">Design methodology</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-studio-preferences.html">Bonita Studio preferences</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-studio-hints-and-tips.html">Bonita Studio hints and tips</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_organization.adoc">Organization</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="organization-overview.html">Organization overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="approaches-to-managing-organizations-and-actor-mapping.html">Approaches to managing organizations and actor mapping</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="organization-management-in-bonita-bpm-studio.html">Organization management in Bonita Studio</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="custom-user-information-in-bonita-bpm-studio.html">Custom User Information in Bonita Studio</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="ldap-synchronizer.html">LDAP synchronizer</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_profiles.adoc">Profiles</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="profiles-overview.html">Profiles overview</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="profileCreation.html">Profiles editor</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-modeling.adoc">Process modeling</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_diagrams.adoc">Diagrams</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="diagram-overview.html">Diagram overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="pools-and-lanes.html">Pools and lanes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="diagram-tasks.html">Tasks</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="gateways.html">Gateways</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="transitions.html">Transitions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="events.html">Events</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="called-processes.html">Called processes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="event-subprocesses.html">Event subprocesses</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="text-annotations.html">Text annotations</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="naming-conventions.html">Naming conventions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="refactoring.html">Refactoring</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="actors.html">Actors</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="actor-filtering.html">Actor filters</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="iteration.html">Iteration</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item is-current-path is-active is-active-depth-2  " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_data.adoc">Data</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="data-handling-overview.html">Data handling overview</a>
+</span>
+</li>
+<li class="nav-item is-current-page is-active is-active-depth-2  " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="define-and-deploy-the-bdm.html">Define and deploy the BDM</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bdm-access-control.html">Define access control on business objects</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="specify-data-in-a-process-definition.html">Specify data in a process definition</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="parameters.html">Parameters</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="contracts-and-contexts.html">Contracts and contexts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="documents.html">Documents</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="define-a-search-index.html">Search keys</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="expressions-and-scripts.html">Expressions and scripts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="operations.html">Operations</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_page-and-form-development.adoc">Page and form development</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="page-and-form-development-overview.html">Page and form development overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_using-the-ui-designer.adoc">UI Designer</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="ui-designer-overview.html">UI Designer overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="create-or-modify-a-page.html">Create or modify UI artifacts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="widgets.html">Widgets</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="widget-properties.html">Widget properties</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<span class="in-toggle" data-depth="4"></span>
+<a class="nav-link" href="#_widget-use-examples.adoc">Widget use examples</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="5">
+
+<span class="nav-line "  data-depth="5">
+<a class="nav-link" href="repeat-a-container-for-a-collection-of-data.html">Repeat a container for a collection of data</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="fragments.html">Fragments</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="custom-widgets.html">Custom widgets</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="data-management.html">Data management</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="variables.html">Variables</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="appearance.html">Appearance</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="assets.html">Assets</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="multi-language-pages.html">Multi-language pages</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="migrate-a-form-from-6-x.html">Migrate a form from 6.x</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="cache-configuration-and-policy.html">Cache configuration and policy</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="applicationCreation.html">Application descriptor</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_connectivity.adoc">Connectivity</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connectivity-overview.html">Connectivity overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="alfresco.html">Alfresco</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="cmis.html">CMIS</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_database.adoc">Database</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="list-of-database-connectors.html">List of database connectors</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="database-connector-configuration.html">Database connector configuration</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="graphical-query-builder.html">Graphical query builder</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="initialize-a-variable-from-a-database-without-scripting-or-java-code.html">Initialize a variable from a database without scripting or Java code</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="insert-data-in-a-docx-odt-template.html">Insert data in a .docx/.odt template</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="google-calendar.html">Google Calendar</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="ldap.html">LDAP</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="messaging.html">Messaging</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="generate-pdf-from-an-office-document.html">Generate PDF from an Office document</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="salesforce.html">Salesforce</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="sap-jco-3.html">SAP JCo 3</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="script.html">Script</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="twitter.html">Twitter</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="uipath.html">UiPath</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_web-service.adoc">Web service</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="web-service-connector-overview.html">Web service connector overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="#web-service-tutorial.adoc">Web service connector tutorial</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_reporting.adoc">Reporting</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="reporting-overview.html">Reporting overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-up-a-reporting-database.html">Set up a reporting database</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-up-kpis.html">Set up KPIs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="create-a-report.html">Create a report</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="import-and-export-a-process.html">Import and export a process</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-configuration.adoc">Process configuration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="process-configuration-overview.html">Process configuration overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="environments.html">Environments</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configuring-a-process.html">Configure a process</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="manage-jar-files.html">Manage JAR files</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="managing-dependencies.html">Manage dependencies</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-testing.adoc">Process testing</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="process-testing-overview.html">Process testing overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configure-a-test-organization.html">Configure a test organization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="run-a-process-from-bonita-bpm-studio-for-testing.html">Run a process from Bonita Studio for testing</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="log-files.html">Log files</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="project_deploy_in_dev_suite.html">Project deployment in Bonita Development Suite</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="build-a-process-for-deployment.html">Build a process for deployment</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_installation.adoc">Installation</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-installation-overview.html">Bonita installation overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-studio-installation.html">Bonita Studio installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_basic-bonita-platform-installation.adoc">Basic Bonita Platform installation</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="hardware-and-software-requirements.html">Hardware and software requirements</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="tomcat-bundle.html">Tomcat bundle</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="custom-deployment.html">Custom Deployment into existing Tomcat installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="convert-wildfly-into-tomcat.html">Convert a WildFly into a Tomcat installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="BonitaBPM_platform_setup.html">Platform configuration</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="database-configuration.html">Database creation and customization to work with Bonita</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="first-steps-after-setup.html">First steps after setup</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="licenses.html">Licenses</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-docker-installation.html">Bonita docker installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_advanced-bonita-platform-installation.adoc">Advanced Bonita Platform installation</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_security-and-authentication.adoc">Security and authentication</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="user-authentication-overview.html">User authentication overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="active-directory-or-ldap-authentication.html">Active Directory or LDAP authentication</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="single-sign-on-with-cas.html">Single sign-on with CAS</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="single-sign-on-with-saml.html">Single sign-on with SAML</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="single-sign-on-with-kerberos.html">Single sign-on with Kerberos</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="enforce-password-policy.html">Enforce password policy</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="rest-api-authorization.html">REST API authorization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="csrf-security.html">CSRF security</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="enable-cors-in-tomcat-bundle.html">Enable CORS in Tomcat bundle</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="ssl.html">SSL</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="tenant_admin_credentials.html">Tenant administrator credentials</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="guest-user.html">Guest user access</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-log-and-archive-levels.html">Set log and archive levels</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configurable-archive.html">Configurable Archive</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="performance-tuning.html">Performance tuning</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="performance-troubleshooting.html">Performance troubleshooting</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="use-gzip-compression.html">Use gzip compression</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="two-main-types-of-deployment.html">Two main types of deployment</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_bonita-in-a-cluster.adoc">Bonita in a cluster</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="overview-of-bonita-bpm-in-a-cluster.html">Overview of Bonita in a cluster</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="install-a-bonita-bpm-cluster.html">Install a Bonita cluster</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="cluster-administration.html">Cluster administration</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="multi-tenancy-and-tenant-configuration.html">Multi-tenancy and tenant configuration</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="embed-engine.html">Embed engine - Lab</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_platform-installation-examples.adoc">Platform installation examples</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="ubuntu-openjdk-tomcat-postgresql.html">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bonita-as-windows-service.html">Install Tomcat with Bonita as a service in Windows</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="back-up-bonita-bpm-platform.html">Back up Bonita Platform</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="product-versioning.html">Bonita Versions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_migration.adoc">Migration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="migration-overview.html">Migration overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="upgrade-from-community-to-a-subscription-edition.html">Community to Subscription upgrade</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_bonita-portal-administration.adoc">Bonita Portal Administration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_bonita-portal-interface.adoc">Bonita Portal interface</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bonita-bpm-portal-interface-overview.html">Bonita Portal overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="user-task-list.html">User task list</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="languages.html">Languages</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="log-in-and-log-out.html">Log in and log out</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="about.html">About Bonita Portal</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="mobile-portal.html">Mobile Portal</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-maintenance.adoc">Process maintenance</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="processes.html">Processes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="cases.html">Cases</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="tasks.html">Tasks</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="monitoring.html">Monitoring</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="pause-and-resume-bpm-services.html">Pause and resume services</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bdm-management-in-bonita-bpm-portal.html">BDM Management in Bonita Portal</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="applications.html">Applications</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_resources.adoc">Resources</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="resource-management.html">Resource management</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="pages.html">Pages</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="forms.html">Forms</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="layouts.html">Layouts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="themes.html">Themes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="api-extensions.html">REST API extensions</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="live-update.html">Live update</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_organization-in-bonita-portal.adoc">Organization in Bonita Portal</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="organization-in-bonita-bpm-portal-overview.html">Organization in Bonita Portal overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_organization-maintenance.adoc">Organization maintenance</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="import-export-an-organization.html">Import/export an organization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="group.html">Manage groups</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="role.html">Manage roles</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<span class="in-toggle" data-depth="4"></span>
+<a class="nav-link" href="#_user.adoc">Manage users</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="5">
+
+<span class="nav-line "  data-depth="5">
+<a class="nav-link" href="manage-a-user.html">Manage a user</a>
+</span>
+</li>
+<li class="nav-item " data-depth="5">
+
+<span class="nav-line "  data-depth="5">
+<a class="nav-link" href="deactivate-a-user.html">Deactivate a user</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="custom-user-information-in-bonita-bpm-portal.html">Custom User Information in Bonita Portal</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="analytics.html">Analytics</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_user-profiles.adoc">User profiles</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="administrator-rights.html">Administrator rights</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="process-manager.html">Process manager</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="custom-profiles.html">Custom profiles</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="deploying-profiles-with-export-and-import.html">Deploy profiles with export and import</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_look-feel.adoc">Look &amp; Feel</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="managing-look-feel.html">Manage Look &amp; Feel</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="creating-a-new-look-feel.html">Create a new Look &amp; Feel</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="search-index.html">Search keys</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="runtime-monitoring.html">Bonita Runtime Monitoring</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="maintenance-operation.html">Bonita Runtime Maintenance Operations</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_development.adoc">Development</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="software-extensibility.html">Platform extensibility overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_connectors.adoc">Connectors</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connectors-overview.html">Connectors overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connector-archetype.html">Bonita connector archetype</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="actor-filter-archetype.html">Create an actor filter</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="api-glossary.html">API glossary</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_rest-api.adoc">REST API</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="rest-api-overview.html">REST API overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="rest-api-authentication.html">REST Authentication</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="application-api.html">application API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="access-control-api.html">access control API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bdm-api.html">bdm API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bpm-api.html">bpm API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="customuserinfo-api.html">customuserinfo API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="form-api.html">form API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="identity-api.html">identity API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="platform-api.html">platform API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="portal-api.html">portal API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="system-api.html">system API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="tenant-api.html">tenant API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="rest-api-extensions.html">REST API extensions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="manage-files-using-upload-servlet-and-rest-api.html">Manage files using upload servlet and REST API</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_engine-api.adoc">Engine API</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="engine-api-overview.html">Engine API overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="create-your-first-project-with-the-engine-apis-and-maven.html">Create your first project with the Engine APIs and Maven</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configure-client-of-bonita-bpm-engine.html">Configure connection to Bonita Engine</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="http://documentation.bonitasoft.com/javadoc/api/$7.12.0/index.html">Javadoc</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_examples.adoc">Examples</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-a-process.html">Manage a process</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="handle-a-failed-activity.html">Handle a failed activity</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-an-organization.html">Manage an organization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-users.html">Manage users</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="handling-documents.html">Handle documents</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="create-administration-tools.html">Create administration tools</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="restore-default-look-feel.html">Restore the default Look &amp; Feel</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-the-platform.html">Manage the platform</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="using-list-and-search-methods.html">List and search methods</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="log-in-with-cas.html">Log in with CAS</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-portal-urls.html">Bonita Portal URLs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_engine-architecture.adoc">Bonita Engine architecture</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="engine-architecture-overview.html">Bonita Engine architecture overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_services.adoc">Services</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="event-handlers.html">Event handlers</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="queriable-logging.html">Queriable logger</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="work-execution-audit.html">Work execution audit</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="timers-execution.html">Timers execution</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connectors-execution.html">Connectors execution</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="execution-sequence-states-and-transactions.html">BPM process / task execution sequence</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_living-application.adoc">Living application</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bonita-layout.html">Bonita Layout</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="living-application-layout.html">Living application layout</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="customize-layouts.html">Customize layouts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="customize-living-application-theme.html">Customize living application theme</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="logging.html">Logs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="workspaces-and-repositories.html">Workspaces and projects</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="building-community-edition-from-source.html">Build Bonita Community edition from source files</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_continuous-integration.adoc">Continuous integration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="automating-builds.html">Automate builds</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-up-continuous-integration.html">Set up continuous integration</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_collaboration.adoc">Collaboration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="project-documentation-generation.html">Project documentation generation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="shared-project.html">Using a shared project</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_howtos.adoc">Howtos</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="uid-modal-tutorial.html">Create a modal window using CSS</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="uid-case-overview-tutorial.html">Create a case overview page using the UI Designer</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="optimize-user-tasklist.html">Create unique task names for the user task list</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="manage-control-in-forms.html">Control and validate forms in the UI Designer</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="list-of-documents.html">Manage a list of documents</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bo-multiple-refs-tutorial.html">Manage multiple references in Business Objects</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="custom-authorization-rule-mapping.html">Map authorization rules</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="rta-mail-template.html">Use the rich textarea widget in a mail template</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="datetimes-management-tutorial.html">Manage dates and times in BDM and User Interfaces</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bdm-in-rest-api.html">Manage BDM in custom Rest APIs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="share-a-repository-on-github.html">Share a project on GitHub</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="migrate-a-svn-repository-to-github.html">Migrate a SVN repository to a Git repository</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="configure-maven.html">Configure Maven</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="uid-vertical-tabs-container-tutorial.html">Create a vertical tabs container for all devices</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="groovy-in-bonita.html">Use Groovy in Bonita</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="use-bonita-acm.html">Enable Adaptive Case Management with Bonita</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<a href="#" class="menu-expand-toggle"> <span>Navigation</span> <i class="fas fa-times-circle"></i> <i class="fas fa-chevron-circle-left"></i></a>
+</div></nav>
+<aside class="toc sidebar">
+  <div class="sidebar-box">
+    <div class="tools" role="navigation">
+<ul>
+<li class="tool edit"><a href="https://github.com/alachambre/antora-sources-test/edit/master/modules/ROOT/pages/define-and-deploy-the-bdm.adoc" title="Edit Page" target="_blank" rel="noopener">Edit on GitHub</a></li>
+</ul>
+</div>
+    <div class="toc-menu"></div>
+    <div class="is-this-helpful-box">
+      <h4> Is this page helpful?</h4>
+      <div class="btn-row">
+        <a href="#" class="like-btn helpful-btn" id="yesBtn" data-page-rating="like" >
+                <i class="far fa-thumbs-up"></i>
+            Yes
+
+            </a>
+        <a href="#" class="dislike-btn helpful-btn" id="noBtn"  data-page-rating="dislike"> <i class="far fa-thumbs-down"></i> No</a>
+      </div>
+      <div class="any-feedback">
+        <a href="#" class="btn any-feedback-btn" id="myCustomTrigger">Leave Additional Feedback? </a>
+      </div>
+      <div class="dialog-box" id="dialogBox">
+        <form>
+            <div class="form-group " id="additionalFeedbackBox">
+              <textarea class="input-control feed-back-msg" rows="8" placeholder="Any Additonal Feedback?"></textarea>
+
+              <div class="action-btn-row ">
+                <a href="#" class="skip-btn" id="skipBtnMsg">Skip</a>
+                  <button class="submit-btn btn blue-btn disabled" > Submit  </button>
+                  <a href="#" class="info-btn"><i class="fas fa-info-circle"></i></a>
+              </div>
+
+
+            </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</aside>
+
+<div class="feedback-modal modal-popup">
+  <div class="modal-popup-dialogue">
+    <div class="popup-header">
+      <a href="#" class="close-popup"><i class="fa fa-times"></i></a>
+    </div>
+    <div class="popup-content">
+      <p>
+        Please use the form below to provide your feedback. Because your feedback is valuable to us,
+         the information you submit in this form is recorded in our issue tracking system (JIRA), which is publicly available.
+        You can track the status of your feedback using the ticket number displayed in the dialog once you submit the form.
+      </p>
+    </div>
+  </div>
+</div>
+
+<main class="article" data-ceiling="topbar">
+<div class="article-header">
+<nav class="crumbs" aria-label="breadcrumbs">
+<ul>
+<li class="crumb"><a href="index.html">Bonita</a></li>
+<li class="crumb"><a href="#_application-and-process-design.adoc">Application and Process Design</a></li>
+<li class="crumb"><a href="#_data.adoc">Data</a></li>
+<li class="crumb"><a href="define-and-deploy-the-bdm.html">Define and deploy the BDM</a></li>
+</ul>
+</nav>
+</div>
+<article class="doc">
+<div class="page-heading-title">
+<h1 class="page">Define and deploy the Business Data Model (BDM)</h1>
+</div>
+<div class="contributor-list-box">
+<span class="last-commit-date" id="commitdate">    </span>
+<ul id="contributorList"></ul>
+<span  id="otherContributor"> + </span>
+</div><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page explains how to define, deploy, export and import Business Data Model (BDM) and how these objects can be used in processes.</p>
+</div>
+<div class="paragraph">
+<p>The Business Data Model is the definition of the business data that is shared by processes and process-based applications in a tenant.
+This page explains how to define the Business Data Model and how to deploy it.
+After the model is defined, you can use it to <a href="specify-data-in-a-process-definition.html" class="page">specify the business data used in a process</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_data_model_bdm"><a class="anchor" href="#_business_data_model_bdm"></a>Business data model (BDM)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your business data is the information that is shared between your processes and applications.
+It is defined as a set of business object in a business data model (BDM).
+There is one BDM that is used by all processes and applications in a tenant.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info <strong>:fa-info-circle:</strong>  A BDM is defined at tenant level.
+It means you can have different BDM per tenant on the same Bonita platform.
+See <a href="#bdm_storage">BDM data storage</a> for more information on how to configure a business data model per tenant.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>When you define a process, you specify the business objects that are relevant to the process.
+When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>You are recommended to use business data instead of process data for any data that has meaning outside of one single process.
+The business data objects are stored in a database that can be accessed by all applications and processes in a tenant.
+There is no need to import data from an external system or write it back after a change.
+The data is automatically stored persistently.
+It is simple to specify the business objects relevant to a process or task, using Bonita Studio.
+You can also access a business object programmatically by its data access object (DAO).</p>
+</div>
+<div class="paragraph">
+<p>To design your BDM, you need to consider the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a BDM, you create predefined business object definitions that represent key concepts which are manipulated by your processes.
+For example, Orders, Invoices, and Leave requests are be shared by all processes when running in the Bonita Engine during production.</p>
+</li>
+<li>
+<p>A BDM is composed of simple and complex business objects, and the composition and aggregation relationships between them.</p>
+</li>
+<li>
+<p>There is one BDM for a tenant, so it must include all the objects needed.
+Updating a model must be done with care, so that the changes do not cause problems for deployed processes or applications.</p>
+</li>
+<li>
+<p>Business objects are instantiated at diagram or process level, not at task or form level.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <a href="#bdm_spec">BDM specification</a> explains the details of what you must configure in a BDM.
+Use Bonita Studio to <a href="#define_bdm">define a BDM</a>.</p>
+</div>
+<div class="paragraph">
+<p><a id="bdm_storage"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_data_storage"><a class="anchor" href="#_business_data_storage"></a>Business data storage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The business data specified in the BDM is stored in a database.
+It requires two datasources, BusinessDataDS and NotManagedBizDataDS.
+When you define the BDM in Bonita Studio, the built-in H2 database and the datasources are created automatically in your development environment.</p>
+</div>
+<div class="paragraph">
+<p>During development, you can use the tools in the <code>h2-1.3.170.jar</code> in the workspace Tomcat library to view the business data in the h2 database.
+If you modify database content manually, there is risk of losing data and losing synchronization with business objects in a process instance.
+However, it can be useful to view the database for debugging processes.
+If you change the BDM during development, this can also cause problems in existing process definitions.</p>
+</div>
+<div class="paragraph">
+<p>When you are ready to go to production, you need to <a href="database-configuration.html" class="page">configure a database and datasources for business data</a> in your production environment.</p>
+</div>
+<div class="paragraph">
+<p><a id="bdm_spec"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bdm_specification"><a class="anchor" href="#_bdm_specification"></a>BDM specification</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A BDM is a structured hierarchy of packages containing business objects.</p>
+</div>
+<div class="paragraph">
+<p>A package is defined by its name, which must be a Java package name.
+It is highly recommended to follow the <a href="https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html">standard package naming convention</a>.
++ Packages can be seen as logical containers, a package should contain business objects related to each other.
++ As example, a package <em>com.company.product</em> could contain the objects <code>Car</code> and <code>Wheel</code>, a package <em>com.company.finance</em> could contain the objects <code>Bill</code> and <code>Loan</code>.</p>
+</div>
+<div class="paragraph">
+<p>A business object definition consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An object name.
+This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">+ </dt>
+<dd>
+<p>warning <strong>:fa-exclamation-triangle: Warning:</strong> Business object names must be unique, even across packages.</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+</li>
+<li>
+<p>Attributes.
+These are the components of the object.
+There can be any number of attributes.
+For each attribute, you can specify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A name starting with lower case letter.</p>
+</li>
+<li>
+<p>The data type</p>
+</li>
+<li>
+<p>The length, when relevant for the data type</p>
+</li>
+<li>
+<p>Whether it is mandatory</p>
+</li>
+<li>
+<p>Whether the object can contain multiple instances</p>
+</li>
+<li>
+<p>Any unique constraints</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A set of default queries, created automatically, and optionally some custom queries</p>
+</li>
+<li>
+<p>Indexes for some attributes (optional)</p>
+</li>
+<li>
+<p>A <code>persistenceId</code>, created automatically</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Business objects can be combined using <a href="#compos">composition or aggregation</a> relationships.
+They are managed using standard create, read, update, delete actions.
+A business object can be read directly using the <a href="http://documentation.bonitasoft.com/javadoc/api/7.12.0/index.html">Engine Java API</a> specifying the Java DAO, or using the <a href="bdm-api.html" class="page">REST API</a>.
+To read a business object in a Groovy expression, use the DAO.
+A business object can be updated only in a process, using an operation.</p>
+</div>
+<h4 id="_multiple" class="discrete">Multiple</h4>
+<div class="paragraph">
+<p>In some processes, user interfaces or system activities might need to handle multiple instances of a business object.
+Use cases include the ability to modify data on mass (for example, approving several leave requests from a list in a user form), and initializing a set of data coming from an external system (for example, loading a list of products from an external datasource and saving each of them in a business object instance).</p>
+</div>
+<div class="paragraph">
+<p>To support handling of multiple instances of a business objects:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Specify that a given business data is multiple, using a checkbox in the new business data wizard.</p>
+</li>
+<li>
+<p>Use a <code>java.util.list</code> of objects when accessing multi-instance business data from a Groovy expression.</p>
+</li>
+<li>
+<p>Set the list of business object instances in an operation using <code>takes value of</code> with a right operand that consists of a list of existing (possibly modified) and new business object instances.</p>
+</li>
+<li>
+<p>Delete all instances from a list of business object instances with an <code>Is Deleted</code> operation.</p>
+</li>
+</ol>
+</div>
+<h4 id="_unique_constraint" class="discrete">Unique constraint</h4>
+<div class="paragraph">
+<p>An SQL UNIQUE constraint is a single field or a combination of fields that uniquely defines an entry in a database.
+A unique constraint on a single field means that every entry has a different value for this field.
+A unique constraint for a combination of fields means that this combination is unique, even though some of the component field values might be common or null.</p>
+</div>
+<div class="paragraph">
+<p>You can specify a unique constraint for an attribute, to require that every value of the attribute is unique.
+This means that you can use this attribute in data queries knowing that it is not possible for two entries to have the same value.</p>
+</div>
+<h4 id="_queries" class="discrete">Queries</h4>
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Java_Persistence_Query_Language">JPQL</a> queries are used to get information about data objects stored in the database.
+A set of default queries is defined automatically for each object in the BDM.
+You can also create custom queries.</p>
+</div>
+<div class="paragraph">
+<p>The default queries are <code>find</code> and <code>find_by</code> queries.
+There are three types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>based on unique constraints (which returns a single result)</p>
+</li>
+<li>
+<p>based on simple attributes (with = criterion)</p>
+</li>
+<li>
+<p>based on Select All (which returns all Business data on the Business Object)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create a custom query, use the query tab of the Expression editor to write a query script.
+You can use one of the default queries as an example.
+A custom query can be on multiple attributes.
+Only SELECT queries are supported.</p>
+</div>
+<div class="paragraph">
+<p>To use paged results with a custom query on a business object, you need to define a related query that counts the total number of results that the query would return without paging.
+The count query name is based on the custom query name;
+for example, for a query named <code>query1</code>, the count query must be named <code>countForQuery1</code>.
+For a default query, the count query is created automatically.</p>
+</div>
+<div class="paragraph">
+<p>When you call a query via the REST API, the relevant count query is automatically called in the background to get the total count, which can be used to calculate the number of pages necessary to retrieve all matching results.
+The result of the count query is visible in the HTTP response header, in the Content-Range field.</p>
+</div>
+<div class="paragraph">
+<p>To call a query, use the DAO instance.
+For a Groovy expression, there is a provided variable that implements the business object DAO class.</p>
+</div>
+<div class="paragraph">
+<p>Example: When handling business objects in a form, you want to reload business objects from a query and use a Groovy script to repopulate the form accordingly.
+Suppose that a form shows a list of contracts that can be filtered according to the choice of client in a selection widget.
+When the user selects a client, this triggers the execution of a business object query, <code>Contracts.findByClient()</code>.
+A script parses the resulting list of Contracts and repopulates the contract list widget.
+This scenario requires DAO objects to be called from a Groovy script expression.</p>
+</div>
+<h4 id="_indexes" class="discrete">Indexes</h4>
+<div class="paragraph">
+<p>The purpose of an index is to retrieve data more rapidly.
+You can specify indexes on business objects to optimize performance of application.
+For example, for a process to modify purchase orders with an instantiation form used to search for the appropriate purchase order, define an index on purchase order number.</p>
+</div>
+<div class="paragraph">
+<p>When you view a business object in the Bonita Studio business data model wizard, you can see the attributes that can be indexed.
+You can define an index on a single attribute or on an ordered list of attributes.
+An index is automatically created on the PersistenceID, as a primary key.
+This index is not visible in the BDM wizard.
+The BDM defines the indexes needed for all applications and processes that use business data.
+There is no limit to the number of indexes you can define.
+However, if you define a large number of indexes and have a high volume of business data, it takes longer to build the indexes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are using an Oracle database, do not define an index on a unique constraint attribute.
+The database creates indexes automatically for unique constraint attributes, so there are problems during execution if you also specify an index on a unique constraint attribute.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In a production environment, indexes are built when a tenant starts or after a new BDM is deployed.
+In a development environment, indexes are built when Bonita Studio starts and when the Studio BDM wizard is closed.</p>
+</div>
+<div class="paragraph">
+<p><a id="compos"></a></p>
+</div>
+<h4 id="_composition_and_aggregation" class="discrete">Composition and aggregation</h4>
+<div class="paragraph">
+<p>Composition and aggregation are two ways in which you can define a composite business object that includes relationships with other business objects in the BDM.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a composition relationship, a child object cannot exist independently of the parent.
+The composite business object contains attributes that are business objects.
+It can also contain attributes with simple data types.
+For example, a room object that is a child of a house object cannot exist if there is no house object.</p>
+</li>
+<li>
+<p>In an aggregation relationship, a child object can exist independently of the parent.
+The composite business object refers to other business objects, as well as containing simple attributes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example: A Purchase Order object consists of a set of primitive attribute variables (such as PO number, client, creation date), and a set of order item objects.
+The order items have no meaning outside the order, so have a composition relationship with the purchase order.
+An order item contains a product object and a simple attribute for quantity.
+The product object has an existence outside the order item (it is used in the product catalog), so has an aggregation relationship with the order item.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship.
+For exemple, you cannot use the same object <em>Wheel</em> in composition for an object <em>Car</em> and an object <em>Bike</em>.
+You will have to use an object <em>WheelCar</em> and an object <em>WheelBike</em>.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning In Bonita, in an aggregation relationship, a child must exist when creating its parent.
+When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes.
+A child object can be mandatory or optional.
+A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object.
+You cannot set a unique constraint on a child object.
+The default relationship is aggregation.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>When you configure an object in the Bonita Studio BDM wizard, the attribute dropdown list contains the names of the objects that can be included by composition or aggregation.
+You cannot specify the object you are configuring or its parent.</p>
+</div>
+<div class="paragraph">
+<p>A composed object is automatically saved to the database using an appropriate schema.
+For a composition relationship, the child object contains the id of the parent object as a foreign key.
+For an aggregation relationship, if the child object is not multiple, the parent object contains the id of the child object as a foreign key.
+If the child object is multiple, the child object ids are stored in a dedicated association table.</p>
+</div>
+<div class="paragraph">
+<p>When you create a process that uses a business object with a composition or aggregation relationship, treat the object as a typical business object, with the following exceptions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A composite object cannot be automatically mapped to page widgets or groups of widgets.</p>
+</li>
+<li>
+<p>To set the value of a composite object, either use a Groovy expression or directly assign the value to the child object from an existing class instance.</p>
+</li>
+<li>
+<p>You can use getter and setter methods in process or activity operations to set the composed objects as a single instance or as a <code>java.util.list</code> for a list of instances.</p>
+</li>
+<li>
+<p>If your process uses a query from a Groovy expression or uses DAO objects from a client Java application, load the complete composite objects including the child objects.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a id="lazy_eager_loading"></a></p>
+</div>
+<h4 id="_loading" class="discrete">Loading</h4>
+<div class="paragraph">
+<p>There are two options for loading complex business objects, <strong>lazy</strong> or <strong>eager</strong>.
+With lazy loading, the parent object instance is loaded, but child object instances are loaded only when they are needed.
+With eager loading, child object instances are loaded when the parent object instance is loaded.</p>
+</div>
+<div class="paragraph">
+<p>The default is lazy loading.
+You can override this for any business object by configuring it to use eager loading when you specify the object relationship properties.
+This means that the specified object and all objects related to it by composition or aggregation relationships are loaded.
++ There is an overhead for the additional data load and maintenance of the information in memory, but there is a saving in data access time because the data is already loaded.</p>
+</div>
+<h4 id="_multi_instantiation_using_business_object_variables_in_a_list" class="discrete">Multi-instantiation using business object variables in a list</h4>
+<div class="paragraph">
+<p>The list can be a multiple business data variable, a multivalued process variable, or any type of list.</p>
+</div>
+<div class="paragraph">
+<p>You can use a list business object or variable to create multiple instances of a task.
+The MultiInstanceIterator reference created at task level uses each item of the list to create an instance of the task.</p>
+</div>
+<div class="paragraph">
+<p><a id="define_bdm"></a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_define_the_bdm"><a class="anchor" href="#_define_the_bdm"></a>Define the BDM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You define the BDM using Bonita Studio.
+It is automatically deployed to the built-in Bonita Engine and available to processes being run from Studio.
+This means that you can have a different BDM in each Studio during development, which enables you to test the BDM before deploying it in your tenant.
+However, if you are sharing diagrams and other artifacts in development, you need to synchronize BDM definitions, either by exporting your BDM manually for import into other development systems, or by using a shared project (not available in the Community edition).</p>
+</div>
+<div class="paragraph">
+<p>To define the BDM, go to the Bonita Studio <strong>Development</strong> menu, <strong>Business Data Model</strong>, and choose <strong>Define&#8230;&#8203;</strong>.
+The current BDM definition is displayed.
+You can also right click on the project name in the Project Explorer, choose "New&#8230;&#8203;" and then "Business Data Model".
+Once defined, double-click on the bom.xml file in the Project Explorer to open it.</p>
+</div>
+<div class="paragraph">
+<p>To create a package:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the button <em>New package</em>.</p>
+</li>
+<li>
+<p>The new package is created with a temporary name.</p>
+</li>
+<li>
+<p>Click the name of the new package to select it, and specify the name you want to use by typing over the temporary name.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info A package must contain at least one business object.
+A new package comes automatically with a first business object, and deleting the last business object of a package deletes the package.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>To add an object into a package:</p>
+</dd>
+</dl>
+</div>
+</li>
+<li>
+<p>Select the expected package.</p>
+</li>
+<li>
+<p>Click on the button <em>New Business object</em>.</p>
+</li>
+<li>
+<p>The newly created object is added to the selected package, with a temporary name.</p>
+</li>
+<li>
+<p>Click the name of the new object to select it, and specify the name you want to use by typing over the temporary name.</p>
+</li>
+<li>
+<p>Then modify the object to specify the details.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To modify a new or existing object:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the object in the <strong>List of Business Objects</strong>.
+The details are displayed on the right-hand side of the popup.</p>
+</li>
+<li>
+<p>The package of the object can be modified by clicking on <em>Change package</em> or by using drag and drop.</p>
+</li>
+<li>
+<p>Enter a description for the object.
+This is optional, but recommended for maintenance and for communicating with other developers using the same BDM, as well as business users.</p>
+</li>
+<li>
+<p>In the <strong>Attributes</strong> section, specify the attributes of the object.
+For each attribute:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Specify a name.
+This must be unique within the object, and start with a lower-case letter.</p>
+</li>
+<li>
+<p>Specify the type, by clicking on the exiting type and choosing the new type from the drop-down list.</p>
+</li>
+<li>
+<p>If the attribute is multi-valued, check the box in the <strong>Multiple</strong> column.</p>
+</li>
+<li>
+<p>If the attribute is mandatory, check the box in the <strong>Mandatory</strong> column.</p>
+</li>
+<li>
+<p>If the attribute is of type String, set the attribute length in the field below the attribute list.</p>
+</li>
+<li>
+<p>If the attribute is of type of a BDM object, set type the <strong>Relationship</strong> (Aggregation or Composition) and the loading configuration (for <code>lazy</code>, select  <code>Only load related objects when needed</code>, for <code>eager</code>, select <code>Always load related objects</code>)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the <strong>Unique constraints</strong> tab, specify the attributes and sets of attributes that have a uniqueness constraint.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <strong><em>Add</em></strong> to add a constraint.
+The constraint is added to the list with a temporary name.</p>
+</li>
+<li>
+<p>Click the name of the new constraint to select it, and specify the name you want to use by typing over the temporary name.</p>
+</li>
+<li>
+<p>Select the constraint and check the boxes on the attributes section to select the combination of attributes that must be unique.
+You can specify a single attribute or a set.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the <strong>Queries</strong> tab, you can view the default queries and manage custom queries.
+To add a custom query:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <strong><em>Add</em></strong> to add a custom query.
+The query is added to the list with a temporary name.</p>
+</li>
+<li>
+<p>Click the name of the new query to select it, and specify the name you want to use by typing over the temporary name.</p>
+</li>
+<li>
+<p>Select the <strong>Query</strong> to display the query content section (only editable for custom queries).</p>
+</li>
+<li>
+<p>Specify the query in JPQL.
+All the parameters used in the query must be specified in the list.</p>
+</li>
+<li>
+<p>Select the result type from the drop-down list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the <strong>Indexes</strong> tab, specify the indexes for the object.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <strong><em>Add</em></strong> to add an index.
+The index is added to the list with a temporary name.</p>
+</li>
+<li>
+<p>Click the name of the new index to select it, and specify the name you want to use by typing over the temporary name.</p>
+</li>
+<li>
+<p>Select the index to display the <strong>attributes</strong> section.</p>
+</li>
+<li>
+<p>Specify the attributes that you want indexed.
+To specify an attribute to index, move it from the <strong>available attributes</strong> table to the <strong>indexed attributes</strong> table using Drag and Drop.</p>
+</li>
+<li>
+<p>Use Drag and Drop in the <strong>index attributes</strong> table to specify the order of the index attributes.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Save your Business Data Model using <strong>CTRL + S</strong> or the save button in the Coolbar.
+Use the <strong>Deploy button</strong> to deploy your BDM.
+It creates the BDM database structure.
+To <strong>reset the database</strong>, use the <strong>Clean Deploy</strong> button.
+Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info <strong>Note</strong>: for subscription editions only.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Two maven artifacts are generated from the Business Data Model : <strong>bdm-dao</strong> and <strong>bdm-client</strong>.
++ The version of those artifacts is fixed to 1.0.
+You have the possibility to edit the group id of those artifacts from the BDM edition wizard.
++ Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:</p>
+</dd>
+</dl>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;dependency&gt;
+	&lt;groupId&gt;[YOUR GROUP ID]&lt;/groupId&gt;
+	&lt;artifactId&gt;bdm-client&lt;/artifactId&gt;
+	&lt;version&gt;1.0.0&lt;/version&gt;
+	&lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;[YOUR GROUP ID]&lt;/groupId&gt;
+	&lt;artifactId&gt;bdm-dao&lt;/artifactId&gt;
+	&lt;version&gt;1.0.0&lt;/version&gt;
+	&lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Those dependencies are automatically added when a REST API Extension is created from the Bonita Studio.
+It allows to manipulate Business Objects from a REST API Extension.
++ ℹ️ Only <strong>read operations</strong>  can be performed on business objects from a REST API Extension, even with the dao.
+Write operations are done through processes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_export_the_bdm"><a class="anchor" href="#_export_the_bdm"></a>Export the BDM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two ways to export a business data model: in a ZIP file for deployment, or in a BOS file for sharing with other Bonita Studios.</p>
+</div>
+<h4 id="_export_the_bdm_for_deployment" class="discrete">Export the BDM for deployment</h4>
+<div class="paragraph">
+<p>To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning :fa-exclamation-triangle: <strong>Warning:</strong> Before deploying the business data model, you must <a href="pause-and-resume-bpm-services.html" class="page">pause</a> the BPM services, so that the update can be performed without affecting ongoing processes.
+<strong>Important:</strong> You are recommended <a href="back-up-bonita-bpm-platform.html" class="page">Back up your platform</a> and database before deploying a new BDM in case of problems during the update.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Follow these steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In Bonita Studio, open the <strong>Development menu</strong> in the cool bar.</p>
+</li>
+<li>
+<p>Click <strong>Business Data Model</strong> &gt; <strong>Export</strong>.</p>
+</li>
+<li>
+<p>Select a destination folder.</p>
+</li>
+<li>
+<p>Click <strong>Export</strong>.
+A file called <code>bdm.zip</code> is written to the folder that you specified.</p>
+</li>
+<li>
+<p>Log in to Bonita Portal as the technical user.</p>
+</li>
+<li>
+<p>Go to the <strong>BPM Services</strong> page.</p>
+</li>
+<li>
+<p>Click <strong>Pause</strong>.</p>
+</li>
+<li>
+<p>When the BPM services are paused, go to the <strong>Business Data Model</strong> menu (and, for Efficiency, Performance and Enterprise editions, choose <strong>Definition</strong>).</p>
+</li>
+<li>
+<p>Specify the file containing the business data model that you exported from Bonita Studio.</p>
+</li>
+<li>
+<p>Click <em>*Activate*</em>.
+A warning is displayed, reminding you that installing this new BDM will overwrite the existing BDM.</p>
+</li>
+<li>
+<p>Click on <strong>Install</strong> to complete the deployment.
+Bonita Portal loads the file, and retrieves the object definition enabling processes to use them at runtime.
+It also creates or updates the database schema in the business database, to store business objects appropriately when modified by processes.
+When the deployment is complete, a message is displayed.
+If deployment fails, use the Engine logs to analyze the problem.</p>
+</li>
+<li>
+<p>Go to the <strong>BPM Services</strong> page.</p>
+</li>
+<li>
+<p>Click <strong>Resume</strong>.
+BPM services are resumed.</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+the database model is automatically updated when you deploy a new BDM.
+Avoid changing the database schema manually as it may jeopardize the persistence of business objects and cause errors at process runtime.
+</td>
+</tr>
+</table>
+</div>
+<h4 id="_export_the_bdm_to_share_with_another_bonita_studio" class="discrete">Export the BDM to share with another Bonita Studio</h4>
+<div class="paragraph">
+<p>Bonita Studio is able to import a unitary BDM, exported as a ZIP file, or a BDM contained in a .bos archive.
++ Bonita Studio will try to import the new BDM into the existing one.
++ If the two models are conflicting (i.e there are business objects with the same name but with different content in the two models) the following rules apply:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>If business objects are conflicting across packages:</strong>  Example: the current model contains a package <em>com.company.vehicle</em> with an object <code>Car</code>, the imported model contains a package <em>com.company.transport</em> with an object <code>Car</code>.
++ This kind of conflict is considered as <strong>not solvable</strong> by Bonita Studio;
+thus the only possibility for the studio is to overwrite the current model by the new one.
+If overwritting is not the option for you, click on "Cancel", solve the conflicts by comparing the two BDMs in xml editors, make sure all processes and UIs comply with those changes, and import again."</p>
+</li>
+<li>
+<p><strong>If business objects are conflicting in the same package:</strong>   Example: the current and the imported model contains a package <em>com.company.vehicle</em> with an object <code>Car</code>.
+In the current model the object <code>Car</code> has only one field:  <code>brand</code>.
+In the imported model, the object <code>Car</code> has two attributes: <code>brand</code> and <code>color</code>.
+The two models are conflicting: two objects with the same name but different contents, and the two objects are in the same package in the two models.
+This kind of conflict is considered as <strong>solvable</strong> by Bonita Studio.
+You will have the possibility to import the new model <strong>into</strong> the current one, and a decision has to be made for the conflicting package: keep the existing version of the package or overwrite it with the new one.
+The others non-conflicting packages will be merged.</p>
+</li>
+</ol>
+</div>
+<h4 id="_view_the_bdm" class="discrete">View the BDM</h4>
+<div class="paragraph">
+<p>The BDM ZIP file contains a business object model file, <code>bom.xml</code>.
+You can open this file in a text editor to view the BDM definition.</p>
+</div>
+<div class="paragraph">
+<p>Example contents of the <code>bom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+    &lt;businessObjectModel&gt;
+        &lt;businessObjects&gt;
+            &lt;businessObject qualifiedName="com.company.model.LeaveRequest"&gt;
+                &lt;fields&gt;
+                    &lt;field id="startDate" type="DATE" nullable="false" length="255" collection="false"/&gt;
+                    &lt;field id="endDate" type="DATE" nullable="false" length="255" collection="false"/&gt;
+                    &lt;field id="returnDate" type="DATE" nullable="false" length="255" collection="false"/&gt;
+                    &lt;field id="daysOff" type="DOUBLE" nullable="false" length="255" collection="false"/&gt;
+                    &lt;field id="leaveType" type="STRING" nullable="false" length="255" collection="false"/&gt;
+                    &lt;field id="approved" type="BOOLEAN" nullable="true" length="255" collection="false"/&gt;
+                &lt;/fields&gt;
+                &lt;uniqueConstraints/&gt;
+                &lt;queries&gt;
+                    &lt;query id="query1" content="SELECT l.daysOff
+FROM LeaveRequest l
+WHERE
+l.leaveType = 'Test'" returnType="java.lang.Double"&gt;
+                        &lt;queryParameters/&gt;
+                    &lt;/query&gt;
+                &lt;/queries&gt;
+            &lt;/businessObject&gt;
+        &lt;/businessObjects&gt;
+    &lt;/businessObjectModel&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_objects_in_processes"><a class="anchor" href="#_business_objects_in_processes"></a>Business objects in processes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you design a process, you specify the variables to be used in the process.
+These can include variables that are instances of business objects defined in the BDM.
+You <a href="specify-data-in-a-process-definition.html" class="page">define a business object variable</a> in Bonita Studio in a similar way to defining other process variables.</p>
+</div>
+<h4 id="_persistenceid" class="discrete">persistenceID</h4>
+<div class="paragraph">
+<p>Each object created in the database has a unique read-only ID called a persistenceID.
+For each new persistenceID created, the number is incremented.
+The persistenceID is invisible to the end user in Bonita Portal.
+A developer can recover this Id by using the method <code>getPersistenceID</code>.</p>
+</div>
+<div class="paragraph">
+<p>When you declare a persisted business object instance in a process, there are two ways you can initialize it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>as a new instance: it is created automatically at runtime when the process is instantiated, with the structure defined for the object in the BDM (for example, a process designed to manage employee leave requests will create a new instance of the Leave Request business object).
+The initial value of each BDM attribute can be set via a groovy script.
+This way, you may set the process instantiation contract inputs to attributes.
+Go to <a href="#initBDM">Update BDM attributes from contract inputs</a> for more information.</p>
+</li>
+<li>
+<p>as an existing instance: the data is loaded by identifying a business object instance that already exists (for example, a process designed to let employees modify unapproved leave requests will modify an existing instance of the Leave Request business object).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After it is declared in the process, a business object instance can be adapted by reading or modifying its data attributes.
+The Engine will handle the persistence of the modification.</p>
+</div>
+<div class="paragraph">
+<p><a id="initBDM"></a></p>
+</div>
+<h4 id="_initialize_bdm_attributes_from_process_instantiation_contract_inputs" class="discrete">Initialize BDM attributes from process instantiation contract inputs</h4>
+<div class="paragraph">
+<p>In the contract definition panel of the Studio (<strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane), you can import contract inputs from a BDM definition using the <strong>Add from data&#8230;&#8203;</strong> button.
+It creates a complex input mapping the BDM class attributes (if an attribute is not a primitive Java element, another complex input is created and it goes on).By selecting <strong>Auto-generate the initialization script</strong>, the default value of the selected business data will be automatically initialized with an auto-generated script when clicking on finish.</p>
+</div>
+<div class="paragraph">
+<p>If you select <strong>No, thanks.
+I&#8217;ll manually define how to use the contract</strong>, you will need to create a Groovy script that will set input to BDM attribute.</p>
+</div>
+<div class="paragraph">
+<p>For instance, with the above <em>com.company.model.LeaveRequest</em> class, using the <strong>Add from data&#8230;&#8203;</strong> action in the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane will create the following complex input :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>leaveRequestInput : COMPLEX</p>
+<div class="ulist">
+<ul>
+<li>
+<p>startDate : DATE</p>
+</li>
+<li>
+<p>endDate: DATE</p>
+</li>
+<li>
+<p>returnDate: DATE</p>
+</li>
+<li>
+<p>daysOff: DECIMAL</p>
+</li>
+<li>
+<p>leaveType: TEXT</p>
+</li>
+<li>
+<p>approved: BOOLEAN Then, you need to go back to the process variable list (<strong>Details</strong> panel, <strong>Data</strong> tab, <strong>Parameters</strong> pane) and add a new variable of type <em>com.company.model.LeaveRequest</em> or edit an existing one of the <em>com.company.model.LeaveRequest</em> type and click on the <em>*Pencil*</em> to open the Groovy script editor.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Enter the following code snippet to have a new BDM <em>com.company.model.LeaveRequest</em> instance set with the contract inputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var leaveRequest = new com.company.model.LeaveRequest();
+        leaveRequest.setStartDate(leaveRequestInput.getStartDate());
+        leaveRequest.setEndDate(leaveRequestInput.getEndDate());
+        leaveRequest.setReturnDate(leaveRequestInput.getReturnDate());
+        leaveRequest.setDaysOff(leaveRequestInput.getDaysOff());
+        leaveRequest.setLeaveType(leaveRequestInput.getLeaveType());
+        leaveRequest.setApproved(leaveRequestInput.getApproved());
+        return leaveRequest;</pre>
+</div>
+</div>
+<h4 id="_initialize_bdm_attributes_from_contract_inputs_in_task_operations" class="discrete">Initialize BDM attributes from contract inputs in task operations</h4>
+<div class="paragraph">
+<p>In the case where a business object has to be initialized from task level inputs, you can set contract inputs from the <strong>Add from data&#8230;&#8203;</strong> action like in <a href="#initBDM">previous section</a> and generate automatically operations by selectionning <strong>Auto-generate the initialization script</strong>.
+The operations will be generated for business data attributes you selected.
+You can manage it inside the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Operations</strong> pane.</p>
+</div>
+<div class="paragraph">
+<p>If you select <strong>No, thanks.
+I&#8217;ll manually define how to use the contract</strong> or create inputs manually, you can go to operation pane and add a new operation using the <em>*Add*</em> button.</p>
+</div>
+<div class="paragraph">
+<p>In the first select box, choose the variable of type <em>com.company.model.LeaveRequest</em>, then, click on <em>*Takes value of*</em> link and select <em>*Instantiate with*</em> in <em>Operator type</em> and click <em>*OK*</em>.</p>
+</div>
+<div class="paragraph">
+<p>Then, click on the <em>*pencil*</em> button to open the <em>*Edit Expression*</em> editor.
+Choose the <em>*Script*</em> expression type and enter the same code snippet than the one above to have a new BDM <em>com.company.model.LeaveRequest</em> instance set with the contract inputs.</p>
+</div>
+<h4 id="_business_objects_and_connectors" class="discrete">Business Objects and connectors</h4>
+<div class="paragraph">
+<p>You can use business data in a Java program by using the DAO.
+DAO gives <em>*read*</em> access to business objects.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning <strong>:fa-exclamation-triangle: Warning</strong>: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>You can however manipulate the business object outside the connector, and use business objects as connector input or output:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For a <em>*read*</em>, retrieve the business object with an expression (for example, <code>employeeDAO.findByFirstNameAndLastName("William","Jobs")</code>.
+Then use the object as input to the connector.</p>
+</li>
+<li>
+<p>For a <em>*create*</em> or <em>*update*</em>, return the new or updated business object as output of the connector.
+Then use the business object (which is stored only in memory at this point) in an <strong>operation</strong> to update the business object in the business database, persisting the change.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<h4 id="_bdm_and_custom_rest_apis" class="discrete">BDM and custom REST APIs</h4>
+<div class="paragraph">
+<p>Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results.
+See the <a href="bdm-in-rest-api.html" class="page">best practice</a> on this matter.</p>
+</div>
+<h4 id="_handle_bdm_database_schema_manually" class="discrete">Handle BDM database schema manually</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning This section is for advanced usage.
+You should fully understand the database changes made when you update the Business Data Model before considering using this alternative.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>You can use an alternative database <code>SchemaManager</code> implementation.
+A <code>SchemaManager</code> is responsible for updating the BDM Database schema, according to the changes you have made to your Business Data Model.
+As our third-party persistence layer <em>Hibernate</em> does not support all type of schema updates, you may want to use a SchemaManager that does <strong>not</strong> update the database tables directly, but rather let you (or your Database Administrator) update the database "manually".</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>For that, you can use the alternative we provide, by uncommenting the following lines in file <code>platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml</code> using <a href="BonitaBPM_platform_setup.md#update_platform_conf">setup tool</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;!-- Schema Manager that avoids to update the database schema when updating BDM --&gt;
+    &lt;!--
+    &lt;bean id="schemaManager" class="org.bonitasoft.engine.business.data.impl.SchemaManagerReadOnly"&gt;
+        &lt;constructor-arg name="loggerService" ref="tenantTechnicalLoggerService" /&gt;
+    &lt;/bean&gt;
+    --&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this alternative, you should carefully update the database before deploying the new BDM version.
+Otherwise, there are a number of pitfals you may fall into.</p>
+</div>
+<div class="paragraph">
+<p>Errors you can get if you:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>use a business object without updating the database schema:</p>
+<div class="listingblock">
+<div class="content">
+<pre>15-May-2018 12:04:12.106 ERROR [http-nio-52162-exec-8] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Table "BUSINESSOBJECT1" not found; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ATTRIBUT1, ATTRIBUT2, ATTRIBUT3, persistenceVersion) values (null, ?, ?, ?, ?) [42102-175]
+15-May-2018 12:04:12.113 GRAVE [http-nio-52162-exec-8] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not prepare statement</pre>
+</div>
+</div>
+</li>
+<li>
+<p>extend the length of a business object attribute without updating the database column:</p>
+<div class="listingblock">
+<div class="content">
+<pre>15-May-2018 16:09:28.066 WARN [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22001, SQLState: 22001
+15-May-2018 16:09:28.067 ERROR [http-nio-52162-exec-4] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Value too long for column "ATTRIBUT1 VARCHAR_IGNORECASE(20)": "CAST(STRINGDECODE('   30     caract\u00e8res__________') AS VARCHAR_IGNORECASE) (30)"; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) [22001-175]
+15-May-2018 16:09:28.075 GRAVE [http-nio-52162-exec-4] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement</pre>
+</div>
+</div>
+</li>
+<li>
+<p>change the type of a business object attribute without updating the database column:</p>
+<div class="listingblock">
+<div class="content">
+<pre>15-May-2018 17:00:08.083 WARN [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 22018, SQLState: 22018
+15-May-2018 17:00:08.084 ERROR [http-nio-52162-exec-5] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions Data conversion error converting "'now is a String' (BUSINESSOBJECT1: NEWBOOLEAN BOOLEAN)"; SQL statement:
+insert into BUSINESSOBJECT1 (persistenceId, ADDEDCOLUMN, ATTRIBUT1, ATTRIBUT2, NEWBOOLEAN, persistenceVersion, RENAMEDCOLUMN) values (null, ?, ?, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4, ?5, ?6) [22018-175]
+15-May-2018 17:00:08.085 GRAVE [http-nio-52162-exec-5] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement</pre>
+</div>
+</div>
+</li>
+<li>
+<p>change a relation between two business objects without updating the database / constraints:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[...]
+Caused by: groovy.lang.MissingMethodException: No signature of method: com.company.model.Invoice.addToLines() is applicable for argument types: (com.company.model.InvoiceLine) values: [com.company.model.InvoiceLine@623c31c]</pre>
+</div>
+</div>
+</li>
+<li>
+<p>remove a composition relation without removing the foreign key in database:</p>
+<div class="listingblock">
+<div class="content">
+<pre>16-May-2018 10:25:01.030 WARN [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions SQL Error: 23502, SQLState: 23502
+16-May-2018 10:25:01.030 ERROR [http-nio-52162-exec-10] org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions NULL not allowed for column "INVOICE_PID"; SQL statement:
+insert into INVOICELINE (persistenceId, persistenceVersion, TITLE) values (null, ?, ?) [23502-175]
+16-May-2018 10:25:01.038 GRAVE [http-nio-52162-exec-10] org.restlet.resource.ServerResource.doCatch Exception or error caught in server resource
+ org.bonitasoft.engine.exception.BonitaRuntimeException: USERNAME=walter.bates | org.bonitasoft.engine.commons.exceptions.SRetryableException: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <div class="col">
+        <div class="footer-logo">
+          <a href="https://www.couchbase.com" class="icon">
+            <img src="../../_/img/couchbase_logo_black.svg" alt="Couchbase">
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://docs.couchbase.com" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="https://forums.couchbase.com" target="_blank" rel="noopener">Forums</a></li>
+          <li><a href="https://support.couchbase.com" target="_blank" rel="noopener">Support</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://developer.couchbase.com" target="_blank" rel="noopener">Developer Portal</a></li>
+          <li><a href="https://blog.couchbase.com" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.couchbase.com/resources">Resources</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://www.couchbase.com/get-started-developing-nosql">Get Started</a></li>
+          <li><a href="https://www.couchbase.com/downloads">Downloads</a></li>
+          <li><a href="https://learn.couchbase.com/store?utf8=%E2%9C%93&ss=1&ct=78327&commit=Filter" target="_blank" rel="noopener">Training</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="social-icons">
+          <li>
+            <svg  width="14" height="14" viewBox="0 0 32 32"> <path id="facebook" class="cls-1" d="M29,0H3A2.652,2.652,0,0,0,0,3V29a2.652,2.652,0,0,0,3,3H16V18H12V14h4V12a6.452,6.452,0,0,1,6-6h4v4H22a2.151,2.151,0,0,0-2,2v2h6l-1,4H20V32h9a2.652,2.652,0,0,0,3-3V3A2.652,2.652,0,0,0,29,0Z"/></svg>
+            <a href="https://www.facebook.com/Couchbase" class="icon">
+            Facebook
+            </a>
+          </li>
+          <li>
+            <svg  width="14" height="14" viewBox="0 0 32.1 26.1"> <path id="twitter" class="cls-1" d="M32,7.1a11.836,11.836,0,0,1-3.8,1,6.462,6.462,0,0,0,2.9-3.6,12.606,12.606,0,0,1-4.2,1.6A6.492,6.492,0,0,0,22.1,4a6.594,6.594,0,0,0-6.6,6.6,7.719,7.719,0,0,0,.2,1.5A18.458,18.458,0,0,1,2.2,5.2a6.294,6.294,0,0,0-.9,3.3A6.765,6.765,0,0,0,4.2,14a6.109,6.109,0,0,1-3-.8v.1a6.543,6.543,0,0,0,5.3,6.4,4.678,4.678,0,0,1-1.7.2,4.869,4.869,0,0,1-1.2-.1,6.679,6.679,0,0,0,6.1,4.6,12.917,12.917,0,0,1-8.2,2.8,9.151,9.151,0,0,1-1.6-.1,18.438,18.438,0,0,0,10.1,3c12.1,0,18.7-10,18.7-18.7v-.8A13.336,13.336,0,0,0,32,7.2Z" transform="translate(0.1 -4)"/></svg>
+            <a href="https://twitter.com/couchbase" class="icon">
+              Twitter
+            </a>
+          </li>
+          <li>
+          <svg  width="14" height="14" viewBox="0 0 32 32"> <path id="linkedin" class="cls-1" d="M29,0H3A3.076,3.076,0,0,0,0,3V29a3.009,3.009,0,0,0,3,3H29a2.946,2.946,0,0,0,3-3V3A3.009,3.009,0,0,0,29,0ZM12,26H8V12h4ZM10,10a2,2,0,1,1,2-2A2.006,2.006,0,0,1,10,10ZM26,26H22V18a2,2,0,0,0-4,0v8H14V12h4v2.5c.8-1.1,2.1-2.5,3.5-2.5A4.736,4.736,0,0,1,26,17Z"/></svg>
+              <a href="https://www.linkedin.com/company/couchbase" class="icon">
+             Linkedin
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-terms">
+      <div class="footer-terms-copyright">
+          <span>© 2020 Couchbase, Inc. Couchbase, Couchbase Lite and the Couchbase logo are registered trademarks of Couchbase, Inc.</span>
+      </div>
+      <div class="footer-terms-links">
+        <a href="https://www.couchbase.com/terms-of-use">Terms of Use</a>
+        <a href="https://www.couchbase.com/privacy-policy">Privacy Policy</a>
+        <a href="https://www.couchbase.com/cookie-policy">Cookie Policy</a>
+        <a href="https://www.couchbase.com/support-policy">Support Policy</a>
+        <a href="https://info.couchbase.com/unsubscribe-or-manage-preferences.html" target="_blank" rel="noopener">Marketing Preference Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+</body>
+</html>

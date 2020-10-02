@@ -1,0 +1,23 @@
+site:
+  title: Bonita documentation 2.0
+  url: http://localhost:8080/documentation
+  start_page: bonita::index.adoc
+content:
+  sources:
+    - url: https://github.com/alachambre/antora-sources-test.git
+    - url: https://github.com/alachambre/antora-sources-test-2.git
+ui:
+  bundle:
+    url: https://github.com/couchbase/docs-ui-sandbox/releases/download/prod-83/ui-bundle.zip
+    snapshot: true
+asciidoc:
+  attributes:
+    varVersion: 7.12.0
+    bcdVersion: 3.4
+  extensions:
+  - ./lib/source-url-include-processor.js
+  - ./lib/json-config-ui-block-macro.js
+  - ./lib/inline-man-macro.js
+  - ./lib/multirow-table-head-tree-processor.js
+  - ./lib/swagger-ui-block-macro.js
+  - ./lib/tabs-block.js

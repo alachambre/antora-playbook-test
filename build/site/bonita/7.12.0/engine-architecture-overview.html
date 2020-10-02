@@ -1,0 +1,3764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bonita Engine architecture | Bonita documentation 2.0</title>
+<link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12.0/engine-architecture-overview.html">
+<link rel="stylesheet" href="../../_/css/site.css">
+<script src="../../_/js/vendor/jquery.js"></script>
+<link rel="schema.dcterms" href="https://purl.org/dc/terms/">
+<meta name="dcterms.subject" content="bonita">
+<meta name="dcterms.identifier" content="7.12.0">
+<meta name="generator" content="Antora 2.3.4">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+</head>
+<body class="article">
+<header class="header fixed-top">
+  <div class="header-top-row">
+      <div class="container">
+          <nav class="navbar navbar-expand-md flex-nowrap justify-content-between navbar-new-top">
+
+              <a class="navbar-brand" href="http://localhost:8080/documentation/bonita/7.12.0/index.html">
+                <img src="../../_/img/couchbase-documentation-logo.svg" alt="Couchbase" />
+              </a>
+              <button class="navbar-burger" data-target="topbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+          </nav>
+      </div>
+  </div>
+  <div class="header-bottom-row" id="topbar-menu">
+    <div class="container">
+        <nav  class="navbar navbar-new-bottom">
+
+              <div class="navbar-collapse collapse" id="navbar2">
+                <ul class="navbar-nav w-100 justify-content-start">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Server
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Mobile
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Cloud
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      SDKs
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Tutorials
+                      <span class="arrow">
+                        <i class="fas fa-arrow-right"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="primary-action">
+                <form class="navbar-item search">
+                  <input type="text" placeholder="Search Docs" class="query" id="search-query" />
+                  <button type="button" class="search-btn">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+                <div class="parent-site">
+                  <a href="https://www.couchbase.com">
+                    Couchbase.com
+                  </a>
+                </div>
+                <a class="btn btn-primary try-btn" href="https://www.couchbase.com/downloads">
+                  Try Free
+                </a>
+              </div>
+
+        </nav>
+    </div>
+   </div>
+</header>
+<div class="body container">
+<nav class="nav">
+<div class="left-sidebar-menu">
+<div class="version-control-box">
+<div class="component-frame">
+<div class="frame-icon">
+<img src="../../_/img/server-icon.png" alt="">
+</div>
+<div class="frame-body">
+<h4 class="title"><span class="">Bonita</span></h4>
+<a class="frame-link component" href="index.html"> <span class="version">7.12.0</span></a>
+</div>
+</div>
+</div>
+<div class="nav-menu">
+<ul class="nav-list">
+<li class="nav-item " data-depth="0">
+
+<ul class="nav-list">
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_getting-started-tutorial.adoc">Getting started tutorial</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="what-is-bonita.html">What is Bonita?</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-studio-download-installation.html">Download and install</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="draw-bpmn-diagram.html">Draw a BPMN diagram</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="define-business-data-model.html">Define business data model (BDM)</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="declare-business-variables.html">Declare business variables</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="declare-contracts.html">Declare contracts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="create-web-user-interfaces.html">Create web user Interfaces</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="define-who-can-do-what.html">Define who can do what</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="configure-email-connector.html">Configure an email connector</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="design-application-page.html">Design an application page</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="create-application.html">Create an application</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="release-notes.html">Release notes</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="migration-tool.html">Migration tool change log</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_application-and-process-design.adoc">Application and Process Design</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-overview.html">Bonita overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_application-and-process-design-overview.adoc">Application and process design overview</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="key-concepts.html">Key concepts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="comparison-of-7-x-and-6-x.html">Comparison of 7.x and 6.x</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="lifecycle-and-profiles.html">Lifecycle and profiles</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="design-methodology.html">Design methodology</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-studio-preferences.html">Bonita Studio preferences</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-studio-hints-and-tips.html">Bonita Studio hints and tips</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_organization.adoc">Organization</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="organization-overview.html">Organization overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="approaches-to-managing-organizations-and-actor-mapping.html">Approaches to managing organizations and actor mapping</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="organization-management-in-bonita-bpm-studio.html">Organization management in Bonita Studio</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="custom-user-information-in-bonita-bpm-studio.html">Custom User Information in Bonita Studio</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="ldap-synchronizer.html">LDAP synchronizer</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_profiles.adoc">Profiles</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="profiles-overview.html">Profiles overview</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="profileCreation.html">Profiles editor</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-modeling.adoc">Process modeling</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_diagrams.adoc">Diagrams</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="diagram-overview.html">Diagram overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="pools-and-lanes.html">Pools and lanes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="diagram-tasks.html">Tasks</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="gateways.html">Gateways</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="transitions.html">Transitions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="events.html">Events</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="called-processes.html">Called processes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="event-subprocesses.html">Event subprocesses</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="text-annotations.html">Text annotations</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="naming-conventions.html">Naming conventions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="refactoring.html">Refactoring</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="actors.html">Actors</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="actor-filtering.html">Actor filters</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="iteration.html">Iteration</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_data.adoc">Data</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="data-handling-overview.html">Data handling overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="define-and-deploy-the-bdm.html">Define and deploy the BDM</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bdm-access-control.html">Define access control on business objects</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="specify-data-in-a-process-definition.html">Specify data in a process definition</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="parameters.html">Parameters</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="contracts-and-contexts.html">Contracts and contexts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="documents.html">Documents</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="define-a-search-index.html">Search keys</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="expressions-and-scripts.html">Expressions and scripts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="operations.html">Operations</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_page-and-form-development.adoc">Page and form development</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="page-and-form-development-overview.html">Page and form development overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_using-the-ui-designer.adoc">UI Designer</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="ui-designer-overview.html">UI Designer overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="create-or-modify-a-page.html">Create or modify UI artifacts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="widgets.html">Widgets</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="widget-properties.html">Widget properties</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<span class="in-toggle" data-depth="4"></span>
+<a class="nav-link" href="#_widget-use-examples.adoc">Widget use examples</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="5">
+
+<span class="nav-line "  data-depth="5">
+<a class="nav-link" href="repeat-a-container-for-a-collection-of-data.html">Repeat a container for a collection of data</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="fragments.html">Fragments</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="custom-widgets.html">Custom widgets</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="data-management.html">Data management</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="variables.html">Variables</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="appearance.html">Appearance</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="assets.html">Assets</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="multi-language-pages.html">Multi-language pages</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="migrate-a-form-from-6-x.html">Migrate a form from 6.x</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="cache-configuration-and-policy.html">Cache configuration and policy</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="applicationCreation.html">Application descriptor</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_connectivity.adoc">Connectivity</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connectivity-overview.html">Connectivity overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="alfresco.html">Alfresco</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="cmis.html">CMIS</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_database.adoc">Database</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="list-of-database-connectors.html">List of database connectors</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="database-connector-configuration.html">Database connector configuration</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="graphical-query-builder.html">Graphical query builder</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="initialize-a-variable-from-a-database-without-scripting-or-java-code.html">Initialize a variable from a database without scripting or Java code</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="insert-data-in-a-docx-odt-template.html">Insert data in a .docx/.odt template</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="google-calendar.html">Google Calendar</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="ldap.html">LDAP</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="messaging.html">Messaging</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="generate-pdf-from-an-office-document.html">Generate PDF from an Office document</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="salesforce.html">Salesforce</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="sap-jco-3.html">SAP JCo 3</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="script.html">Script</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="twitter.html">Twitter</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="uipath.html">UiPath</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_web-service.adoc">Web service</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="web-service-connector-overview.html">Web service connector overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="#web-service-tutorial.adoc">Web service connector tutorial</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_reporting.adoc">Reporting</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="reporting-overview.html">Reporting overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-up-a-reporting-database.html">Set up a reporting database</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-up-kpis.html">Set up KPIs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="create-a-report.html">Create a report</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="import-and-export-a-process.html">Import and export a process</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-configuration.adoc">Process configuration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="process-configuration-overview.html">Process configuration overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="environments.html">Environments</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configuring-a-process.html">Configure a process</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="manage-jar-files.html">Manage JAR files</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="managing-dependencies.html">Manage dependencies</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-testing.adoc">Process testing</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="process-testing-overview.html">Process testing overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configure-a-test-organization.html">Configure a test organization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="run-a-process-from-bonita-bpm-studio-for-testing.html">Run a process from Bonita Studio for testing</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="log-files.html">Log files</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="project_deploy_in_dev_suite.html">Project deployment in Bonita Development Suite</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="build-a-process-for-deployment.html">Build a process for deployment</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_installation.adoc">Installation</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-installation-overview.html">Bonita installation overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-studio-installation.html">Bonita Studio installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_basic-bonita-platform-installation.adoc">Basic Bonita Platform installation</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="hardware-and-software-requirements.html">Hardware and software requirements</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="tomcat-bundle.html">Tomcat bundle</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="custom-deployment.html">Custom Deployment into existing Tomcat installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="convert-wildfly-into-tomcat.html">Convert a WildFly into a Tomcat installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="BonitaBPM_platform_setup.html">Platform configuration</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="database-configuration.html">Database creation and customization to work with Bonita</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="first-steps-after-setup.html">First steps after setup</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="licenses.html">Licenses</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-docker-installation.html">Bonita docker installation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_advanced-bonita-platform-installation.adoc">Advanced Bonita Platform installation</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_security-and-authentication.adoc">Security and authentication</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="user-authentication-overview.html">User authentication overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="active-directory-or-ldap-authentication.html">Active Directory or LDAP authentication</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="single-sign-on-with-cas.html">Single sign-on with CAS</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="single-sign-on-with-saml.html">Single sign-on with SAML</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="single-sign-on-with-kerberos.html">Single sign-on with Kerberos</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="enforce-password-policy.html">Enforce password policy</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="rest-api-authorization.html">REST API authorization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="csrf-security.html">CSRF security</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="enable-cors-in-tomcat-bundle.html">Enable CORS in Tomcat bundle</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="ssl.html">SSL</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="tenant_admin_credentials.html">Tenant administrator credentials</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="guest-user.html">Guest user access</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-log-and-archive-levels.html">Set log and archive levels</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configurable-archive.html">Configurable Archive</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="performance-tuning.html">Performance tuning</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="performance-troubleshooting.html">Performance troubleshooting</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="use-gzip-compression.html">Use gzip compression</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="two-main-types-of-deployment.html">Two main types of deployment</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_bonita-in-a-cluster.adoc">Bonita in a cluster</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="overview-of-bonita-bpm-in-a-cluster.html">Overview of Bonita in a cluster</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="install-a-bonita-bpm-cluster.html">Install a Bonita cluster</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="cluster-administration.html">Cluster administration</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="multi-tenancy-and-tenant-configuration.html">Multi-tenancy and tenant configuration</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="embed-engine.html">Embed engine - Lab</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_platform-installation-examples.adoc">Platform installation examples</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="ubuntu-openjdk-tomcat-postgresql.html">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bonita-as-windows-service.html">Install Tomcat with Bonita as a service in Windows</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="back-up-bonita-bpm-platform.html">Back up Bonita Platform</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="product-versioning.html">Bonita Versions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_migration.adoc">Migration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="migration-overview.html">Migration overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="upgrade-from-community-to-a-subscription-edition.html">Community to Subscription upgrade</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_bonita-portal-administration.adoc">Bonita Portal Administration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_bonita-portal-interface.adoc">Bonita Portal interface</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bonita-bpm-portal-interface-overview.html">Bonita Portal overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="user-task-list.html">User task list</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="languages.html">Languages</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="log-in-and-log-out.html">Log in and log out</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="about.html">About Bonita Portal</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="mobile-portal.html">Mobile Portal</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_process-maintenance.adoc">Process maintenance</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="processes.html">Processes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="cases.html">Cases</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="tasks.html">Tasks</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="monitoring.html">Monitoring</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="pause-and-resume-bpm-services.html">Pause and resume services</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bdm-management-in-bonita-bpm-portal.html">BDM Management in Bonita Portal</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="applications.html">Applications</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_resources.adoc">Resources</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="resource-management.html">Resource management</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="pages.html">Pages</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="forms.html">Forms</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="layouts.html">Layouts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="themes.html">Themes</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="api-extensions.html">REST API extensions</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="live-update.html">Live update</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_organization-in-bonita-portal.adoc">Organization in Bonita Portal</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="organization-in-bonita-bpm-portal-overview.html">Organization in Bonita Portal overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_organization-maintenance.adoc">Organization maintenance</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="import-export-an-organization.html">Import/export an organization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="group.html">Manage groups</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="role.html">Manage roles</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<span class="in-toggle" data-depth="4"></span>
+<a class="nav-link" href="#_user.adoc">Manage users</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="5">
+
+<span class="nav-line "  data-depth="5">
+<a class="nav-link" href="manage-a-user.html">Manage a user</a>
+</span>
+</li>
+<li class="nav-item " data-depth="5">
+
+<span class="nav-line "  data-depth="5">
+<a class="nav-link" href="deactivate-a-user.html">Deactivate a user</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="custom-user-information-in-bonita-bpm-portal.html">Custom User Information in Bonita Portal</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="analytics.html">Analytics</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_user-profiles.adoc">User profiles</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="administrator-rights.html">Administrator rights</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="process-manager.html">Process manager</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="custom-profiles.html">Custom profiles</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="deploying-profiles-with-export-and-import.html">Deploy profiles with export and import</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_look-feel.adoc">Look &amp; Feel</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="managing-look-feel.html">Manage Look &amp; Feel</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="creating-a-new-look-feel.html">Create a new Look &amp; Feel</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="search-index.html">Search keys</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="runtime-monitoring.html">Bonita Runtime Monitoring</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="maintenance-operation.html">Bonita Runtime Maintenance Operations</a>
+</span>
+</li>
+<li class="nav-item is-current-path is-active is-active-depth-2  " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_development.adoc">Development</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="software-extensibility.html">Platform extensibility overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_connectors.adoc">Connectors</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connectors-overview.html">Connectors overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connector-archetype.html">Bonita connector archetype</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="actor-filter-archetype.html">Create an actor filter</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="api-glossary.html">API glossary</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_rest-api.adoc">REST API</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="rest-api-overview.html">REST API overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="rest-api-authentication.html">REST Authentication</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="application-api.html">application API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="access-control-api.html">access control API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bdm-api.html">bdm API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bpm-api.html">bpm API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="customuserinfo-api.html">customuserinfo API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="form-api.html">form API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="identity-api.html">identity API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="platform-api.html">platform API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="portal-api.html">portal API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="system-api.html">system API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="tenant-api.html">tenant API</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="rest-api-extensions.html">REST API extensions</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="manage-files-using-upload-servlet-and-rest-api.html">Manage files using upload servlet and REST API</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_engine-api.adoc">Engine API</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="engine-api-overview.html">Engine API overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="create-your-first-project-with-the-engine-apis-and-maven.html">Create your first project with the Engine APIs and Maven</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="configure-client-of-bonita-bpm-engine.html">Configure connection to Bonita Engine</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="http://documentation.bonitasoft.com/javadoc/api/$7.12.0/index.html">Javadoc</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_examples.adoc">Examples</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-a-process.html">Manage a process</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="handle-a-failed-activity.html">Handle a failed activity</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-an-organization.html">Manage an organization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-users.html">Manage users</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="handling-documents.html">Handle documents</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="create-administration-tools.html">Create administration tools</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="restore-default-look-feel.html">Restore the default Look &amp; Feel</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="manage-the-platform.html">Manage the platform</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="using-list-and-search-methods.html">List and search methods</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="log-in-with-cas.html">Log in with CAS</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bonita-bpm-portal-urls.html">Bonita Portal URLs</a>
+</span>
+</li>
+<li class="nav-item is-current-path is-active is-active-depth-2  " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_engine-architecture.adoc">Bonita Engine architecture</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item is-current-page is-active is-active-depth-2  " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="engine-architecture-overview.html">Bonita Engine architecture overview</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_services.adoc">Services</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="event-handlers.html">Event handlers</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="queriable-logging.html">Queriable logger</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="work-execution-audit.html">Work execution audit</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="timers-execution.html">Timers execution</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="connectors-execution.html">Connectors execution</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="execution-sequence-states-and-transactions.html">BPM process / task execution sequence</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_living-application.adoc">Living application</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="bonita-layout.html">Bonita Layout</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="living-application-layout.html">Living application layout</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="customize-layouts.html">Customize layouts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="customize-living-application-theme.html">Customize living application theme</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="logging.html">Logs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="workspaces-and-repositories.html">Workspaces and projects</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="building-community-edition-from-source.html">Build Bonita Community edition from source files</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_continuous-integration.adoc">Continuous integration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="automating-builds.html">Automate builds</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="set-up-continuous-integration.html">Set up continuous integration</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_collaboration.adoc">Collaboration</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="project-documentation-generation.html">Project documentation generation</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="shared-project.html">Using a shared project</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_howtos.adoc">Howtos</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="uid-modal-tutorial.html">Create a modal window using CSS</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="uid-case-overview-tutorial.html">Create a case overview page using the UI Designer</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="optimize-user-tasklist.html">Create unique task names for the user task list</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="manage-control-in-forms.html">Control and validate forms in the UI Designer</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="list-of-documents.html">Manage a list of documents</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bo-multiple-refs-tutorial.html">Manage multiple references in Business Objects</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="custom-authorization-rule-mapping.html">Map authorization rules</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="rta-mail-template.html">Use the rich textarea widget in a mail template</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="datetimes-management-tutorial.html">Manage dates and times in BDM and User Interfaces</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bdm-in-rest-api.html">Manage BDM in custom Rest APIs</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="share-a-repository-on-github.html">Share a project on GitHub</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="migrate-a-svn-repository-to-github.html">Migrate a SVN repository to a Git repository</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="configure-maven.html">Configure Maven</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="uid-vertical-tabs-container-tutorial.html">Create a vertical tabs container for all devices</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="groovy-in-bonita.html">Use Groovy in Bonita</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="use-bonita-acm.html">Enable Adaptive Case Management with Bonita</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<a href="#" class="menu-expand-toggle"> <span>Navigation</span> <i class="fas fa-times-circle"></i> <i class="fas fa-chevron-circle-left"></i></a>
+</div></nav>
+<aside class="toc sidebar">
+  <div class="sidebar-box">
+    <div class="tools" role="navigation">
+<ul>
+<li class="tool edit"><a href="https://github.com/alachambre/antora-sources-test/edit/master/modules/ROOT/pages/engine-architecture-overview.adoc" title="Edit Page" target="_blank" rel="noopener">Edit on GitHub</a></li>
+</ul>
+</div>
+    <div class="toc-menu"></div>
+    <div class="is-this-helpful-box">
+      <h4> Is this page helpful?</h4>
+      <div class="btn-row">
+        <a href="#" class="like-btn helpful-btn" id="yesBtn" data-page-rating="like" >
+                <i class="far fa-thumbs-up"></i>
+            Yes
+
+            </a>
+        <a href="#" class="dislike-btn helpful-btn" id="noBtn"  data-page-rating="dislike"> <i class="far fa-thumbs-down"></i> No</a>
+      </div>
+      <div class="any-feedback">
+        <a href="#" class="btn any-feedback-btn" id="myCustomTrigger">Leave Additional Feedback? </a>
+      </div>
+      <div class="dialog-box" id="dialogBox">
+        <form>
+            <div class="form-group " id="additionalFeedbackBox">
+              <textarea class="input-control feed-back-msg" rows="8" placeholder="Any Additonal Feedback?"></textarea>
+
+              <div class="action-btn-row ">
+                <a href="#" class="skip-btn" id="skipBtnMsg">Skip</a>
+                  <button class="submit-btn btn blue-btn disabled" > Submit  </button>
+                  <a href="#" class="info-btn"><i class="fas fa-info-circle"></i></a>
+              </div>
+
+
+            </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</aside>
+
+<div class="feedback-modal modal-popup">
+  <div class="modal-popup-dialogue">
+    <div class="popup-header">
+      <a href="#" class="close-popup"><i class="fa fa-times"></i></a>
+    </div>
+    <div class="popup-content">
+      <p>
+        Please use the form below to provide your feedback. Because your feedback is valuable to us,
+         the information you submit in this form is recorded in our issue tracking system (JIRA), which is publicly available.
+        You can track the status of your feedback using the ticket number displayed in the dialog once you submit the form.
+      </p>
+    </div>
+  </div>
+</div>
+
+<main class="article" data-ceiling="topbar">
+<div class="article-header">
+<nav class="crumbs" aria-label="breadcrumbs">
+<ul>
+<li class="crumb"><a href="index.html">Bonita</a></li>
+<li class="crumb"><a href="#_development.adoc">Development</a></li>
+<li class="crumb"><a href="#_engine-architecture.adoc">Bonita Engine architecture</a></li>
+<li class="crumb"><a href="engine-architecture-overview.html">Bonita Engine architecture overview</a></li>
+</ul>
+</nav>
+</div>
+<article class="doc">
+<div class="page-heading-title">
+<h1 class="page">Bonita Engine architecture</h1>
+</div>
+<div class="contributor-list-box">
+<span class="last-commit-date" id="commitdate">    </span>
+<ul id="contributorList"></ul>
+<span  id="otherContributor"> + </span>
+</div><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Discover Bonita Engine architecture, its APIs, main services, and how they are packaged.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Bonita Engine is the runtime processor at the core of Bonita.
+It executes processes, handling actions related to tasks, such as database access, and housekeeping actions such as logging.
+The Engine is composed of a number of services and APIs.
+The services are either BPM services or generic services.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/images-6_0/dev_arch_engine_architecture_simple.png" alt="engine architecture diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The Bonita Engine component services are completely configurable using the <a href="BonitaBPM_platform_setup.html" class="page">plaform setup tool</a> to retrieve the current configuration and update it.</p>
+</div>
+<div class="paragraph">
+<p>Services are provided to the Engine using a ServiceAccessor.
+By default, this uses Spring to bind services and to retrieve service instances.
+The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the <strong>CONFIGURATION</strong>  table.
+These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
+These files can be retrieved and updated using the <a href="BonitaBPM_platform_setup.html" class="page">platform setup tool</a>.</p>
+</div>
+<div class="paragraph">
+<p>Folder  <code>setup/platform_conf/[initial|current]/tenant_template_engine</code> contains tenant-level template configuration files used when creating a new tenant (Subscription edition):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bonita-tenant-community-custom.properties</code> : contains as comments all the available properties that can be overridden at tenant level.</p>
+</li>
+<li>
+<p><code>bonita-tenants-custom.xml</code>: XML file can be modified to add any Spring bean you need to add/override at tenant level.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Folder  <code>setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine</code> where <code>[TENANT_ID]</code> is your tenant id (e.g.
+<code>1</code>).
+Contains same files use for an already existing tenant.</p>
+</div>
+<div class="paragraph">
+<p>The Engine can be installed on a Java Virtual Machine (JVM), in any web/Java EE container, or can be used as a simple Java library.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_apis"><a class="anchor" href="#_apis"></a>APIs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section contains a summary of the Bonita Engine APIs.
+For details of the APIs, the methods and related objects, see the  <a href="http://documentation.bonitasoft.com/javadoc/api/7.12.0/index.html">Javadoc</a>.
+| | | |:-|:-| | Identity API | Manages information about an organization, that is, the set of users who can act in processes.
+Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.| + | Organization API | Import or export an organization.| + | Process API | Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.| + | Login API | Logs in to the engine in a platform and creates a session.| + | Monitoring API | Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.| + | Log API | provides access to business logs, for searching and to retrieve information about current or archived processes.| + | Platform command API | Creates, starts, stops platform.| + | Document API | Manages documents that are attached to a process instance.| + | Theme API | Manages the Look &amp; Feel of the Bonita Portal web and mobile interfaces and forms.| + | Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused.
+Available in Teamwork, Efficiency, Performance and Enterprise editions.|</p>
+</div>
+<div class="paragraph">
+<p>There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bpm_services"><a class="anchor" href="#_bpm_services"></a>BPM services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>BPM services are related to BPM activities.</p>
+</div>
+<div class="sect2">
+<h3 id="_actor_mapping"><a class="anchor" href="#_actor_mapping"></a>Actor mapping</h3>
+<div class="paragraph">
+<p>| | | |:-|:-| | Description: | Manage mapping between actors and users, roles, and groups.
+|  | Used by:  |-|  | Implementation: | org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl|</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_category"><a class="anchor" href="#_category"></a>Category</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage categories of processes.
+A category is a way to classify processes.
+Categories are handled manually by administrators in Bonita Portal and are visible to portal users.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.category.impl.CategoryServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notes: Store categories with the persistence service</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connector"><a class="anchor" href="#_connector"></a>Connector</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Execute a connector using the ConnectorDefinition: get the connector from the file system, evaluate expressions of input parameters, instantiate/execute the connector and then execute output operations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_expression_resolver"><a class="anchor" href="#_expression_resolver"></a>Expression resolver</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate expressions and the associated dependencies.
+The expression resolver default implementation take all expressions and dependencies, flattens them and orders them by type.
+It then evaluate all expressions starting with expressions that are known to have no dependencies.
+All expressions that are evaluated at the same time have the same context of evaluation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any service that evaluates expressions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_login"><a class="anchor" href="#_login"></a>Login</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log in to or out of the Engine.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.login.LoginServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform_login"><a class="anchor" href="#_platform_login"></a>Platform login</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log in to or out of the Engine at the platform level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_operation"><a class="anchor" href="#_operation"></a>Operation</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Execute operations that update data.
+The Operation service can use different types of update method.
+The default methods, called Operators, are ASSIGNMENT, JAVA_METHOD, and XPATH_UPDATE_QUERY.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine service, APIs when updating data using an operation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.operation.impl.OperationServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_parameter"><a class="anchor" href="#_parameter"></a>Parameter</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For the Enterprise, Performance, Efficiency, and Teamwork editions, manage parameters of a process.
+Parameters are set for the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a database you use in some connectors.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine, APIs, ExpressionService (using the contributed evaluator) when reading and updating parameters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relies on Java properties in a file to store and retrieve parameters</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_process_comment"><a class="anchor" href="#_process_comment"></a>Process comment</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, update, get, list, or delete comments attached to a process instance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.process.comment.api.impl.SCommentServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relies on persistence service to store comments</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_process_definition"><a class="anchor" href="#_process_definition"></a>Process definition</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle process definition objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.process.definition.ProcessDefinitionServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores definition in file system and in cache using XML</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_engine"><a class="anchor" href="#_engine"></a>Engine</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handles process execution.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIs when executing processes or activities</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the Engine itself</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_process_instance"><a class="anchor" href="#_process_instance"></a>Process instance</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle process instance objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.process.instance.impl.ProcessInstanceServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relies on the persistence service to store objects</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_supervisor_mapping"><a class="anchor" href="#_supervisor_mapping"></a>Supervisor mapping</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define the mapping between a process definition and the user who supervises it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_user_filter"><a class="anchor" href="#_user_filter"></a>User filter</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read and execute a userfilter that filters the set of users eligible to carry out a pending task.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.filter.impl.UserFilterServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses the cache and read user filter of the file system</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_generic_services"><a class="anchor" href="#_generic_services"></a>Generic services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generic services  perform actions that are not related to BPM but are required for successful process execution.
+No generic service has a dependency on a BPM service.</p>
+</div>
+<div class="sect2">
+<h3 id="_archive"><a class="anchor" href="#_archive"></a>Archive</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store and retrieve objects that will no longer change.
+For example, a process instance that is finished is archived using this service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessInstance service to store ArchivedProcessInstance objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.archive.impl.ArchiveServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check user credentials using a map.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Login service in Bonita Teamwork, Efficiency, Performance, and Enterprise editions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses the Identity service to check user credentials</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_queriable_logs"><a class="anchor" href="#_queriable_logs"></a>Queriable logs</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log information related to business actions.
+For example, ?Activity 'step1' was created with id = 12?
+or ?Connector email-1.0.0 was successfully executed on activity 1547?.
+By default, log information is stored in a database for easy query.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any service storing objects: ?deleted activity[..]?
+Scheduler service: ?Job executed [&#8230;&#8203;]?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementations:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, Performance, and Enterprise editions: inserts all logs in batch at the end of the transaction)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_tenant_cache"><a class="anchor" href="#_tenant_cache"></a>Tenant cache</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store objects in the cache, and retrieve them.
+The service handles different caches that can be configured separately.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessDefinition service, Connector service, Expression service: put reusable definition objects in cache</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.cache.ehcache.EhCacheCacheService</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses EhCache to cache objects</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform_cache"><a class="anchor" href="#_platform_cache"></a>Platform cache</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store objects in the cache, and retrieve them.
+The service handles different caches that can be configured separately.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessDefinition service, Connector service, Expression service: put reusable definition objects in cache</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses EhCache to cache objects</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_classloader"><a class="anchor" href="#_classloader"></a>ClassLoader</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An abstraction layer of the classloader, making it easy to change the classloader implementation at runtime.
+There is a hierarchy of classloaders, with a platform classloader handling items used by the whole platform, and a process classloader for items specify to a process.
+Each classloader is identified by a type and an Id.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server APIs, to create and set the classloader at platform level.
+Engine, to handle classloader of type process</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.classloader.ClassLoaderServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relies on the dependency service to load the jar put in dependencies for a specific classloader</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform_command"><a class="anchor" href="#_platform_command"></a>Platform command</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Register and execute platform commands.
+Commands are Java classes that can be executed by the engine using the API.
+Using this service you can create your own code to be put server side and call it from a client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API to execute platform-level commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.platform.command.impl.PlatformCommandServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses persistence service to store commands</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_connector_executor"><a class="anchor" href="#_connector_executor"></a>Connector executor</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Execute a connector: take the instantiated Connector object, set its parameters, and execute it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connector service, to execute the instantiated connector</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.connector.impl.ConnectorExecutorImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_data"><a class="anchor" href="#_data"></a>Data</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle DataSource objects, which describe how to retrieve and store data on an internal or external system.
+The Engine contains two default implementations: org.bonitasoft.engine.data.instance.DataInstanceDataSourceImpl, which handles data stored in database, and org.bonitasoft.engine.core.data.instance.impl.TransientDataInstanceDataSource, which handles data stored in memory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DataInstance service, to get the data source of a data definition to get its value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.data.DataServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_datainstance"><a class="anchor" href="#_datainstance"></a>DataInstance</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle data instance objects.
+A data instance is a variable that has a name, a type, and a value.
+This service also handles expressions of type VARIABLE_TYPE.
+A VARIABLE_TYPE expression references a data instance.
+When an expression is evaluated, the value of the data instance is returned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Process API, Process executor, all services that access data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.data.DataInstanceServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses the persistence service to store data instances</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dependency"><a class="anchor" href="#_dependency"></a>Dependency</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declare Java dependencies on business objects.
+These dependencies have a name and a content that is the JAR itself.
+For example, a process that uses an email connector has a dependency on javamail.jar that is declared at deployment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine, to declare process dependencies  ClassloaderService, to retrieve dependencies of process</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.dependency.impl.DependencyServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dependency information is stored in database</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform_dependency"><a class="anchor" href="#_platform_dependency"></a>Platform dependency</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Declare dependencies between entities that are related to the platform, for example,  platform commands declare platform dependencies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform Command service, to declare dependency of platform commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.dependency.impl.PlatformDependencyServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dependency information is stored in database</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_document"><a class="anchor" href="#_document"></a>Document</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store content and properties of a document and map the document to an instance of a process.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engine APIs when retrieving documents.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.core.document.api.impl.DocumentServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The mapping of the document is not stored in the same table as the documetn itself.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_expression"><a class="anchor" href="#_expression"></a>Expression</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Evaluate an expression using the evaluator provided by another service (but do not evaluate dependencies of the expression).
+This service is extended by evaluators specific to the kind of expression to be evaluated.
+For example, in the Enterprise, Performance, Efficiency, and Teamwork editions, the ParameterService contributes an evaluator to evaluate expressions that reference a parameter.
+To add a new kind of expression, contribute a class implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ExpressionResolverService.
+to evaluate an expression and its dependencies</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.expression.impl.ExpressionServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_identity"><a class="anchor" href="#_identity"></a>Identity</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle information about elements of an organization (users, groups, roles, memberships).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessExecutor, to resolve actor mappings.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.identity.impl.IdentityServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_incident"><a class="anchor" href="#_incident"></a>Incident</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service that reports incidents to an administrator.
+An incident is an error that cannot be handled by the engine.
+The default implementation log is a file named "Incidents.log" inside the tenant folder.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mainly by the work service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.incident.IncidentServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_job"><a class="anchor" href="#_job"></a>Job</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle and trace execution of internal jobs of the engine.
+A job is an internal action that can be triggered once or several times.
+(e.g.
+Timers are implemented using jobs.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scheduler service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.scheduler.impl.JobServiceImpl,</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_lock"><a class="anchor" href="#_lock"></a>Lock</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable synchronization of code execution.
+The service enables creation of shared locks and exclusive locks.
+If a shared lock is taken out, other shared locks can also be taken out.
+If an exclusive lock is taken out, it blocks execution until the lock is released.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessExecutor, for canceling a process or for merging execution of branches</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.lock.impl.MemoryLockService</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses java.util.concurrent.locks.ReentrantReadWriteLock objects that are in memory only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_monitoring"><a class="anchor" href="#_monitoring"></a>Monitoring</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitor Engine activity, such as active transactions, active users, or JVM status.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">com.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_tenant_monitoring"><a class="anchor" href="#_tenant_monitoring"></a>Tenant Monitoring</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provide metrics on a tenant.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">com.bonitasoft.engine.monitoring.impl.TenantMonitoringServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform_monitoring"><a class="anchor" href="#_platform_monitoring"></a>Platform Monitoring</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provide metrics on a platform.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">com.bonitasoft.engine.monitoring.impl.PlatformMonitoringServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_persistence"><a class="anchor" href="#_persistence"></a>Persistence</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle storage of objects in a persistent medium.
+There are two services, bonita-persistence-read for reading objects and bonita-persistence-api for reading and writing objects.
+The default implementation stores objects in the database, but the service could be implemented for any other type of persistent storage.
+The persistence service gives a unique identifier to an object.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All services reading persistent objects (such as processInstanceService) use bonita-persistence-read.
+All services creating or modifying objects use bonita-persistence-api.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hibernate</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform"><a class="anchor" href="#_platform"></a>Platform</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle creation, activation, and deletion of platform.
+The platform is the foundation of the Engine: creating the platform means creating database tables that are used by the Engine.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.platform.impl.PlatformServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses the persistence service to create platform.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_profile"><a class="anchor" href="#_profile"></a>Profile</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle profiles.
+A profile is an entity with a name, description, and icon path that is associated with a user, group, role, or membership.
+A profile entity is used by Bonita Portal to determine a user&#8217;s profile (user, process manager, or administrator).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API, used by Bonita Portal to modify user profiles.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.profile.impl.ProfileServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uses persistence service to store privileges</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_recorder"><a class="anchor" href="#_recorder"></a>Recorder</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A layer between the persistence service and all services that need to store objects.
+It ensures that events are triggered and that queriable log entries are written.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All services storing objects.
+For example, the ProcessInstanceService stores a ProcessInstanceObject using the recorder Implementation: org.bonitasoft.engine.recorder.impl.RecorderImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_reporting"><a class="anchor" href="#_reporting"></a>Reporting</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle storage, retrieval, and update of reports.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">com.bonitasoft.engine.core.reporting.ReportingServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_scheduler"><a class="anchor" href="#_scheduler"></a>Scheduler</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle jobs and ensure that they are executed at the required time.
+There are three kinds of trigger: OneShotTrigger to execute a job once only at a given time, RepeatTrigger to execute a job a finite number of times at a given interval, and CronTrigger to execute a job according to a Unix-type structure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessEngine, for timers and for launching the job that matches a message event</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QuartzSchedulerService, org.bonitasoft.engine.scheduler.impl.SchedulerServiceImpl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relies on Quartz to launch jobs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_session"><a class="anchor" href="#_session"></a>Session</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle user sessions.
+A session is an object stored in memory that contains several kinds of information about the client that uses it, for example, userId, ClientIp, ExpirationDate.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LoginService,SchedulerService,WorkService to create sessions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.session.impl.SessionServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_platform_session"><a class="anchor" href="#_platform_session"></a>Platform session</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle platform sessions.
+These sessions are created when something logs in to the platform.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PlatformLoginService</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_theme"><a class="anchor" href="#_theme"></a>Theme</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handle storage, retrieval, and update of portal themes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.theme.impl.ThemeServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_transaction"><a class="anchor" href="#_transaction"></a>Transaction</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handles business transactions.
+A business transaction is a high-level transaction that contains several technical transactions.
+This service is compatible with JTA.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Almost all services, including persistence service to register technical transactions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.transaction.TransactionServiceImpl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_work"><a class="anchor" href="#_work"></a>Work</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Trigger work for immediate execution but asynchronously.
+Unlike the scheduler service, which uses persistent storage, the Work service stores data in memory for better performance.
+This means that clients of the service must handle restart if a triggered work does not complete.
+For example, if the JVM shuts down, when it restarts the client must check for incomplete work and re-trigger it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ProcessExecutor, to trigger work to execute flow elements one after another</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementation:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.work.ExecutorWorkService</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notes:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Trigger launches work in a ThreadPool.
+For Community Edition, work items are launched in sequence, each one in a new thread.
+For Teamwork, Efficiency, Performance, and Enterprise Editions, work items are triggered in multiple threads.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_xml"><a class="anchor" href="#_xml"></a>XML</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parse and write XML files.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used by:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BusinessArchiveBuilder, to read/write process definitions  ConnectorService, to read connector definition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementations:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.bonitasoft.engine.xml.parse.SAXParser (parse using sax) + org.bonitasoft.engine.xml.SAXValidator (validate using sax) + org.bonitasoft.engine.xml.DOMWriter (write using DOM)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_packaging"><a class="anchor" href="#_packaging"></a>Packaging</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Engine is provided as three .jar files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>bonita-common contains code that is used by both the server and client sides of the application.
+For example, the API interface is accessed both on the server side, which contains the API implementations, and on the client side, which has a proxy on the API.
+It also contains objects such as BusinessArchive, which is the JavaObject representation of a .bar file.</p>
+</li>
+<li>
+<p>bonita-server contains code used on by the server.
+For example, it contains service implementations, the services accessor, and API implementations.</p>
+</li>
+<li>
+<p>bonita-client contains client-only code.
+For example, it contains the Accessor service for the APIs, which is not in the common or server packages to prevent the server code calling the client-side API accessor.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info In the Enterprise, Performance, Efficiency, and Teamwork editions, these jar files are respectively:</p>
+</dd>
+</dl>
+</div>
+</li>
+<li>
+<p>bonita-common-sp.jar</p>
+</li>
+<li>
+<p>bonita-server-sp.jar</p>
+</li>
+<li>
+<p>bonita-client-sp.jar :::</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <div class="col">
+        <div class="footer-logo">
+          <a href="https://www.couchbase.com" class="icon">
+            <img src="../../_/img/couchbase_logo_black.svg" alt="Couchbase">
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://docs.couchbase.com" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="https://forums.couchbase.com" target="_blank" rel="noopener">Forums</a></li>
+          <li><a href="https://support.couchbase.com" target="_blank" rel="noopener">Support</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://developer.couchbase.com" target="_blank" rel="noopener">Developer Portal</a></li>
+          <li><a href="https://blog.couchbase.com" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.couchbase.com/resources">Resources</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://www.couchbase.com/get-started-developing-nosql">Get Started</a></li>
+          <li><a href="https://www.couchbase.com/downloads">Downloads</a></li>
+          <li><a href="https://learn.couchbase.com/store?utf8=%E2%9C%93&ss=1&ct=78327&commit=Filter" target="_blank" rel="noopener">Training</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="social-icons">
+          <li>
+            <svg  width="14" height="14" viewBox="0 0 32 32"> <path id="facebook" class="cls-1" d="M29,0H3A2.652,2.652,0,0,0,0,3V29a2.652,2.652,0,0,0,3,3H16V18H12V14h4V12a6.452,6.452,0,0,1,6-6h4v4H22a2.151,2.151,0,0,0-2,2v2h6l-1,4H20V32h9a2.652,2.652,0,0,0,3-3V3A2.652,2.652,0,0,0,29,0Z"/></svg>
+            <a href="https://www.facebook.com/Couchbase" class="icon">
+            Facebook
+            </a>
+          </li>
+          <li>
+            <svg  width="14" height="14" viewBox="0 0 32.1 26.1"> <path id="twitter" class="cls-1" d="M32,7.1a11.836,11.836,0,0,1-3.8,1,6.462,6.462,0,0,0,2.9-3.6,12.606,12.606,0,0,1-4.2,1.6A6.492,6.492,0,0,0,22.1,4a6.594,6.594,0,0,0-6.6,6.6,7.719,7.719,0,0,0,.2,1.5A18.458,18.458,0,0,1,2.2,5.2a6.294,6.294,0,0,0-.9,3.3A6.765,6.765,0,0,0,4.2,14a6.109,6.109,0,0,1-3-.8v.1a6.543,6.543,0,0,0,5.3,6.4,4.678,4.678,0,0,1-1.7.2,4.869,4.869,0,0,1-1.2-.1,6.679,6.679,0,0,0,6.1,4.6,12.917,12.917,0,0,1-8.2,2.8,9.151,9.151,0,0,1-1.6-.1,18.438,18.438,0,0,0,10.1,3c12.1,0,18.7-10,18.7-18.7v-.8A13.336,13.336,0,0,0,32,7.2Z" transform="translate(0.1 -4)"/></svg>
+            <a href="https://twitter.com/couchbase" class="icon">
+              Twitter
+            </a>
+          </li>
+          <li>
+          <svg  width="14" height="14" viewBox="0 0 32 32"> <path id="linkedin" class="cls-1" d="M29,0H3A3.076,3.076,0,0,0,0,3V29a3.009,3.009,0,0,0,3,3H29a2.946,2.946,0,0,0,3-3V3A3.009,3.009,0,0,0,29,0ZM12,26H8V12h4ZM10,10a2,2,0,1,1,2-2A2.006,2.006,0,0,1,10,10ZM26,26H22V18a2,2,0,0,0-4,0v8H14V12h4v2.5c.8-1.1,2.1-2.5,3.5-2.5A4.736,4.736,0,0,1,26,17Z"/></svg>
+              <a href="https://www.linkedin.com/company/couchbase" class="icon">
+             Linkedin
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-terms">
+      <div class="footer-terms-copyright">
+          <span>© 2020 Couchbase, Inc. Couchbase, Couchbase Lite and the Couchbase logo are registered trademarks of Couchbase, Inc.</span>
+      </div>
+      <div class="footer-terms-links">
+        <a href="https://www.couchbase.com/terms-of-use">Terms of Use</a>
+        <a href="https://www.couchbase.com/privacy-policy">Privacy Policy</a>
+        <a href="https://www.couchbase.com/cookie-policy">Cookie Policy</a>
+        <a href="https://www.couchbase.com/support-policy">Support Policy</a>
+        <a href="https://info.couchbase.com/unsubscribe-or-manage-preferences.html" target="_blank" rel="noopener">Marketing Preference Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+</body>
+</html>

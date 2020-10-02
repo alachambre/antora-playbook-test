@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>How to configure Amazon Web Services (AWS) for BCD | Bonita documentation 2.0</title>
+<link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/aws_prerequisites.html">
+<link rel="stylesheet" href="../../_/css/site.css">
+<script src="../../_/js/vendor/jquery.js"></script>
+<link rel="schema.dcterms" href="https://purl.org/dc/terms/">
+<meta name="dcterms.subject" content="bcd">
+<meta name="dcterms.identifier" content="3.4">
+<meta name="generator" content="Antora 2.3.4">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+</head>
+<body class="article">
+<header class="header fixed-top">
+  <div class="header-top-row">
+      <div class="container">
+          <nav class="navbar navbar-expand-md flex-nowrap justify-content-between navbar-new-top">
+
+              <a class="navbar-brand" href="http://localhost:8080/documentation/bonita/7.12.0/index.html">
+                <img src="../../_/img/couchbase-documentation-logo.svg" alt="Couchbase" />
+              </a>
+              <button class="navbar-burger" data-target="topbar-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+          </nav>
+      </div>
+  </div>
+  <div class="header-bottom-row" id="topbar-menu">
+    <div class="container">
+        <nav  class="navbar navbar-new-bottom">
+
+              <div class="navbar-collapse collapse" id="navbar2">
+                <ul class="navbar-nav w-100 justify-content-start">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Server
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Mobile
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Cloud
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      SDKs
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      Tutorials
+                      <span class="arrow">
+                        <i class="fas fa-arrow-right"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="primary-action">
+                <form class="navbar-item search">
+                  <input type="text" placeholder="Search Docs" class="query" id="search-query" />
+                  <button type="button" class="search-btn">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+                <div class="parent-site">
+                  <a href="https://www.couchbase.com">
+                    Couchbase.com
+                  </a>
+                </div>
+                <a class="btn btn-primary try-btn" href="https://www.couchbase.com/downloads">
+                  Try Free
+                </a>
+              </div>
+
+        </nav>
+    </div>
+   </div>
+</header>
+<div class="body container">
+<nav class="nav">
+<div class="left-sidebar-menu">
+<div class="version-control-box">
+<div class="component-frame">
+<div class="frame-icon">
+<img src="../../_/img/server-icon.png" alt="">
+</div>
+<div class="frame-body">
+<h4 class="title"><span class="">Bonita Continous Delivery</span></h4>
+<a class="frame-link component" href="index.html"> <span class="version">3.4</span></a>
+</div>
+</div>
+</div>
+<div class="nav-menu">
+<ul class="nav-list">
+<li class="nav-item " data-depth="0">
+
+<ul class="nav-list">
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="release_notes.html">Release notes</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="getting_started.html">Getting started</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+</span>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="scenarios.html">Scenario file reference</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item is-current-path is-active is-active-depth-2  " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<span class="in-toggle" data-depth="1"></span>
+<a class="nav-link" href="#_howtos.adoc">Howtos</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item is-current-path is-active is-active-depth-2  " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item is-current-page is-active is-active-depth-2  " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<span class="in-toggle" data-depth="3"></span>
+<a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+</span>
+</li>
+<li class="nav-item " data-depth="4">
+
+<span class="nav-line "  data-depth="4">
+<a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<span class="in-toggle" data-depth="2"></span>
+<a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+</span>
+<ul class="nav-list">
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+</span>
+</li>
+<li class="nav-item " data-depth="3">
+
+<span class="nav-line "  data-depth="3">
+<a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+</span>
+</li>
+<li class="nav-item " data-depth="2">
+
+<span class="nav-line "  data-depth="2">
+<a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+</span>
+</li>
+</ul>
+</li>
+<li class="nav-item  is-inactive " data-depth="1">
+
+<span class="nav-line "  data-depth="1">
+<a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<a href="#" class="menu-expand-toggle"> <span>Navigation</span> <i class="fas fa-times-circle"></i> <i class="fas fa-chevron-circle-left"></i></a>
+</div></nav>
+<aside class="toc sidebar">
+  <div class="sidebar-box">
+    <div class="tools" role="navigation">
+<ul>
+<li class="tool edit"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/aws_prerequisites.adoc" title="Edit Page" target="_blank" rel="noopener">Edit on GitHub</a></li>
+</ul>
+</div>
+    <div class="toc-menu"></div>
+    <div class="is-this-helpful-box">
+      <h4> Is this page helpful?</h4>
+      <div class="btn-row">
+        <a href="#" class="like-btn helpful-btn" id="yesBtn" data-page-rating="like" >
+                <i class="far fa-thumbs-up"></i>
+            Yes
+
+            </a>
+        <a href="#" class="dislike-btn helpful-btn" id="noBtn"  data-page-rating="dislike"> <i class="far fa-thumbs-down"></i> No</a>
+      </div>
+      <div class="any-feedback">
+        <a href="#" class="btn any-feedback-btn" id="myCustomTrigger">Leave Additional Feedback? </a>
+      </div>
+      <div class="dialog-box" id="dialogBox">
+        <form>
+            <div class="form-group " id="additionalFeedbackBox">
+              <textarea class="input-control feed-back-msg" rows="8" placeholder="Any Additonal Feedback?"></textarea>
+
+              <div class="action-btn-row ">
+                <a href="#" class="skip-btn" id="skipBtnMsg">Skip</a>
+                  <button class="submit-btn btn blue-btn disabled" > Submit  </button>
+                  <a href="#" class="info-btn"><i class="fas fa-info-circle"></i></a>
+              </div>
+
+
+            </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</aside>
+
+<div class="feedback-modal modal-popup">
+  <div class="modal-popup-dialogue">
+    <div class="popup-header">
+      <a href="#" class="close-popup"><i class="fa fa-times"></i></a>
+    </div>
+    <div class="popup-content">
+      <p>
+        Please use the form below to provide your feedback. Because your feedback is valuable to us,
+         the information you submit in this form is recorded in our issue tracking system (JIRA), which is publicly available.
+        You can track the status of your feedback using the ticket number displayed in the dialog once you submit the form.
+      </p>
+    </div>
+  </div>
+</div>
+
+<main class="article" data-ceiling="topbar">
+<div class="article-header">
+<nav class="crumbs" aria-label="breadcrumbs">
+<ul>
+<li class="crumb"><a href="index.html">Bonita Continous Delivery</a></li>
+<li class="crumb"><a href="#_howtos.adoc">Howtos</a></li>
+<li class="crumb"><a href="#_manage_stack.adoc">Manage Bonita stacks</a></li>
+<li class="crumb"><a href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a></li>
+</ul>
+</nav>
+</div>
+<article class="doc">
+<div class="page-heading-title">
+<h1 class="page">How to configure Amazon Web Services (AWS) for BCD</h1>
+</div>
+<div class="contributor-list-box">
+<span class="last-commit-date" id="commitdate">    </span>
+<ul id="contributorList"></ul>
+<span  id="otherContributor"> + </span>
+</div><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes how to configure Amazon Web Services (AWS) for BCD.
++ These configuration steps are required to allow BCD to programmatically manage your AWS instances and to be able to connect to your Bonita stack.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sign_up_for_aws"><a class="anchor" href="#_sign_up_for_aws"></a>Sign Up for AWS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you do not have an Amazon Web Services account yet, first sign up as described in this AWS user guide: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#sign-up-for-aws">Sign Up for AWS</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aws_setup_for_bcd"><a class="anchor" href="#_aws_setup_for_bcd"></a>AWS Setup for BCD</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to use Amazon EC2 instances, some configuration steps need to be performed as a prerequisite.
++ The following steps are the basic requirements to set up AWS credentials for Ansible automation.
++ Further configuration instructions for <strong>AWS single sign-on</strong> can be found <a href="aws_sso.html" class="page">on this page</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html">Create an IAM Policy</a> to grant full access to Amazon EC2 on a specific region (eg.
+us-west-2)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Policy name</strong>: EC2FullAccess_us-west-2</p>
+</li>
+<li>
+<p><strong>Policy document</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Action": "ec2:*",
+          "Effect": "Allow",
+          "Resource": "*",
+          "Condition": {
+              "StringEquals": {
+                  "ec2:Region": "us-west-2"
+              }
+          }
+      }
+  ]
+ }</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create an IAM Policy to give <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">PassRole</a> permission in order to be able to associate a specific role with the EC2 instances of a cluster.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Policy name</strong>: IAMPassRole</p>
+</li>
+<li>
+<p><strong>Policy document</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Action": "iam:PassRole",
+          "Effect": "Allow",
+          "Resource": "*"
+      }
+  ]
+ }</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html">Create an IAM Group</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Group name</strong>: bonita-provisioning</p>
+</li>
+<li>
+<p>Select the IAM Policies created previously</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>For some usage you may be interested to create a role and attach to it the corresponding policies, see <a href="aws_sso.html" class="page">Configure AWS single sign-on</a> or <a href="aws_organizations.html" class="page">Assume IAM role within AWS Organizations</a>.</em></p>
+</div>
+</li>
+<li>
+<p>Create an IAM Policy to allow ec2 instances of a cluster to autodiscover themselves on a specific region (eg.
+us-west-2).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Policy name</strong>: ClusterBCD_us-west-2</p>
+</li>
+<li>
+<p><strong>Policy document</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json"> {
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Action": [
+              "ec2:DescribeInstances"
+          ],
+          "Effect": "Allow",
+          "Resource": "*",
+          "Condition": {
+              "StringEquals": {
+                  "ec2:Region": "us-west-2"
+              }
+          }
+      }
+  ]
+ }</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning  :fa-exclamation-triangle: Pay attention that for security reasons, pushing AWS user credentials to EC2 instances (as done with BCD 1.0.x) is no longer supported.</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html">Create an IAM Role for an AWS service</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Select EC2 to "Allows EC2 instances to call AWS services on your behalf."</p>
+</li>
+<li>
+<p>Select the IAM Policy created previously (ClusterBCD_us-west-2)</p>
+</li>
+<li>
+<p><strong>Role name</strong>: ClusterBCD</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Create an IAM User</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Access type</strong>: Programmatic access</p>
+</li>
+<li>
+<p>Add user to the IAM group created previously</p>
+</li>
+<li>
+<p>Download as .csv (or copy) Access key information (<strong>Access key ID</strong> and <strong>Secret access key</strong>) for later use</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Now let&#8217;s assume you are using an EC2 region which supports the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">EC2-VPC platform</a>.
+Therefore a <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">default VPC and default subnets</a> should already be available.</p>
+</li>
+<li>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#creating-security-group">Create an EC2 Security Group</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Security group name</strong>: sg_bonita-provisioning</p>
+</li>
+<li>
+<p>Add an Inbound rule to allow communication between Bonita stack components</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: All Traffic, <strong>Source</strong>: &lt;security_group_id_of_sg_bonita-provisioning&gt;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add an Inbound rule to allow Ansible to connect via SSH</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: SSH, <strong>Source</strong>: My IP</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add an Inbound rule to allow remote connection to Bonita Tomcat via HTTP</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: Custom TCP Rule, <strong>Port Range</strong>: 8081, <strong>Source</strong>: My IP</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add an Inbound rule to allow remote connection to Bonita databases</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type</strong>: Custom TCP Rule, <strong>Source</strong>: My IP</p>
+<div class="ulist">
+<ul>
+<li>
+<p>with <code>bonita_db_vendor: postgres</code> - <strong>Port Range</strong>: 5432</p>
+</li>
+<li>
+<p>with <code>bonita_db_vendor: mysql</code> - <strong>Port Range</strong>: 3306</p>
+</li>
+<li>
+<p>with <code>bonita_db_vendor: oracle</code> - <strong>Port Range</strong>: 1521</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Create an EC2 Key Pair</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Note: A key pair is linked to an AWS region</em></p>
+</li>
+<li>
+<p>Download the <code>.pem</code> private key file</p>
+</li>
+<li>
+<p>Ensure private key file permissions: <code>$ chmod 400 &lt;keyfile_basename&gt;.pem</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>BCD is compatible with official Ubuntu cloud images as EC2 AMI (Amazon Machine Images).
++ Use the <a href="https://cloud-images.ubuntu.com/locator/ec2/">Amazon EC2 AMI Locator</a> tools to identify IDs of such images.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dynamic_ec2_inventory_configuration"><a class="anchor" href="#_dynamic_ec2_inventory_configuration"></a>Dynamic EC2 inventory configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When deploying to AWS, BCD uses <a href="http://docs.ansible.com/ansible/latest/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script">dynamic Amazon EC2 inventory</a> with a <code>ec2_wrapper.sh</code> script.</p>
+</div>
+<div class="paragraph">
+<p>This <code>ec2_wrapper.sh</code> script can be further configured with the <code>ec2.ini.j2</code> template.</p>
+</div>
+<div class="paragraph">
+<p>For instance, if you are running the BCD controller <strong>from outside EC2</strong>, the <code>vpc_destination_variable</code> parameter should be set to <code>ip_address</code>.
+If you are running the BCD controller <strong>from within EC2</strong>, the <code>vpc_destination_variable</code> parameter should be set to <code>private_ip_address</code>.
++ This parameter is managed by the <code>ec2_vpc_destination_variable</code> BCD variable.</p>
+</div>
+<div class="paragraph">
+<p>More information on dynamic EC2 inventory management can be found in <a href="https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/">this blog post</a>.</p>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <div class="col">
+        <div class="footer-logo">
+          <a href="https://www.couchbase.com" class="icon">
+            <img src="../../_/img/couchbase_logo_black.svg" alt="Couchbase">
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://docs.couchbase.com" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="https://forums.couchbase.com" target="_blank" rel="noopener">Forums</a></li>
+          <li><a href="https://support.couchbase.com" target="_blank" rel="noopener">Support</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://developer.couchbase.com" target="_blank" rel="noopener">Developer Portal</a></li>
+          <li><a href="https://blog.couchbase.com" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.couchbase.com/resources">Resources</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><a href="https://www.couchbase.com/get-started-developing-nosql">Get Started</a></li>
+          <li><a href="https://www.couchbase.com/downloads">Downloads</a></li>
+          <li><a href="https://learn.couchbase.com/store?utf8=%E2%9C%93&ss=1&ct=78327&commit=Filter" target="_blank" rel="noopener">Training</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="social-icons">
+          <li>
+            <svg  width="14" height="14" viewBox="0 0 32 32"> <path id="facebook" class="cls-1" d="M29,0H3A2.652,2.652,0,0,0,0,3V29a2.652,2.652,0,0,0,3,3H16V18H12V14h4V12a6.452,6.452,0,0,1,6-6h4v4H22a2.151,2.151,0,0,0-2,2v2h6l-1,4H20V32h9a2.652,2.652,0,0,0,3-3V3A2.652,2.652,0,0,0,29,0Z"/></svg>
+            <a href="https://www.facebook.com/Couchbase" class="icon">
+            Facebook
+            </a>
+          </li>
+          <li>
+            <svg  width="14" height="14" viewBox="0 0 32.1 26.1"> <path id="twitter" class="cls-1" d="M32,7.1a11.836,11.836,0,0,1-3.8,1,6.462,6.462,0,0,0,2.9-3.6,12.606,12.606,0,0,1-4.2,1.6A6.492,6.492,0,0,0,22.1,4a6.594,6.594,0,0,0-6.6,6.6,7.719,7.719,0,0,0,.2,1.5A18.458,18.458,0,0,1,2.2,5.2a6.294,6.294,0,0,0-.9,3.3A6.765,6.765,0,0,0,4.2,14a6.109,6.109,0,0,1-3-.8v.1a6.543,6.543,0,0,0,5.3,6.4,4.678,4.678,0,0,1-1.7.2,4.869,4.869,0,0,1-1.2-.1,6.679,6.679,0,0,0,6.1,4.6,12.917,12.917,0,0,1-8.2,2.8,9.151,9.151,0,0,1-1.6-.1,18.438,18.438,0,0,0,10.1,3c12.1,0,18.7-10,18.7-18.7v-.8A13.336,13.336,0,0,0,32,7.2Z" transform="translate(0.1 -4)"/></svg>
+            <a href="https://twitter.com/couchbase" class="icon">
+              Twitter
+            </a>
+          </li>
+          <li>
+          <svg  width="14" height="14" viewBox="0 0 32 32"> <path id="linkedin" class="cls-1" d="M29,0H3A3.076,3.076,0,0,0,0,3V29a3.009,3.009,0,0,0,3,3H29a2.946,2.946,0,0,0,3-3V3A3.009,3.009,0,0,0,29,0ZM12,26H8V12h4ZM10,10a2,2,0,1,1,2-2A2.006,2.006,0,0,1,10,10ZM26,26H22V18a2,2,0,0,0-4,0v8H14V12h4v2.5c.8-1.1,2.1-2.5,3.5-2.5A4.736,4.736,0,0,1,26,17Z"/></svg>
+              <a href="https://www.linkedin.com/company/couchbase" class="icon">
+             Linkedin
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-terms">
+      <div class="footer-terms-copyright">
+          <span>© 2020 Couchbase, Inc. Couchbase, Couchbase Lite and the Couchbase logo are registered trademarks of Couchbase, Inc.</span>
+      </div>
+      <div class="footer-terms-links">
+        <a href="https://www.couchbase.com/terms-of-use">Terms of Use</a>
+        <a href="https://www.couchbase.com/privacy-policy">Privacy Policy</a>
+        <a href="https://www.couchbase.com/cookie-policy">Cookie Policy</a>
+        <a href="https://www.couchbase.com/support-policy">Support Policy</a>
+        <a href="https://info.couchbase.com/unsubscribe-or-manage-preferences.html" target="_blank" rel="noopener">Marketing Preference Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+</body>
+</html>
