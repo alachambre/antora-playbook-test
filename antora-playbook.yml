@@ -5,15 +5,13 @@ site:
 content:
   sources:
     - url: https://github.com/alachambre/antora-sources-test.git
+      branches: [master, 7.11]
+    - url: git@github.com:alachambre/antora-source-api.git
     - url: https://github.com/alachambre/antora-sources-test-2.git
 ui:
   bundle:
-    url: https://github.com/couchbase/docs-ui-sandbox/releases/download/prod-83/ui-bundle.zip
-    snapshot: true
+    url: /Users/adrien/test-antora/antora-ui/build/ui-bundle.zip
 asciidoc:
-  attributes:
-    varVersion: 7.12.0
-    bcdVersion: 3.4
   extensions:
   - ./lib/source-url-include-processor.js
   - ./lib/json-config-ui-block-macro.js
