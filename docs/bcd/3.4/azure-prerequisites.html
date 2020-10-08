@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to configure Microsoft Azure for BCD :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/azure-prerequisites.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="#_manage_stack.adoc">Manage Bonita stacks</a></li>
+    <li><a href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/azure-prerequisites.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to configure Microsoft Azure for BCD</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes how to configure Microsoft Azure cloud computing service for BCD.
++ These configuration steps are required to allow BCD to programmatically manage your Azure resources and to be able to connect to your Bonita stack.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sign_up_for_azure"><a class="anchor" href="#_sign_up_for_azure"></a>Sign Up for Azure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To start using Azure services, you need to have a Microsoft account.
+If you do not have a Microsoft account yet, first sign up as described in this user guide: <a href="https://support.microsoft.com/en-us/help/4026324/microsoft-account-sign-up-for-a-microsoft-account">Sign Up for a Microsoft account</a>.
++ Then go to the <a href="https://azure.microsoft.com/">Microsoft Azure</a> website to sign up for Azure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_setup_for_bcd"><a class="anchor" href="#_azure_setup_for_bcd"></a>Azure Setup for BCD</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to use Azure resources, some configuration steps need to be performed as a prerequisite.
++ The following steps are the basic requirements to set up your Azure account for BCD.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups">Create a resource group</a>.
++ A resource group may be shared by multiple BCD stacks.
+This allows to share virtual networks and network security groups among BCD stacks.
++ Choose a location (eg.
+<code>North Europe</code>) and give the resource group a name like: <code>bcd-northEurope-rg</code>.</p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-portal">Create a virtual network</a> on the same location and attach it to the resource group created previously.
++ Give the virtual network a name like: <code>bcd-northEurope-vnet</code> + Define a subnet for this virtual network.
+You may leave the default name <code>default</code>.</p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group">Create a network security group</a> on the same location and attach it to the resource group created previously.
+Associate the security group with the subnet created previously.
++ Give the virtual network a name like: <code>bcd-northEurope-netsg</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Add an Inbound rule to allow BCD to connect via SSH</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Source</strong>: <em>Your IP</em>, <strong>Destination port ranges</strong>: 22, <strong>Protocol</strong>: Any</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add an Inbound rule to allow remote connection to Bonita Tomcat via HTTP</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Source</strong>: <em>Your IP</em>, <strong>Destination port ranges</strong>: 8081, <strong>Protocol</strong>: TCP</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Add an Inbound rule to allow remote connection to Bonita databases</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Source</strong>: <em>Your IP</em>, <strong>Protocol</strong>: TCP</p>
+<div class="ulist">
+<ul>
+<li>
+<p>with <code>bonita_db_vendor: postgres</code> - <strong>Destination port ranges</strong>: 5432</p>
+</li>
+<li>
+<p>with <code>bonita_db_vendor: mysql</code> - <strong>Destination port ranges</strong>: 3306</p>
+</li>
+<li>
+<p>with <code>bonita_db_vendor: oracle</code> - <strong>Destination port ranges</strong>: 1521</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/tutorial-custom-role-cli">Create a custom Role using Azure CLI</a> (or Azure PowerShell).
+Both Azure CLI and PowerShell are available through <a href="https://azure.microsoft.com/en-us/features/cloud-shell/">Azure Cloud Shell</a> directly from your browser.
++ Use the following JSON role definition in a <code>BCDReadWriteRole.json</code> file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "Actions": [
+        "Microsoft.Resources/subscriptions/resourcegroups/read",
+        "Microsoft.Network/register/action",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/networkInterfaces/delete",
+        "Microsoft.Network/networkInterfaces/join/action",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/publicIPAddresses/write",
+        "Microsoft.Network/publicIPAddresses/delete",
+        "Microsoft.Network/publicIPAddresses/join/action",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/virtualMachines/delete",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/delete"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    ],
+    "Description": "Read and write operations for BCD.",
+    "Name": "BCD Read/Write"
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+replace <code>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</code> with your actual subscription identifier.
+You may get your subscription identifier using Azure CLI with this command: + <code>az account list --output table</code> + Create your custom role using Azure CLI with this command: + <code>az role definition create --role-definition @BCDReadWriteRole.json</code>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal">Create a Service Principal</a> to generate credentials (keys) for your BCD users.
+One Service Principal may manage keys for multiple users.
++ Register an application for BCD (<strong>New application registration</strong>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: bcd</p>
+</li>
+<li>
+<p><strong>Application type</strong>: Web app / API</p>
+</li>
+<li>
+<p><strong>Sign-on URL</strong>: <em>Any valid URI, for instance</em>: <a href="https://mycomp.any" class="bare">https://mycomp.any</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then go on with <span class="menuseq"><b class="menu">Settings</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Keys</b></span> to create keys (passwords) for your BCD users.</p>
+</div>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal#grant-access">Grant the Service Principal access to the custom role using Azure Portal</a>.
+Other methods may be used to grant access.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the <strong>Access control (IAM)</strong> page for your resource group</p>
+</li>
+<li>
+<p>Assign to the <strong>bcd</strong> application the <strong>BCD Read/Write</strong> role (<strong>Add permissions</strong> page)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Finally, BCD is compatible with official <a href="https://azuremarketplace.microsoft.com/en/marketplace/apps/Canonical.UbuntuServer?tab=Overview">Ubuntu Server virtual machine images</a> from Canonical.
++ Check the <a href="requirements-and-compatibility">Requirements and compatibility</a> page for the supported operating system versions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_authentication_for_bcd"><a class="anchor" href="#_azure_authentication_for_bcd"></a>Azure Authentication for BCD</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Azure credentials must be set as environment variables in your BCD controller in order to create and delete Azure resources with BCD.
+Here are the environment variables that need to be set:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AZURE_SUBSCRIPTION_ID</p>
+</li>
+<li>
+<p>AZURE_CLIENT_ID</p>
+</li>
+<li>
+<p>AZURE_SECRET</p>
+</li>
+<li>
+<p>AZURE_TENANT</p>
+</li>
+<li>
+<p>ARM_SUBSCRIPTION_ID</p>
+</li>
+<li>
+<p>ARM_CLIENT_ID</p>
+</li>
+<li>
+<p>ARM_CLIENT_SECRET</p>
+</li>
+<li>
+<p>ARM_TENANT_ID</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In fact, there are 4 different information that you need to gather:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><u>Subscription ID</u>: obtained from Portal&#8217;s <strong>Subscriptions</strong> page as the <strong>Subscription ID</strong> field.
+It can also be obtained with Azure CLI command: <code>az account list --output table</code></p>
+</li>
+<li>
+<p><u>Client ID</u>: obtained from Portal&#8217;s <strong>Registered app</strong> page as the <strong>Application ID</strong> field.
+It can also be obtained with Azure CLI command: <code>az ad app list | jq '.[] | {"displayName": .displayName, "appId": .appId}'</code> (provided <a href="https://stedolan.github.io/jq/">JQ</a> is available)</p>
+</li>
+<li>
+<p><u>Client Secret</u>: displayed once while creating keys (passwords) for users on the <em>bcd</em> service principal.</p>
+</li>
+<li>
+<p><u>Tenant ID</u>: obtained from Portal&#8217;s <span class="menuseq"><b class="menu">Azure Active Directory</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Properties</b></span> page as the <strong>Directory ID</strong> field.
+It can also be obtained with Azure CLI command: <code>az account list</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Therefore you may use an environment script in order to set these environment variables in a more convenient way.
+Create a <code>bcd-azure.env</code> accessible from your BCD controller with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">set -a
+
+#
+# Set values for the next 4 variables
+#
+AZURE_SUBSCRIPTION_ID=&lt;YOUR_SUBSCRIPTION_ID&gt;
+AZURE_CLIENT_ID=&lt;YOUR_CLIENT_ID&gt;
+AZURE_SECRET=&lt;YOUR_CLIENT_SECRET&gt;
+AZURE_TENANT=&lt;YOUR_TENANT_ID&gt;
+
+#
+# DO NOT EDIT the following lines
+#
+ARM_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+ARM_CLIENT_ID=${AZURE_CLIENT_ID}
+ARM_CLIENT_SECRET=${AZURE_SECRET}
+ARM_TENANT_ID=${AZURE_TENANT}
+
+set +a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is a sample <code>bcd-azure.env</code> file with dummy credentials:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">set -a
+
+AZURE_SUBSCRIPTION_ID=12345abc-123a-456b-789c-123456abcdef
+AZURE_CLIENT_ID=54321abc-321a-654b-987c-654321abcdef
+AZURE_SECRET=abcdefghiklmnopqrstuvwxyz123456789ABCDEFGHIJ
+AZURE_TENANT=98765cba-987c-321d-012e-987654fedcba
+
+ARM_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+ARM_CLIENT_ID=${AZURE_CLIENT_ID}
+ARM_CLIENT_SECRET=${AZURE_SECRET}
+ARM_TENANT_ID=${AZURE_TENANT}
+
+set +a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once your <code>bcd-azure.env</code> file is ready, source the file to set environment variables in your BCD controller as follows: <code>source bcd-azure.env</code> + BCD is now ready to create/delete Azure resources as defined in your scenario using Azure credentials set in your environment.</p>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

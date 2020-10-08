@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to manage Bonita licenses :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/manage_bonita_licenses.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="manage_bonita_licenses.html">Manage Bonita licenses</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/manage_bonita_licenses.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to manage Bonita licenses</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes how to manage Bonita licenses from the command line using BCD.
++ This feature lets you generate licenses programmatically for your Bonita Studio or Bonita Server.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use this feature, you need to prepare a <a href="scenarios">scenario file</a> with the following required information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>bonita_version</code> variable</p>
+</li>
+<li>
+<p><a href="https://documentation.bonitasoft.com/bcd/3.4/scenarios#toc4">All licensing variables</a></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info An example scenario is provided with the <strong>scenarios/manage_licenses.yml.EXAMPLE</strong> file with required variables to manage Bonita licenses with BCD.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>== Generating a new license</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can generate a new license providing a <strong>Request Key</strong>.
+Read more about Bonita licenses and how to generate a request key on this <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/licenses#toc2">documentation page</a>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info The request key has to be generated on the host where your Bonita Studio or Bonita Server will be running.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Assuming your request key is <code>(CIVpYDRB8bhouXdWadLY1M9TVctwYUYu)</code>, here is an example usage of the <code>bcd license generate</code> command:</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ bcd -s scenarios/euwest1_performance.yml -y license generate -k '(CIVpYDRB8bhouXdWadLY1M9TVctwYUYu)' -o /path/to/output_directory</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning The output directory (<code>/path/to/output_directory</code> in the above example) is related to your BCD Controller Docker container.
++ In order to persist the generated licenses after exiting the BCD Controller, you may use a bind-mounted output directory.
+Still, you may copy your generated licenses while the BCD controller is running.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>== Revoking a license</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>You can revoke a Bonita license providing the path to a license file.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Revoking a license will make your license inactive and it will delete the license file you have provided.
++ This operation releases a <em>slot</em> to generate a new license as authorized by your Bonita subscription.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Here is an example usage of the <code>bcd license revoke</code> command:</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ bcd -s scenarios/euwest1_performance.yml -y license revoke -p /path/to/bonita_license_file.lic</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

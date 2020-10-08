@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to build a Living App repository :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/livingapp_build.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="#_manage_living_application.adoc">Manage Bonita Living Applications</a></li>
+    <li><a href="livingapp_build.html">Build a Living App repository</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/livingapp_build.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to build a Living App repository</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes how to build a Bonita Living Application repository from the command line using BCD.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info A Living Application repository (or <strong>Living App repository</strong>) contains the artifacts developed in Bonita Studio and the UI Designer.
+Its content is further described in <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/workspaces-and-repositories">Bonita&#8217;s Workspaces and repositories documentation</a> page.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>The repository build process allows to generate Bonita deployable artifacts (for instance process <code>.bar</code> files, UI Designer pages <code>.zip</code> files, REST API extensions <code>.zip</code> files).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_by_step_tutorial"><a class="anchor" href="#_step_by_step_tutorial"></a>Step-by-step tutorial</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_prepare_the_repository"><a class="anchor" href="#_1_prepare_the_repository"></a>1. Prepare the repository</h3>
+<div class="paragraph">
+<p>A Living App repository can be created using Bonita Studio and it can be <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/workspaces-and-repositories#toc5">shared with Git or SVN</a>.</p>
+</div>
+<div class="paragraph">
+<p>So first ensure you have your Living App repository available on your filesystem.
++ For this tutorial, we will use the <a href="https://github.com/bonitasoft/bonita-vacation-management-example">Bonita Vacation Management example repository</a> publicly available on GitHub.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cd bonita-continuous-delivery
+$ git clone -b dev/7.8.0 https://github.com/bonitasoft/bonita-vacation-management-example</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This step creates a <code>bonita-continuous-delivery/bonita-vacation-management-example</code> directory which is the Living App repository we are going to build.
+This example checks out the <code>dev/7.8.0</code> Git branch.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning <strong>Important note regarding custom theme build</strong>: + The BCD controller comes <em>pre-installed</em> with <strong>NodeJS ${nodeVersion}</strong> and <strong>NPM ${npmVersion}</strong> specific versions.
+Therefore make sure your custom themes reference these versions in their Maven <code>pom.xml</code> as follows:</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">[...]
+&lt;properties&gt;
+  &lt;node.version&gt;${nodeVersion}&lt;/node.version&gt;
+  &lt;npm.version&gt;${npmVersion}&lt;/npm.version&gt;
+  &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+&lt;/properties&gt;
+[...]</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== 2. Provide the repository&#8217;s build dependencies</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The next step is to provide all dependencies required to build your repository, see <a href="getting_started.md#toc1">Common Installation Steps</a>.</p>
+</div>
+<div class="paragraph">
+<p>Hence the following artifacts must be present in the <code>$BCD_HOME/dependencies</code> directory or any of its subdirectories:</p>
+</div>
+<div class="paragraph">
+<p><strong><code>bonita-la-builder-&lt;bonita_version&gt;-exec.jar</code></strong> + The Bonita Living Application Builder library.
+Its version must correspond to the <strong><code>bonita_version</code></strong> variable defined in your BCD scenario.
+This is the version of the Bonita stack where generated artifacts will be deployed.
++ For instance the <code>bonita-la-builder-7.8.0-exec.jar</code> file must be present to build artifacts meant to be deployed on a Bonita <code>7.8.0</code> stack.</p>
+</div>
+<div class="paragraph">
+<p><strong><code>bonita-sp-</strong>-maven-repository.zip</code>* + Bonita Maven repository zip files if your repository contains <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/api-extensions">REST API extensions</a>.
+The version of the Maven repository zip must correspond to the <code>bonita.version</code> property defined in your REST API extension&#8217;s <code>pom.xml</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_build_the_repository"><a class="anchor" href="#_3_build_the_repository"></a>3. Build the repository</h3>
+<div class="paragraph">
+<p>BCD is now ready to build your repository using the <code>bcd livingapp build</code> command.
+From your BCD Controller container, run these commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cd bonita-continuous-delivery
+$ bcd -s scenarios/build_and_deploy.yml --yes livingapp build -p bonita-vacation-management-example -e Test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The build process finally generates a <strong>.zip</strong> package and - for Bonita 7.8.0 onwards - a <strong>.bconf</strong> artifact located in the repository&#8217;s <code>target</code> repository.
+The generated artifacts are named after the repository&#8217;s root directory name and the selected environment name.</p>
+</div>
+<div class="paragraph">
+<p>For instance with the <code>bonita-vacation-management-example</code> example, the following files will be generated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bonita-vacation-management-example/target/bonita-vacation-management-example-&lt;environment&gt;-&lt;timestamp&gt;.zip</code></p>
+</li>
+<li>
+<p><code>bonita-vacation-management-example/target/bonita-vacation-management-example-&lt;environment&gt;-&lt;timestamp&gt;.bconf</code></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Since BCD 3.0.0, process configurations are built into a separate <strong>.bconf</strong> artifact.
+This configuration artifact allows to separate process configuration (parameters) from application assets.
++ As a result, the same <strong>.zip</strong> package can be deployed on all environments (Development, Test, Staging) whereas a specific <strong>.bconf</strong> artifact may be applied to each environment.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Refer to the <a href="bcd_cli.html" class="page">BCD Command-line reference</a> for a complete list of available options for the <code>bcd livingapp build</code> command.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repository_vs_builder_version_compatibility"><a class="anchor" href="#_repository_vs_builder_version_compatibility"></a>Repository vs. Builder version compatibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The version of your repository <strong>must exactly match</strong> the version of the builder library.</p>
+</div>
+<div class="paragraph">
+<p>If versions do not match, the <code>bcd livingapp build</code> command will exit with such a message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ERROR] Project version (7.8.0) does not match builder version (7.7.4)
+[13:46:34.469] ERROR: Aborting! Command &lt;livingapp-build&gt; returned non-zero exit code <i class="conum" data-value="1"></i><b>(1)</b></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>bcd livingapp build</code> command does not allow to migrate your repository to the builder&#8217;s version.
+Your repository has to be migrated to the appropriate version using <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/workspaces-and-repositories#toc6">Bonita Studio</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_complete_example"><a class="anchor" href="#_complete_example"></a>Complete example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here is a complete example of how to build the <a href="https://github.com/bonitasoft/bonita-vacation-management-example">Bonita Vacation Management example repository</a> for Bonita version 7.8.0.</p>
+</div>
+<div class="paragraph">
+<p><strong>On the control host</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cd bonita-continuous-delivery_3.0.0
+
+$ git clone -b dev/7.8.0 https://github.com/bonitasoft/bonita-vacation-management-example
+$ ls -nh bonita-vacation-management-example
+total 60K
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 applications
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 bdm
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 diagrams
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 environements
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 23:29 lib
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 organizations
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 process_configurations
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 profiles
+-rw-rw-r--  1 1000 1000  486 Mar 29 16:17 README.md
+drwxrwxr-x  3 1000 1000 4,0K Mar 29 16:17 restAPIExtensions
+drwxr-xr-x  6 1000 1000 4,0K Mar 29 23:29 target
+drwxr-xr-x  2 1000 1000 4,0K Mar 29 16:19 web_fragments
+drwxrwxr-x 11 1000 1000 4,0K Mar 29 16:19 web_page
+drwxr-xr-x 26 1000 1000 4,0K Mar 29 16:19 web_widgets
+drwxrwxr-x  2 1000 1000 4,0K Mar 29 16:17 xsd
+
+$ ls -nhR dependencies/
+dependencies/:
+total 8
+drwxr-xr-x    2 1000        1000           4.0K Nov 22 16:52 7.8.0
+
+dependencies/7.8.0:
+total 106096
+-rw-r--r--    1 1000        1000            297 Nov 13 14:03 LICENSE
+-rw-r--r--    1 1000        1000          84.4M Nov 13 14:03 bonita-la-builder-7.8.0-exec.jar
+-rw-r--r--    1 1000        1000          19.2M Nov 13 14:03 bonita-sp-7.8.0-maven-repository.zip
+
+
+$ grep "bonita_version" scenarios/build_and_deploy.yml
+bonita_version: 7.8.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>In the BCD controller container</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bonita@bcd-controller:~$ cd bonita-continuous-delivery
+bonita@bcd-controller:~/bonita-continuous-delivery$ bcd -s scenarios/build_and_deploy.yml --yes livingapp build -p bonita-vacation-management-example -e Test
+
+bonita@bcd-controller:~/bonita-continuous-delivery$ ls -nh bonita-vacation-management-example/target
+total 9,0M
+drwxr-xr-x 9 1000 1000 4,0K Dec   6 13:59 bonita-vacation-management-example
+-rw-r--r-- 1 1000 1000 2,4K Dec   6 13:59 bonita-vacation-management-example-Test-20181206125838.bconf
+-rw-r--r-- 1 1000 1000 9,0M Dec   6 13:59 bonita-vacation-management-example-Test-20181206125838.zip
+drwxr-xr-x 3 1000 1000 4,0K Dec   6 13:59 bpmn
+drwxr-xr-x 3 1000 1000 4,0K Dec   6 13:58 configurations
+drwxr-xr-x 2 1000 1000 4,0K Dec   6 13:58 generated-jars
+drwxr-xr-x 3 1000 1000 4,0K Dec   6 13:58 ui-designer</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

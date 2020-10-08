@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BCD controller Docker image :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/bcd_controller.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a></li>
+    <li><a href="bcd_controller.html">Controller Docker image</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/bcd_controller.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">BCD controller Docker image</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The BCD controller image provides a ready-to-use environment to launch Bonita Continuous Delivery CLI and Ansible playbooks.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since BCD 3.0.0, the BCD controller image is provided through Quay.io registry.</p>
+</div>
+<div class="paragraph">
+<p>Get this image as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker login quay.io
+Username: bonitasoft+john_doe_at_acme_com
+Password:
+$ docker pull quay.io/bonitasoft/bcd-controller:&lt;version&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The username corresponds to <code>bcd_registry_user</code> and the password corresponds to <code>bcd_registry_password</code> described in the <a href="scenarios.html" class="page">Scenario file reference</a>.
+Both have been provided by your sales representative.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enter the BCD controller environment, a Docker container has to be started on your control host using the BCD controller image.</p>
+</div>
+<div class="paragraph">
+<p>Besides the following files have to be bind mounted from the control host to make them available to the BCD controller container:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>/host/path/to/bonita-continuous-delivery_&lt;version&gt;</code></strong> (mounted as <code>/home/bonita/bonita-continuous-delivery</code>) - This directory provides BCD Ansible playbooks and is known as the <code>BCD_HOME</code> directory.</p>
+</li>
+<li>
+<p></p>
+<div class="paragraph">
+<p>This file is required for <strong>Provisioning</strong>.
+It is not required for Living App management.</p>
+</div>
+<div class="paragraph">
+<p><strong><code>ssh_private_key</code></strong> (mounted as <code>/home/bonita/.ssh/ssh_private_key</code>) - The <code>ssh_private_key</code> file is the SSH private key used to connect to your target machines.
+For AWS, this is the private part of your <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">EC2 key pair</a>.
+This file should only be accessible from your user (<code>chmod 600 ~/.ssh/ssh_private_key</code>).</p>
+</div>
+</li>
+<li>
+<p></p>
+<div class="paragraph">
+<p>AWS credentials are required for <strong>Provisioning on AWS</strong>.
+It is not required for Living App management.</p>
+</div>
+<div class="paragraph">
+<p><strong><code>.boto</code></strong> (mounted as <code>/home/bonita/.boto</code>) - The <a href="https://boto.readthedocs.io/en/latest/boto_config_tut.html"><code>.boto</code></a> file contains AWS credentials used to make programmatic calls to AWS.
+Indeed dynamic Amazon EC2 inventory management for Ansible runs on top of <a href="https://aws.amazon.com/sdk-for-python/">Boto</a>.
+The content of a <code>.boto</code> file is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ini hljs" data-lang="ini">  [Credentials]
+  aws_access_key_id = &lt;YOUR_AWS_ACCESS_KEY&gt;
+  aws_secret_access_key = &lt;YOUR_AWS_SECRET_ACCESS_KEY&gt;</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info However AWS credentials can be provided in other ways, for instance with <a href="aws_sso.html" class="page">AWS single sign-on</a>.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Once the required files are prepared, the BCD controller container can be started in different ways described hereafter.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_starting_a_bcd_controller_with_docker_run"><a class="anchor" href="#_starting_a_bcd_controller_with_docker_run"></a>Starting a BCD controller with <code>docker run</code></h3>
+<div class="paragraph">
+<p>The first method to start a BCD Controller Docker container on the control host is to use the <code>docker run</code> command with BCD dependencies already present in your host, see <a href="getting_started.md#toc1">Common installation steps</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run --rm -t -i --name bcd-controller \
+    -v bcd-dependencies-&lt;bonita_version&gt;:/home/bonita/bonita-continuous-delivery/dependencies/&lt;bonita_version&gt;  \
+    -v &lt;host_path_to_.boto&gt;:/home/bonita/.boto \
+    -v &lt;host_path_to_bonita-continuous-delivery_folder&gt;:/home/bonita/bonita-continuous-delivery \
+    -v &lt;host_path_to_ssh_private_key&gt;:/home/bonita/.ssh/&lt;ssh_private_key&gt; \
+    quay.io/bonitasoft/bcd-controller /bin/bash</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starting_a_bcd_controller_with_docker_compose_run"><a class="anchor" href="#_starting_a_bcd_controller_with_docker_compose_run"></a>Starting a BCD controller with <code>docker-compose run</code></h3>
+<div class="paragraph">
+<p>The BCD controller container can also be created and started using <a href="https://docs.docker.com/compose/">Docker Compose</a>.
+This method enables to configure bind mount volumes in a <code>docker-compose.yml</code> file instead of through command-line options.</p>
+</div>
+<div class="paragraph">
+<p>There is an example named <code>docker-compose.yml.EXAMPLE</code> in your <code>BCD_HOME</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>If you want to use it to launch your BCD controller, you can rename this file without .EXAMPLE and adapt the paths to your environment.</p>
+</div>
+<div class="paragraph">
+<p>Then start the BCD controller container interactively with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker-compose run --rm bcd</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tip_persistent_command_history"><a class="anchor" href="#_tip_persistent_command_history"></a>TIP: Persistent command history</h4>
+<div class="paragraph">
+<p>If you want to persist your bash command history across container restarts, simply add the following environment line in your <code>docker-compose.yaml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">bcd:
+ # lines omitted ...
+ ## Add or uncomment the following lines to persist your command history across bcd controller restarts
+ environment:
+  - HISTFILE=/home/bonita/bonita-continuous-delivery/.bcd_bash_history</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The history of your commands will be persisted to this file which is located in your project home directory.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note_for_linux_users"><a class="anchor" href="#_note_for_linux_users"></a>Note for Linux users</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This note refers to file permissions while bind mounting host files into the BCD controller container.
+This may be a concern for Linux users mainly.</p>
+</div>
+<div class="paragraph">
+<p>The BCD controller container runs with a <code>bonita</code> user which has been created with <code>uid=1000</code> and <code>gid=1000</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the user who runs the BCD controller on the control host has <code>uid=1000</code> and <code>gid=1000</code>, then file sharing will work without any further action.
++ Here is how to check user and group IDs on Linux systems:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ id
+uid=1000(john) gid=1000(john) [...]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If this is not so, then read the next section to know how to fix file ownership between the control host and the controller container.</p>
+</div>
+<div class="sect2">
+<h3 id="_running_bcd_controller_with_user_id_different_from_1000"><a class="anchor" href="#_running_bcd_controller_with_user_id_different_from_1000"></a>Running BCD controller with user ID different from 1000</h3>
+<div class="paragraph">
+<p>Here is one way to remap UID/GID of the controller&#8217;s <code>bonita</code> user with your host user.
+It consists of extending the <code>quay.io/bonitasoft/bcd-controller</code> Docker image by using the following <code>Dockerfile</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dockerfile hljs" data-lang="dockerfile">FROM quay.io/bonitasoft/bcd-controller
+
+ARG BONITA_UID
+ARG BONITA_GID
+
+USER root
+
+RUN apk --no-cache --update add shadow &amp;&amp; \
+    groupmod -g ${BONITA_GID} bonita &amp;&amp; \
+    usermod -u ${BONITA_UID} -g ${BONITA_GID} bonita &amp;&amp; \
+    chown bonita:bonita /var/log/ansible.log &amp;&amp; \
+    apk del shadow
+
+USER bonita</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Build the <em>extended</em> BCD controller image as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker build -t bonitasoft/bcd-controller:custom-uid \
+    --build-arg BONITA_UID=$(id -u) --build-arg BONITA_GID=$(id -g) .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will produce a <code>bonitasoft/bcd-controller:custom-uid</code> Docker image which can be used to run your controller container.
++ The <code>bonita</code> user will have the same UID/GID as your host user, hence solving file permission issues while sharing volumes from your host to the container.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to configure REST API authorization :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/how_to_configure_rest_api_authorization.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="#_manage_stack.adoc">Manage Bonita stacks</a></li>
+    <li><a href="#_custom_init.adoc">Customize the Bonita container</a></li>
+    <li><a href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/how_to_configure_rest_api_authorization.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to configure REST API authorization</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Bonita container is launched with REST_API_DYN_AUTH_CHECKS flag set to true by default.
++ It means that all <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization#toc2">dynamic permissions checks</a> are activated.</p>
+</div>
+<div class="paragraph">
+<p>In the sections below we will manipluate configuration into templates and not at a specific tenant.
+Indeed the default tenant (1) will be created during the first startup of bonita.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deactivating_dynamic_permissions_checks"><a class="anchor" href="#_deactivating_dynamic_permissions_checks"></a>Deactivating dynamic permissions checks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since 2.0.x, BCD manages the REST_API_DYN_AUTH_CHECKS environment through the <a href="scenarios.html" class="page">scenario variable</a> <code>bonita_rest_api_dyn_auth_checks</code>.
++ So to deactivate dynamic permissions checks you will just have to add the following line into your scenario:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">bonita_rest_api_dyn_auth_checks: false</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_custom_permissions"><a class="anchor" href="#_adding_custom_permissions"></a>Adding custom permissions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As described in <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization?hash=debug#toc1">Bonita documentation</a>, the custom-permissions-mapping.properties file contains custom rules that supplement the resource permissions and compound permissions.
+By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.</p>
+</div>
+<div class="paragraph">
+<p>If you want to override the default behavior, you can add rules to this file by adding this kind of script <code>roles/bonita/files/custom-init.d/add-custom-permissions.sh</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/bash
+
+set -euxo pipefail
+
+indicator_path=/opt/$(basename $BASH_ARGV)-executed
+if [ -f ${indicator_path} ]; then
+  echo "Custom script already executed" &amp;&amp; return 0
+fi
+
+BONITA_PATH=${BONITA_PATH:-/opt/bonita}
+BONITA_FILES=${BONITA_FILES:-/opt/files}
+BONITA_SETUP_SH="${BONITA_PATH}/Bonita*Subscription-${BONITA_VERSION}-*omcat*/setup/setup.sh"
+
+# define custom permissions
+# the profile User have now the permission Organization management and Organization visualization
+${BONITA_SETUP_SH} pull
+echo -e "\nprofile|User=[organization_management, organization_visualization]" &gt;&gt; ${BONITA_PATH}/Bonita*Subscription-${BONITA_VERSION}-*omcat*/setup/platform_conf/current/tenant_template_portal/custom-permissions-mapping.properties
+${BONITA_SETUP_SH} push
+
+# Create indicator file
+touch ${indicator_path}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a more advanced configuration you can also provide directly a file <code>roles/bonita/files/custom-init.d/custom-permissions-mapping.properties</code> and push it with a script like <code>roles/bonita/files/custom-init.d/add-custom-permissions-file.sh</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/bash
+
+set -euxo pipefail
+
+indicator_path=/opt/$(basename $BASH_ARGV)-executed
+if [ -f ${indicator_path} ]; then
+  echo "Custom script already executed" &amp;&amp; return 0
+fi
+
+BONITA_PATH=${BONITA_PATH:-/opt/bonita}
+BONITA_FILES=${BONITA_FILES:-/opt/files}
+BONITA_SETUP_SH="${BONITA_PATH}/Bonita*Subscription-${BONITA_VERSION}-*omcat*/setup/setup.sh"
+
+# define custom permissions
+${BONITA_SETUP_SH} pull
+cp /opt/custom-init.d/custom-permissions-mapping.properties ${BONITA_PATH}/Bonita*Subscription-${BONITA_VERSION}-*omcat*/setup/platform_conf/current/tenant_template_portal/
+${BONITA_SETUP_SH} push
+
+# Create indicator file
+touch ${indicator_path}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enabling_debug_mode"><a class="anchor" href="#_enabling_debug_mode"></a>Enabling debug mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization?hash=debug">debug mode</a> is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.</p>
+</div>
+<div class="paragraph">
+<p>To activate debug mode you can create a script like <code>roles/bonita/files/custom-init.d/activate-debug-mode.sh</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/bash
+
+set -euxo pipefail
+
+indicator_path=/opt/$(basename $BASH_ARGV)-executed
+if [ -f ${indicator_path} ]; then
+  echo "Custom script already executed" &amp;&amp; return 0
+fi
+
+BONITA_PATH=${BONITA_PATH:-/opt/bonita}
+BONITA_FILES=${BONITA_FILES:-/opt/files}
+BONITA_SETUP_SH="${BONITA_PATH}/Bonita*Subscription-${BONITA_VERSION}-*omcat*/setup/setup.sh"
+
+# activate debug mode
+${BONITA_SETUP_SH} pull
+sed -i 's/security.rest.api.authorizations.check.debug.*/security.rest.api.authorizations.check.debug true/' ${BONITA_PATH}/Bonita*Subscription-${BONITA_VERSION}-*omcat*/setup/platform_conf/current/tenant_template_portal/security-config.properties
+${BONITA_SETUP_SH} push
+
+# Create indicator file
+touch ${indicator_path}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

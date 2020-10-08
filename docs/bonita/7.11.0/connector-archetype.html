@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bonita connector archetype :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12.0/connector-archetype.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../7.12.0/index.html">7.12.0</a>
+                  <a class="navbar-item" href="index.html">7.11.0</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bcd/3.4/index.html">3.4</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bonita" data-version="7.11.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_getting-started-tutorial.adoc">Getting started tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="what-is-bonita.html">What is Bonita?</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-studio-download-installation.html">Download and install</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="draw-bpmn-diagram.html">Draw a BPMN diagram</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="define-business-data-model.html">Define business data model (BDM)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="declare-business-variables.html">Declare business variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="declare-contracts.html">Declare contracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create-web-user-interfaces.html">Create web user Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="define-who-can-do-what.html">Define who can do what</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure-email-connector.html">Configure an email connector</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="design-application-page.html">Design an application page</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create-application.html">Create an application</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release-notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="migration-tool.html">Migration tool change log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_application-and-process-design.adoc">Application and Process Design</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-bpm-overview.html">Bonita overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_application-and-process-design-overview.adoc">Application and process design overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="key-concepts.html">Key concepts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="comparison-of-7-x-and-6-x.html">Comparison of 7.x and 6.x</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="lifecycle-and-profiles.html">Lifecycle and profiles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="design-methodology.html">Design methodology</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-bpm-studio-preferences.html">Bonita Studio preferences</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-bpm-studio-hints-and-tips.html">Bonita Studio hints and tips</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_organization.adoc">Organization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="organization-overview.html">Organization overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="approaches-to-managing-organizations-and-actor-mapping.html">Approaches to managing organizations and actor mapping</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="organization-management-in-bonita-bpm-studio.html">Organization management in Bonita Studio</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="custom-user-information-in-bonita-bpm-studio.html">Custom User Information in Bonita Studio</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ldap-synchronizer.html">LDAP synchronizer</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_profiles.adoc">Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="profiles-overview.html">Profiles overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="profileCreation.html">Profiles editor</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_process-modeling.adoc">Process modeling</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_diagrams.adoc">Diagrams</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="diagram-overview.html">Diagram overview</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="pools-and-lanes.html">Pools and lanes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="diagram-tasks.html">Tasks</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="gateways.html">Gateways</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="transitions.html">Transitions</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="events.html">Events</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="called-processes.html">Called processes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="event-subprocesses.html">Event subprocesses</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="text-annotations.html">Text annotations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="naming-conventions.html">Naming conventions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="refactoring.html">Refactoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="actors.html">Actors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="actor-filtering.html">Actor filters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="iteration.html">Iteration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_data.adoc">Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="data-handling-overview.html">Data handling overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="define-and-deploy-the-bdm.html">Define and deploy the BDM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bdm-access-control.html">Define access control on business objects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="specify-data-in-a-process-definition.html">Specify data in a process definition</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="parameters.html">Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="contracts-and-contexts.html">Contracts and contexts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="documents.html">Documents</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="define-a-search-index.html">Search keys</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="expressions-and-scripts.html">Expressions and scripts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="operations.html">Operations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_page-and-form-development.adoc">Page and form development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="page-and-form-development-overview.html">Page and form development overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_using-the-ui-designer.adoc">UI Designer</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="ui-designer-overview.html">UI Designer overview</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="create-or-modify-a-page.html">Create or modify UI artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="widgets.html">Widgets</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="widget-properties.html">Widget properties</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_widget-use-examples.adoc">Widget use examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="repeat-a-container-for-a-collection-of-data.html">Repeat a container for a collection of data</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="fragments.html">Fragments</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom-widgets.html">Custom widgets</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="data-management.html">Data management</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="variables.html">Variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="appearance.html">Appearance</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="assets.html">Assets</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="multi-language-pages.html">Multi-language pages</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="migrate-a-form-from-6-x.html">Migrate a form from 6.x</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="cache-configuration-and-policy.html">Cache configuration and policy</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="applicationCreation.html">Application descriptor</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_connectivity.adoc">Connectivity</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="connectivity-overview.html">Connectivity overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="alfresco.html">Alfresco</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="cmis.html">CMIS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_database.adoc">Database</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="list-of-database-connectors.html">List of database connectors</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="database-connector-configuration.html">Database connector configuration</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="graphical-query-builder.html">Graphical query builder</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="initialize-a-variable-from-a-database-without-scripting-or-java-code.html">Initialize a variable from a database without scripting or Java code</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="insert-data-in-a-docx-odt-template.html">Insert data in a .docx/.odt template</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="google-calendar.html">Google Calendar</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ldap.html">LDAP</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="messaging.html">Messaging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="generate-pdf-from-an-office-document.html">Generate PDF from an Office document</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="salesforce.html">Salesforce</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sap-jco-3.html">SAP JCo 3</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="script.html">Script</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="twitter.html">Twitter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="uipath.html">UiPath</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_web-service.adoc">Web service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="web-service-connector-overview.html">Web service connector overview</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="#web-service-tutorial.adoc">Web service connector tutorial</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_reporting.adoc">Reporting</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="reporting-overview.html">Reporting overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="set-up-a-reporting-database.html">Set up a reporting database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="set-up-kpis.html">Set up KPIs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="create-a-report.html">Create a report</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="import-and-export-a-process.html">Import and export a process</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_process-configuration.adoc">Process configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="process-configuration-overview.html">Process configuration overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="environments.html">Environments</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configuring-a-process.html">Configure a process</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="manage-jar-files.html">Manage JAR files</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="managing-dependencies.html">Manage dependencies</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_process-testing.adoc">Process testing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="process-testing-overview.html">Process testing overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configure-a-test-organization.html">Configure a test organization</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="run-a-process-from-bonita-bpm-studio-for-testing.html">Run a process from Bonita Studio for testing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="log-files.html">Log files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="project_deploy_in_dev_suite.html">Project deployment in Bonita Development Suite</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="build-a-process-for-deployment.html">Build a process for deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_installation.adoc">Installation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-bpm-installation-overview.html">Bonita installation overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-bpm-studio-installation.html">Bonita Studio installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_basic-bonita-platform-installation.adoc">Basic Bonita Platform installation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="hardware-and-software-requirements.html">Hardware and software requirements</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="tomcat-bundle.html">Tomcat bundle</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="custom-deployment.html">Custom Deployment into existing Tomcat installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="convert-wildfly-into-tomcat.html">Convert a WildFly into a Tomcat installation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="BonitaBPM_platform_setup.html">Platform configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="database-configuration.html">Database creation and customization to work with Bonita</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="first-steps-after-setup.html">First steps after setup</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="licenses.html">Licenses</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-docker-installation.html">Bonita docker installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_advanced-bonita-platform-installation.adoc">Advanced Bonita Platform installation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_security-and-authentication.adoc">Security and authentication</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="user-authentication-overview.html">User authentication overview</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="active-directory-or-ldap-authentication.html">Active Directory or LDAP authentication</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="single-sign-on-with-cas.html">Single sign-on with CAS</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="single-sign-on-with-saml.html">Single sign-on with SAML</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="single-sign-on-with-kerberos.html">Single sign-on with Kerberos</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="enforce-password-policy.html">Enforce password policy</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="rest-api-authorization.html">REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="csrf-security.html">CSRF security</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="enable-cors-in-tomcat-bundle.html">Enable CORS in Tomcat bundle</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="ssl.html">SSL</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="tenant_admin_credentials.html">Tenant administrator credentials</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="guest-user.html">Guest user access</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="set-log-and-archive-levels.html">Set log and archive levels</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configurable-archive.html">Configurable Archive</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="performance-tuning.html">Performance tuning</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="performance-troubleshooting.html">Performance troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="use-gzip-compression.html">Use gzip compression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="two-main-types-of-deployment.html">Two main types of deployment</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bonita-in-a-cluster.adoc">Bonita in a cluster</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="overview-of-bonita-bpm-in-a-cluster.html">Overview of Bonita in a cluster</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="install-a-bonita-bpm-cluster.html">Install a Bonita cluster</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="cluster-administration.html">Cluster administration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="multi-tenancy-and-tenant-configuration.html">Multi-tenancy and tenant configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="embed-engine.html">Embed engine - Lab</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_platform-installation-examples.adoc">Platform installation examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="ubuntu-openjdk-tomcat-postgresql.html">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bonita-as-windows-service.html">Install Tomcat with Bonita as a service in Windows</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="back-up-bonita-bpm-platform.html">Back up Bonita Platform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_migration.adoc">Migration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="migration-overview.html">Migration overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="upgrade-from-community-to-a-subscription-edition.html">Community to Subscription upgrade</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bonita-portal-administration.adoc">Bonita Portal Administration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bonita-portal-interface.adoc">Bonita Portal interface</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bonita-bpm-portal-interface-overview.html">Bonita Portal overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="user-task-list.html">User task list</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="languages.html">Languages</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="log-in-and-log-out.html">Log in and log out</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="about.html">About Bonita Portal</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mobile-portal.html">Mobile Portal</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_process-maintenance.adoc">Process maintenance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="processes.html">Processes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="cases.html">Cases</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="tasks.html">Tasks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="monitoring.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="pause-and-resume-bpm-services.html">Pause and resume services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bdm-management-in-bonita-bpm-portal.html">BDM Management in Bonita Portal</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="applications.html">Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_resources.adoc">Resources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="resource-management.html">Resource management</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="pages.html">Pages</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="forms.html">Forms</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="layouts.html">Layouts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="themes.html">Themes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="api-extensions.html">REST API extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="live-update.html">Live update</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_organization-in-bonita-portal.adoc">Organization in Bonita Portal</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="organization-in-bonita-bpm-portal-overview.html">Organization in Bonita Portal overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_organization-maintenance.adoc">Organization maintenance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="import-export-an-organization.html">Import/export an organization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="group.html">Manage groups</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="role.html">Manage roles</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_user.adoc">Manage users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="manage-a-user.html">Manage a user</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="deactivate-a-user.html">Deactivate a user</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom-user-information-in-bonita-bpm-portal.html">Custom User Information in Bonita Portal</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="analytics.html">Analytics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_user-profiles.adoc">User profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="administrator-rights.html">Administrator rights</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="process-manager.html">Process manager</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="custom-profiles.html">Custom profiles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploying-profiles-with-export-and-import.html">Deploy profiles with export and import</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_look-feel.adoc">Look &amp; Feel</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="managing-look-feel.html">Manage Look &amp; Feel</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="creating-a-new-look-feel.html">Create a new Look &amp; Feel</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="search-index.html">Search keys</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_monitoring.adoc">Monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="runtime-monitoring.html">Bonita Runtime Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="work-execution-audit.html">Work execution audit</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="maintenance-operation.html">Bonita Runtime Maintenance Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_development.adoc">Development</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="software-extensibility.html">Platform extensibility overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_connectors.adoc">Connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="connectors-overview.html">Connectors overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="connector-archetype.html">Bonita connector archetype</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="actor-filter-archetype.html">Create an actor filter</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="api-glossary.html">API glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_rest-api.adoc">REST API</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="rest-api-overview.html">REST API overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="rest-api-authentication.html">REST Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="application-api.html">application API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="access-control-api.html">access control API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bdm-api.html">bdm API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bpm-api.html">bpm API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="customuserinfo-api.html">customuserinfo API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="form-api.html">form API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="identity-api.html">identity API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="platform-api.html">platform API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="portal-api.html">portal API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="system-api.html">system API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="tenant-api.html">tenant API</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="rest-api-extensions.html">REST API extensions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="manage-files-using-upload-servlet-and-rest-api.html">Manage files using upload servlet and REST API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_engine-api.adoc">Engine API</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="engine-api-overview.html">Engine API overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="create-your-first-project-with-the-engine-apis-and-maven.html">Create your first project with the Engine APIs and Maven</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="configure-client-of-bonita-bpm-engine.html">Configure connection to Bonita Engine</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="http://documentation.bonitasoft.com/javadoc/api/$7.12.0/index.html">Javadoc</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_examples.adoc">Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="manage-a-process.html">Manage a process</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="handle-a-failed-activity.html">Handle a failed activity</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="manage-an-organization.html">Manage an organization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="manage-users.html">Manage users</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="handling-documents.html">Handle documents</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="create-administration-tools.html">Create administration tools</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="restore-default-look-feel.html">Restore the default Look &amp; Feel</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="manage-the-platform.html">Manage the platform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-list-and-search-methods.html">List and search methods</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="queriable-logging.html">Queriable logger</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="log-in-with-cas.html">Log in with CAS</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bonita-bpm-portal-urls.html">Bonita Portal URLs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_living-application.adoc">Living application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bonita-layout.html">Bonita Layout</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="living-application-layout.html">Living application layout</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="customize-layouts.html">Customize layouts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="customize-living-application-theme.html">Customize living application theme</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="logging.html">Logs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces-and-repositories.html">Workspaces and projects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_continuous-integration.adoc">Continuous integration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="automating-builds.html">Automate builds</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="set-up-continuous-integration.html">Set up continuous integration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_collaboration.adoc">Collaboration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="project-documentation-generation.html">Project documentation generation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="shared-project.html">Using a shared project</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="uid-modal-tutorial.html">Create a modal window using CSS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="uid-case-overview-tutorial.html">Create a case overview page using the UI Designer</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="optimize-user-tasklist.html">Create unique task names for the user task list</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage-control-in-forms.html">Control and validate forms in the UI Designer</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="list-of-documents.html">Manage a list of documents</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bo-multiple-refs-tutorial.html">Manage multiple references in Business Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-authorization-rule-mapping.html">Map authorization rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="rta-mail-template.html">Use the rich textarea widget in a mail template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="datetimes-management-tutorial.html">Manage dates and times in BDM and User Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bdm-in-rest-api.html">Manage BDM in custom Rest APIs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="share-a-repository-on-github.html">Share a project on GitHub Enterprise Edition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="git-versioning-community-edition.html">Use Git for versioning with Community Edition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="migrate-a-svn-repository-to-github.html">Migrate a SVN repository to a Git repository</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure-maven.html">Configure Maven</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="uid-vertical-tabs-container-tutorial.html">Create a vertical tabs container for all devices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="groovy-in-bonita.html">Use Groovy in Bonita</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="responsiveness-with-community-edition.html">Create a responsive web application with Community edition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="use-bonita-acm.html">Enable Adaptive Case Management with Bonita</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="event-handlers.html">Create an event handler</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_contributing.adoc">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="building-community-edition-from-source.html">Build Bonita Community edition from source files</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_engine-developer-doc.adoc">Bonita Engine developer documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="engine-architecture-overview.html">Bonita Engine architecture overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="engine-flow-node-states.html">Flow node states</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="timers-execution.html">Timers execution</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="connectors-execution.html">Connectors execution</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_works.adoc">Works</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="work-execution.html">Work execution</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="work-locking.html">Work locking</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="execution-sequence-states-and-transactions.html">BPM process / task execution sequence</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="how-a-flownode-is-executed.html">How flow node is executed</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="how-a-flownode-is-completed.html">How a flownode is completed</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="how-a-process-is-completed.html">How a process is executed</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita</span>
+    <span class="version">7.11.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../7.12.0/index.html">7.12.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">7.11.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bcd/3.4/index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../7.12.0/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita</a></li>
+    <li><a href="#_development.adoc">Development</a></li>
+    <li><a href="#_connectors.adoc">Connectors</a></li>
+    <li><a href="connector-archetype.html">Bonita connector archetype</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.11.0</button>
+  <div class="version-menu">
+    <a class="version" href="../7.12.0/connector-archetype.html">7.12.0</a>
+    <a class="version is-current" href="connector-archetype.html">7.11.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test/edit/7.11/modules/ROOT/pages/connector-archetype.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Bonita connector archetype</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A set of best of breed tools to develop and test custom connectors independently of the Bonita Studio.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_custom_connector"><a class="anchor" href="#_create_a_custom_connector"></a>Create a custom connector</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bonita offers the possibility to create and plug custom connectors, to allow you to connect with any external system you may need.
++ We provide a maven archetype to help you to bootstrap a connector project.
+The source code of the archetype is available <a href="https://github.com/bonitasoft/bonita-connector-archetype">here</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_prerequisite"><a class="anchor" href="#_prerequisite"></a>Prerequisite</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Java 8 must be installed: <a href="https://adoptopenjdk.net/index.html" class="bare">https://adoptopenjdk.net/index.html</a></p>
+</li>
+<li>
+<p>Maven must be installed: <a href="https://maven.apache.org/install.html" class="bare">https://maven.apache.org/install.html</a></p>
+</li>
+<li>
+<p>Connector development requires some software development skills.
+The archetype offers the possibility to develop the connector in <em>Java</em>, <em>Groovy</em> or <em>Kotlin</em>.
+Make sure that you are comfortable with at least one of those three languages.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generate_the_project_using_the_maven_archetype"><a class="anchor" href="#_generate_the_project_using_the_maven_archetype"></a>Generate the project using the maven archetype</h3>
+<div class="paragraph">
+<p>A <a href="https://maven.apache.org/archetype/index.html">maven archetype</a> is a maven project templating toolkit.
+This archetype allows you to bootstrap a Bonita connector project on your file system.
+A Bonita connector project is a maven project.
+It can be built, tested and then imported into a Bonita project using Bonita Studio.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">To create your connector project, prompt a terminal and enter the following command:  </dt>
+<dd>
+<p>warning <strong>Warning:</strong> Make sure that you are not executing the command from an existing maven project.</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You&#8217;ll then have to specify interactively the properties of your project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>groupId:</strong> the group id of your connector.</p>
+</li>
+<li>
+<p><strong>artifactId:</strong> the artifact id of your connector</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Must match the following regex: <code>^[a-zA-Z0-9\-]+$</code></p>
+</li>
+<li>
+<p>Example: <em>myConnector-1</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>version:</strong> the version of your connector <em>(default value: 1.0-SNAPSHOT)</em> Follow the <a href="http://maven.apache.org/guides/mini/guide-naming-conventions.html">maven naming convention guide</a></p>
+</li>
+<li>
+<p><strong>package</strong> the package in which the connector source files will be created <em>(default value: the group id of the connector)</em></p>
+</li>
+<li>
+<p><strong>bonitaVersion:</strong> the targeted Bonita version</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A Bonita connector project depends on <em>org.bonitasoft.engine:bonita-common</em>.
+To avoid potential conflicts / errors at runtime, you should use the Bonita version of your runtime environment.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>className:</strong> the class name of your connector</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Must match the following regex: <code>^[a-zA-Z_$][a-zA-Z\d_$]+$</code> (A Java classname valid identifier)</p>
+</li>
+<li>
+<p>Example: <em>MyConnector1</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>language</strong>: the language used in the connector project.
+Available values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>java</p>
+</li>
+<li>
+<p>groovy</p>
+</li>
+<li>
+<p>kotlin</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A folder named <em>[your artifact id]</em> is created, with your Bonita connector project, ready to use.</p>
+</div>
+<div class="paragraph">
+<p>⚠️ You can avoid the interactive mode by specifying all properties of your project directly in the command line, but by doing that you&#8217;ll bypass the validation performed on the properties content.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connector_developpment"><a class="anchor" href="#_connector_developpment"></a>Connector developpment</h3>
+<div class="paragraph">
+<p>In this section we&#8217;ll look into the different components of a connector project, and how you should use them to develop your connector.</p>
+</div>
+<div class="sect3">
+<h4 id="_definition"><a class="anchor" href="#_definition"></a>Definition</h4>
+<div class="paragraph">
+<p>A connector is first defined by its <strong>definition</strong>.
+It is an XML file located in <em>src/main/resources/[artifactId].def</em> by default.
++ A connector definition defines the inputs and the outputs of a connector.
+It can be seen as a black box.
+The definition explicits what will be passed to the connector, and what is expected as output.
+Then, implementations of this definition can be created, they just need to respect the inputs / outputs contract of the definition.</p>
+</div>
+<div class="paragraph">
+<p>The connector definition XSD is available in <em>schemas/connector-definition-descriptor.xsd</em>, you can import it in a IDE to get completion.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/connector-def-xsd-overview.png" alt="Connector definition xsd overview">
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;definition:ConnectorDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1"&gt;
+    &lt;id&gt;myConnector&lt;/id&gt; &lt;!-- Id of the definition --&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt; &lt;!-- Version of the definition --&gt;
+    &lt;icon&gt;connector.png&lt;/icon&gt; &lt;!-- The icon used in the Studio for this definition --&gt;
+    &lt;category icon="connector.png" id="Custom"/&gt; &lt;!-- The category of this definition, used in the Studio (e.g: http, script ...) --&gt;
+
+    &lt;!-- Connector inputs --&gt;
+    &lt;input mandatory="true" name="defaultInput" type="java.lang.String"/&gt;
+
+    &lt;!-- Connector outputs --&gt;
+    &lt;output name="defaultOutput" type="java.lang.String"/&gt;
+
+    &lt;!--
+       Pages and widgets to use the connector in the Bonita Studio.
+       - Each widget must be bound to an input
+       - Page titles must be defined in the properties files
+       - Widget labels must be defined in the properties files
+       - Page and widget descriptions can be defined in the properties files (optional)
+    --&gt;
+    &lt;page id="defaultPage"&gt;
+        &lt;widget xsi:type="definition:Text" id="defaultInputWidget" inputName="defaultInput"/&gt;
+    &lt;/page&gt;
+
+&lt;/definition:ConnectorDefinition&gt;</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_connector_inputs"><a class="anchor" href="#_connector_inputs"></a>Connector Inputs</h5>
+<div class="paragraph">
+<p>The inputs of a connector are defined in the definition.
+Those inputs are valued by processes, and are retrieved by the implementation classes of the connector to execute the business logic.
++ A connector input:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Has a name</p>
+</li>
+<li>
+<p>Has a type</p>
+</li>
+<li>
+<p>Has an optional default value</p>
+</li>
+<li>
+<p>Can be mandatory</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_connector_outputs"><a class="anchor" href="#_connector_outputs"></a>Connector Outputs</h5>
+<div class="paragraph">
+<p>The outputs of a connector are defined in the definition.
+Those outputs are valued by the implementation classes of the connector, and are used by processes.
++ A connector output:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Has a name</p>
+</li>
+<li>
+<p>Has a type</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pages_and_widgets"><a class="anchor" href="#_pages_and_widgets"></a>Pages and widgets</h5>
+<div class="paragraph">
+<p>A connector definition includes <em>pages</em> and <em>widgets</em>.
+Those elements define the UI that will appear in the Bonita Studio to configure the connector.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A widget is bound to an input</p>
+</li>
+<li>
+<p>A page contains a set of widgets</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The idea is to create pages for related inputs, so the person who will configure the connector will easily understand what he has to do.</p>
+</div>
+<div class="paragraph">
+<p>All the available widgets are defined in the XSD.
+You must reference the widget type in the tag to create a specific widget:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;widget  xsi:type="definition:[WIDGET TYPE]"  id="[WIDGET ID]"  inputName="[CORRESPONDING INPUT]"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The widget id is used in the <em>.properties</em> files to define and translate the widget name and the widget description.
++ The input name is used to bind this widget to one of the connector inputs.</p>
+</div>
+<div class="paragraph">
+<p>Some widgets can require additional informations.
+For example, if you want to create a select widget with a set of item to select, you will have to do something like that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;widget xsi:type="definition:Select" id="choiceWidget" inputName="choice"&gt;
+    &lt;items&gt;Choice 1&lt;/items&gt;
+    &lt;items&gt;Choice 2&lt;/items&gt;
+    &lt;items&gt;Choice 3&lt;/items&gt;
+&lt;/widget&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_connector_implementation"><a class="anchor" href="#_connector_implementation"></a>Connector implementation</h4>
+<div class="paragraph">
+<p>A <em>connector implementation</em> implements a connector definition.
+A definition defines a set on inputs / outputs, implementing a definition means use the provided inputs to create the expected outputs.
++ Several implementations can be created for a given definition.
+A connector implementation can be updated at runtime in a Bonita bundle, as long as it implements the same definition.</p>
+</div>
+<div class="paragraph">
+<p>A connector implementation is made of two elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An xml file used to explicit the definition implemented, the dependencies required and the location of the implementation sources</p>
+</li>
+<li>
+<p>A set of Java based classes, constituting the implementation sources</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_implementation_xml_file"><a class="anchor" href="#_implementation_xml_file"></a>Implementation XML file</h5>
+<div class="paragraph">
+<p>The implementation XML file is located in <em>src/main/resources/[connector name].impl</em> by default.
++ The connector definition XSD is available in <em>schemas/connector-implementation-descriptor.xsd</em>, you can import it in a IDE to get completion.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/connector-impl-xsd-overview.png" alt="Connector implementation xsd overview">
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0"&gt;
+  &lt;implementationId&gt;myConnector-impl&lt;/implementationId&gt; &lt;!-- Id of the implementation --&gt;
+  &lt;implementationVersion&gt;$implementation.version$&lt;/implementationVersion&gt; &lt;!-- Version of the implementation, retrieved from the pom.xml at build time -&gt; ${project.version} --&gt;
+  &lt;definitionId&gt;myConnector&lt;/definitionId&gt; &lt;!-- Id of the definition implemented --&gt;
+  &lt;definitionVersion&gt;1.0.0&lt;/definitionVersion&gt; &lt;!-- Version of the definition implemented --&gt;
+  &lt;implementationClassname&gt;myGroupId.Connector&lt;/implementationClassname&gt; &lt;!-- Path to the main implementation class --&gt;
+  &lt;description&gt;Default connector implementation&lt;/description&gt;
+
+&lt;!-- Implementation dependencies, retrieved from the pom.xml at build time --&gt;
+$Dependencies$
+
+&lt;/implementation:connectorImplementation&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_implementation_sources"><a class="anchor" href="#_implementation_sources"></a>Implementation sources</h5>
+<div class="paragraph">
+<p>The implementation sources contain all the logic of the connector:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The validation of the inputs</p>
+</li>
+<li>
+<p>The connection / disconnection to any external system <em>(if required)</em></p>
+</li>
+<li>
+<p>The execution of the business logic and the  creation of the outputs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The archetype offers the possibility to generate the default sources in Java, Groovy or Kotlin.
+The build result will always be a Java archive (jar), no matters the langage selected.</p>
+</div>
+<div class="paragraph">
+<p>The entry point of the implementation sources must extend the class <em>`org.bonitasoft.engine.connector.AbstractConnector`</em>.</p>
+</div>
+<div class="paragraph">
+<p>Example (<em>Groovy</em>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package myGroupId
+
+import org.bonitasoft.engine.connector.AbstractConnector;
+import org.bonitasoft.engine.connector.ConnectorException;
+import org.bonitasoft.engine.connector.ConnectorValidationException;
+
+class Connector extends AbstractConnector {
+
+    def defaultInput = "defaultInput"
+    def defaultOutput = "defaultOutput"
+
+    /**
+     * Perform validation on the inputs defined on the connector definition (src/main/resources/myConnector.def)
+     * You should:
+     * - validate that mandatory inputs are presents
+     * - validate that the content of the inputs is coherent with your use case (e.g: validate that a date is / isn't in the past ...)
+     */
+    @Override
+    def void validateInputParameters() throws ConnectorValidationException {
+        checkMandatoryStringInput(defaultInput)
+    }
+
+    def checkMandatoryStringInput(inputName) throws ConnectorValidationException {
+        def value = getInputParameter(inputName)
+        if (value in String) {
+            if (!value) {
+                throw new ConnectorValidationException(this, "Mandatory parameter '$inputName' is missing.")
+            }
+        } else {
+            throw new ConnectorValidationException(this, "'$inputName' parameter must be a String")
+        }
+    }
+
+    /**
+     * Core method:
+     * - Execute all the business logic of your connector using the inputs (connect to an external service, compute some values ...).
+     * - Set the output of the connector execution. If outputs are not set, connector fails.
+     */
+    @Override
+    def void executeBusinessLogic() throws ConnectorException {
+        def defaultInput = getInputParameter(defaultInput)
+        setOutputParameter(defaultOutput, "$defaultInput - output".toString())
+    }
+
+    /**
+     * [Optional] Open a connection to remote server
+     */
+    @Override
+    def void connect() throws ConnectorException{}
+
+    /**
+     * [Optional] Close connection to remote server
+     */
+    @Override
+    def void disconnect() throws ConnectorException{}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The methods <em>validateInputParameters</em> and <em>executeBusinessLogic</em> must be implemented, and are called by the Bonita engine when the connector is executed.
++ The methods <em>connect</em> and <em>disconnect</em> can be used to open and close a connection to a remote server.
+The life cycle of the connection will then be managed by the Bonita engine.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_build_a_connector_project"><a class="anchor" href="#_build_a_connector_project"></a>Build a connector project</h4>
+<div class="paragraph">
+<p>A connector project is built using Maven, and especially the <a href="https://maven.apache.org/plugins/maven-assembly-plugin/">maven assembly plugin</a>.
++ The root <em>pom.xml</em> file has the following parent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;parent&gt;
+    &lt;groupId&gt;org.bonitasoft.connectors&lt;/groupId&gt;
+    &lt;artifactId&gt;bonita-connectors&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/parent&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This parent contains the logic that make the replacements in the implementation xml file at build time.</p>
+</div>
+<div class="paragraph">
+<p>By default, a zip archives is built containing all the definitions and implementations found in the project.
+By importing this archive in a Bonita Studio you will import all the definitions and implementations created in the project</p>
+</div>
+<div class="paragraph">
+<p>To build the connector project, type the following command at the root of the project :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>./mvnw clean install</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The built archive can be found in here <code>target/[artifact id]-[artifact version].zip</code> after the build.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example"><a class="anchor" href="#_example"></a>Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this example, we are going to create a connector to communicate with the <a href="https://swapi.dev/">Star Wars API</a>.
+It will take in input a Star Wars character name, and will return details on this character.</p>
+</div>
+<div class="paragraph">
+<p>This connector will be implemented using:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://groovy-lang.org/">Groovy</a>: <em>A programming language based on the JVM</em></p>
+</li>
+<li>
+<p><a href="http://spockframework.org/">Spock</a>: <em>A test framework for Groovy applications</em></p>
+</li>
+<li>
+<p><a href="https://square.github.io/retrofit/">Retrofit</a>: <em>A library which allows to create typed http clients</em></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_1_generate_project_and_retrieve_dependencies"><a class="anchor" href="#_1_generate_project_and_retrieve_dependencies"></a>1 - Generate project and retrieve dependencies</h3>
+<div class="paragraph">
+<p>The first step is to generate  the maven project using the archetype:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mvn archetype:generate -DarchetypeGroupId=org.bonitasoft.archetypes -DarchetypeArtifactId=bonita-connector-archetype</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>groupId</strong>: com.company.connector</p>
+</li>
+<li>
+<p><strong>artifactId</strong>: connector-starwars</p>
+</li>
+<li>
+<p><strong>version</strong>: 1.0.0-SNAPSHOT</p>
+</li>
+<li>
+<p><strong>package</strong>: com.company.connector</p>
+</li>
+<li>
+<p><strong>bonitaVersion</strong>: <em>[Your Bonita version]</em> (ex: 7.10.4)</p>
+</li>
+<li>
+<p><strong>className</strong>: ConnectorStarWars</p>
+</li>
+<li>
+<p><strong>language</strong>: groovy</p>
+</li>
+<li>
+<p><strong>wrapper</strong>: true</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The generated project has the following skeleton:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/connector-archetype-example/connector-project-overview.png" alt="Connector project overview">
+</div>
+</div>
+<div class="paragraph">
+<p>Add the following properties and dependencies to the existing ones in the pom.xml:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;properties&gt;
+    &lt;retrofit.version&gt;2.9.0&lt;/retrofit.version&gt;
+    &lt;logging-interceptor.version&gt;3.11.0&lt;/logging-interceptor.version&gt;
+    &lt;converter-jackson.version&gt;2.4.0&lt;/converter-jackson.version&gt;
+    &lt;mockwebserver.version&gt;3.14.8&lt;/mockwebserver.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.squareup.retrofit2&lt;/groupId&gt;
+        &lt;artifactId&gt;retrofit&lt;/artifactId&gt;
+        &lt;version&gt;${retrofit.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;
+        &lt;artifactId&gt;logging-interceptor&lt;/artifactId&gt;
+        &lt;version&gt;${logging-interceptor.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.squareup.retrofit2&lt;/groupId&gt;
+        &lt;artifactId&gt;converter-jackson&lt;/artifactId&gt;
+        &lt;version&gt;${converter-jackson.version}&lt;/version&gt;
+        &lt;exclusions&gt;
+            &lt;exclusion&gt;
+                &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+                &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+            &lt;/exclusion&gt;
+        &lt;/exclusions&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.squareup.okhttp3&lt;/groupId&gt;
+        &lt;artifactId&gt;mockwebserver&lt;/artifactId&gt;
+        &lt;version&gt;${mockwebserver.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are interested by test coverage, you can add the following jacoco configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.jacoco&lt;/groupId&gt;
+    &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;0.8.5&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;prepare-agent&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+        &lt;!-- attached to Maven test phase --&gt;
+        &lt;execution&gt;
+            &lt;id&gt;report&lt;/id&gt;
+            &lt;phase&gt;test&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;report&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_define_connector_inputs"><a class="anchor" href="#_2_define_connector_inputs"></a>2 - Define connector inputs</h3>
+<div class="paragraph">
+<p>The connector inputs are defined in the connector definition.
++ Open the file <em>src/main/resources/connector-starwars.def</em> + We are first going to create two inputs for the connector:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An input <strong><em>name</em></strong>, which will contain the name of a star wars character</p>
+</li>
+<li>
+<p>An input <strong><em>url</em></strong>, which will contain the API server url (so if the API server URL changes in the future, the service will still be usable).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Remove the default input from the definition, and add the two following inputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;input mandatory="true" name="name" type="java.lang.String"/&gt;
+&lt;input mandatory="true" name="url" type="java.lang.String" defaultValue="http://swapi.dev/"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then we are going to create a <em>page</em> and two <em>widgets</em> for those inputs.
+<em>Pages</em> and <em>widgets</em> are used by the Bonita Studio to create a User Interface from the connector definition.</p>
+</div>
+<div class="paragraph">
+<p>Replace the default page by the following one:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;page id="starWarsPage"&gt;
+    &lt;!--
+    A widget has a type (Text, combo box ...), an id and an input name.
+    - The name must reference an existing input
+    - The id is used in the property file to reference the widget
+    --&gt;
+    &lt;widget xsi:type="definition:Text" id="nameWidget" inputName="name"/&gt;
+    &lt;widget xsi:type="definition:Text" id="urlWidget" inputName="url"/&gt;
+&lt;/page&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For each page and widget , a name and a description must be added  in the property file, else the Studio is unable to display the element.
++ Open the file <em>src/main/resources/connector-starwars.properties</em> and replace the content for the default page and widgets by the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>starWarsPage.pageTitle=Star Wars connector - configuration page
+starWarsPage.pageDescription=Indicate a Star Wars character name, and the service base URl if required.
+nameWidget.label=Character name
+nameWidget.description=The name of the character to retrieve
+urlWidget.label=URL
+urlWidget.description=The service base url</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_create_the_retrofit_service_and_the_model"><a class="anchor" href="#_3_create_the_retrofit_service_and_the_model"></a>3 - Create the retrofit service and the model</h3>
+<div class="paragraph">
+<p>Retrofit is a library allowing to create typed HTTP clients.
++ We will first create a data model, and then a retrofit service typed with this model.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_model"><a class="anchor" href="#_the_model"></a>The model</h4>
+<div class="paragraph">
+<p>The model should match the API response structure, else some custom convertors are required.
++ Here is an example of an API call and the response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>GET /api/people/?search=yoda</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "name": "Yoda",
+            "height": "66",
+            "mass": "17",
+            "hair_color": "white",
+            "skin_color": "green",
+            "eye_color": "brown",
+            "birth_year": "896BBY",
+            "gender": "male"
+            ...
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Our model will contain two Classes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>PersonResponse</em></strong>, which will represent the raw response, and only contain the result list.</p>
+</li>
+<li>
+<p><strong><em>Person</em></strong>, which will represent an element of the result list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Create a new package <em>model</em> in the package <em>com.company.connector</em>, and add those two classes in this package:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package com.company.connector.model
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Person implements Serializable {
+
+    String name
+
+    String gender
+
+    String height
+
+    String homeworld
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package com.company.connector.model
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class PersonResponse implements Serializable {
+
+    @JsonProperty("results")
+    List&lt;Person&gt; persons = []
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>note:</em> The API returns many informations about a single star wars character.
+In order to keep it simple, we decided to just include a few of them in our Person model, but fill free to add other fields if you want to.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_service"><a class="anchor" href="#_the_service"></a>The service</h4>
+<div class="paragraph">
+<p>A retrofit service is a Java interface.
+Specific annotations on methods are used to define the service.
++ In the package <em>com.company.connector</em>, create the Interface <em>StarWarsService</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package com.company.connector
+
+import com.company.connector.model.PersonResponse
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.Query
+
+interface StarWarsService {
+
+    @Headers("Accept: application/json")
+    @GET("api/people")
+    def Call&lt;PersonResponse&gt; person(@Query("search") String name)
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This service declares a single GET endpoint on <em>api/people</em>, with a query parameter <em>search</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_define_connector_output"><a class="anchor" href="#_4_define_connector_output"></a>4 - Define connector output</h3>
+<div class="paragraph">
+<p>Now that the model is created, we can define the connector outputs.
++ Connector outputs are defined in the definition.
++ Open the file <em>src/main/resources/connector-starwars.def</em>, and replace the default output by the following one:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;output name="person" type="com.company.connector.model.Person"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>note:</em> The type of a connector output must be <strong><em>serializable</em></strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_implement_and_test_connector_logic"><a class="anchor" href="#_5_implement_and_test_connector_logic"></a>5 - Implement and test connector logic</h3>
+<div class="paragraph">
+<p>The main class of the connector has already been created during the project generation.
+This class is in charge of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Performing validation on connector inputs</p>
+</li>
+<li>
+<p>Connecting / disconnecting to any external service</p>
+</li>
+<li>
+<p>Executing the connector logic (call the API in our case)</p>
+</li>
+<li>
+<p>Setting connector outputs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The main class of a connector is referenced in the implementation.
+In our case, it&#8217;s the class <em>ConnectorStarWars</em>.
++ Open the file <em>src/main/groovy/com.company.connector.ConnectorStarWars.groovy</em>, and the associated test file <em>src/test/groovy/com.company.connector.ConnectorStarWarsTest.groovy</em></p>
+</div>
+<div class="paragraph">
+<p>We will complete and test this class in three steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Input validation</p>
+</li>
+<li>
+<p>Retrofit service creation</p>
+</li>
+<li>
+<p>API call</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_input_validation"><a class="anchor" href="#_input_validation"></a>Input validation</h4>
+<div class="paragraph">
+<p>We will only validate that the two mandatory String inputs are provided by the user.
++ Complete the method <em>validateInputParameters</em> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">    def static final NAME_INPUT = "name"
+    def static final URL_INPUT = "url"
+
+    @Override
+    def void validateInputParameters() throws ConnectorValidationException {
+        checkMandatoryStringInput(NAME_INPUT)
+        checkMandatoryStringInput(URL_INPUT)
+    }
+
+    def checkMandatoryStringInput(inputName) throws ConnectorValidationException {
+        def value = getInputParameter(inputName)
+        if (value in String) {
+            if (!value) {
+                throw new ConnectorValidationException(this, "Mandatory parameter '$inputName' is missing.")
+            }
+        } else {
+            throw new ConnectorValidationException(this, "'$inputName' parameter must be a String")
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add the following tests in the test class, to validate the behavior when an input is incorrect:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">    def should_throw_exception_if_mandatory_input_is_missing() {
+        given: 'Connector with missing input'
+        def connector = new ConnectorStarWars()
+
+        when: 'Validating inputs'
+        connector.validateInputParameters()
+
+        then: 'ConnectorValidationException is thrown'
+        thrown ConnectorValidationException
+    }
+
+    def should_throw_exception_if_mandatory_input_is_empty() {
+        given: 'A connector without an empty input'
+        def connector = new ConnectorStarWars()
+        connector.setInputParameters([(ConnectorStarWars.NAME_INPUT):''])
+
+        when: 'Validating inputs'
+        connector.validateInputParameters()
+
+        then: 'ConnectorValidationException is thrown'
+        thrown ConnectorValidationException
+    }
+
+    def should_throw_exception_if_mandatory_input_is_not_a_string() {
+        given: 'A connector without an integer input'
+        def connector = new ConnectorStarWars()
+        connector.setInputParameters([(ConnectorStarWars.NAME_INPUT):38])
+
+        when: 'Validating inputs'
+        connector.validateInputParameters()
+
+        then: 'ConnectorValidationException is thrown'
+        thrown ConnectorValidationException
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_retrofit_service_creation"><a class="anchor" href="#_retrofit_service_creation"></a>Retrofit service creation</h4>
+<div class="paragraph">
+<p>In the class <em>ConnectorStarWars</em>, replace the method <em>connect</em> by the following one.
+We do not need to implement the disconnect method, as there is no authentication.
+Creating the service in the <em>connect</em> method  ensure that the service will be created once (and only once) before the logic execution.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">def StarWarsService service
+
+@Override
+def void connect() throws ConnectorException {
+    def httpClient = createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
+    service = createService(httpClient, getInputParameter(URL_INPUT))
+}
+
+def static OkHttpClient createHttpClient(Interceptor... interceptors) {
+    def clientBuilder = new OkHttpClient.Builder()
+    if (interceptors) {
+        interceptors.each { clientBuilder.interceptors().add(it) }
+    }
+    clientBuilder.build()
+}
+
+def static StarWarsService createService(OkHttpClient client, String baseUrl) {
+    new Retrofit.Builder()
+            .client(client)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .baseUrl(baseUrl)
+            .build()
+            .create(StarWarsService.class)
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The service is created using a http client with a simple logging interceptor, and the retrofit builder.
++ Our model matchs the HTTP response so we do not need to provide custom convertor to the retrofit builder.</p>
+</div>
+<div class="paragraph">
+<p>We are going to create an integration test for this service: + in <em>src/test/groovy</em>, create the class <em>com.company.connector.StarWarsServiceTest.groovy</em> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package com.company.connector
+
+import com.company.connector.model.PersonResponse
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Response
+import spock.lang.Specification
+
+class StarWarsServiceTest extends Specification {
+
+    /**
+     * Service integration test - internet required
+     */
+    def should_retrieve_luke_data_using_retrofit() {
+        given: 'A service'
+        def httpClient = ConnectorStarWars.createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        def service = ConnectorStarWars.createService(httpClient, "http://swapi.dev/")
+
+        when: 'Searching for luke'
+        def call = service.person("Luke")
+        def Response&lt;PersonResponse&gt; response = call.execute()
+
+        then: 'Should contain Luke data'
+        assert response.isSuccessful() == true
+        assert response.body.persons.size() == 1
+        assert response.body.persons[0].name == "Luke Skywalker"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_api_call"><a class="anchor" href="#_api_call"></a>API call</h4>
+<div class="paragraph">
+<p>We are finally going to perform the API call to retrieve details on a Star Wars character, and then put those details in the related connector output.
++ In the class <em>ConnectorStarWars</em>,  replace the method <em>executeBusinessLogic</em> by the following one.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">def static final PERSON_OUTPUT = "person"
+
+@Override
+def void executeBusinessLogic() throws ConnectorException {
+    def name = getInputParameter(NAME_INPUT)
+    log.info "$NAME_INPUT : $name"
+    // Retrieve the retrofit service created during the connect phase, call the 'person' endpoint with the name parameter
+    def response = getService().person(name).execute()
+    if (response.isSuccessful()) {
+        def persons = response.body.getPersons()
+        if (!persons.isEmpty()) {
+            def person = persons[0]
+            setOutputParameter(PERSON_OUTPUT, person)
+        } else {
+            throw new ConnectorException("$name not found")
+        }
+    } else {
+        throw new ConnectorException(response.message())
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to test the logic of our connector, we are going to mock the Star Wars web server using <em>MockWebServer</em>.
+Thus we will be able to unitary test that the http response is correctly parsed, the output correctly set, and that server errors are managed.</p>
+</div>
+<div class="paragraph">
+<p>Add the following tests in the test class <em>ConnectorStarWarsTest</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">def server
+def connector
+
+def setup() {
+    server = new MockWebServer()
+    def url = server.url("/")
+    def baseUrl = "http://${url.host}:${url.port}"
+
+    def httpClient = ConnectorStarWars.createHttpClient(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+    def service = ConnectorStarWars.createService(httpClient, baseUrl)
+
+    connector = new ConnectorStarWars()
+    connector.service = service
+}
+
+def cleanup() {
+    server.shutdown();
+}
+
+/**
+ * Connector unit test - no internet required
+ */
+def should_fetch_person() {
+    given: 'A person name'
+    def name = 'Luke'
+    and: 'A related person JSON response'
+    def body = """
+        {"results": [
+            {
+                "name":"$name Skywalker",
+                "height":"172",
+                "mass":"77",
+                "hair_color":"blond",
+                "skin_color":"fair",
+                "eye_color":"blue",
+                "birth_year":"19BBY",
+                "gender":"male",
+                "homeworld":"http://swapi.dev/api/planets/1/"
+            }
+        ]}
+    """
+    server.enqueue(new MockResponse().setBody(body))
+
+    when: 'Executing connector'
+    connector.setInputParameters(['name': name])
+    connector.executeBusinessLogic()
+
+    then: 'Connector output should contain the person data'
+    def outputParameters = connector.outputParameters
+    outputParameters.size() == 1
+
+    def person = outputParameters.get(ConnectorStarWars.PERSON_OUTPUT)
+    person instanceof Person
+    person.name == "Luke Skywalker"
+}
+
+/**
+ * Connector unit test - no internet required
+ */
+def should_get_unknown_person() {
+    given: 'An API server'
+    String body = "{\"results\":[]}"
+    server.enqueue(new MockResponse().setBody(body))
+
+    when: 'Executing business logic'
+    def name = 'Luke'
+    connector.setInputParameters(['name': name])
+    connector.executeBusinessLogic()
+
+    then: 'Connector should throw exception'
+    def e = thrown(ConnectorException)
+    e.getMessage() == "$name not found"
+}
+
+/**
+ * Connector unit test - no internet required
+ */
+def should_handle_server_error() {
+    given: 'An API server'
+    server.enqueue(new MockResponse().setResponseCode(500))
+
+    when: 'Executing business logic'
+    def name = 'Luke'
+    connector.setInputParameters(['name': name])
+    connector.executeBusinessLogic()
+
+    then: 'Connector should throw exception'
+    def e = thrown(ConnectorException)
+    e.getMessage() == "Server Error"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_build_and_import_the_connector_in_bonita"><a class="anchor" href="#_6_build_and_import_the_connector_in_bonita"></a>6 - Build and import the connector in Bonita</h3>
+<div class="paragraph">
+<p>The implementation of the connector is finished.
++ You can build the connector using the following command line at the root of the project:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>./mvnw clean package</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result of the build is a zip archive present in the target folder : <em>connector-starwars-1.0.0-SNAPSHOT.zip</em>.
+This archive can be imported in a Bonita Studio (from the menu development -&gt; connector -&gt; import), and is ready to be used in processes.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

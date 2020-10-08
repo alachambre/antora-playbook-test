@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BCD Scenario reference :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/scenarios.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a></li>
+    <li><a href="scenarios.html">Scenario file reference</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/scenarios.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">BCD Scenario reference</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scenarios enable you to define your infrastructure and Bonita stack.
+A scenario is a YAML Ansible variable file that BCD injects to the underlying Ansible playbooks.
+Its syntax basically follows <a href="http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">Ansible&#8217;s YAML syntax</a>.</p>
+</div>
+<div class="paragraph">
+<p>The variables described in a scenario have precedence over those defined in the playbooks or the group vars.
+It is still possible to overload scenario variables with <code>--extra-vars</code> declaration in the <code>bcd</code> command line.
+For instance overloading <code>bonita_version</code> can be interesting if you want to test multiple versions of Bonita without duplicating scenario files.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Example scenario files are provided in the <strong>scenarios</strong> directory:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>uswest_performance.yml.EXAMPLE</strong> - a scenario for both stack and living application management with AWS provisioning</p>
+</li>
+<li>
+<p><strong>azure_northEurope.yml.EXAMPLE</strong> - a scenario for both stack and living application management with Azure provisioning</p>
+</li>
+<li>
+<p><strong>static_inventory.yml.EXAMPLE</strong> - a scenario for both stack and living application management with static inventory</p>
+</li>
+<li>
+<p><strong>build_and_deploy.yml.EXAMPLE</strong> - a scenario for living application management only</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Use these examples to customize your scenario and save it with a <code>.yml</code> file extension.
+:::</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_core_variables"><a class="anchor" href="#_core_variables"></a>Core variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are general variables used while provisioning your platform.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bcd_provider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infrastructure provider.
+Choose between <code>aws</code>, <code>azure</code> and <code>static_inventory</code>.
+With <code>aws</code> and <code>azure</code> providers, BCD may create and destroy infrastructure resources of the Bonita stack.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bcd_stack_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bonita stack identifier used to group machines by stack membership.
+For AWS deployments the characters allowed are limited to letters, numbers and underscore.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uswest2_test</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bcd_stack_json</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a file where Bonita stack information will be generated as JSON format.
+Relevant with <code>stack deploy</code> and <code>stack status</code> commands.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/tmp/bonita_stack.json</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bcd_inventory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ansible inventory path required when <code>bcd_provider</code> is <code>static_inventory</code>.
+Example static inventories are provided in the <code>ansible/inventory/vagrant</code> directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ansible/inventory/vagrant/1-machine/inventory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bcd_registry_user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker registry username to pull Bonita images from.
+Provided by Bonitasoft for BCD secured registry.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonitasoft+john_doe_at_acme_com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bcd_registry_password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker registry password to pull Bonita images from.
+Provided by Bonitasoft for BCD secured registry.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ABCDEFGHIJKLMNOPQR</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_on_single_host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to deploy all containers of the Bonita stack on a single host (with <code>bcd_provider: static_inventory</code> and <code>bcd_inventory</code> containing exactly 1 host).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration filename used to group variables for common deployment types.
+The corresponding YAML file must exist in the <code>ansible/vars</code> directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws_vars</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ansible_ssh_user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubuntu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SSH user used to connect to target hosts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubuntu</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ansible_private_key_file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to the private SSH key used to connect to target hosts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~/.ssh/ABC_us-west-2.pem</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aws_provider_variables"><a class="anchor" href="#_aws_provider_variables"></a>AWS provider variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following variables are specific to AWS deployments ie.
+when <code>bcd_provider</code> is set to <code>aws</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_region</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS region.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">us-west-2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_security_group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group id for the target instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sg-944888f1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_security_group_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Security group name for the target instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_subnet_ids</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet id for the target instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subnet-aa14e0cf</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_keypair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key pair name for the target instances.
+Linked to ansible_private_key_file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jenkins_ansible_us-west-2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_discovery_iam_role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the IAM role to attach to EC2 instances to allow Hazelcast EC2 auto-discovery.
+This is MANDATORY when deploying a Bonita cluster on AWS with BCD.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ClusterBCD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ec2_vpc_destination_variable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of network address the EC2 dynamic inventory script should use.
+For instance, if you are running the BCD controller <strong>from outside EC2</strong>, the <code>vpc_destination_variable</code> parameter should be set to <code>ip_address</code>.
+If you are running the BCD controller <strong>from within EC2</strong>, the <code>vpc_destination_variable</code> parameter should be set to <code>private_ip_address</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ip_address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boto_path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~/.boto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to the Boto file with the AWS credentials.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~/.boto</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws_ami</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common AMI for all EC2 instances.
+Depends on AWS region.
+Should be a <a href="requirements-and-compatibility.html" class="page">supported operating system</a> and ebs-ssd type.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ami-fc4f5e85</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws_database_instance_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for the database instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t2.micro</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws_bonita_instance_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for the Bonita instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t2.micro</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws_load_balancer_instance_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EC2 instance type for the load balancer instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t2.micro</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">aws_assumed_iam_role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An IAM role can be assumed, so all requests are run as that role.
+This can be useful for connecting across different accounts, or to limit user access.
+Set this parameter if you want to assume an IAM role while deploying on AWS.
+It is useful in an AWS organization with IAM users and multiple AWS accounts.
+See <a href="aws_organizations.html" class="page">AWS Organizations</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">arn:aws:iam::123456789012:role/BCD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_azure_provider_variables"><a class="anchor" href="#_azure_provider_variables"></a>Azure provider variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following variables are specific to Azure deployments ie.
+when <code>bcd_provider</code> is set to <code>azure</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_public_key_file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a public SSH key file to authorize on the created virtual machines.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~/.ssh/id_rsa.pub</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://azure.microsoft.com/en-us/global-infrastructure/locations/">Azure location</a> where resources will be created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"North Europe"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_resource_group_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of an existing resource group to which created resources will be attached.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"bcd-northEurope-rg"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_virtualnet_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of an existing virtual network to which virtual machines will belong.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"bcd-northEurope-vnet"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_subnet_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of an existing subnet to which virtual machines will belong.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"default"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_database_vm_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine type for the database instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard_B1ms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_bonita_vm_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine type for the Bonita instances.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard_B1ms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_load_balancer_vm_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual machine type for the load balancer instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard_B1s</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common virtual machine image for all instances.
+Should be a <a href="requirements-and-compatibility.html" class="page">supported operating system</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">az_image: + &nbsp;&nbsp;publisher: Canonical + &nbsp;&nbsp;offer: UbuntuServer + &nbsp;&nbsp;sku: 16.04-LTS + &nbsp;&nbsp;version: latest</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bonita_variables"><a class="anchor" href="#_bonita_variables"></a>Bonita variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following parameters are specific to the Bonita instances.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Y</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bonita version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.8.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_cluster_mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Activates cluster mode for Bonita.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_cluster_qty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of instances for Bonita.
+This variable is also used in EC2 mode for the number of Bonita EC2 instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bonita HTTP port.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8081</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_db_vendor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">postgres</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database vendor (postgres, mysql, oracle).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">postgres</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_db_host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database host (usually retrieved from inventory).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">postgres.a1bac2defghi.us-west-2.rds.amazonaws.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_db_port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5432</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database port.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5432</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_db_admin_user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">postgres</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admin user on database instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">root</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_db_admin_pass</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mysecretpassword</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admin password on database instance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_http_api</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Activates the Bonita <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization#toc9">HTTP API</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_rest_api_dyn_auth_checks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Activates <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization#toc2">dynamic authorization checking</a> on REST API.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bonita_published_ports_extra</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of additional host-to-container port mappings (<code>&lt;host_port&gt;:&lt;container_port&gt;</code>) to publish.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[ '9020:9010', '2222:1111' ]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_licensing_variables"><a class="anchor" href="#_licensing_variables"></a>Licensing variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order that BCD retrieves Bonita licenses during the deployment of your platform, you need to set the following variables in your scenario:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info These information are provided by Bonitasoft when you purchase the BCD add-on.
+Contact your sales representative for further details.</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_ws_login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Login to Bonitasoft license webservice.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">acme</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_ws_password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password to Bonitasoft license webservice.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secr3t</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_sub_login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subscription Login provided by Bonitasoft.
+It has an email address format.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:john.doe@acme.com">john.doe@acme.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_sub_password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subscription Password provided by Bonitasoft.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SomePassword</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_sub_id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subscription ID provided by Bonitasoft.
+It&#8217;s a string of 15 characters.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a0bA0000001B2Cd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of license in [<code>production</code>|<code>qualification</code>|<code>trial</code>].</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">qualification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Full name of the licensee.
+This field can only contain alphanumeric characters, dashes, underscores and spaces.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">John Doe</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_company</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Company name.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ACME Inc</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lic_email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email address where the license will be sent.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:john.doe@acme.com">john.doe@acme.com</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_email_notification_variables"><a class="anchor" href="#_email_notification_variables"></a>Email notification variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An email can be sent automatically with Bonita stack details at the end of the deployment phase.
+This feature uses <a href="http://docs.ansible.com/ansible/latest/mail_module.html">Ansible mail module</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_notification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable email notification or not.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_host</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SMTP server host.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smtp.gmail.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SMTP port.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">465</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SMTP username.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:john.doe@acme.com">john.doe@acme.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SMTP password.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SomePassword</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The email-address the mail is sent from.
+May contain address and phrase.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:john.doe@acme.com">john.doe@acme.com</a> (John Doe)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mail_to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The email-address(es) the mail is being sent to.
+This is a comma-separated list, which may contain address and phrase portions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">John Doe &lt;<a href="mailto:john.doe@acme.com">john.doe@acme.com</a>&gt;, Suzie Something &lt;<a href="mailto:sue@example.com">sue@example.com</a>&gt;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

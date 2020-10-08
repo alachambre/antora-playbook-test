@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Requirements and compatibility :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/requirements-and-compatibility.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="requirements-and-compatibility.html">Requirements and compatibility</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/requirements-and-compatibility.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Requirements and compatibility</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page describes which system requirements need to be met in order to use the Bonita Continuous Delivery Add-On.
++ You will also find information about BCD and Bonita version compatibility.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_system_requirements"><a class="anchor" href="#_system_requirements"></a>System requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are different environments where requirements are to be met for BCD:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Control host</strong> - the host where your <a href="bcd_controller.html" class="page">BCD controller</a> will run.</p>
+</li>
+<li>
+<p><strong>Bonita stack hosts</strong> - the target hosts where your Bonita stack will be deployed using BCD.</p>
+</li>
+<li>
+<p><strong>Jenkins server</strong> - the server where BCD commands are executed by Jenkins Continuous Integration platform.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_control_host"><a class="anchor" href="#_control_host"></a>Control host</h3>
+<div class="paragraph">
+<p>The <strong>Docker Engine</strong> must be up and running on your control host prior to using BCD.
+BCD is compatible with Docker version 17.04.0 and above.</p>
+</div>
+<div class="paragraph">
+<p>You may have <a href="https://docs.docker.com/install/">Docker Community Edition (Docker CE)</a> or <a href="https://docs.docker.com/ee/supported-platforms/">Docker Enterprise Edition (Docker EE)</a> installed on your host to start using BCD.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info The Docker Engine may be installed on Linux, MacOS, Microsoft Windows or Cloud platforms as described in <a href="https://docs.docker.com/install/">Docker installation guide</a>.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Bonita stack hosts</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning These requirements must be fulfilled when using BCD for <strong>Provisioning</strong>.
+They apply to target hosts where the Bonita stack will be deployed.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Bonita stack hosts may be running <strong>on-premises</strong> or in <strong>cloud platforms</strong> like <a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a>, <a href="https://azure.microsoft.com/">Microsoft Azure</a>, <a href="https://cloud.google.com/">Google Cloud</a> or <a href="https://www.openstack.org/">OpenStack</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>with the AWS platform, BCD enables you to create and delete EC2 instances of the Bonita stacks automatically.
+To do so, read the <a href="aws_prerequisites.html" class="page">AWS configuration for BCD tutorial</a>.</p>
+</li>
+<li>
+<p>with the Azure platform, BCD enables you to create and delete Azure resources of the Bonita stacks automatically.
+To do so, read the <a href="azure-prerequisites.html" class="page">Azure configuration for BCD tutorial</a>.</p>
+</li>
+<li>
+<p>with other platforms, target hosts must be up and running prior to using BCD.
+Basic setup for target hosts is explained below.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The system requirements for the target hosts are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Minimum hardware requirements: 1 CPU / 1GiB RAM / 8GiB storage (Equivalent to AWS EC2 <code>t2.micro</code> instance)</p>
+</li>
+<li>
+<p>Supported operating systems: Ubuntu-14.04, Ubuntu-16.04</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Besides, the following technical requirements must be met:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Target hosts must have <strong>Internet access</strong> in order to communicate with Bonitasoft License webservice.
++ It is also required to install packages and to pull Docker public images for the database instance when applicable.</p>
+</li>
+<li>
+<p>Target hosts must be accessible from the BCD controller using <strong>SSH public-key authentication</strong>.</p>
+</li>
+<li>
+<p>The user configured to connect to the target hosts must have <code>sudo</code> or <code>root</code> privileges in order to install the Bonita stack.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_basic_setup_for_target_hosts_here_are_the_steps_to_manually_install_a_target_host_for_bcd_1"><a class="anchor" href="#_basic_setup_for_target_hosts_here_are_the_steps_to_manually_install_a_target_host_for_bcd_1"></a>Basic setup for target hosts Here are the steps to manually install a target host for BCD: 1.</h4>
+<div class="paragraph">
+<p>Install one of the supported operating systems.
+2.
+Create a user and grant <code>sudo</code> or <code>root</code> privileges.
+3.
+Generate SSH keys for this user.
+The SSH private key has to be retrieved on your BCD controller and its path configured in your BCD scenario.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jenkins_server"><a class="anchor" href="#_jenkins_server"></a>Jenkins server</h3>
+<div class="paragraph">
+<p>BCD commands may be executed by a Jenkins agent (slave) which runs the BCD controller Docker container.
++ Therefore the Jenkins server shall meet the same requirements as the Control host.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_compatibility"><a class="anchor" href="#_version_compatibility"></a>Version compatibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following table shows which BCD versions support specific Bonita releases.
++ This compatibility information is also specified in the <a href="release_notes.html" class="page">Release notes</a> for each version of BCD.</p>
+</div>
+<div class="paragraph">
+<p>| BCD version | Bonita release | |--------------------|------------------------------------| | 2.0.x | 7.7.x | | 3.0.x, 3.1.0 | 7.7.x, 7.8.x | | 3.1.1+, 3.2.0 | 7.7.x, 7.8.x, 7.9.x | | 3.2.1 onwards | 7.7.x, 7.8.x, 7.9.x, 7.10.x | | 3.3.x | 7.7.x, 7.8.x, 7.9.x, 7.10.x, 7.11.x|</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning If a Bonita release is not listed in the previous table, then it is not supported by the BCD Add-On.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>== Databases supported</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The databases supported with BCD are: PostgreSQL, MySQL and Oracle.
++ As BCD manages Bonita in the Tomcat Bundle and there is a <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/database-configuration#toc5">known issue between Bitronix and the Microsoft SQL Server</a>, SQL Server is not supported.
++ By default, BCD provisions a database Docker container while deploying your Bonita stack.
++ But alternatively, BCD also lets you <a href="deploy-with-existing-database.html" class="page">connect your Bonita stack with an existing database server (on-premise or in the cloud)</a>.</p>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

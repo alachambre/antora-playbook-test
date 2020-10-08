@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to deploy with a static inventory :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/deploy_with_static_inventory.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="#_manage_stack.adoc">Manage Bonita stacks</a></li>
+    <li><a href="deploy_with_static_inventory.html">Deploy with a static inventory</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/deploy_with_static_inventory.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to deploy with a static inventory</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>BCD lets you deploy a Bonita stack on your existing hosts using a <strong>static inventory</strong>.
++ On this page, you will find detailed information about the usage of BCD with your existing hosts.
+We will also provide an example creating virtual machines with <a href="https://www.vagrantup.com/">Vagrant</a> and deploying a Bonita stack with BCD.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_preparing_configuration_files"><a class="anchor" href="#_preparing_configuration_files"></a>Preparing configuration files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two main files to configure: an <strong>Ansible inventory</strong> and a <strong>BCD scenario</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="_inventory"><a class="anchor" href="#_inventory"></a>Inventory</h3>
+<div class="paragraph">
+<p>This file defines the hosts and groups of hosts upon which BCD will operates.
+The preferred location for inventory files is the <code>ansible/inventory</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>In particular, you will find examples of static inventory files in the <code>static-inventory</code> subdirectory.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Refer to <a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">Ansible&#8217;s documentation</a> for further details about Ansible inventories.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Scenario</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Scenarios follow the same rules as described in the <a href="scenarios.html" class="page">Scenario file reference documentation</a>.
+There are five mandatory variables to configure while using BCD with static inventories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bcd_provider</code>: Infrastructure provider.
+It has to be set with <code>static_inventory</code></p>
+</li>
+<li>
+<p><code>ansible_ssh_user</code>: The ssh user to use.</p>
+</li>
+<li>
+<p><code>ansible_ssh_private_key_file</code>: Private key file used by ssh.</p>
+</li>
+<li>
+<p><code>bcd_inventory</code>: Ansible inventory path required when <code>bcd_provider</code> is <code>static_inventory</code></p>
+</li>
+<li>
+<p><code>configuration</code>: Configuration filename used to group variables for common deployment types.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example scenario is provided with the <code>scenarios/static_inventory.yml.EXAMPLE</code> file.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_with_vagrant"><a class="anchor" href="#_example_with_vagrant"></a>Example with Vagrant</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes a complete example of Bonita stack deployment on existing virtual machines created with Vagrant.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning For this tutorial, it is highly recommended to have a clear understanding of <a href="https://www.vagrantup.com/intro/index.html">Vagrant</a>.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info This tutorial is adapted to Linux and Mac environments only.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Requirements</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> and <a href="https://www.virtualbox.org/">Virtualbox</a> as a hypervisor must be installed on your host.</p>
+</li>
+<li>
+<p>Second, you will need to create and configure your host machine using your <a href="https://www.vagrantup.com/docs/vagrantfile/">Vagrantfile</a>.
+An example of <code>Vagrantfile</code> is provided in the <code>vagrant</code> directory.
+You can find an example for one or two machines infrastructure.</p>
+</li>
+<li>
+<p>Third, you need to define your infrastructure and Bonita stack with a scenario.
+An example scenario file named <strong>vagrant_single.yml.EXAMPLE</strong> is provided in the <strong>scenarios</strong> directory.
+For more information you can read the <strong><a href="scenarios.html" class="page">BCD Scenario reference</a></strong>.</p>
+</li>
+<li>
+<p>Finally, the virtual machine that you will create must have access to the Internet because some packages will be updated/installed.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_step_by_step_tutorial"><a class="anchor" href="#_step_by_step_tutorial"></a>Step-by-step tutorial</h3>
+<div class="paragraph">
+<p>Here is a complete example using the configuration files provided.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning This example uses an insecure private key.
+See <a href="https://www.vagrantup.com/docs/vagrantfile/ssh_settings.html">more</a>&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>Assuming you have a <code>bonita-continuous-delivery_3.0.0</code> directory in your <code>$HOME</code> directory.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_1_prepare_and_start_your_target_virtual_machine"><a class="anchor" href="#_1_prepare_and_start_your_target_virtual_machine"></a>1. Prepare and start your target virtual machine</h4>
+<div class="paragraph">
+<p>This step will create and configure a single virtual machine with an IP <strong>192.168.10.10</strong> defined in <code>Vagrantfile</code>.</p>
+</div>
+<div class="paragraph">
+<p>On your host machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cd $HOME/bonita-continuous-delivery_3.0.0/vagrant/1-machine/
+
+$ vagrant up
+Bringing machine 'bonita-stack' up with 'virtualbox' provider...
+==&gt; bonita-stack: Importing base box 'ubuntu/xenial64'...
+[...]
+==&gt; bonita-stack: Setting up libpython-stdlib:amd64 (2.7.12-1~16.04) ...
+==&gt; bonita-stack: Setting up python (2.7.12-1~16.04) ...
+
+$ VBoxManage list runningvms
+"1-machine_bonita-stack_1525085617284_45644" {553ff7af-4d9a-4325-a902-ae17edce1e54}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_launch_your_bcd_controller_and_deploy_bonita_stack"><a class="anchor" href="#_2_launch_your_bcd_controller_and_deploy_bonita_stack"></a>2. Launch your BCD controller and deploy Bonita stack</h4>
+<div class="paragraph">
+<p>Copy the <strong>vagrant_single.yml.EXAMPLE</strong> to a <strong>scenarios/vagrant_single.yml</strong> file.
+Edit your scenario as necessary and start a BCD controller.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run --rm -ti --hostname bcd-controller --name bcd-controller \
+        -v ~/bonita-continuous-delivery_3.0.0:/home/bonita/bonita-continuous-delivery \
+        -v ~/.vagrant.d/insecure_private_key:/home/bonita/.vagrant.d/insecure_private_key \
+        quay.io/bonitasoft/bcd-controller /bin/bash
+bonita@bcd-controller:~$ cd bonita-continuous-delivery
+bonita@bcd-controller:~/bonita-continuous-delivery$
+bonita@bcd-controller:~/bonita-continuous-delivery$bcd -s scenarios/vagrant_single.yml stack deploy</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_open_bonita_url"><a class="anchor" href="#_3_open_bonita_url"></a>3. Open Bonita URL</h4>
+<div class="paragraph">
+<p>You should now be able to access Bonita Portal at <strong><a href="http://192.168.10.10:8081/bonita" class="bare">http://192.168.10.10:8081/bonita</a></strong>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_cleaning_up_your_environment"><a class="anchor" href="#_4_cleaning_up_your_environment"></a>4. Cleaning up your environment</h4>
+<div class="paragraph">
+<p>Before destroying your virtual machines, it is recommended to <em>undeploy</em> your Bonita stack with BCD as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ bcd -s &lt;path/to/scenario&gt; -y stack undeploy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you may destroy your virtual machine with the <code>vagrant destroy</code> command.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info You can read more about the Vagrant CLI on <a href="https://www.vagrantup.com/docs/cli/">Vagrant documentation site</a>.</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

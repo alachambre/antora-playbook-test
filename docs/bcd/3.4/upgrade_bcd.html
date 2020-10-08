@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migrate from an earlier version of BCD :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/upgrade_bcd.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="upgrade_bcd.html">Upgrade BCD</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/upgrade_bcd.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Migrate from an earlier version of BCD</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page explains how to upgrade your version of BCD.</p>
+</div>
+<div class="paragraph">
+<p>Each of the versions follow the MAJOR.MINOR.PATCH format.</p>
+</div>
+<div class="paragraph">
+<p>We have split this documentation in order to describe the differences between upgrades.</p>
+</div>
+<div class="paragraph">
+<p>We will focus on :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>scenarios : indeed you may want to keep your existing scenarios.
+It will allow you to recreate the same kind of stack or manipulate an existing one (deploy, undeploy, destroy).</p>
+</li>
+<li>
+<p>Terraform metadata : "Terraform must store state about your managed infrastructure and configuration.
+This state is used by Terraform to map real world resources to your configuration, keep track of metadata, and to improve performance for large infrastructures." <a href="https://www.terraform.io/docs/state/" class="bare">https://www.terraform.io/docs/state/</a>.
+So if you want to be able to manage an existing stack (i.e.
+a stack already deployed from a previous version of BCD) you will need to copy paste this state.</p>
+</li>
+<li>
+<p>bcd controller</p>
+</li>
+<li>
+<p>Vagrant : this part applies only if you use Vagrant virtual machines.</p>
+</li>
+<li>
+<p>Living Application repositories : this part applies only for migrations from a 2.0.x</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_it_works"><a class="anchor" href="#_how_it_works"></a>How it works</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_from_a_1_0_x_towards_a_3_4_y"><a class="anchor" href="#_from_a_1_0_x_towards_a_3_4_y"></a>From a 1.0.x towards a 3.4.y</h3>
+<div class="paragraph">
+<p>Please follow the previous documentation describing the <a href="https://documentation.bonitasoft.com/bcd/2.1/upgrade_bcd">upgrade from 1.0 toward 2.1</a>.
+Then follow the instructions in the next section.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_from_a_2_1_x_towards_a_3_4_y"><a class="anchor" href="#_from_a_2_1_x_towards_a_3_4_y"></a>From a 2.1.x towards a 3.4.y</h3>
+<div class="sect3">
+<h4 id="_scenarios"><a class="anchor" href="#_scenarios"></a>Scenarios</h4>
+<div class="paragraph">
+<p>First, you will need to copy the files:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cp bonita-continuous-delivery_2.1.0/scenarios/*.yml bonita-continuous-delivery_{bcdVersion}.0/scenarios/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you will have to check <code>Breaking changes</code> section in the <a href="release_notes.html" class="page">release notes</a>.
+Indeed you will have to add the new variables <code>bcd_registry_user</code> and  <code>bcd_registry_password</code> in order to retrieve BCD dependencies from Bonita secured Docker registry.</p>
+</div>
+<div class="paragraph">
+<p>Besides, the <code>bonita_edition</code> variable has been deprecated in BCD 3.0.0 (read <a href="release_notes.html" class="page">BCD 3.0.0 Release Notes</a> for further details).
++ Therefore you may remove this variable from your scenario files as it will be ignored.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_terraform"><a class="anchor" href="#_terraform"></a>Terraform</h4>
+<div class="paragraph">
+<p>Copy the directory corresponding to your stack:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cp -r bonita-continuous-delivery_2.1.0/terraform/your_stack_name bonita-continuous-delivery_{bcdVersion}.0/terraform/</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bcd_controller"><a class="anchor" href="#_bcd_controller"></a>BCD controller</h4>
+<div class="paragraph">
+<p>As is described in the "Installation guide" from the <a href="getting_started.html" class="page">Getting started</a> you will need to load the last version of <code>bcd-controller_&lt;version&gt;.tar.zip</code> Docker image.
++ You can also directly use the secured Docker registry to retrieve the latest image.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker login quay.io
+Username: bonitasoft+john_doe_at_acme_com
+Password:
+$ docker pull quay.io/bonitasoft/bcd-controller</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The username corresponds to <code>bcd_registry_user</code> and the password corresponds to <code>bcd_registry_password</code> described in the <a href="scenarios.html" class="page">Scenario file reference</a>.
+Both have been provided by your sales representative.</p>
+</div>
+<div class="paragraph">
+<p>If you choosed to persist your docker console history (<a href="bcd_controller.html" class="page">see bcd controller</a>) and want to keep it, then you should copy your <code>.bcd_bash_history</code> file from your old folder to your new <code>bonita-continuous-delivery_{bcdVersion}.0/</code> folder</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cp bonita-continuous-delivery_2.1.0/.bcd_bash_history bonita-continuous-delivery_{bcdVersion}.0/.bcd_bash_history</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vagrant"><a class="anchor" href="#_vagrant"></a>Vagrant</h4>
+<div class="paragraph">
+<p>As the controller access to them over the network it&#8217;s not necessary to move them on the filesystem.</p>
+</div>
+<div class="paragraph">
+<p>But if you plan to cleanup the old directory you can moved the vagrant data located inside <code>1-machine</code> or <code>2-machines</code> directories by copying the <code>.vagrant</code> subdirectories.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cp -r bonita-continuous-delivery_2.1.0/vagrant/1-machine/.vagrant bonita-continuous-delivery_{bcdVersion}.0/vagrant/1-machine/
+$ cp -r bonita-continuous-delivery_2.1.0/vagrant/2-machines/.vagrant bonita-continuous-delivery_{bcdVersion}.0/vagrant/2-machines/</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_living_application_repositories"><a class="anchor" href="#_living_application_repositories"></a>Living Application repositories</h4>
+<div class="paragraph">
+<p>Move the directories where you have cloned your repositories.</p>
+</div>
+<div class="paragraph">
+<p>For example :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cp -r bonita-continuous-delivery_2.1.0/bonita-vacation-management-example bonita-continuous-delivery_{bcdVersion}.0/bonita-vacation-management-example</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

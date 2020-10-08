@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to integrate BCD with Jenkins :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/jenkins_example.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="jenkins_example.html">Integrate BCD with Jenkins</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/jenkins_example.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to integrate BCD with Jenkins</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The BCD controller can not only be run interactively, but also within standard Continuous Delivery servers such as <a href="https://jenkins.io/">Jenkins automation server</a>.</p>
+</div>
+<div class="paragraph">
+<p>This page describes 2 approaches to using BCD with Jenkins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First, a tutorial shows how to set up an <strong>existing Jenkins</strong> platform to start using BCD.</p>
+</li>
+<li>
+<p>Second, a <strong>standalone example</strong> lets you start a pre-configured Jenkins server with a BCD-aware Jenkins slave and ready-to-use Jenkins jobs.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integration_tutorial"><a class="anchor" href="#_integration_tutorial"></a>Integration tutorial</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are different ways to run BCD jobs with an existing Jenkins server.
++ Here is one recommended setup that requires a Docker host and little changes to your existing Jenkins instance.
++ With this setup, the Jenkins master, thanks to the <a href="https://plugins.jenkins.io/docker-plugin">Jenkins Docker plugin</a>, uses the <strong>Docker host</strong> to dynamically provision build agents.
+On the other hand, the Docker host needs to have the BCD controller image loaded and the <code>BCD_HOME</code> directory mounted.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/bcd_jenkins.png" alt="Bonita Continuous Delivery with Jenkins">
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning This tutorial assumes you are already running a <a href="https://jenkins.io/2.0/">Jenkins 2</a> instance and that you are familiar with Jenkins system administration.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Install Docker host</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>These steps are to be completed on the Docker host.</p>
+</div>
+<div class="sect3">
+<h4 id="_1_install_docker_and_enable_remote_access"><a class="anchor" href="#_1_install_docker_and_enable_remote_access"></a>1. Install Docker and enable remote access</h4>
+<div class="paragraph">
+<p>The Docker host needs to run the Docker engine (Community or Enterprise Edition) and can be installed on any <a href="https://docs.docker.com/install/#supported-platforms">supported platforms</a>.
++ Besides, the Docker daemon must be accessible remotely on a TCP socket.
+The <a href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option">Docker documentation</a> describes how to enable the TCP socket.
++ It is also highly recommended to <a href="https://docs.docker.com/engine/security/https/">protect the Docker daemon socket</a> by enabling the TLS protocol.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_install_bcd"><a class="anchor" href="#_2_install_bcd"></a>2. Install BCD</h4>
+<div class="paragraph">
+<p>BCD must be installed on the Docker host which acts here as a <strong>control host</strong>.
+The installation procedure is described in the <a href="getting_started.html" class="page">Getting started</a> guide.
++ The Docker host should now have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <code>bonitasoft/bcd-controller</code> Docker image loaded</p>
+</li>
+<li>
+<p>the <code>bonita-continuous-delivery_&lt;version&gt;</code> directory present</p>
+</li>
+<li>
+<p>optionally, the security files for BCD provisioning (SSH key files, AWS credentials)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_jenkins_master"><a class="anchor" href="#_configure_jenkins_master"></a>Configure Jenkins master</h3>
+<div class="paragraph">
+<p>These steps are to be completed on the Jenkins master.</p>
+</div>
+<div class="sect3">
+<h4 id="_1_install_docker_client"><a class="anchor" href="#_1_install_docker_client"></a>1. Install Docker client</h4>
+<div class="paragraph">
+<p>Follow the <a href="https://docs.docker.com/install/">Docker documentation</a> to have Docker installed on Jenkins master.
+Actually only the Docker CLI is required.
+For example <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1">on Ubuntu</a> you only need to install the <code>docker-ce-cli</code> package.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_install_required_plugins"><a class="anchor" href="#_2_install_required_plugins"></a>2. Install required plugins</h4>
+<div class="paragraph">
+<p>The Jenkins master must have the <a href="https://plugins.jenkins.io/docker-plugin">Docker plugin</a> installed.
+The Docker plugin is a "Cloud" implementation that lets you add a new Cloud of type "Docker" on Jenkins master.
++ Additionally, it is recommended to use <a href="https://jenkins.io/pipeline/getting-started-pipelines/">Pipelines</a> while using BCD with Jenkins.
+You can still use standard Jenkins "freestyle" jobs but pipelines are more designed for continuous delivery.
+Therefore this requires to install the <a href="https://plugins.jenkins.io/workflow-aggregator">Pipeline plugin</a> (aka.
+<code>workflow-aggregator</code>).
++ This tutorial also provides an example pipeline which requires the <a href="https://plugins.jenkins.io/pipeline-utility-steps">Pipeline Utility Steps</a>, <a href="https://plugins.jenkins.io/pipeline-github-lib">Pipeline: GitHub Groovy Libraries</a> and <a href="https://plugins.jenkins.io/ansicolor">AnsiColor</a> plugins to be installed.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info The <a href="https://jenkins.io/doc/book/managing/plugins/#installing-a-plugin">Jenkins plugins documentation</a> describes different methods for installing plugins on master.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>==== 3. Add Docker Host credentials</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>As recommended previously, the Docker host should have TLS enabled.
+Therefore, the Docker host credentials must be added to Jenkins master.
++ Follow the <a href="https://jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials">Jenkins credentials documentation</a> to add new <strong>Docker Host Certificate Authentication</strong> credentials.
+These credentials are required to declare a secured Docker cloud in the next step.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>danger If your Docker TCP socket is not secured, then you can skip this step.
+But bear in mind that exposing the Docker TCP socket without TLS is really <strong>not safe</strong>.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>image::images/jenkins_add_docker_client_cert_auth.png[Add Docker Host Certificate Authentication]</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>In addition, you will have to add a new <strong>Username with password</strong> credentials to grant access to <strong>quay.io</strong> Docker registry.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/jenkins_add_quay_auth.png" alt="Add Username with password">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_add_a_new_cloud"><a class="anchor" href="#_4_add_a_new_cloud"></a>4. Add a new Cloud</h4>
+<div class="paragraph">
+<p>This step instructs Jenkins master to add a new <em>Cloud</em> of type Docker in order to provision build agents for BCD jobs.</p>
+</div>
+<div class="paragraph">
+<p>Follow these steps to add a Docker cloud:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edit Jenkins system configuration (<span class="menuseq"><b class="menu">Jenkins</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Manage Jenkins</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Configure System</b></span>) and <strong>Add a new cloud</strong> of type <em>Docker</em>.</p>
+</li>
+<li>
+<p>Give it a <strong>Name</strong> and a <strong>Docker Host URI</strong> like <code>tcp://dockerhost:2376</code> (where <code>dockerhost</code> is the hostname or IP of the Docker host).
++ <em>It is conventional to use port <code>2376</code> when TLS is enabled, and port <code>2375</code> for un-encrypted communication with the Docker daemon.</em></p>
+</li>
+<li>
+<p>With a secured Docker TCP socket, select the <strong>Server credentials</strong> created previously.
+Otherwise, select <em>None</em>.</p>
+</li>
+<li>
+<p>Click on <strong>Test Connection</strong> to confirm your configuration is correct.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/jenkins-add_cloud.png" alt="Jenkins add Docker cloud">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_5_add_docker_template"><a class="anchor" href="#_5_add_docker_template"></a>5. Add Docker template</h4>
+<div class="paragraph">
+<p>A Docker template must be added to define how to start Jenkins build agents as BCD controller containers.</p>
+</div>
+<div class="paragraph">
+<p>Click on <strong>Add Docker template</strong> to add a Docker template in the Docker cloud and filling in the fields as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Labels</strong>: <code>bcd</code></p>
+</li>
+<li>
+<p><strong>Enabled</strong>: <code>[checked]</code></p>
+</li>
+<li>
+<p><strong>Name</strong>: <code>bcd</code></p>
+</li>
+<li>
+<p><strong>Docker Image</strong>: <code>quay.io/bonitasoft/bcd-controller:3.0.1</code> (where 3.0.1 is the version of BCD to use)</p>
+</li>
+<li>
+<p><strong>Volumes</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre>/home/dockeruser/bonita-continuous-delivery_3.0.1:/home/bonita/bonita-continuous-delivery
+/home/dockeruser/.ssh:/home/bonita/.ssh
+bcd-dependencies-7.8.0:/home/bonita/bonita-continuous-delivery/dependencies/7.8.0</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Environment</strong>: <code>ANSIBLE_FORCE_COLOR=true</code> (this forces colored output in BCD logs)</p>
+</li>
+<li>
+<p><strong>Remote File System Root</strong>: <code>/home/bonita</code></p>
+</li>
+<li>
+<p><strong>Connect method</strong>: <code>Attach Docker container</code> - <strong>User</strong>: <code>bonita</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/jenkins-add_docker_template.png" alt="Jenkins add Docker template">
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Jenkins is now ready to run BCD Pipelines.
+An example scripted pipeline is provided in the next section.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Create a Pipeline job</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Create a <strong>Pipeline</strong> item with a <code>BCD_SCENARIO</code> String parameter which sets the BCD scenario path as an environment variable.
++ For instance, the <code>BCD_SCENARIO</code> parameter can be set to <code>scenarios/build_and_deploy.yml</code>.
++ Then here is an example pipeline script that builds a LivingApp repository and deploys its artifacts on an already running Bonita platform:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@Library('github.com/bonitasoft/bonita-jenkins-library@1.0.0') _
+
+node('master') {
+    stage('Retrieve dependencies') {
+        docker.withServer('tcp://dockerhost:2376', 'DOCKER_CLIENT_CERT_AUTH') {
+            docker.withRegistry('https://quay.io', 'QUAY_AUTH') {
+                docker.image('quay.io/bonitasoft/bcd-dependencies:7.8.0').withRun('-v bcd-dependencies-7.8.0:/dependencies') {
+                }
+            }
+        }
+    }
+}
+
+node('bcd') {
+    ansiColor('xterm') {
+
+        stage('Git Ckeckout') {
+            git url: 'https://github.com/bonitasoft/bonita-vacation-management-example',
+            branch: 'dev/7.8.0'
+        }
+
+        stage('build-bonita-app') {
+            bcd args: "livingapp build -p ${WORKSPACE} -e Test"
+        }
+
+        def jobBaseName = "${env.JOB_NAME}".split('/').last()
+
+        stage('deploy-bonita-app') {
+            def zip_files = findFiles(glob: "target/${jobBaseName}-*.zip")
+            def bconf_files = findFiles(glob: "target/${jobBaseName}-*.bconf")
+            if (bconf_files != null &amp;&amp; bconf_files.length &gt; 0)
+                bcd args: "livingapp deploy -p ${WORKSPACE}/${zip_files[0].path} -c ${WORKSPACE}/${bconf_files[0].path}"
+            else
+                bcd args: "livingapp deploy -p ${WORKSPACE}/${zip_files[0].path}"
+        }
+
+        stage('archive-artifacts') {
+            archiveArtifacts artifacts: "target/${jobBaseName}/**/*.*, target/${jobBaseName}-*.*, .bcd_configurations/*.yml", fingerprint: true
+        }
+
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This pipeline uses a Jenkins shared library <a href="https://github.com/bonitasoft/bonita-jenkins-library">hosted on GitHub</a>.
++ This scripted pipeline can also be used in a <a href="https://jenkins.io/doc/book/pipeline/jenkinsfile/">Jenkinsfile</a> and it can be checked into your LivingApp repository.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_standalone_example"><a class="anchor" href="#_standalone_example"></a>Standalone example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>bonita-continuous-delivery_&lt;version&gt;.zip</code> archive also provides a <code>jenkins-example</code> directory which contains a minimal working example of a Continuous Delivery platform with Jenkins and BCD.
+This example will start a pre-configured Jenkins server with a BCD-aware Jenkins slave and ready-to-use Jenkins jobs.</p>
+</div>
+<div class="paragraph">
+<p>It is provided as a <a href="https://docs.docker.com/compose/">Docker Compose</a> project.</p>
+</div>
+<div class="paragraph">
+<p>Therefore you should have <strong>Docker and Docker Compose</strong> installed on the target host to run this example.</p>
+</div>
+<div class="paragraph">
+<p>This example is provided with Compose file version 3.2 which requires Docker Compose 1.12.0+ and Docker Engine 17.04.0+.
+Refer to <a href="https://docs.docker.com/compose/compose-file/#compose-and-docker-compatibility-matrix">Compose and Docker compatibility matrix</a> and <a href="https://docs.docker.com/release-notes/docker-compose/">Compose release notes</a> for further details.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info In this example, a Jenkins slave is created from a Docker image which extends the BCD Controller image.
+Then an example job is defined as a <a href="https://jenkins.io/doc/book/pipeline/">Jenkins Pipeline</a> job in which <code>bcd</code> commands are invoked.
++ This allows you to easily re-use parts of this example in your own Jenkins instance.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Step-by-step run guide</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Here is a step-by-step guide to run this example.
++ The following commands are to be executed on the target host where Jenkins is to be installed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the Docker Compose project.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Rename the <code>docker-compose.override.yml.EXAMPLE</code> file to <code>docker-compose.override.yml</code> (remove the <code>.EXAMPLE</code> extension).</p>
+</li>
+<li>
+<p>Configure <code>environment</code> and <code>volumes</code> sections and save.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Configure initial secrets used by Jenkins and BCD.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Rename the <code>secrets/*Password.EXAMPLE</code> files to <code>secrets/*Password</code> (remove the <code>.EXAMPLE</code> extension).
++ With most Linux distributions, you can do this with the <code>rename</code> command line tool as follows: <code>rename 's/.EXAMPLE//' *.EXAMPLE</code>).</p>
+</li>
+<li>
+<p>Configure each <code>*Password</code> file with appropriate credentials.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Make sure the BCD Controller Docker image is loaded as described in the installation section of the <a href="bcd_controller.html" class="page">BCD controller Docker image</a> page.</p>
+</li>
+<li>
+<p>Create and start containers with Docker Compose.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cd jenkins_example
+$ docker-compose up -d</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning <strong>Important Note</strong>: Ensure volumes configured are correctly mapped to existing files or folder on the host, otherwise the docker daemon will create empty folders at the configured location (default docker behavior for volumes).
+As an example, if you declare a volume mapping in your <code>docker-compose.override.yml</code> file for the file <code>secrets/bonitaPassword</code> and you forget to create the corresponding file in the <code>secrets</code> folder, you will end up with a folder named <code>bonitaPassword</code> after the first docker-compose run.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>As a result Jenkins is up and running on port <code>9090</code> of the target host.
++ You can now log-in to Jenkins using one of the pre-configured users:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>admin</code> - User with administration rights.
+Password has been initialized with <code>secrets/adminPassword</code>.</p>
+</li>
+<li>
+<p><code>bonita</code> - User with limited rights.
+Password has been initialized with <code>secrets/bonitaPassword</code>.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning <strong>Important Note</strong>: Prepare your BCD scenario and dependencies as usual before using the pre-configured Jenkins jobs.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Pre-configured Jenkins jobs</p>
+</dd>
+</dl>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Once authenticated to Jenkins you can now launch pre-configured jobs.
++ This example project provides the following jobs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bcd-pipeline</code> - this job shows how the BCD CLI can be used to build a Continuous Delivery pipeline for a Bonita Living Application.</p>
+</li>
+<li>
+<p><code>bcd-undeploy</code> - this job allows to undeploy a Bonita stack (by removing Docker containers) and if needed it can also destroy AWS EC2 machines when using BCD with AWS cloud provider.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

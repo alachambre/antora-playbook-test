@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to deploy Living App artifacts :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/livingapp_deploy.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="#_manage_living_application.adoc">Manage Bonita Living Applications</a></li>
+    <li><a href="livingapp_deploy.html">Deploy Living App artifacts</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/livingapp_deploy.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to deploy Living App artifacts</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial describes how to deploy Bonita Living Application artifacts from the command line using BCD.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_it_works"><a class="anchor" href="#_how_it_works"></a>How it works</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides detailed information of Bonita artifacts deployment with BCD.</p>
+</div>
+<div class="sect2">
+<h3 id="_deployment_concepts"><a class="anchor" href="#_deployment_concepts"></a>Deployment concepts</h3>
+<div class="paragraph">
+<p>First, here are the <strong>types of artifacts</strong> that can be deployed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>applications</p>
+</li>
+<li>
+<p>business data model</p>
+</li>
+<li>
+<p>business data model access controls</p>
+</li>
+<li>
+<p>layouts</p>
+</li>
+<li>
+<p>organizations</p>
+</li>
+<li>
+<p>pages</p>
+</li>
+<li>
+<p>processes</p>
+</li>
+<li>
+<p>profiles</p>
+</li>
+<li>
+<p>REST API extensions</p>
+</li>
+<li>
+<p>themes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The deployment entry point is called an <strong>Application Archive</strong>.
+It consists of all artifacts to be deployed and an optional configuration file called <strong>Deployment Descriptor</strong>.
+This file describes which <strong>Policy</strong> should be applied while deploying each artifact.</p>
+</div>
+<div class="paragraph">
+<p>Since BCD 3.0.0 and for Bonita 7.8.0 onwards, <strong>Application Configuration</strong> artifacts can also be deployed.
+An Application Configuration artifact has a <strong>.bconf</strong> extension and is generated by the <a href="livingapp_build.html" class="page">Living App Build command</a>.
++ Application Configuration artifacts can be customized using the <code>bcd livingapp extract-conf|merge-conf</code> commands as described in <a href="livingapp_manage_configuration.html" class="page">this documentation</a>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>danger Read carefully the deployment supported policies per artifact before deploying a Living Application on an existing environment.
+Using the default policies may result in a clean of the whole Bonita runtime.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Application Archive structure</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The Application Archive can be a directory or a zip file.
+It may contain a Deployment Descriptor in the form of a <code>deploy.json</code> file.
+If not provided, then a Deployment Descriptor is generated in-memory using the following rules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the type of artifact is determined from the nature of each file</p>
+</li>
+<li>
+<p>a <a href="#supported-policies">default policy</a> is applied for each supported artifact to deploy</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is an example of Application Archive structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>bonita-vacation-management-example
+├── applications
+│   └── Application_Data.xml
+├── bdm
+│   └── bdm.zip
+├── deploy.json
+├── extensions
+│   └── tahitiRestApiExtension-1.0.0.zip
+├── organizations
+│   └── ACME.xml
+├── pages
+│   └── page_ExampleVacationManagement.zip
+├── processes
+│   ├── Cancel Vacation Request--1.4.1.bar
+│   ├── Initiate Vacation Available--1.4.1.bar
+│   ├── Modify Pending Vacation Request--1.4.1.bar
+│   ├── New Vacation Request--1.4.1.bar
+│   └── Remove All Business Data--1.4.1.bar
+└── profiles
+    └── default_profile.xml</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>warning <strong>Note</strong>: if you provide several artifacts for a resource which is supposed to be single (for instance Business Data Model, Organization), only one of the artifacts will be deployed.
+There is no guaranty about which file is kept so please avoid this situation to ensure deployment reproducibility.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p>=== Deployment Descriptor file</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The Deployment Descriptor file must be a valid JSON file named <strong><code>deploy.json</code></strong> and it must be located at the root of the Application Archive.</p>
+</div>
+<div class="paragraph">
+<p>Each artifact to deploy must be defined with the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>file</code>: (Mandatory) the relative path to the artifact in the Application Archive</p>
+</li>
+<li>
+<p><code>policy</code>: (Optional) the name of the policy to apply in case the same artifact is already present in the target Bonita platform.
+If omitted, then the <a href="#supported-policies">default policy</a> of the artifact&#8217;s type will be applied.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example of Deployment Descriptor file</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "organization": {
+    "file": "organizations/ACME.xml",
+    "policy": "MERGE_DUPLICATES"
+  },
+  "profiles": [
+    {
+      "file": "profiles/default_profile.xml",
+      "policy": "REPLACE_DUPLICATES"
+    },
+    {
+      "file": "profiles/custom_profile.xml",
+      "policy": "REPLACE_DUPLICATES"
+    }
+  ],
+  "processes": [
+    {
+      "file": "processes/New Vacation Request--1.4.1.bar",
+      "policy": "IGNORE_DUPLICATES"
+    },
+    {
+      "file": "processes/Initiate Vacation Available--1.4.1.bar"
+    }
+  ],
+  "restAPIExtensions": [
+    {
+      "file": "extensions/tahitiRestApiExtension-1.0.0.zip",
+    }
+  ],
+  "pages": [
+    {
+      "file": "pages/page_ExampleVacationManagement.zip"
+    }
+  ],
+  "layouts": [
+    {
+      "file": "layouts/customLayout1.zip"
+    },
+    {
+      "file": "layouts/customLayout2.zip"
+    }
+  ],
+  "themes": [
+      {
+        "file": "themes/customTheme1.zip"
+      },
+      {
+        "file": "themes/customTheme2.zip"
+      }
+    ],
+  "applications": [
+    {
+      "file": "applications/Application_Data.xml",
+      "policy": "REPLACE_DUPLICATES"
+    }
+  ],
+  "businessDataModel": {
+    "file": "bdm/bdm.zip"
+  },
+  "bdmAccessControl": {
+    "file": "bdm/bdm-access-control.xml"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_policies"><a class="anchor" href="#_supported_policies"></a>Supported Policies</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Applications: * <code>FAIL_ON_DUPLICATES</code>: deployment fails if the <code>Application</code> or <code>ApplicationPage</code> already exists * <code>REPLACE_DUPLICATES</code>: <strong>(default)</strong> if the <code>Application</code> or <code>ApplicationPage</code> already exists, the existing one is deleted and the new one is deployed * Organization: * <code>FAIL_ON_DUPLICATES</code>: if an item already exists, the deployment fails and is reverted to the previous state * <code>IGNORE_DUPLICATES</code>: existing items are kept * <code>MERGE_DUPLICATES</code>: <strong>(default)</strong> existing items in the current organization are updated to have the values of the item in the imported organization * Processes: * <code>FAIL_ON_DUPLICATES</code>: if the process already exists (same <code>name</code> and <code>version</code>), the deployment fails * <code>IGNORE_DUPLICATES</code>: only deploys a process when it does not already exist (same <code>name</code> and <code>version</code>) * <code>REPLACE_DUPLICATES</code>: <strong>(default)</strong> if the process already exists (same <code>name</code> and <code>version</code>), the existing one is deleted and the new one is deployed.
+As a reminder, deleting a process means: disable the process, delete all related cases and delete the process The following artifacts are used with <strong>implicit policies</strong>.
+It means that you do not have to declare those policies in the Deployment Descriptor file.
+There is no other policy available for those artifacts.</p>
+</li>
+<li>
+<p>Business Data Model: <code>REPLACE_DUPLICATES</code> * BDM access control: <code>REPLACE_DUPLICATES</code> * Layouts: <code>REPLACE_DUPLICATES</code> * Pages: <code>REPLACE_DUPLICATES</code> * Profiles: <code>REPLACE_DUPLICATES</code> * REST API extensions: <code>REPLACE_DUPLICATES</code> * Themes: <code>REPLACE_DUPLICATES</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_caveats"><a class="anchor" href="#_caveats"></a>Caveats</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FAIL</code> policy implies that the deployment stops right after the failure meaning that subsequent elements of the deployment are not deployed at all.</p>
+</li>
+<li>
+<p>Prior to deploying a Business Data Model, <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/pause-and-resume-bpm-services">the Bonita tenant is paused</a>.
+So a downtime of the tenant occurs.
+The tenant is resumed after the deployment of the BDM.</p>
+</li>
+<li>
+<p>REST API extension authorizations are not configured as part of the deployment process.
+They have to be configured while provisioning the Bonita platform.
+See <a href="how_to_configure_rest_api_authorization.html" class="page">how to configure REST API authorization</a> with BCD.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_use"><a class="anchor" href="#_how_to_use"></a>How to use</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the <code>bcd livingapp deploy</code> command to deploy Living App artifacts:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bcd -s &lt;scenario&gt; livingapp deploy -p &lt;application_path&gt; -c &lt;configuration_path&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>&lt;scenario&gt;</strong> is the path to the BCD scenario which defines the target Bonita stack.
+Artifacts will be deployed using tenant credentials defined by this scenario (<code>bonita_tenant_login</code> and <code>bonita_tenant_password</code> variables).</p>
+</li>
+<li>
+<p><strong>&lt;application_path&gt;</strong> is the path to the Application Archive to deploy (zip file or directory).</p>
+</li>
+<li>
+<p><strong>&lt;configuration_path&gt;</strong> is the path to the Application Configuration bconf artifact to deploy.
+This file can be generated for Bonita 7.8.0 onwards.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You may deploy an application archive and an application configuration artifact separately.
+The <code>bcd livingapp deploy</code> command requires at least one the deployable artifacts to be provided.</p>
+</div>
+<div class="paragraph">
+<p>You can add a <strong>--debug</strong> option to enable debug mode and increase verbosity.</p>
+</div>
+<div class="paragraph">
+<p>You can also add a <strong>--development-mode</strong> flag to perform the deployment in development mode.
+This flag allows for a more aggressive replacement policy.
+When this flag is not provided, the default production mode will be used which means more artifacts will be preserved.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Refer to the <a href="bcd_cli.html" class="page">BCD Command-line reference</a> for a complete list of available options for the <code>bcd livingapp deploy</code> command.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p><strong>Complete example:</strong></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Here is how to deploy artifacts of the <a href="https://github.com/bonitasoft/bonita-vacation-management-example">Bonita Vacation Management example Living App</a>.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <code>bonita-vacation-management-example-Test-20181206125838.zip</code> Application Archive zip file has been generated in the <code>bonita-vacation-management-example/target</code> directory</p>
+</li>
+<li>
+<p>a <code>bonita-vacation-management-example-Test-20181206125838.bconf</code> Application Configuration artifact bconf file has been generated in the <code>bonita-vacation-management-example/target</code> directory</p>
+</li>
+<li>
+<p>a Bonita runtime is up and running as defined in a <code>scenarios/build_and_deploy.yml</code> scenario file</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>In the BCD controller container</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bonita@bcd-controller:~$ cd bonita-continuous-delivery
+
+bonita@bcd-controller:~/bonita-continuous-delivery$ ls -nh bonita-vacation-management-example/target
+total 9,0M
+drwxr-xr-x 9 1000 1000 4,0K Dec   6 13:59 bonita-vacation-management-example
+-rw-r--r-- 1 1000 1000 2,4K Dec   6 13:59 bonita-vacation-management-example-Test-20181206125838.bconf
+-rw-r--r-- 1 1000 1000 9,0M Dec   6 13:59 bonita-vacation-management-example-Test-20181206125838.zip
+drwxr-xr-x 3 1000 1000 4,0K Dec   6 13:59 bpmn
+drwxr-xr-x 3 1000 1000 4,0K Dec   6 13:58 configurations
+drwxr-xr-x 2 1000 1000 4,0K Dec   6 13:58 generated-jars
+drwxr-xr-x 3 1000 1000 4,0K Dec   6 13:58 ui-designer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then artifacts can be deployed as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bonita@bcd-controller:~/bonita-continuous-delivery$ bcd -s scenarios/build_and_deploy.yml --yes livingapp deploy \
+    -p bonita-vacation-management-example/target/bonita-vacation-management-example-Test-20181206125838.zip \
+    -c bonita-vacation-management-example/target/bonita-vacation-management-example-Test-20181206125838.bconf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Artifacts can also be deployed providing the Application Archive directory and without configuration as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bonita@bcd-controller:~/bonita-continuous-delivery$ bcd -s scenarios/build_and_deploy.yml --yes livingapp deploy \
+    -p bonita-vacation-management-example/target/bonita-vacation-management-example</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

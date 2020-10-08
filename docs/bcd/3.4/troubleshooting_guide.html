@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Troubleshooting guide :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/troubleshooting_guide.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="troubleshooting_guide.html">Troubleshooting guide</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/troubleshooting_guide.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Troubleshooting guide</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you encounter issues during the usage of BCD due to a bad configuration or a network problem, it&#8217;s interesting to know that you could be able to simply relaunch your command (create, deploy) after fixing the configuration or the network and it should resume from where it was.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_common_issues"><a class="anchor" href="#_common_issues"></a>Common issues</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_invalidamiid_notfound_and_invalidsubnetid_notfound"><a class="anchor" href="#_invalidamiid_notfound_and_invalidsubnetid_notfound"></a>InvalidAMIID.NotFound and InvalidSubnetID.NotFound</h3>
+<div class="paragraph">
+<p>If while you launch a <code>create</code> command in order to create instances on AWS you get errors like these:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[...]
+InvalidAMIID.NotFound: The image id '[ami-fc4f5e85]' does not exist
+[...]
+Error launching source instance: InvalidSubnetID.NotFound: The subnet ID 'subnet-ab123456' does not exist
+[...]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should check that <code>ec2_subnet_ids</code> and <code>aws_ami</code> correspond to the region set into <code>ec2_region</code>.
+You may also check that rights linked to your AWS credentials (<code>.boto</code> or <code>.aws</code>) correspond to the actions in your scenario.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accessing_bonita_logs"><a class="anchor" href="#_accessing_bonita_logs"></a>Accessing Bonita logs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to troubleshoot issues you may need to consult Bonita logs.</p>
+</div>
+<div class="paragraph">
+<p>To do so, first you need to identify the target server where the Bonita container is running.
+It&#8217;s possible through the <code>bcd stack status</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bcd -s scenarios/myscenario.yml -y stack status
+
+[...]
+[10:44:12.802] TASK [List Docker containers.] **************************************************************************************************
+[...]
+IP: 54.191.90.85
+FQDN: ec2-54-191-90-85.us-west-2.compute.amazonaws.com
+
+Docker running containers
+--
+CONTAINER ID        IMAGE                                  CREATED             STATUS              NAMES
+5d73a2446245        bonitasoft/bonita-subscription:7.8.0   6 minutes ago       Up 6 minutes        bonita8081
+[...]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you will need to connect on this server (either through the IP or FQDN) using <code>ssh</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ssh -i ~/.ssh/my_key.pem ubuntu@54.191.90.85</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now display the logs using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker logs bonita8081</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to copy all the logs (bonita, catalina) you can use <code>docker cp</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker cp bonita8081:/opt/bonita/BonitaSubscription-7.8.0-Tomcat-8.5.34/server/logs/ /tmp/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you will be able to retrieve all the files through a <code>scp</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">scp -i ~/.ssh/my_key.pem ubuntu@54.191.90.85:/tmp/logs /tmp/</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging_ansible_facts"><a class="anchor" href="#_debugging_ansible_facts"></a>Debugging Ansible Facts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ansible facts are local variables registered in hosts.
+It is possible to save them in JSON files with the <code>setup</code> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cd bonita-continuous-delivery
+$ bcd -s scenarios/myscenario.yml -y stack create deploy
+$ ansible all -vv -i ansible/inventory/ec2/ec2_wrapper.sh -m setup -u ubuntu --private-key=~/.ssh/my_key.pem --tree tmp_facts/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will identify every EC2 instance (depending of <code>bcd_stack_id</code> set into ec2.ini by the last <code>bcd stack deploy</code> command) and put its facts into the <code>tmp_facts</code> directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accessing_ansible_logs"><a class="anchor" href="#_accessing_ansible_logs"></a>Accessing Ansible Logs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to troubleshoot issues, you may need to consult Ansible logs.</p>
+</div>
+<div class="paragraph">
+<p>By default, the path of the log is <code>/var/log/ansible.log</code> in your Docker container.
+You can change this location modifying the variable <code>log_path</code> in the Ansible configuration file located in <code>/home/bonita/bonita-continuous-delivery/ansible/ansible.cfg</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you want to persist the log, you can add a <strong><em>volume</em></strong> in when you run <code>docker run</code> command like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run --rm -t -i --name bcd-controller \
+    -v &lt;host_path_to_.boto&gt;:/home/bonita/.boto \
+    -v &lt;host_path_to_bonita-continuous-delivery_folder&gt;:/home/bonita/bonita-continuous-delivery \
+    -v &lt;host_path_to_ssh_private_key&gt;:/home/bonita/.ssh/&lt;ssh_private_key&gt; \
+    -v &lt;host_path_to_your_ansible_log&gt;:/var/log/ansible.log \
+    quay.io/bonitasoft/bcd-controller /bin/bash</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

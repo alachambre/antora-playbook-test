@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to manage Living Apps Configuration :: Bonita documentation 2.0</title>
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/livingapp_manage_configuration.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita Continous Delivery</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="index.html">3.4</a>
+              </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Bonita REST API</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="bcd" data-version="3.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_howtos.adoc">Howtos</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Bonita Continous Delivery</span>
+    <span class="version">3.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Bonita</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonita/7.12/index.html">7.12</a>
+        </li>
+        <li class="version">
+          <a href="../../bonita/7.11/index.html">7.11</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Bonita Continous Delivery</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3.4</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Bonita REST API</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Bonita Continous Delivery</a></li>
+    <li><a href="#_howtos.adoc">Howtos</a></li>
+    <li><a href="#_manage_living_application.adoc">Manage Bonita Living Applications</a></li>
+    <li><a href="livingapp_manage_configuration.html">Manage Living App configuration</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/livingapp_manage_configuration.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">How to manage Living Apps Configuration</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="label label-danger">Supported from Bonita 7.8.0 onwards</span> This tutorial describes how to configure your Bonita Living Application from the command line using BCD.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_it_works"><a class="anchor" href="#_how_it_works"></a>How it works</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since BCD 3.0.0 and with Bonita 7.8.0 onwards, if you build a Living Application you will get separately:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a zip file which contains binaries</p>
+</li>
+<li>
+<p>a bconf file which contains the configuration for the target <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/environments">environment</a> (Local by default)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is an example of a build result:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>bonita-vacation-management-example
+├── target
+   └── bonita-vacation-management-example-Test-20181003140237.zip
+   └── bonita-vacation-management-example-Test-20181003140237.bconf</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It&#8217;s possible to extract the configuration to check it and also override (merge) some parameters if needed.</p>
+</div>
+<div class="sect2">
+<h3 id="_extract_configuration"><a class="anchor" href="#_extract_configuration"></a>Extract configuration</h3>
+<div class="paragraph">
+<p>You can extract the configuration if you want to check it or modify it</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bcd -s scenarios/build_and_deploy.yml -y livingapp extract-conf \
+-p bonita-vacation-management-example/target/bonita-vacation-management-example-Test-20181003140237.bconf \
+-o scenarios/build_and_deploy_Test.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The configuration looks like this :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+processes:
+- name: "Modify Pending Vacation Request"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+  - name: "calendarCalendarId"
+    value: "mydomain.com_4gc5656x7f57cfsrejgb@group.calendar.google.com"
+    type: "String"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As it may contain sensitive data, it&#8217;s recommended to encrypt your configuration using <a href="how_to_use_bcd_with_data_encrypted">vault</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-vault encrypt scenarios/build_and_deploy_Test.yml
+New Vault password:
+Confirm New Vault password:
+Encryption successful</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also just check if there are parameters that have no value for this environment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bcd -s scenarios/build_and_deploy.yml -y livingapp extract-conf --without-value \
+-p bonita-vacation-management-example/target/bonita-vacation-management-example-Test-20181003140237.bconf \
+-o scenarios/build_and_deploy_Test_missing_parameters.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you omit to specify -o, the name of the output file by default is <strong>parameters.yml</strong> and it will be created in the same directory of the original <strong><em>bconf</em></strong> file.</p>
+</li>
+<li>
+<p>If all parameters are set, no file will be created.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_merge_configuration"><a class="anchor" href="#_merge_configuration"></a>Merge configuration</h3>
+<div class="paragraph">
+<p>You may want to complete or override some parameter values coming from your Living App repository, to do that you can modify the output file of the <strong>extract-conf</strong> command and <strong><em>merge</em></strong> with your <strong><em>bconf</em></strong> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bcd -s scenarios/build_and_deploy.yml -y livingapp merge-conf \
+-p bonita-vacation-management-example/target/bonita-vacation-management-example-Test-20181003140237.bconf \
+-i scenarios/build_and_deploy_Test.yml \
+-o /tmp/bonita-vacation-management-example-Test-20181003140237-modified.bconf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note : the content of bconf file is not encrypted so it&#8217;s recommended to clean them after usage.</p>
+</div>
+<div class="sect3">
+<h4 id="_override_parameters_with_the_same_name"><a class="anchor" href="#_override_parameters_with_the_same_name"></a>Override parameters with the same name</h4>
+<div class="paragraph">
+<p>You may have the same parameter name in more than one processes and you want to override them in all processes, to do that you can create an <strong><em>yml</em></strong> file as shown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+global_parameters:
+  - name: "ParameterNameInAllProcesses"
+    value: "SameValueInAllProcess"
+    type: "String"</code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>info Important: A specific parameter setting has priority over a global parameter configuration.</p>
+</dd>
+<dt class="hdlist1"></dt>
+<dd>
+<p><strong>Example</strong>: Let assume that these processes <strong>P1, P2, P3</strong> have all these three paremeters: <strong><em>calendarApplicationName</em></strong>, <strong><em>emailNotificationSender</em></strong>, <strong><em>emailServerUseSSL</em></strong>.</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+processes:
+- name: "P1"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+  - name: "emailNotificationSender"
+    value: "cancelvacationconfirmation@mail.com"
+    type: "String"
+- name: "P2"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+- name: "P3"
+  version: "1.4.1"
+  parameters:
+  - name: "calendarApplicationName"
+    value: "Bonitasoft-NewVacationRequest/1.4.0"
+    type: "String"
+global_parameters:
+  - name: "emailNotificationSender"
+    value: "vacation-notification@mail.com"
+    type: "String"
+  - name: "emailServerUseSSL"
+    value: true
+    type: "Boolean"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result of <strong>merge-conf</strong> will be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The value of <strong><em>emailServerUseSSL</em></strong> in <strong>global_parameters</strong> will override <strong>P1, P2, P3</strong>.</p>
+</li>
+<li>
+<p>The value of <strong><em>emailNotificationSender</em></strong> in <strong>global_parameters</strong> will override only <strong>P2 and P3</strong> because the setting of <strong><em>emailNotificationSender</em></strong> in <strong>P1</strong> has priority.</p>
+</li>
+<li>
+<p>The value of <strong><em>emailNotificationSender</em></strong> in <strong>P1</strong> will override only the parameter of <strong>P1</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
