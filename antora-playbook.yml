@@ -19,3 +19,5 @@ asciidoc:
   - ./lib/multirow-table-head-tree-processor.js
   - ./lib/swagger-ui-block-macro.js
   - ./lib/tabs-block.js
+urls:
+  html_extension_style: drop
