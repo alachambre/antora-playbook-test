@@ -5,12 +5,12 @@ site:
 content:
   sources:
     - url: https://github.com/alachambre/antora-sources-test.git
-      branches: [master, 7.11]
+      branches: [master, 7.11, 7.13]
     - url: git@github.com:alachambre/antora-source-api.git
     - url: https://github.com/alachambre/antora-sources-test-2.git
 ui:
   bundle:
-    url: /Users/adrien/test-antora/antora-ui/build/ui-bundle.zip
+    url: ../antora-ui/build/ui-bundle.zip
 asciidoc:
   extensions:
   - ./lib/source-url-include-processor.js
