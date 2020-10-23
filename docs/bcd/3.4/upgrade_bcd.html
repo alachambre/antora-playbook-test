@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Migrate from an earlier version of BCD :: Bonita documentation 2.0</title>
-    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/upgrade_bcd.html">
+    <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/upgrade_bcd">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link
@@ -16,8 +16,15 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
-      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <div class="navbar-item">
+        <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
+        <a href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      </div>
+
+      <div class="navbar-item hide-for-print">
+        <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+      </div>
+
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -27,45 +34,23 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-
-          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
-
-          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
-          <script>
-            docsearch({
-              // Your apiKey and indexName will be given to you once
-              // we create your config
-              apiKey: '8b16fe941025bb59db192dce337bc486',
-              indexName: 'test_BONITA',
-              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
-              // Replace inputSelector with a CSS selector
-              // matching your search input
-              inputSelector: '#search-query',
-              // Set debug to true to inspect the dropdown
-              debug: false,
-              algoliaOptions: {
-                'facetFilters': ["tags:3.4", "tags:bcd"]
-              },
-            });
-          </script>
-
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="../../bonita/7.12/index.html">7.12</a>
-                  <a class="navbar-item" href="../../bonita/7.11/index.html">7.11</a>
+                  <a class="navbar-item" href="../../bonita/7.12/">7.12</a>
+                  <a class="navbar-item" href="../../bonita/7.11/">7.11</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita Continous Delivery</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="index.html">3.4</a>
+                  <a class="navbar-item" href="./">3.4</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita REST API</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/">7.12</a>
               </div>
             </div>
       </div>
@@ -79,34 +64,34 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="index.html">Bonita Continous Delivery</a></h3>
+    <h3 class="title"><a href="./">Bonita Continous Delivery</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="release_notes.html">Release notes</a>
+    <a class="nav-link" href="release_notes">Release notes</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="requirements-and-compatibility.html">Requirements and compatibility</a>
+    <a class="nav-link" href="requirements-and-compatibility">Requirements and compatibility</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="getting_started.html">Getting started</a>
+    <a class="nav-link" href="getting_started">Getting started</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="upgrade_bcd.html">Upgrade BCD</a>
+    <a class="nav-link" href="upgrade_bcd">Upgrade BCD</a>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_bcd_services_and_scenarios.adoc">BCD services and scenarios</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bcd_controller.html">Controller Docker image</a>
+    <a class="nav-link" href="bcd_controller">Controller Docker image</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bcd_cli.html">Command-line interface</a>
+    <a class="nav-link" href="bcd_cli">Command-line interface</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="scenarios.html">Scenario file reference</a>
+    <a class="nav-link" href="scenarios">Scenario file reference</a>
   </li>
 </ul>
   </li>
@@ -119,71 +104,71 @@
     <a class="nav-link" href="#_manage_stack.adoc">Manage Bonita stacks</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="aws_prerequisites.html">Configure Amazon Web Services (AWS) for BCD</a>
+    <a class="nav-link" href="aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="aws_sso.html">Configure AWS single sign-on</a>
+    <a class="nav-link" href="aws_sso">Configure AWS single sign-on</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="aws_organizations.html">Assume IAM role within AWS Organizations</a>
+    <a class="nav-link" href="aws_organizations">Assume IAM role within AWS Organizations</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="azure-prerequisites.html">Configure Microsoft Azure for BCD</a>
+    <a class="nav-link" href="azure-prerequisites">Configure Microsoft Azure for BCD</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="deploy_with_static_inventory.html">Deploy with a static inventory</a>
+    <a class="nav-link" href="deploy_with_static_inventory">Deploy with a static inventory</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="deploy-with-existing-database.html">Deploy with an existing database</a>
+    <a class="nav-link" href="deploy-with-existing-database">Deploy with an existing database</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_custom_init.adoc">Customize the Bonita container</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="custom_init.html">Using initialization scripts</a>
+    <a class="nav-link" href="custom_init">Using initialization scripts</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="how_to_configure_rest_api_authorization.html">Configuring REST API authorization</a>
+    <a class="nav-link" href="how_to_configure_rest_api_authorization">Configuring REST API authorization</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx.html">Enabling remote monitoring with JMX</a>
+    <a class="nav-link" href="how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a>
   </li>
 </ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="manage_bonita_licenses.html">Manage Bonita licenses</a>
+    <a class="nav-link" href="manage_bonita_licenses">Manage Bonita licenses</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_manage_living_application.adoc">Manage Bonita Living Applications</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="livingapp_build.html">Build a Living App repository</a>
+    <a class="nav-link" href="livingapp_build">Build a Living App repository</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="livingapp_manage_configuration.html">Manage Living App configuration</a>
+    <a class="nav-link" href="livingapp_manage_configuration">Manage Living App configuration</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="livingapp_deploy.html">Deploy Living App artifacts</a>
+    <a class="nav-link" href="livingapp_deploy">Deploy Living App artifacts</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="livingapp_build_and_deploy.html">Build and deploy (Best Practices)</a>
+    <a class="nav-link" href="livingapp_build_and_deploy">Build and deploy (Best Practices)</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted.html">Use BCD with sensitive data encrypted</a>
+    <a class="nav-link" href="how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="jenkins_example.html">Integrate BCD with Jenkins</a>
+    <a class="nav-link" href="jenkins_example">Integrate BCD with Jenkins</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="troubleshooting_guide.html">Troubleshooting guide</a>
+    <a class="nav-link" href="troubleshooting_guide">Troubleshooting guide</a>
   </li>
 </ul>
   </li>
@@ -200,10 +185,10 @@
       <span class="title">Bonita</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../bonita/7.12/index.html">7.12</a>
+          <a href="../../bonita/7.12/">7.12</a>
         </li>
         <li class="version">
-          <a href="../../bonita/7.11/index.html">7.11</a>
+          <a href="../../bonita/7.11/">7.11</a>
         </li>
       </ul>
     </li>
@@ -211,7 +196,7 @@
       <span class="title">Bonita Continous Delivery</span>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">3.4</a>
+          <a href="./">3.4</a>
         </li>
       </ul>
     </li>
@@ -219,7 +204,7 @@
       <span class="title">Bonita REST API</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+          <a href="../../bonitaAPI/7.12/">7.12</a>
         </li>
       </ul>
     </li>
@@ -231,11 +216,11 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../../bonita/7.12/index.html" class="home-link"></a>
+  <a href="../../bonita/7.12/" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">Bonita Continous Delivery</a></li>
-    <li><a href="upgrade_bcd.html">Upgrade BCD</a></li>
+    <li><a href="./">Bonita Continous Delivery</a></li>
+    <li><a href="upgrade_bcd">Upgrade BCD</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test-2/edit/master/modules/ROOT/pages/upgrade_bcd.adoc">Edit this Page</a></div>
@@ -306,11 +291,11 @@ Then follow the instructions in the next section.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Then you will have to check <code>Breaking changes</code> section in the <a href="release_notes.html" class="page">release notes</a>.
+<p>Then you will have to check <code>Breaking changes</code> section in the <a href="release_notes" class="page">release notes</a>.
 Indeed you will have to add the new variables <code>bcd_registry_user</code> and  <code>bcd_registry_password</code> in order to retrieve BCD dependencies from Bonita secured Docker registry.</p>
 </div>
 <div class="paragraph">
-<p>Besides, the <code>bonita_edition</code> variable has been deprecated in BCD 3.0.0 (read <a href="release_notes.html" class="page">BCD 3.0.0 Release Notes</a> for further details).
+<p>Besides, the <code>bonita_edition</code> variable has been deprecated in BCD 3.0.0 (read <a href="release_notes" class="page">BCD 3.0.0 Release Notes</a> for further details).
 + Therefore you may remove this variable from your scenario files as it will be ignored.</p>
 </div>
 </div>
@@ -328,7 +313,7 @@ Indeed you will have to add the new variables <code>bcd_registry_user</code> and
 <div class="sect3">
 <h4 id="_bcd_controller"><a class="anchor" href="#_bcd_controller"></a>BCD controller</h4>
 <div class="paragraph">
-<p>As is described in the "Installation guide" from the <a href="getting_started.html" class="page">Getting started</a> you will need to load the last version of <code>bcd-controller_&lt;version&gt;.tar.zip</code> Docker image.
+<p>As is described in the "Installation guide" from the <a href="getting_started" class="page">Getting started</a> you will need to load the last version of <code>bcd-controller_&lt;version&gt;.tar.zip</code> Docker image.
 + You can also directly use the secured Docker registry to retrieve the latest image.</p>
 </div>
 <div class="listingblock">
@@ -340,11 +325,11 @@ $ docker pull quay.io/bonitasoft/bcd-controller</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The username corresponds to <code>bcd_registry_user</code> and the password corresponds to <code>bcd_registry_password</code> described in the <a href="scenarios.html" class="page">Scenario file reference</a>.
+<p>The username corresponds to <code>bcd_registry_user</code> and the password corresponds to <code>bcd_registry_password</code> described in the <a href="scenarios" class="page">Scenario file reference</a>.
 Both have been provided by your sales representative.</p>
 </div>
 <div class="paragraph">
-<p>If you choosed to persist your docker console history (<a href="bcd_controller.html" class="page">see bcd controller</a>) and want to keep it, then you should copy your <code>.bcd_bash_history</code> file from your old folder to your new <code>bonita-continuous-delivery_{bcdVersion}.0/</code> folder</p>
+<p>If you choosed to persist your docker console history (<a href="bcd_controller" class="page">see bcd controller</a>) and want to keep it, then you should copy your <code>.bcd_bash_history</code> file from your old folder to your new <code>bonita-continuous-delivery_{bcdVersion}.0/</code> folder</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -397,5 +382,24 @@ $ cp -r bonita-continuous-delivery_2.1.0/vagrant/2-machines/.vagrant bonita-cont
 </footer>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+<script>
+  docsearch({
+    // Your apiKey and indexName will be given to you once
+    // we create your config
+    apiKey: '8b16fe941025bb59db192dce337bc486',
+    indexName: 'test_BONITA',
+    appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+    // Replace inputSelector with a CSS selector
+    // matching your search input
+    inputSelector: '#search-query',
+    // Set debug to true to inspect the dropdown
+    debug: false,
+    algoliaOptions: {
+      'facetFilters': ["tags:3.4", "tags:bcd"]
+    },
+  });
+</script>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Assets :: Bonita documentation 2.0</title>
-    <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/assets.html">
+    <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/assets">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link
@@ -16,8 +16,15 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
-      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <div class="navbar-item">
+        <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
+        <a href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      </div>
+
+      <div class="navbar-item hide-for-print">
+        <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+      </div>
+
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -27,45 +34,23 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-
-          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
-
-          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
-          <script>
-            docsearch({
-              // Your apiKey and indexName will be given to you once
-              // we create your config
-              apiKey: '8b16fe941025bb59db192dce337bc486',
-              indexName: 'test_BONITA',
-              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
-              // Replace inputSelector with a CSS selector
-              // matching your search input
-              inputSelector: '#search-query',
-              // Set debug to true to inspect the dropdown
-              debug: false,
-              algoliaOptions: {
-                'facetFilters': ["tags:7.11", "tags:bonita"]
-              },
-            });
-          </script>
-
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="../7.12/index.html">7.12</a>
-                  <a class="navbar-item" href="index.html">7.11</a>
+                  <a class="navbar-item" href="../7.12/">7.12</a>
+                  <a class="navbar-item" href="./">7.11</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita Continous Delivery</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="../../bcd/3.4/index.html">3.4</a>
+                  <a class="navbar-item" href="../../bcd/3.4/">3.4</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita REST API</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="../../bonitaAPI/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="../../bonitaAPI/7.12/">7.12</a>
               </div>
             </div>
       </div>
@@ -79,7 +64,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="index.html">Bonita</a></h3>
+    <h3 class="title"><a href="./">Bonita</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -88,95 +73,95 @@
     <a class="nav-link" href="#_getting-started-tutorial.adoc">Getting started tutorial</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="what-is-bonita.html">What is Bonita?</a>
+    <a class="nav-link" href="what-is-bonita">What is Bonita?</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-studio-download-installation.html">Download and install</a>
+    <a class="nav-link" href="bonita-studio-download-installation">Download and install</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="draw-bpmn-diagram.html">Draw a BPMN diagram</a>
+    <a class="nav-link" href="draw-bpmn-diagram">Draw a BPMN diagram</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="define-business-data-model.html">Define business data model (BDM)</a>
+    <a class="nav-link" href="define-business-data-model">Define business data model (BDM)</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="declare-business-variables.html">Declare business variables</a>
+    <a class="nav-link" href="declare-business-variables">Declare business variables</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="declare-contracts.html">Declare contracts</a>
+    <a class="nav-link" href="declare-contracts">Declare contracts</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="create-web-user-interfaces.html">Create web user Interfaces</a>
+    <a class="nav-link" href="create-web-user-interfaces">Create web user Interfaces</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="define-who-can-do-what.html">Define who can do what</a>
+    <a class="nav-link" href="define-who-can-do-what">Define who can do what</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="configure-email-connector.html">Configure an email connector</a>
+    <a class="nav-link" href="configure-email-connector">Configure an email connector</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="design-application-page.html">Design an application page</a>
+    <a class="nav-link" href="design-application-page">Design an application page</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="create-application.html">Create an application</a>
+    <a class="nav-link" href="create-application">Create an application</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="release-notes.html">Release notes</a>
+    <a class="nav-link" href="release-notes">Release notes</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="migration-tool.html">Migration tool change log</a>
+    <a class="nav-link" href="migration-tool">Migration tool change log</a>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_application-and-process-design.adoc">Application and Process Design</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-bpm-overview.html">Bonita overview</a>
+    <a class="nav-link" href="bonita-bpm-overview">Bonita overview</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_application-and-process-design-overview.adoc">Application and process design overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="key-concepts.html">Key concepts</a>
+    <a class="nav-link" href="key-concepts">Key concepts</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="comparison-of-7-x-and-6-x.html">Comparison of 7.x and 6.x</a>
+    <a class="nav-link" href="comparison-of-7-x-and-6-x">Comparison of 7.x and 6.x</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="lifecycle-and-profiles.html">Lifecycle and profiles</a>
+    <a class="nav-link" href="lifecycle-and-profiles">Lifecycle and profiles</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="design-methodology.html">Design methodology</a>
+    <a class="nav-link" href="design-methodology">Design methodology</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-bpm-studio-preferences.html">Bonita Studio preferences</a>
+    <a class="nav-link" href="bonita-bpm-studio-preferences">Bonita Studio preferences</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-bpm-studio-hints-and-tips.html">Bonita Studio hints and tips</a>
+    <a class="nav-link" href="bonita-bpm-studio-hints-and-tips">Bonita Studio hints and tips</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_organization.adoc">Organization</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="organization-overview.html">Organization overview</a>
+    <a class="nav-link" href="organization-overview">Organization overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="approaches-to-managing-organizations-and-actor-mapping.html">Approaches to managing organizations and actor mapping</a>
+    <a class="nav-link" href="approaches-to-managing-organizations-and-actor-mapping">Approaches to managing organizations and actor mapping</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="organization-management-in-bonita-bpm-studio.html">Organization management in Bonita Studio</a>
+    <a class="nav-link" href="organization-management-in-bonita-bpm-studio">Organization management in Bonita Studio</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="custom-user-information-in-bonita-bpm-studio.html">Custom User Information in Bonita Studio</a>
+    <a class="nav-link" href="custom-user-information-in-bonita-bpm-studio">Custom User Information in Bonita Studio</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ldap-synchronizer.html">LDAP synchronizer</a>
+    <a class="nav-link" href="ldap-synchronizer">LDAP synchronizer</a>
   </li>
 </ul>
   </li>
@@ -186,10 +171,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="profiles-overview.html">Profiles overview</a>
+    <a class="nav-link" href="profiles-overview">Profiles overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="profileCreation.html">Profiles editor</a>
+    <a class="nav-link" href="profileCreation">Profiles editor</a>
   </li>
 </ul>
   </li>
@@ -204,48 +189,48 @@
     <a class="nav-link" href="#_diagrams.adoc">Diagrams</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="diagram-overview.html">Diagram overview</a>
+    <a class="nav-link" href="diagram-overview">Diagram overview</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="pools-and-lanes.html">Pools and lanes</a>
+    <a class="nav-link" href="pools-and-lanes">Pools and lanes</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="diagram-tasks.html">Tasks</a>
+    <a class="nav-link" href="diagram-tasks">Tasks</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="gateways.html">Gateways</a>
+    <a class="nav-link" href="gateways">Gateways</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="transitions.html">Transitions</a>
+    <a class="nav-link" href="transitions">Transitions</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="events.html">Events</a>
+    <a class="nav-link" href="events">Events</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="called-processes.html">Called processes</a>
+    <a class="nav-link" href="called-processes">Called processes</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="event-subprocesses.html">Event subprocesses</a>
+    <a class="nav-link" href="event-subprocesses">Event subprocesses</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="text-annotations.html">Text annotations</a>
+    <a class="nav-link" href="text-annotations">Text annotations</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="naming-conventions.html">Naming conventions</a>
+    <a class="nav-link" href="naming-conventions">Naming conventions</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="refactoring.html">Refactoring</a>
+    <a class="nav-link" href="refactoring">Refactoring</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="actors.html">Actors</a>
+    <a class="nav-link" href="actors">Actors</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="actor-filtering.html">Actor filters</a>
+    <a class="nav-link" href="actor-filtering">Actor filters</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="iteration.html">Iteration</a>
+    <a class="nav-link" href="iteration">Iteration</a>
   </li>
 </ul>
   </li>
@@ -254,34 +239,34 @@
     <a class="nav-link" href="#_data.adoc">Data</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="data-handling-overview.html">Data handling overview</a>
+    <a class="nav-link" href="data-handling-overview">Data handling overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="define-and-deploy-the-bdm.html">Define and deploy the BDM</a>
+    <a class="nav-link" href="define-and-deploy-the-bdm">Define and deploy the BDM</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bdm-access-control.html">Define access control on business objects</a>
+    <a class="nav-link" href="bdm-access-control">Define access control on business objects</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="specify-data-in-a-process-definition.html">Specify data in a process definition</a>
+    <a class="nav-link" href="specify-data-in-a-process-definition">Specify data in a process definition</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="parameters.html">Parameters</a>
+    <a class="nav-link" href="parameters">Parameters</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="contracts-and-contexts.html">Contracts and contexts</a>
+    <a class="nav-link" href="contracts-and-contexts">Contracts and contexts</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="documents.html">Documents</a>
+    <a class="nav-link" href="documents">Documents</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="define-a-search-index.html">Search keys</a>
+    <a class="nav-link" href="define-a-search-index">Search keys</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="expressions-and-scripts.html">Expressions and scripts</a>
+    <a class="nav-link" href="expressions-and-scripts">Expressions and scripts</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="operations.html">Operations</a>
+    <a class="nav-link" href="operations">Operations</a>
   </li>
 </ul>
   </li>
@@ -290,134 +275,134 @@
     <a class="nav-link" href="#_page-and-form-development.adoc">Page and form development</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="page-and-form-development-overview.html">Page and form development overview</a>
+    <a class="nav-link" href="page-and-form-development-overview">Page and form development overview</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_using-the-ui-designer.adoc">UI Designer</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="ui-designer-overview.html">UI Designer overview</a>
+    <a class="nav-link" href="ui-designer-overview">UI Designer overview</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="create-or-modify-a-page.html">Create or modify UI artifacts</a>
+    <a class="nav-link" href="create-or-modify-a-page">Create or modify UI artifacts</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="widgets.html">Widgets</a>
+    <a class="nav-link" href="widgets">Widgets</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="widget-properties.html">Widget properties</a>
+    <a class="nav-link" href="widget-properties">Widget properties</a>
   </li>
   <li class="nav-item" data-depth="4">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_widget-use-examples.adoc">Widget use examples</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="repeat-a-container-for-a-collection-of-data.html">Repeat a container for a collection of data</a>
+    <a class="nav-link" href="repeat-a-container-for-a-collection-of-data">Repeat a container for a collection of data</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="fragments.html">Fragments</a>
+    <a class="nav-link" href="fragments">Fragments</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="custom-widgets.html">Custom widgets</a>
+    <a class="nav-link" href="custom-widgets">Custom widgets</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="data-management.html">Data management</a>
+    <a class="nav-link" href="data-management">Data management</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="variables.html">Variables</a>
+    <a class="nav-link" href="variables">Variables</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="appearance.html">Appearance</a>
+    <a class="nav-link" href="appearance">Appearance</a>
   </li>
   <li class="nav-item is-current-page" data-depth="4">
-    <a class="nav-link" href="assets.html">Assets</a>
+    <a class="nav-link" href="assets">Assets</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="multi-language-pages.html">Multi-language pages</a>
+    <a class="nav-link" href="multi-language-pages">Multi-language pages</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="migrate-a-form-from-6-x.html">Migrate a form from 6.x</a>
+    <a class="nav-link" href="migrate-a-form-from-6-x">Migrate a form from 6.x</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="cache-configuration-and-policy.html">Cache configuration and policy</a>
+    <a class="nav-link" href="cache-configuration-and-policy">Cache configuration and policy</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="applicationCreation.html">Application descriptor</a>
+    <a class="nav-link" href="applicationCreation">Application descriptor</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_connectivity.adoc">Connectivity</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="connectivity-overview.html">Connectivity overview</a>
+    <a class="nav-link" href="connectivity-overview">Connectivity overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="alfresco.html">Alfresco</a>
+    <a class="nav-link" href="alfresco">Alfresco</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="cmis.html">CMIS</a>
+    <a class="nav-link" href="cmis">CMIS</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_database.adoc">Database</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="list-of-database-connectors.html">List of database connectors</a>
+    <a class="nav-link" href="list-of-database-connectors">List of database connectors</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="database-connector-configuration.html">Database connector configuration</a>
+    <a class="nav-link" href="database-connector-configuration">Database connector configuration</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="graphical-query-builder.html">Graphical query builder</a>
+    <a class="nav-link" href="graphical-query-builder">Graphical query builder</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="initialize-a-variable-from-a-database-without-scripting-or-java-code.html">Initialize a variable from a database without scripting or Java code</a>
+    <a class="nav-link" href="initialize-a-variable-from-a-database-without-scripting-or-java-code">Initialize a variable from a database without scripting or Java code</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="insert-data-in-a-docx-odt-template.html">Insert data in a .docx/.odt template</a>
+    <a class="nav-link" href="insert-data-in-a-docx-odt-template">Insert data in a .docx/.odt template</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="google-calendar.html">Google Calendar</a>
+    <a class="nav-link" href="google-calendar">Google Calendar</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ldap.html">LDAP</a>
+    <a class="nav-link" href="ldap">LDAP</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="messaging.html">Messaging</a>
+    <a class="nav-link" href="messaging">Messaging</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="generate-pdf-from-an-office-document.html">Generate PDF from an Office document</a>
+    <a class="nav-link" href="generate-pdf-from-an-office-document">Generate PDF from an Office document</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="salesforce.html">Salesforce</a>
+    <a class="nav-link" href="salesforce">Salesforce</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="sap-jco-3.html">SAP JCo 3</a>
+    <a class="nav-link" href="sap-jco-3">SAP JCo 3</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="script.html">Script</a>
+    <a class="nav-link" href="script">Script</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="twitter.html">Twitter</a>
+    <a class="nav-link" href="twitter">Twitter</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="uipath.html">UiPath</a>
+    <a class="nav-link" href="uipath">UiPath</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_web-service.adoc">Web service</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="web-service-connector-overview.html">Web service connector overview</a>
+    <a class="nav-link" href="web-service-connector-overview">Web service connector overview</a>
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="#web-service-tutorial.adoc">Web service connector tutorial</a>
@@ -431,40 +416,40 @@
     <a class="nav-link" href="#_reporting.adoc">Reporting</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="reporting-overview.html">Reporting overview</a>
+    <a class="nav-link" href="reporting-overview">Reporting overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="set-up-a-reporting-database.html">Set up a reporting database</a>
+    <a class="nav-link" href="set-up-a-reporting-database">Set up a reporting database</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="set-up-kpis.html">Set up KPIs</a>
+    <a class="nav-link" href="set-up-kpis">Set up KPIs</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="create-a-report.html">Create a report</a>
+    <a class="nav-link" href="create-a-report">Create a report</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="import-and-export-a-process.html">Import and export a process</a>
+    <a class="nav-link" href="import-and-export-a-process">Import and export a process</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_process-configuration.adoc">Process configuration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="process-configuration-overview.html">Process configuration overview</a>
+    <a class="nav-link" href="process-configuration-overview">Process configuration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="environments.html">Environments</a>
+    <a class="nav-link" href="environments">Environments</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="configuring-a-process.html">Configure a process</a>
+    <a class="nav-link" href="configuring-a-process">Configure a process</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="manage-jar-files.html">Manage JAR files</a>
+    <a class="nav-link" href="manage-jar-files">Manage JAR files</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="managing-dependencies.html">Manage dependencies</a>
+    <a class="nav-link" href="managing-dependencies">Manage dependencies</a>
   </li>
 </ul>
   </li>
@@ -473,24 +458,24 @@
     <a class="nav-link" href="#_process-testing.adoc">Process testing</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="process-testing-overview.html">Process testing overview</a>
+    <a class="nav-link" href="process-testing-overview">Process testing overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="configure-a-test-organization.html">Configure a test organization</a>
+    <a class="nav-link" href="configure-a-test-organization">Configure a test organization</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="run-a-process-from-bonita-bpm-studio-for-testing.html">Run a process from Bonita Studio for testing</a>
+    <a class="nav-link" href="run-a-process-from-bonita-bpm-studio-for-testing">Run a process from Bonita Studio for testing</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="log-files.html">Log files</a>
+    <a class="nav-link" href="log-files">Log files</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="project_deploy_in_dev_suite.html">Project deployment in Bonita Development Suite</a>
+    <a class="nav-link" href="project_deploy_in_dev_suite">Project deployment in Bonita Development Suite</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="build-a-process-for-deployment.html">Build a process for deployment</a>
+    <a class="nav-link" href="build-a-process-for-deployment">Build a process for deployment</a>
   </li>
 </ul>
   </li>
@@ -499,43 +484,43 @@
     <a class="nav-link" href="#_installation.adoc">Installation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-bpm-installation-overview.html">Bonita installation overview</a>
+    <a class="nav-link" href="bonita-bpm-installation-overview">Bonita installation overview</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-bpm-studio-installation.html">Bonita Studio installation</a>
+    <a class="nav-link" href="bonita-bpm-studio-installation">Bonita Studio installation</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_basic-bonita-platform-installation.adoc">Basic Bonita Platform installation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="hardware-and-software-requirements.html">Hardware and software requirements</a>
+    <a class="nav-link" href="hardware-and-software-requirements">Hardware and software requirements</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tomcat-bundle.html">Tomcat bundle</a>
+    <a class="nav-link" href="tomcat-bundle">Tomcat bundle</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="custom-deployment.html">Custom Deployment into existing Tomcat installation</a>
+    <a class="nav-link" href="custom-deployment">Custom Deployment into existing Tomcat installation</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="convert-wildfly-into-tomcat.html">Convert a WildFly into a Tomcat installation</a>
+    <a class="nav-link" href="convert-wildfly-into-tomcat">Convert a WildFly into a Tomcat installation</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="BonitaBPM_platform_setup.html">Platform configuration</a>
+    <a class="nav-link" href="BonitaBPM_platform_setup">Platform configuration</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="database-configuration.html">Database creation and customization to work with Bonita</a>
+    <a class="nav-link" href="database-configuration">Database creation and customization to work with Bonita</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="first-steps-after-setup.html">First steps after setup</a>
+    <a class="nav-link" href="first-steps-after-setup">First steps after setup</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="licenses.html">Licenses</a>
+    <a class="nav-link" href="licenses">Licenses</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-docker-installation.html">Bonita docker installation</a>
+    <a class="nav-link" href="bonita-docker-installation">Bonita docker installation</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -546,105 +531,105 @@
     <a class="nav-link" href="#_security-and-authentication.adoc">Security and authentication</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="user-authentication-overview.html">User authentication overview</a>
+    <a class="nav-link" href="user-authentication-overview">User authentication overview</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="active-directory-or-ldap-authentication.html">Active Directory or LDAP authentication</a>
+    <a class="nav-link" href="active-directory-or-ldap-authentication">Active Directory or LDAP authentication</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="single-sign-on-with-cas.html">Single sign-on with CAS</a>
+    <a class="nav-link" href="single-sign-on-with-cas">Single sign-on with CAS</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="single-sign-on-with-saml.html">Single sign-on with SAML</a>
+    <a class="nav-link" href="single-sign-on-with-saml">Single sign-on with SAML</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="single-sign-on-with-kerberos.html">Single sign-on with Kerberos</a>
+    <a class="nav-link" href="single-sign-on-with-kerberos">Single sign-on with Kerberos</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="enforce-password-policy.html">Enforce password policy</a>
+    <a class="nav-link" href="enforce-password-policy">Enforce password policy</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="rest-api-authorization.html">REST API authorization</a>
+    <a class="nav-link" href="rest-api-authorization">REST API authorization</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="csrf-security.html">CSRF security</a>
+    <a class="nav-link" href="csrf-security">CSRF security</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="enable-cors-in-tomcat-bundle.html">Enable CORS in Tomcat bundle</a>
+    <a class="nav-link" href="enable-cors-in-tomcat-bundle">Enable CORS in Tomcat bundle</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="ssl.html">SSL</a>
+    <a class="nav-link" href="ssl">SSL</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="tenant_admin_credentials.html">Tenant administrator credentials</a>
+    <a class="nav-link" href="tenant_admin_credentials">Tenant administrator credentials</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="guest-user.html">Guest user access</a>
+    <a class="nav-link" href="guest-user">Guest user access</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="set-log-and-archive-levels.html">Set log and archive levels</a>
+    <a class="nav-link" href="set-log-and-archive-levels">Set log and archive levels</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="configurable-archive.html">Configurable Archive</a>
+    <a class="nav-link" href="configurable-archive">Configurable Archive</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="performance-tuning.html">Performance tuning</a>
+    <a class="nav-link" href="performance-tuning">Performance tuning</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="performance-troubleshooting.html">Performance troubleshooting</a>
+    <a class="nav-link" href="performance-troubleshooting">Performance troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="use-gzip-compression.html">Use gzip compression</a>
+    <a class="nav-link" href="use-gzip-compression">Use gzip compression</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="two-main-types-of-deployment.html">Two main types of deployment</a>
+    <a class="nav-link" href="two-main-types-of-deployment">Two main types of deployment</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_bonita-in-a-cluster.adoc">Bonita in a cluster</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="overview-of-bonita-bpm-in-a-cluster.html">Overview of Bonita in a cluster</a>
+    <a class="nav-link" href="overview-of-bonita-bpm-in-a-cluster">Overview of Bonita in a cluster</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="install-a-bonita-bpm-cluster.html">Install a Bonita cluster</a>
+    <a class="nav-link" href="install-a-bonita-bpm-cluster">Install a Bonita cluster</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="cluster-administration.html">Cluster administration</a>
+    <a class="nav-link" href="cluster-administration">Cluster administration</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="multi-tenancy-and-tenant-configuration.html">Multi-tenancy and tenant configuration</a>
+    <a class="nav-link" href="multi-tenancy-and-tenant-configuration">Multi-tenancy and tenant configuration</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="embed-engine.html">Embed engine - Lab</a>
+    <a class="nav-link" href="embed-engine">Embed engine - Lab</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_platform-installation-examples.adoc">Platform installation examples</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="ubuntu-openjdk-tomcat-postgresql.html">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a>
+    <a class="nav-link" href="ubuntu-openjdk-tomcat-postgresql">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bonita-as-windows-service.html">Install Tomcat with Bonita as a service in Windows</a>
+    <a class="nav-link" href="bonita-as-windows-service">Install Tomcat with Bonita as a service in Windows</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="back-up-bonita-bpm-platform.html">Back up Bonita Platform</a>
+    <a class="nav-link" href="back-up-bonita-bpm-platform">Back up Bonita Platform</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_migration.adoc">Migration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="migration-overview.html">Migration overview</a>
+    <a class="nav-link" href="migration-overview">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
@@ -652,7 +637,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="upgrade-from-community-to-a-subscription-edition.html">Community to Subscription upgrade</a>
+    <a class="nav-link" href="upgrade-from-community-to-a-subscription-edition">Community to Subscription upgrade</a>
   </li>
 </ul>
   </li>
@@ -665,136 +650,136 @@
     <a class="nav-link" href="#_bonita-portal-interface.adoc">Bonita Portal interface</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bonita-bpm-portal-interface-overview.html">Bonita Portal overview</a>
+    <a class="nav-link" href="bonita-bpm-portal-interface-overview">Bonita Portal overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="user-task-list.html">User task list</a>
+    <a class="nav-link" href="user-task-list">User task list</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="languages.html">Languages</a>
+    <a class="nav-link" href="languages">Languages</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="log-in-and-log-out.html">Log in and log out</a>
+    <a class="nav-link" href="log-in-and-log-out">Log in and log out</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="about.html">About Bonita Portal</a>
+    <a class="nav-link" href="about">About Bonita Portal</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="mobile-portal.html">Mobile Portal</a>
+    <a class="nav-link" href="mobile-portal">Mobile Portal</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_process-maintenance.adoc">Process maintenance</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="processes.html">Processes</a>
+    <a class="nav-link" href="processes">Processes</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="cases.html">Cases</a>
+    <a class="nav-link" href="cases">Cases</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tasks.html">Tasks</a>
+    <a class="nav-link" href="tasks">Tasks</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="monitoring.html">Monitoring</a>
+    <a class="nav-link" href="monitoring">Monitoring</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="pause-and-resume-bpm-services.html">Pause and resume services</a>
+    <a class="nav-link" href="pause-and-resume-bpm-services">Pause and resume services</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bdm-management-in-bonita-bpm-portal.html">BDM Management in Bonita Portal</a>
+    <a class="nav-link" href="bdm-management-in-bonita-bpm-portal">BDM Management in Bonita Portal</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="applications.html">Applications</a>
+    <a class="nav-link" href="applications">Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_resources.adoc">Resources</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="resource-management.html">Resource management</a>
+    <a class="nav-link" href="resource-management">Resource management</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="pages.html">Pages</a>
+    <a class="nav-link" href="pages">Pages</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="forms.html">Forms</a>
+    <a class="nav-link" href="forms">Forms</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="layouts.html">Layouts</a>
+    <a class="nav-link" href="layouts">Layouts</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="themes.html">Themes</a>
+    <a class="nav-link" href="themes">Themes</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="api-extensions.html">REST API extensions</a>
+    <a class="nav-link" href="api-extensions">REST API extensions</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="live-update.html">Live update</a>
+    <a class="nav-link" href="live-update">Live update</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_organization-in-bonita-portal.adoc">Organization in Bonita Portal</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="organization-in-bonita-bpm-portal-overview.html">Organization in Bonita Portal overview</a>
+    <a class="nav-link" href="organization-in-bonita-bpm-portal-overview">Organization in Bonita Portal overview</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_organization-maintenance.adoc">Organization maintenance</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="import-export-an-organization.html">Import/export an organization</a>
+    <a class="nav-link" href="import-export-an-organization">Import/export an organization</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="group.html">Manage groups</a>
+    <a class="nav-link" href="group">Manage groups</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="role.html">Manage roles</a>
+    <a class="nav-link" href="role">Manage roles</a>
   </li>
   <li class="nav-item" data-depth="4">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_user.adoc">Manage users</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="manage-a-user.html">Manage a user</a>
+    <a class="nav-link" href="manage-a-user">Manage a user</a>
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="deactivate-a-user.html">Deactivate a user</a>
+    <a class="nav-link" href="deactivate-a-user">Deactivate a user</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="custom-user-information-in-bonita-bpm-portal.html">Custom User Information in Bonita Portal</a>
+    <a class="nav-link" href="custom-user-information-in-bonita-bpm-portal">Custom User Information in Bonita Portal</a>
   </li>
 </ul>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="analytics.html">Analytics</a>
+    <a class="nav-link" href="analytics">Analytics</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_user-profiles.adoc">User profiles</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="administrator-rights.html">Administrator rights</a>
+    <a class="nav-link" href="administrator-rights">Administrator rights</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="process-manager.html">Process manager</a>
+    <a class="nav-link" href="process-manager">Process manager</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="custom-profiles.html">Custom profiles</a>
+    <a class="nav-link" href="custom-profiles">Custom profiles</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="deploying-profiles-with-export-and-import.html">Deploy profiles with export and import</a>
+    <a class="nav-link" href="deploying-profiles-with-export-and-import">Deploy profiles with export and import</a>
   </li>
 </ul>
   </li>
@@ -803,15 +788,15 @@
     <a class="nav-link" href="#_look-feel.adoc">Look &amp; Feel</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="managing-look-feel.html">Manage Look &amp; Feel</a>
+    <a class="nav-link" href="managing-look-feel">Manage Look &amp; Feel</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="creating-a-new-look-feel.html">Create a new Look &amp; Feel</a>
+    <a class="nav-link" href="creating-a-new-look-feel">Create a new Look &amp; Feel</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="search-index.html">Search keys</a>
+    <a class="nav-link" href="search-index">Search keys</a>
   </li>
 </ul>
   </li>
@@ -820,89 +805,89 @@
     <a class="nav-link" href="#_monitoring.adoc">Monitoring</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="runtime-monitoring.html">Bonita Runtime Monitoring</a>
+    <a class="nav-link" href="runtime-monitoring">Bonita Runtime Monitoring</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="work-execution-audit.html">Work execution audit</a>
+    <a class="nav-link" href="work-execution-audit">Work execution audit</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="maintenance-operation.html">Bonita Runtime Maintenance Operations</a>
+    <a class="nav-link" href="maintenance-operation">Bonita Runtime Maintenance Operations</a>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_development.adoc">Development</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="software-extensibility.html">Platform extensibility overview</a>
+    <a class="nav-link" href="software-extensibility">Platform extensibility overview</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_connectors.adoc">Connectors</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="connectors-overview.html">Connectors overview</a>
+    <a class="nav-link" href="connectors-overview">Connectors overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="connector-archetype.html">Bonita connector archetype</a>
+    <a class="nav-link" href="connector-archetype">Bonita connector archetype</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="actor-filter-archetype.html">Create an actor filter</a>
+    <a class="nav-link" href="actor-filter-archetype">Create an actor filter</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="api-glossary.html">API glossary</a>
+    <a class="nav-link" href="api-glossary">API glossary</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_rest-api.adoc">REST API</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="rest-api-overview.html">REST API overview</a>
+    <a class="nav-link" href="rest-api-overview">REST API overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="rest-api-authentication.html">REST Authentication</a>
+    <a class="nav-link" href="rest-api-authentication">REST Authentication</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="application-api.html">application API</a>
+    <a class="nav-link" href="application-api">application API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="access-control-api.html">access control API</a>
+    <a class="nav-link" href="access-control-api">access control API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bdm-api.html">bdm API</a>
+    <a class="nav-link" href="bdm-api">bdm API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bpm-api.html">bpm API</a>
+    <a class="nav-link" href="bpm-api">bpm API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="customuserinfo-api.html">customuserinfo API</a>
+    <a class="nav-link" href="customuserinfo-api">customuserinfo API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="form-api.html">form API</a>
+    <a class="nav-link" href="form-api">form API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="identity-api.html">identity API</a>
+    <a class="nav-link" href="identity-api">identity API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="platform-api.html">platform API</a>
+    <a class="nav-link" href="platform-api">platform API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="portal-api.html">portal API</a>
+    <a class="nav-link" href="portal-api">portal API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="system-api.html">system API</a>
+    <a class="nav-link" href="system-api">system API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tenant-api.html">tenant API</a>
+    <a class="nav-link" href="tenant-api">tenant API</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="rest-api-extensions.html">REST API extensions</a>
+    <a class="nav-link" href="rest-api-extensions">REST API extensions</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="manage-files-using-upload-servlet-and-rest-api.html">Manage files using upload servlet and REST API</a>
+    <a class="nav-link" href="manage-files-using-upload-servlet-and-rest-api">Manage files using upload servlet and REST API</a>
   </li>
 </ul>
   </li>
@@ -911,13 +896,13 @@
     <a class="nav-link" href="#_engine-api.adoc">Engine API</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="engine-api-overview.html">Engine API overview</a>
+    <a class="nav-link" href="engine-api-overview">Engine API overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="create-your-first-project-with-the-engine-apis-and-maven.html">Create your first project with the Engine APIs and Maven</a>
+    <a class="nav-link" href="create-your-first-project-with-the-engine-apis-and-maven">Create your first project with the Engine APIs and Maven</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="configure-client-of-bonita-bpm-engine.html">Configure connection to Bonita Engine</a>
+    <a class="nav-link" href="configure-client-of-bonita-bpm-engine">Configure connection to Bonita Engine</a>
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="http://documentation.bonitasoft.com/javadoc/api/$7.11/index.html">Javadoc</a>
@@ -927,78 +912,78 @@
     <a class="nav-link" href="#_examples.adoc">Examples</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="manage-a-process.html">Manage a process</a>
+    <a class="nav-link" href="manage-a-process">Manage a process</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="handle-a-failed-activity.html">Handle a failed activity</a>
+    <a class="nav-link" href="handle-a-failed-activity">Handle a failed activity</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="manage-an-organization.html">Manage an organization</a>
+    <a class="nav-link" href="manage-an-organization">Manage an organization</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="manage-users.html">Manage users</a>
+    <a class="nav-link" href="manage-users">Manage users</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="handling-documents.html">Handle documents</a>
+    <a class="nav-link" href="handling-documents">Handle documents</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="create-administration-tools.html">Create administration tools</a>
+    <a class="nav-link" href="create-administration-tools">Create administration tools</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="restore-default-look-feel.html">Restore the default Look &amp; Feel</a>
+    <a class="nav-link" href="restore-default-look-feel">Restore the default Look &amp; Feel</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="manage-the-platform.html">Manage the platform</a>
+    <a class="nav-link" href="manage-the-platform">Manage the platform</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="using-list-and-search-methods.html">List and search methods</a>
+    <a class="nav-link" href="using-list-and-search-methods">List and search methods</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="queriable-logging.html">Queriable logger</a>
+    <a class="nav-link" href="queriable-logging">Queriable logger</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="log-in-with-cas.html">Log in with CAS</a>
+    <a class="nav-link" href="log-in-with-cas">Log in with CAS</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bonita-bpm-portal-urls.html">Bonita Portal URLs</a>
+    <a class="nav-link" href="bonita-bpm-portal-urls">Bonita Portal URLs</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_living-application.adoc">Living application</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="bonita-layout.html">Bonita Layout</a>
+    <a class="nav-link" href="bonita-layout">Bonita Layout</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="living-application-layout.html">Living application layout</a>
+    <a class="nav-link" href="living-application-layout">Living application layout</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="customize-layouts.html">Customize layouts</a>
+    <a class="nav-link" href="customize-layouts">Customize layouts</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="customize-living-application-theme.html">Customize living application theme</a>
+    <a class="nav-link" href="customize-living-application-theme">Customize living application theme</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="logging.html">Logs</a>
+    <a class="nav-link" href="logging">Logs</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="workspaces-and-repositories.html">Workspaces and projects</a>
+    <a class="nav-link" href="workspaces-and-repositories">Workspaces and projects</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_continuous-integration.adoc">Continuous integration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="automating-builds.html">Automate builds</a>
+    <a class="nav-link" href="automating-builds">Automate builds</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="set-up-continuous-integration.html">Set up continuous integration</a>
+    <a class="nav-link" href="set-up-continuous-integration">Set up continuous integration</a>
   </li>
 </ul>
   </li>
@@ -1009,10 +994,10 @@
     <a class="nav-link" href="#_collaboration.adoc">Collaboration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="project-documentation-generation.html">Project documentation generation</a>
+    <a class="nav-link" href="project-documentation-generation">Project documentation generation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="shared-project.html">Using a shared project</a>
+    <a class="nav-link" href="shared-project">Using a shared project</a>
   </li>
 </ul>
   </li>
@@ -1021,61 +1006,61 @@
     <a class="nav-link" href="#_howtos.adoc">Howtos</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="uid-modal-tutorial.html">Create a modal window using CSS</a>
+    <a class="nav-link" href="uid-modal-tutorial">Create a modal window using CSS</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="uid-case-overview-tutorial.html">Create a case overview page using the UI Designer</a>
+    <a class="nav-link" href="uid-case-overview-tutorial">Create a case overview page using the UI Designer</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="optimize-user-tasklist.html">Create unique task names for the user task list</a>
+    <a class="nav-link" href="optimize-user-tasklist">Create unique task names for the user task list</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="manage-control-in-forms.html">Control and validate forms in the UI Designer</a>
+    <a class="nav-link" href="manage-control-in-forms">Control and validate forms in the UI Designer</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="list-of-documents.html">Manage a list of documents</a>
+    <a class="nav-link" href="list-of-documents">Manage a list of documents</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bo-multiple-refs-tutorial.html">Manage multiple references in Business Objects</a>
+    <a class="nav-link" href="bo-multiple-refs-tutorial">Manage multiple references in Business Objects</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="custom-authorization-rule-mapping.html">Map authorization rules</a>
+    <a class="nav-link" href="custom-authorization-rule-mapping">Map authorization rules</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="rta-mail-template.html">Use the rich textarea widget in a mail template</a>
+    <a class="nav-link" href="rta-mail-template">Use the rich textarea widget in a mail template</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="datetimes-management-tutorial.html">Manage dates and times in BDM and User Interfaces</a>
+    <a class="nav-link" href="datetimes-management-tutorial">Manage dates and times in BDM and User Interfaces</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="bdm-in-rest-api.html">Manage BDM in custom Rest APIs</a>
+    <a class="nav-link" href="bdm-in-rest-api">Manage BDM in custom Rest APIs</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="share-a-repository-on-github.html">Share a project on GitHub Enterprise Edition</a>
+    <a class="nav-link" href="share-a-repository-on-github">Share a project on GitHub Enterprise Edition</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="git-versioning-community-edition.html">Use Git for versioning with Community Edition</a>
+    <a class="nav-link" href="git-versioning-community-edition">Use Git for versioning with Community Edition</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="migrate-a-svn-repository-to-github.html">Migrate a SVN repository to a Git repository</a>
+    <a class="nav-link" href="migrate-a-svn-repository-to-github">Migrate a SVN repository to a Git repository</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="configure-maven.html">Configure Maven</a>
+    <a class="nav-link" href="configure-maven">Configure Maven</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="uid-vertical-tabs-container-tutorial.html">Create a vertical tabs container for all devices</a>
+    <a class="nav-link" href="uid-vertical-tabs-container-tutorial">Create a vertical tabs container for all devices</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="groovy-in-bonita.html">Use Groovy in Bonita</a>
+    <a class="nav-link" href="groovy-in-bonita">Use Groovy in Bonita</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="responsiveness-with-community-edition.html">Create a responsive web application with Community edition</a>
+    <a class="nav-link" href="responsiveness-with-community-edition">Create a responsive web application with Community edition</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="use-bonita-acm.html">Enable Adaptive Case Management with Bonita</a>
+    <a class="nav-link" href="use-bonita-acm">Enable Adaptive Case Management with Bonita</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="event-handlers.html">Create an event handler</a>
+    <a class="nav-link" href="event-handlers">Create an event handler</a>
   </li>
 </ul>
   </li>
@@ -1084,47 +1069,47 @@
     <a class="nav-link" href="#_contributing.adoc">Contributing</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="building-community-edition-from-source.html">Build Bonita Community edition from source files</a>
+    <a class="nav-link" href="building-community-edition-from-source">Build Bonita Community edition from source files</a>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_engine-developer-doc.adoc">Bonita Engine developer documentation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="engine-architecture-overview.html">Bonita Engine architecture overview</a>
+    <a class="nav-link" href="engine-architecture-overview">Bonita Engine architecture overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="engine-flow-node-states.html">Flow node states</a>
+    <a class="nav-link" href="engine-flow-node-states">Flow node states</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="timers-execution.html">Timers execution</a>
+    <a class="nav-link" href="timers-execution">Timers execution</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="connectors-execution.html">Connectors execution</a>
+    <a class="nav-link" href="connectors-execution">Connectors execution</a>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#_works.adoc">Works</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="work-execution.html">Work execution</a>
+    <a class="nav-link" href="work-execution">Work execution</a>
   </li>
   <li class="nav-item" data-depth="4">
-    <a class="nav-link" href="work-locking.html">Work locking</a>
+    <a class="nav-link" href="work-locking">Work locking</a>
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="execution-sequence-states-and-transactions.html">BPM process / task execution sequence</a>
+    <a class="nav-link" href="execution-sequence-states-and-transactions">BPM process / task execution sequence</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="how-a-flownode-is-executed.html">How flow node is executed</a>
+    <a class="nav-link" href="how-a-flownode-is-executed">How flow node is executed</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="how-a-flownode-is-completed.html">How a flownode is completed</a>
+    <a class="nav-link" href="how-a-flownode-is-completed">How a flownode is completed</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="how-a-process-is-completed.html">How a process is executed</a>
+    <a class="nav-link" href="how-a-process-is-completed">How a process is executed</a>
   </li>
 </ul>
   </li>
@@ -1145,10 +1130,10 @@
       <span class="title">Bonita</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../7.12/index.html">7.12</a>
+          <a href="../7.12/">7.12</a>
         </li>
         <li class="version is-current">
-          <a href="index.html">7.11</a>
+          <a href="./">7.11</a>
         </li>
       </ul>
     </li>
@@ -1156,7 +1141,7 @@
       <span class="title">Bonita Continous Delivery</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../bcd/3.4/index.html">3.4</a>
+          <a href="../../bcd/3.4/">3.4</a>
         </li>
       </ul>
     </li>
@@ -1164,7 +1149,7 @@
       <span class="title">Bonita REST API</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../bonitaAPI/7.12/index.html">7.12</a>
+          <a href="../../bonitaAPI/7.12/">7.12</a>
         </li>
       </ul>
     </li>
@@ -1176,21 +1161,21 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="../7.12/index.html" class="home-link"></a>
+  <a href="../7.12/" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">Bonita</a></li>
+    <li><a href="./">Bonita</a></li>
     <li><a href="#_application-and-process-design.adoc">Application and Process Design</a></li>
     <li><a href="#_page-and-form-development.adoc">Page and form development</a></li>
     <li><a href="#_using-the-ui-designer.adoc">UI Designer</a></li>
-    <li><a href="assets.html">Assets</a></li>
+    <li><a href="assets">Assets</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">7.11</button>
   <div class="version-menu">
-    <a class="version" href="../7.12/assets.html">7.12</a>
-    <a class="version is-current" href="assets.html">7.11</a>
+    <a class="version" href="../7.12/assets">7.12</a>
+    <a class="version is-current" href="assets">7.11</a>
   </div>
 </div>
   <div class="edit-this-page"><a href="https://github.com/alachambre/antora-sources-test/edit/7.11/modules/ROOT/pages/assets.adoc">Edit this Page</a></div>
@@ -1348,7 +1333,7 @@ Add an image asset at page level if the image is used as a custom widget propert
 <h3 id="_localization_asset_subscription_editions_only"><a class="anchor" href="#_localization_asset_subscription_editions_only"></a>Localization asset (Subscription editions only)</h3>
 <div class="paragraph">
 <p>The localization asset of a page is a local file called <code>localization.json</code> that contains the text presented in the page with translations into the languages that you want to support.
-This enables you to create <a href="multi-language-pages.html" class="page">multi-language pages</a>.</p>
+This enables you to create <a href="multi-language-pages" class="page">multi-language pages</a>.</p>
 </div>
 <div class="paragraph">
 <p>A page can not have more than one localization asset.
@@ -1466,5 +1451,24 @@ To avoid dependency clashes with multiple version of assets, make sure only one 
 </footer>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+<script>
+  docsearch({
+    // Your apiKey and indexName will be given to you once
+    // we create your config
+    apiKey: '8b16fe941025bb59db192dce337bc486',
+    indexName: 'test_BONITA',
+    appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+    // Replace inputSelector with a CSS selector
+    // matching your search input
+    inputSelector: '#search-query',
+    // Set debug to true to inspect the dropdown
+    debug: false,
+    algoliaOptions: {
+      'facetFilters': ["tags:7.11", "tags:bonita"]
+    },
+  });
+</script>
   </body>
 </html>

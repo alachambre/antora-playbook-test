@@ -15,8 +15,15 @@
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
-      <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      <div class="navbar-item">
+        <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
+        <a href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
+      </div>
+
+      <div class="navbar-item hide-for-print">
+        <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+      </div>
+
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -26,45 +33,23 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-
-          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
-
-          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
-          <script>
-            docsearch({
-              // Your apiKey and indexName will be given to you once
-              // we create your config
-              apiKey: '8b16fe941025bb59db192dce337bc486',
-              indexName: 'test_BONITA',
-              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
-              // Replace inputSelector with a CSS selector
-              // matching your search input
-              inputSelector: '#search-query',
-              // Set debug to true to inspect the dropdown
-              debug: false,
-              algoliaOptions: {
-                'facetFilters': ["tags:", "tags:"]
-              },
-            });
-          </script>
-
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="/documentation/bonita/7.12/index.html">7.12</a>
-                  <a class="navbar-item" href="/documentation/bonita/7.11/index.html">7.11</a>
+                  <a class="navbar-item" href="/documentation/bonita/7.12/">7.12</a>
+                  <a class="navbar-item" href="/documentation/bonita/7.11/">7.11</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita Continous Delivery</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="/documentation/bcd/3.4/index.html">3.4</a>
+                  <a class="navbar-item" href="/documentation/bcd/3.4/">3.4</a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita REST API</a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="/documentation/bonitaAPI/7.12/index.html">7.12</a>
+                  <a class="navbar-item" href="/documentation/bonitaAPI/7.12/">7.12</a>
               </div>
             </div>
       </div>
@@ -82,10 +67,10 @@
       <span class="title">Bonita</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="/documentation/bonita/7.12/index.html">7.12</a>
+          <a href="/documentation/bonita/7.12/">7.12</a>
         </li>
         <li class="version">
-          <a href="/documentation/bonita/7.11/index.html">7.11</a>
+          <a href="/documentation/bonita/7.11/">7.11</a>
         </li>
       </ul>
     </li>
@@ -93,7 +78,7 @@
       <span class="title">Bonita Continous Delivery</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="/documentation/bcd/3.4/index.html">3.4</a>
+          <a href="/documentation/bcd/3.4/">3.4</a>
         </li>
       </ul>
     </li>
@@ -101,7 +86,7 @@
       <span class="title">Bonita REST API</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="/documentation/bonitaAPI/7.12/index.html">7.12</a>
+          <a href="/documentation/bonitaAPI/7.12/">7.12</a>
         </li>
       </ul>
     </li>
@@ -113,7 +98,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="/documentation/bonita/7.12/index.html" class="home-link"></a>
+  <a href="/documentation/bonita/7.12/" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
 </div>
@@ -140,5 +125,24 @@ If you typed the URL of this page manually, please double check that you entered
 </footer>
 <script src="/documentation/_/js/site.js"></script>
 <script async src="/documentation/_/js/vendor/highlight.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+<script>
+  docsearch({
+    // Your apiKey and indexName will be given to you once
+    // we create your config
+    apiKey: '8b16fe941025bb59db192dce337bc486',
+    indexName: 'test_BONITA',
+    appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+    // Replace inputSelector with a CSS selector
+    // matching your search input
+    inputSelector: '#search-query',
+    // Set debug to true to inspect the dropdown
+    debug: false,
+    algoliaOptions: {
+      'facetFilters': ["tags:", "tags:"]
+    },
+  });
+</script>
   </body>
 </html>
