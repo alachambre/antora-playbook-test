@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/define-and-deploy-the-bdm.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1157,20 +1181,23 @@ After the model is defined, you can use it to <a href="specify-data-in-a-process
 It is defined as a set of business object in a business data model (BDM).
 There is one BDM that is used by all processes and applications in a tenant.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>:fa-info-circle:</strong>  A BDM is defined at tenant level.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>:fa-info-circle:</strong>  A BDM is defined at tenant level.
 It means you can have different BDM per tenant on the same Bonita platform.
-See <a href="#bdm_storage">BDM data storage</a> for more information on how to configure a business data model per tenant.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+See <a href="#bdm_storage">BDM data storage</a> for more information on how to configure a business data model per tenant.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>When you define a process, you specify the business objects that are relevant to the process.
 When a process is instantiated (a case is started), the specified business objects are instantiated as required, becoming variables within the process instance.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>You are recommended to use business data instead of process data for any data that has meaning outside of one single process.
@@ -1251,16 +1278,8 @@ It is highly recommended to follow the <a href="https://docs.oracle.com/javase/t
 <ul>
 <li>
 <p>An object name.
-This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">+ </dt>
-<dd>
-<p>warning <strong>:fa-exclamation-triangle: Warning:</strong> Business object names must be unique, even across packages.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
-</div>
+This must be a Java class name (starting with a capital letter), because a business object is implemented as a Java class.
++ WARNING: <strong>:fa-exclamation-triangle: Warning:</strong> Business object names must be unique, even across packages.</p>
 </li>
 <li>
 <p>Attributes.
@@ -1451,29 +1470,39 @@ The order items have no meaning outside the order, so have a composition relatio
 An order item contains a product object and a simple attribute for quantity.
 The product object has an existence outside the order item (it is used in the product catalog), so has an aggregation relationship with the order item.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship.
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In Bonita, a composition relationship is unique: A given object can only be used in one composition relationship.
 For exemple, you cannot use the same object <em>Wheel</em> in composition for an object <em>Car</em> and an object <em>Bike</em>.
-You will have to use an object <em>WheelCar</em> and an object <em>WheelBike</em>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning In Bonita, in an aggregation relationship, a child must exist when creating its parent.
-When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+You will have to use an object <em>WheelCar</em> and an object <em>WheelBike</em>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In Bonita, in an aggregation relationship, a child must exist when creating its parent.
+When creating a parent, you must refer to an existing child to value an attribute with an aggregation relationship.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>In the Bonita Studio BDM wizard, you can specify the objects that are related by composition and aggregation, as well as the simple attributes.
 A child object can be mandatory or optional.
 A child object can be multiple, which means that the composite object contains zero or more (if optional) or one or more (if mandatory) instances of the child object.
 You cannot set a unique constraint on a child object.
 The default relationship is aggregation.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>When you configure an object in the Bonita Studio BDM wizard, the attribute dropdown list contains the names of the objects that can be included by composition or aggregation.
@@ -1560,20 +1589,27 @@ Once defined, double-click on the bom.xml file in the Project Explorer to open i
 </li>
 <li>
 <p>Click the name of the new package to select it, and specify the name you want to use by typing over the temporary name.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info A package must contain at least one business object.
-A new package comes automatically with a first business object, and deleting the last business object of a package deletes the package.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>To add an object into a package:</p>
-</dd>
-</dl>
-</div>
 </li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A package must contain at least one business object.
+A new package comes automatically with a first business object, and deleting the last business object of a package deletes the package.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To add an object into a package:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Select the expected package.</p>
 </li>
@@ -1707,23 +1743,24 @@ Use the <strong>Deploy button</strong> to deploy your BDM.
 It creates the BDM database structure.
 To <strong>reset the database</strong>, use the <strong>Clean Deploy</strong> button.
 Reset database is required when changes impact the mandatory or multiple setting for an attribute, a unique constraint, or when a non primitive attribute type is modified.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note</strong>: for subscription editions only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>Two maven artifacts are generated from the Business Data Model : <strong>bdm-dao</strong> and <strong>bdm-client</strong>.
-+ The version of those artifacts is fixed to 1.0.
-You have the possibility to edit the group id of those artifacts from the BDM edition wizard.
-+ Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:</p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note</strong>: for subscription editions only.
+ Two maven artifacts are generated from the Business Data Model : <strong>bdm-dao</strong> and <strong>bdm-client</strong>.
++ The version of those artifacts is fixed to 1.0.
+You have the possibility to edit the group id of those artifacts from the BDM edition wizard.
++ Those maven artifacts are meant to be used from REST API extensions, using the following dependencies:
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1760,16 +1797,22 @@ Write operations are done through processes.</p>
 <div class="paragraph">
 <p>To deploy the BDM, you export it as a ZIP file from Bonita Studio and then import it into Bonita Portal.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning :fa-exclamation-triangle: <strong>Warning:</strong> Before deploying the business data model, you must <a href="pause-and-resume-bpm-services.html" class="page">pause</a> the BPM services, so that the update can be performed without affecting ongoing processes.
-<strong>Important:</strong> You are recommended <a href="back-up-bonita-bpm-platform.html" class="page">Back up your platform</a> and database before deploying a new BDM in case of problems during the update.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+:fa-exclamation-triangle: <strong>Warning:</strong> Before deploying the business data model, you must <a href="pause-and-resume-bpm-services.html" class="page">pause</a> the BPM services, so that the update can be performed without affecting ongoing processes.
+<strong>Important:</strong> You are recommended <a href="back-up-bonita-bpm-platform.html" class="page">Back up your platform</a> and database before deploying a new BDM in case of problems during the update.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Follow these steps:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1819,9 +1862,6 @@ If deployment fails, use the Engine logs to analyze the problem.</p>
 BPM services are resumed.</p>
 </li>
 </ol>
-</div>
-</dd>
-</dl>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2015,15 +2055,21 @@ Choose the <em>*Script*</em> expression type and enter the same code snippet tha
 <p>You can use business data in a Java program by using the DAO.
 DAO gives <em>*read*</em> access to business objects.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>:fa-exclamation-triangle: Warning</strong>: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>:fa-exclamation-triangle: Warning</strong>: In a connector, code is executed outside a transaction, so retrieving or updating business data by DAO is not supported.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>You can however manipulate the business object outside the connector, and use business objects as connector input or output:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -2036,29 +2082,29 @@ Then use the business object (which is stored only in memory at this point) in a
 </li>
 </ul>
 </div>
-</dd>
-</dl>
-</div>
 <h4 id="_bdm_and_custom_rest_apis" class="discrete">BDM and custom REST APIs</h4>
 <div class="paragraph">
 <p>Be aware that a poor implementation of a custom REST API accessing BDM objects can lead to poor performance results.
 See the <a href="bdm-in-rest-api.html" class="page">best practice</a> on this matter.</p>
 </div>
 <h4 id="_handle_bdm_database_schema_manually" class="discrete">Handle BDM database schema manually</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning This section is for advanced usage.
-You should fully understand the database changes made when you update the Business Data Model before considering using this alternative.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This section is for advanced usage.
+You should fully understand the database changes made when you update the Business Data Model before considering using this alternative.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>You can use an alternative database <code>SchemaManager</code> implementation.
 A <code>SchemaManager</code> is responsible for updating the BDM Database schema, according to the changes you have made to your Business Data Model.
 As our third-party persistence layer <em>Hibernate</em> does not support all type of schema updates, you may want to use a SchemaManager that does <strong>not</strong> update the database tables directly, but rather let you (or your Database Administrator) update the database "manually".</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>For that, you can use the alternative we provide, by uncommenting the following lines in file <code>platform_conf/current/tenants/[TENANT_ID]/tenant_engine//bonita-tenants-custom.xml</code> using <a href="BonitaBPM_platform_setup.md#update_platform_conf">setup tool</a>.</p>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/define-business-data-model.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1209,26 +1233,50 @@ Declaration of business variables is part of the next chapter.</p>
 <ol class="arabic">
 <li>
 <p>Click on <strong>Finish</strong> button</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Mandatory</strong> on a object attribute means that the object cannot be created with an empty value.
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Mandatory</strong> on a object attribute means that the object cannot be created with an empty value.
 If the <strong>mandatory</strong> option is not checked, it means that an object can be created with an empty value, for the attribute "not mandatory" (i.e.
 optional).
 In our example, the <em>answer</em> attribute is optional because at process start it will be empty.
-Later in the process execution, an employee will provide an answer and doing so will be mandatory (but this will not be enforced by BDM definition).</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model.
-Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info When you click on the "Finish" button three different operations are performed:</p>
+Later in the process execution, an employee will provide an answer and doing so will be mandatory (but this will not be enforced by BDM definition).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+When you edit the BDM in Bonita Studio, it is always recommended to reset the database after doing any modification on the model.
+Check the checkbox "Reset BDM database," available in the pop-up window display when you validate your modifications.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When you click on the "Finish" button three different operations are performed:
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1242,26 +1290,26 @@ Check the checkbox "Reset BDM database," available in the pop-up window display 
 </li>
 </ul>
 </div>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Bonita Studio uses h2 to provide the database for testing.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Bonita Studio uses h2 to provide the database for testing.
 (You can use other types of databases such as Oracle, PostgreSQL, MySQL and SQL Server for production).
 Bonita Studio provides two database schemas: one for the Bonita Engine and one dedicated to BDM.
 You can view the tables created in the h2 BDM database by clicking in the Bonita Studio menu on <span class="menuseq"><b class="menu">Development</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Business Data Model</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Browse data (h2 console)&#8230;&#8203;</b></span>.
 In the h2 console (a web interface) you can see that a table named "CLAIM" was created.
-You can run an SQL query such as <code>SELECT * FROM CLAIM</code> which should return an empty result as there is no data yet.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+You can run an SQL query such as <code>SELECT * FROM CLAIM</code> which should return an empty result as there is no data yet.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Now you have a fully functional business data management model.
 You are ready to move to the next chapter and <a href="declare-business-variables.html" class="page">start populating the database with data collected by the process</a>.</p>
-</dd>
-</dl>
-</div>
-</li>
-</ol>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

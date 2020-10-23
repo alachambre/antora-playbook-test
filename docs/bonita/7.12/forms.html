@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/forms.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1198,28 +1222,45 @@ There is no contract for an overview form.</p>
 <div class="paragraph">
 <p>The <code>Theme.css</code> is directly accessible by adding the following link in <code>index.html</code>: <code>&lt;link href="../theme/theme.css" rel="stylesheet" /&gt;</code> This link is already inserted in the forms you design with the UI Designer.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info  The <code>app</code> URL parameter is used to retrieve the current application related Theme.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>app</code> URL parameter is used to retrieve the current application related Theme.
 + The living application layout inject this <code>app</code> URL parameter in the targeted page/form URL, and the value is the application token.
-+ If you create your own navigation link, you will need to include this <code>app</code> URL parameter in the forged form URL, in order to be able to benefit from the application theme.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info In the portal, the link <code>../theme/theme.css</code> will point the file <code>theme.css</code> from the portal theme.
-This portal forms theme is empty, and customizable to fit to the current portal theme.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info To view the form in the graphical context of an application, use the &#8220;View in application&#8221; dropdown menu of the UI Designer Preview window.
-+ This requires that the theme has already been mapped to one or several applications, and you are loggued as a user with the profile mapped with the application.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
++ If you create your own navigation link, you will need to include this <code>app</code> URL parameter in the forged form URL, in order to be able to benefit from the application theme.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the portal, the link <code>../theme/theme.css</code> will point the file <code>theme.css</code> from the portal theme.
+This portal forms theme is empty, and customizable to fit to the current portal theme.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To view the form in the graphical context of an application, use the &#8220;View in application&#8221; dropdown menu of the UI Designer Preview window.
++ This requires that the theme has already been mapped to one or several applications, and you are loggued as a user with the profile mapped with the application.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

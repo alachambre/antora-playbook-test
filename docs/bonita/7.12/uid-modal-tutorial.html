@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/uid-modal-tutorial.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1141,20 +1165,23 @@
 <div class="paragraph">
 <p>A nice aspect of Bonita UI Designer is that it allows users to apply or customize styles to the page as per their requirements through CSS.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>:fa-exclamation-triangle: Warning:</strong> This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container.
-For more information, read the <a href="widgets.md#modal-container">modal container</a> page.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>:fa-exclamation-triangle: Warning:</strong> This tutorial is deprecated starting with Bonita 7.8 because of the introduction of the modal container as a provided container.
+For more information, read the <a href="widgets.md#modal-container">modal container</a> page.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Throughout this tutorial you will see how to build a modal window using only CSS.
 Let&#8217;s get started by creating some content.
 You will need a container which will end up being our modal and some other content on top of which that modal will be displayed.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/uid-modal-tutorial/initial-content.png" alt="Initial content"></span></p>
@@ -1182,22 +1209,25 @@ You will need a container which will end up being our modal and some other conte
  }</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Note that the name of the class used follows <a href="https://en.bem.info/">BEM</a> methodology.
-+ BEM or any other structural naming convention enforces good practices such as responsibility segregation, reusability, name collision avoidance and more.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that the name of the class used follows <a href="https://en.bem.info/">BEM</a> methodology.
++ BEM or any other structural naming convention enforces good practices such as responsibility segregation, reusability, name collision avoidance and more.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>To use that file in the UI Designer you need to upload it as a page asset.
 + To do so, open your page.
 Go to the <code>Assets</code> section at the bottom of the screen and click on <code>Add a new asset</code>.
 + Select <code>CSS</code> type, <code>Local</code> source then upload your CSS file.
 + It will be added to the page and all classes will be available and accessible from the property <code>CSS classes</code> of any element.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>Now lets add <code>Modal-content</code> to the container property <code>CSS classes</code>.
@@ -1206,21 +1236,26 @@ Go to the <code>Assets</code> section at the bottom of the screen and click on <
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/uid-modal-tutorial/modal-content-container.png" alt="Modal content container"></span></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info While working on your CSS file, one could serve its local CSS file using a local <a href="https://www.npmjs.com/package/http-server">server</a>.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+While working on your CSS file, one could serve its local CSS file using a local <a href="https://www.npmjs.com/package/http-server">server</a>.
 + Then instead of uploading the file add an external CSS asset which point at your file.
 That would greatly speed up development.
-+ For production, that file would still need to be uploaded as a CSS asset.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Add an overlay to make underneath elements inaccessible</p>
-</dd>
-</dl>
++ For production, that file would still need to be uploaded as a CSS asset.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_an_overlay_to_make_underneath_elements_inaccessible"><a class="anchor" href="#_add_an_overlay_to_make_underneath_elements_inaccessible"></a>Add an overlay to make underneath elements inaccessible</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Add a new container and move the <code>Modal-content</code> container into the overlay container in order to to have it on top.
 + Add the following code to CSS file.</p>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/applications.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1141,20 +1165,25 @@
 <div class="paragraph">
 <p>Bonita allows you to build business-centered web applications that provides access to processes and operational dashboards.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning  Since 7.3, some changes have been made on the default layout.
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Since 7.3, some changes have been made on the default layout.
 Those changes live in the <code>layout.css</code> page asset and allow us to better handle the content layout of the page displayed.
-Another consequence is that it removes a margin which was automatically added at the top of each pages.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Application definition</p>
-</dd>
-</dl>
+Another consequence is that it removes a margin which was automatically added at the top of each pages.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_definition"><a class="anchor" href="#_application_definition"></a>Application definition</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>An application is a collection of pages and processes that meets a business need.
 It contains some or all of the following:</p>
@@ -1236,20 +1265,24 @@ This can either be a link to display a processes instantiation form or a task fo
 <div class="sect1">
 <h2 id="_defining_a_new_application"><a class="anchor" href="#_defining_a_new_application"></a>Defining a new application</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Since Bonita 7.5.0, the definition of applications can be done from the studio, which makes it more straightforward to develop and package with other application artifacts.
-For Enterprise, Efficiency and Performance editions, a graphical editor is provided on top of xml source code.</p>
-</dd>
-<dt class="hdlist1">For more details, go to <a href="applicationCreation.html" class="page">Application descriptors</a> </dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since Bonita 7.5.0, the definition of applications can be done from the studio, which makes it more straightforward to develop and package with other application artifacts.
+For Enterprise, Efficiency and Performance editions, a graphical editor is provided on top of xml source code.
+For more details, go to <a href="applicationCreation.html" class="page">Application descriptors</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>When you have developed all the resources that are used in an application, you are ready to define the application itself.
 The application builder is a graphical interface in Bonita Portal for specifying the application pages and defining the menus.
 There is a default application home page that you can adapt or replace.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>To define an application, you need to be logged in to Bonita Portal using the Administrator profile.</p>

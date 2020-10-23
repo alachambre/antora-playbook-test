@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/project-documentation-generation.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1141,35 +1165,43 @@
 <div class="paragraph">
 <p>How to generate the project documentation in Bonita Studio.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For Enterprise, Performance, Efficiency and Teamwork editions only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Overview</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For Enterprise, Performance, Efficiency and Teamwork editions only.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To collaborate efficiently with business users, Bonitasoft studio allows you to generate and export the documentation of your project.</p>
 </div>
 <div class="paragraph">
 <p>The documentation generator will use mostly information stored in the objects of the studio such as the processes or tasks.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning In order to fully use this feature, we recommend that you use extensively the provided description fields.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In order to fully use this feature, we recommend that you use extensively the provided description fields.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>As we know that your needs in term of documentation can greatly vary from one project to another or from one team to another, you can easily customize both the generated documentation and the templates used by the generator.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>To perform these customizations, you will need <a href="groovy-in-bonita.html" class="page">Groovy</a> and <a href="https://asciidoctor.org/">asciidoctor</a> knowledge.
@@ -1282,19 +1314,22 @@ The embedded editor is divided into three vertical panels:</p>
 <p>Now you can edit the source code to customize the documentation.
 To refresh the preview, save your source code.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Warning:</strong> If you launch the documentation generation again it will overwrite your README.adoc file.
-To avoid this, rename your file.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>=== Customizing the documentation templates</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning:</strong> If you launch the documentation generation again it will overwrite your README.adoc file.
+To avoid this, rename your file.
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_customizing_the_documentation_templates"><a class="anchor" href="#_customizing_the_documentation_templates"></a>Customizing the documentation templates</h3>
 <div class="paragraph">
 <p>Customizing the documentation templates allows you to industrialize your documentation generation.
 You will not have to customize manually the generated document it will already suit perfectly your needs!</p>

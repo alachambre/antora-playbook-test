@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/bdm-access-control.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1139,18 +1163,26 @@
 <h1 class="page">BDM access control</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> for Enterprise, Performance and Efficiency editions only.</p>
-</dd>
-<dt class="hdlist1">+ </dt>
-<dd>
-<p>== Overview</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> for Enterprise, Performance and Efficiency editions only.
+</td>
+</tr>
+</table>
 </div>
+<div class="paragraph">
+<p>+</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This page explains how to protect the access to your BDM through REST API calls via a white list mechanism.
 This protection does not secure access to BDM through DAO.
@@ -1207,22 +1239,25 @@ You can open it using the menu: <em>Development</em> &gt; <em>Business Data Mode
 This is why they only appear in the parent object list of attributes, in the details of the rule you define.
 + The <em>Invoice example</em> below gives more details on how to define access control for business objects used in a composition relationship.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> To allow an easy migration to this new feature, and to keep our BDM API working, all objects are visible by everyone by default.
 But as soon as you define an accss control rule for one object, the BDM access control switches to <strong>a white list logic</strong>, meaning that <strong>for each business object of your BDM</strong> that needs to be accessed, you must define at least one access control rule.
 Objects without rules won&#8217;t be accessible by anyone.
-+ The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
++ The graphical editor helps you to achieve this by adding a warning icon close to business objects that have no access rule defined.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>For development purposes, the studio can <strong>deploy</strong> access control onto Bonita Portal for you.
 Use the <em>Deploy</em> option of the editor toolbar or from the menu.
 To install it in a production environment, export the access control file (using the <em>Export</em> option of the editor toolbar or from the menu), login to the portal, and <a href="bdm-management-in-bonita-bpm-portal.html" class="page">install it</a>.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1311,22 +1346,29 @@ Define organization and profiles</strong></p>
 </li>
 <li>
 <p>Deploy those profiles.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> Steps 3.
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> Steps 3.
 and 4.
-are not directly related to access control definition, it is just a convenient way to observe its results.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+are not directly related to access control definition, it is just a convenient way to observe its results.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><strong>3.
 Create a process and generate data</strong></p>
-</dd>
-</dl>
 </div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Create a new diagram, with only a start event and an end event.</p>
 </li>
@@ -1342,16 +1384,23 @@ Create a process and generate data</strong></p>
 <p><strong>4.
 Create a living application to display data</strong></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> In this tutorial, we create a basic living application to observe the results of our access rules.
-You can also directly call the API and check the response.</p>
-</dd>
-<dt class="hdlist1">Here is the API to call: <em>../API/bdm/businessData/com.company.model.LeaveRequest?q=find&amp;p=0&amp;c=10</em> </dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> In this tutorial, we create a basic living application to observe the results of our access rules.
+You can also directly call the API and check the response.
+Here is the API to call: <em>../API/bdm/businessData/com.company.model.LeaveRequest?q=find&amp;p=0&amp;c=10</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>In the UI Designer, create an application page (<em>displayLeaveRequest</em>):</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1403,9 +1452,6 @@ You can also directly call the API and check the response.</p>
 </div>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p><em>medicalComment</em> will not be accessible to the HR trainees.
@@ -1717,22 +1763,25 @@ Define organization and profiles</strong></p>
 </li>
 <li>
 <p>Deploy those profiles.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> Steps 3.
-and 4.
-are not directly related to access control definition, it is just a convenient way to observe its results.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><a id="bdmFilling"></a></p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> Steps 3.
+and 4.
+are not directly related to access control definition, it is just a convenient way to observe its results.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a id="bdmFilling"></a></p>
 </div>
 <div class="paragraph">
 <p><strong>3.
@@ -1821,16 +1870,23 @@ it appears as a suggestion)</p>
 <p><strong>4.
 Create a living application to display data</strong></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> In this tutorial, we create a basic living application to observe the results of our access rules.
-You can also directly call the API and check the response.</p>
-</dd>
-<dt class="hdlist1">Here is the API to call: <em>../API/bdm/businessData/com.company.model.Invoice?q=find&amp;p=0&amp;c=10</em> </dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> In this tutorial, we create a basic living application to observe the results of our access rules.
+You can also directly call the API and check the response.
+Here is the API to call: <em>../API/bdm/businessData/com.company.model.Invoice?q=find&amp;p=0&amp;c=10</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>In the UI Designer, create an application page <em>displayInvoices</em>  :</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1869,9 +1925,6 @@ You can also directly call the API and check the response.</p>
 </div>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>Create a new application descriptor using the <a href="applicationCreation.html" class="page">application editor</a> in the studio:</p>
@@ -2060,21 +2113,24 @@ Only customer data names are displayed.</p>
 <div class="paragraph">
 <p>To grant access to specific instances of business objects, you will need to use <a href="rest-api-authorization.html" class="page">rest-api authorizations</a>.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> The example below accounts for a specific way to use a method introduced in Bonita 7.0, and updated in Bonita 7.6.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> The example below accounts for a specific way to use a method introduced in Bonita 7.0, and updated in Bonita 7.6.
 It grants access to BDM query requests that retrieve object instances rather than to the instances themselves.
-This method is available starting from the Community version.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+This method is available starting from the Community version.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><strong>Business use case:</strong> Students of a university can make requests to their teachers about their marks.
 Each teacher teaches a different subject.
 A teacher should only be able to access requests that address their subject.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p><strong>Technical use case:</strong> Grant access to BDM queries depending on a business object attribute value and the profile of requester.</p>
@@ -2205,23 +2261,26 @@ Define organization and profiles</strong></p>
 </li>
 <li>
 <p>Deploy those profiles.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> Steps 3.
-and 4.
-are not directly related to access control definition, it is just a convenient way to observe its results.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><strong>3.
-Create a process and generate data</strong></p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> Steps 3.
+and 4.
+are not directly related to access control definition, it is just a convenient way to observe its results.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>3.
+Create a process and generate data</strong></p>
 </div>
 <div class="paragraph">
 <p>Some instances of the object <em>Request</em>, as well as some instances of <em>Students</em> are needed.
@@ -2422,23 +2481,26 @@ This will upload the <em>dynamic-permissions-checks-custom.properties</em> file 
 <li>
 <p>Restart the web server through the menu "Server &gt; Restart Web server".
 The new security rule from the <em>dynamic-permissions-checks-custom.properties</em> file is now active.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For every change of the <em>dynamic-permissions-checks-custom.properties</em> file, you must push it and restart the web server.
-However, since the Studio has the Debug mode active by default, you do not need to restart the web server after modifying the groovy script in this environnement.
-You still do on a production server.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p><strong>6.
-Access control validation</strong></p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For every change of the <em>dynamic-permissions-checks-custom.properties</em> file, you must push it and restart the web server.
+However, since the Studio has the Debug mode active by default, you do not need to restart the web server after modifying the groovy script in this environnement.
+You still do on a production server.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>6.
+Access control validation</strong></p>
 </div>
 <div class="paragraph">
 <p>Access to data queries is now controlled by dynamic security.

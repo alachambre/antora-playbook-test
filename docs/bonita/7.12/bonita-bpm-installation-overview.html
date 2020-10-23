@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/bonita-bpm-installation-overview.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1193,7 +1217,7 @@ The package contains the individual launchers in one .zip file, and creates the 
 <div class="ulist">
 <ul>
 <li>
-<p>If you want to migrate an existing installation to the latest version follow the <a href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc" class="page unresolved">migration guide</a>.</p>
+<p>If you want to migrate an existing installation to the latest version follow the <a href="migrate-from-an-earlier-version-of-bonita-bpm.html" class="page">migration guide</a>.</p>
 </li>
 <li>
 <p>If you want to do a fresh install, get our <a href="tomcat-bundle.html" class="page">prepackaged bundle</a> that include an Application Server</p>
@@ -1207,17 +1231,21 @@ The package contains the individual launchers in one .zip file, and creates the 
 <p>For all options, you will need to <a href="database-configuration.html" class="page">configure</a> Bonita Engine to work with the database of your choice (e.g.
 PostgreSQL or Oracle).</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database.</p>
-</dd>
-<dt class="hdlist1">For more information, take a look at <a href="BonitaBPM_platform_setup.html" class="page">Bonita Platform configuration</a> </dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Starting from Bonita 7.3.0, there is no more bonita home to store the configuration, all the configuration is in the database.
+For more information, take a look at <a href="BonitaBPM_platform_setup.html" class="page">Bonita Platform configuration</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>For detailed information on the Supported Environment Matrix, see the <a href="https://customer.bonitasoft.com/support-policies">Support Guide</a> or <a href="http://www.bonitasoft.com/contact-us">ask to be contacted by our commercial team</a>.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/languages.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1255,31 +1279,43 @@
 </li>
 <li>
 <p>English if none of the previous ones are set and/or supported</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info When a language different from the one already set in the BOS_Locale cookie is passed in the URL (<code>locale</code> parameter), then the cookie value is reset with this new language.
-This can be used to force the default language if needed (by simply providing a link to Bonita portal/applications with the locale parameter).</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Add a language to Bonita Portal</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Instructions below assume that the language you want to add is already available in the community translation project.
-If translation is not available see <a href="#Translate_BonitaB_PM_Portal">Translate Bonita Portal</a> for instruction about how to collaborate to a new or ongoing translation.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>Instructions below explain how to add a language to Bonita Portal.
-Steps below involve using content created by Bonitasoft community and therefore not officially supported.</p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When a language different from the one already set in the BOS_Locale cookie is passed in the URL (<code>locale</code> parameter), then the cookie value is reset with this new language.
+This can be used to force the default language if needed (by simply providing a link to Bonita portal/applications with the locale parameter).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_a_language_to_bonita_portal"><a class="anchor" href="#_add_a_language_to_bonita_portal"></a>Add a language to Bonita Portal</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Instructions below assume that the language you want to add is already available in the community translation project.
+If translation is not available see <a href="#Translate_BonitaB_PM_Portal">Translate Bonita Portal</a> for instruction about how to collaborate to a new or ongoing translation.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Instructions below explain how to add a language to Bonita Portal.
+Steps below involve using content created by Bonitasoft community and therefore not officially supported.</p>
 </div>
 <h4 id="_download_the_language_files" class="discrete">Download the language files</h4>
 <div class="olist arabic">
@@ -1359,17 +1395,21 @@ For example, the files for the Brazilian Portuguese language end with <code>pt_B
 </li>
 <li>
 <p>Check that the new language is listed in Settings menu of the Bonita Portal.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Warning:</strong> The <code>mobile_xxxx.po/.pot</code> files used for the language of the <a href="https://documentation.bonitasoft.com/bonita/7.4/mobile-portal">Bonita Mobile Portal</a> may contain some keys missing translation.
-For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.</p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning:</strong> The <code>mobile_xxxx.po/.pot</code> files used for the language of the <a href="https://documentation.bonitasoft.com/bonita/7.4/mobile-portal">Bonita Mobile Portal</a> may contain some keys missing translation.
+For the Mobile Portal to be displayed correctly in the new language, these keys must not be empty.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>On the other hand, some of the keys in the <code>mobile_xxxx.po/.pot</code> files are duplicates from the ones in other non-mobile <code>.po/.pot</code> files.
@@ -1387,7 +1427,7 @@ These keys must all have the same value (whether translated or chosen to be left
 <p><code>portal_de_DE.po</code></p>
 </li>
 <li>
-<p><code>portal-sp_de_DE.po</code> :::</p>
+<p><code>portal-sp_de_DE.po</code></p>
 </li>
 </ul>
 </div>

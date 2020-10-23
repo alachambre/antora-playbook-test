@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/livingapp_build.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -228,7 +252,7 @@
 <dt class="hdlist1"></dt>
 <dd>
 <p>info A Living Application repository (or <strong>Living App repository</strong>) contains the artifacts developed in Bonita Studio and the UI Designer.
-Its content is further described in <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/workspaces-and-repositories">Bonita&#8217;s Workspaces and repositories documentation</a> page.</p>
+Its content is further described in <a href="https://documentation.bonitasoft.com/bonita/$7.12/workspaces-and-repositories">Bonita&#8217;s Workspaces and repositories documentation</a> page.</p>
 </dd>
 <dt class="hdlist1"></dt>
 <dd>
@@ -244,7 +268,7 @@ Its content is further described in <a href="https://documentation.bonitasoft.co
 <div class="sect2">
 <h3 id="_1_prepare_the_repository"><a class="anchor" href="#_1_prepare_the_repository"></a>1. Prepare the repository</h3>
 <div class="paragraph">
-<p>A Living App repository can be created using Bonita Studio and it can be <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/workspaces-and-repositories#toc5">shared with Git or SVN</a>.</p>
+<p>A Living App repository can be created using Bonita Studio and it can be <a href="https://documentation.bonitasoft.com/bonita/$7.12/workspaces-and-repositories#toc5">shared with Git or SVN</a>.</p>
 </div>
 <div class="paragraph">
 <p>So first ensure you have your Living App repository available on your filesystem.
@@ -301,7 +325,7 @@ This is the version of the Bonita stack where generated artifacts will be deploy
 + For instance the <code>bonita-la-builder-7.8.0-exec.jar</code> file must be present to build artifacts meant to be deployed on a Bonita <code>7.8.0</code> stack.</p>
 </div>
 <div class="paragraph">
-<p><strong><code>bonita-sp-</strong>-maven-repository.zip</code>* + Bonita Maven repository zip files if your repository contains <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/api-extensions">REST API extensions</a>.
+<p><strong><code>bonita-sp-</strong>-maven-repository.zip</code>* + Bonita Maven repository zip files if your repository contains <a href="https://documentation.bonitasoft.com/bonita/$7.12/api-extensions">REST API extensions</a>.
 The version of the Maven repository zip must correspond to the <code>bonita.version</code> property defined in your REST API extension&#8217;s <code>pom.xml</code>.</p>
 </div>
 </div>
@@ -368,7 +392,7 @@ This configuration artifact allows to separate process configuration (parameters
 </div>
 <div class="paragraph">
 <p>The <code>bcd livingapp build</code> command does not allow to migrate your repository to the builder&#8217;s version.
-Your repository has to be migrated to the appropriate version using <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/workspaces-and-repositories#toc6">Bonita Studio</a>.</p>
+Your repository has to be migrated to the appropriate version using <a href="https://documentation.bonitasoft.com/bonita/$7.12/workspaces-and-repositories#toc6">Bonita Studio</a>.</p>
 </div>
 </div>
 </div>

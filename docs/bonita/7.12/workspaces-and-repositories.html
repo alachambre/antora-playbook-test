@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/workspaces-and-repositories.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1141,20 +1165,25 @@
 <div class="paragraph">
 <p>Organize and share your Bonita project using workspaces and projects in order to ease developers team collaboration.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
 Community Edition only support a single workspace with a single project.
-To use Git with Community Edition refer to the <a href="git-versioning-community-edition.html" class="page">dedicated tutorial</a>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Workspaces and projects</p>
-</dd>
-</dl>
+To use Git with Community Edition refer to the <a href="git-versioning-community-edition.html" class="page">dedicated tutorial</a>.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workspaces_and_projects"><a class="anchor" href="#_workspaces_and_projects"></a>Workspaces and projects</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A workspace is a directory where Bonita Studio stores files such as Studio configuration settings (shared by all projects in the workspace) and projects folders.
 When you install Bonita Studio, a default workspace is created automatically: the folder is named <code>workspace</code> and is located in your Studio installation folder.</p>
@@ -1169,8 +1198,6 @@ When you install Bonita Studio, a default workspace is created automatically: th
 + Your workspace contains a local copy of the project, which is synchronized with the remote Subversion or Git server.
 + Note that the values of the <em>Local</em> process configurations (such as parameters) will not be synchronized on the remote repository, to allow each Studio to have its own configuration.
 You can use another environment for shared configurations (Qualification, Production or custom environments).</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_switch_workspace"><a class="anchor" href="#_switch_workspace"></a>Switch workspace</h3>
@@ -1306,22 +1333,27 @@ You can see the name of the current project at the top, in the title bar.</p>
 <p>If the list does not contain the name of the project you want to use, check that you are using the correct workspace, and if necessary, switch workspace.</p>
 </div>
 </div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_use_a_shared_project"><a class="anchor" href="#_use_a_shared_project"></a>Use a shared project</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Bonita Studio provide a feature (<strong>File</strong> menu, <strong>Import</strong>, <strong>Workspace&#8230;&#8203;</strong>) to import all the projects from a given workspace into your current workspace.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Bonita Studio provide a feature (<strong>File</strong> menu, <strong>Import</strong>, <strong>Workspace&#8230;&#8203;</strong>) to import all the projects from a given workspace into your current workspace.
 If the workspace you import from includes shared projects (Git or Subversion), be aware that importing the workspace will result in having a local project instead of a shared one.
-For shared projects, it&#8217;s advised to clone them directly from the remote Git repository instead of using the import workspace feature.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+For shared projects, it&#8217;s advised to clone them directly from the remote Git repository instead of using the import workspace feature.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><a id="git"></a></p>
-</dd>
-</dl>
 </div>
 <div class="sect2">
 <h3 id="_git"><a class="anchor" href="#_git"></a>Git</h3>
@@ -1432,18 +1464,21 @@ This information is also available at the top of Bonita Studio window, as well a
 <div class="paragraph">
 <p>Those commands can be found in Team &gt; Git menu.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.</strong> Else, migration might be skipped.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>==== Conflict management</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Branches can be merged/rebased into each others if and only if branches are in the same Bonita version.</strong> Else, migration might be skipped.
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_conflict_management"><a class="anchor" href="#_conflict_management"></a>Conflict management</h4>
 <div class="paragraph">
 <p>The use of Git often lead to conflicts when contributions are merged.
 There is different ways to manage conflicts, with a diff tool, in a text editor&#8230;&#8203;

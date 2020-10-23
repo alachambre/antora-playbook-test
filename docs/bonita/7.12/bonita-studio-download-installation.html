@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/bonita-studio-download-installation.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1142,18 +1166,23 @@
 <p>The first step of this getting started tutorial is to set up your development environment.
 All you need to do is install Bonita Studio.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info If you face any difficulties in this getting started tutorial, please <a href="https://community.bonitasoft.com/questions-and-answers">ask for help on the Bonita community</a> and/or open an issue on the Bonita <a href="https://bonita.atlassian.net/projects/BBPMC/issues">Community issue tracker</a>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Download Bonita Studio</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you face any difficulties in this getting started tutorial, please <a href="https://community.bonitasoft.com/questions-and-answers">ask for help on the Bonita community</a> and/or open an issue on the Bonita <a href="https://bonita.atlassian.net/projects/BBPMC/issues">Community issue tracker</a>.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_download_bonita_studio"><a class="anchor" href="#_download_bonita_studio"></a>Download Bonita Studio</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To download the latest version of Bonita Studio, open the <a href="https://www.bonitasoft.com/downloads">download page</a> and click on the <strong>Download</strong> button.
 This will start the download of Bonita Studio installer for your operating system.</p>
@@ -1254,19 +1283,24 @@ If not, you can manually start it by using the installed shortcut or by using th
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/getting-started-tutorial/installation/studio-first-start-02-studio-on-welcome-page.png" alt="Bonita Studio with welcome page displayed"></span></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more.
-This might take a while and may be why some features are not immediately available.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Installation validation</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When Bonita Studio starts, various tasks are executed in the background, such as the embedded Bonita test server startup (including Bonita Engine initialization), Bonita test organization deployment, and more.
+This might take a while and may be why some features are not immediately available.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation_validation"><a class="anchor" href="#_installation_validation"></a>Installation validation</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In order to make sure that everything is properly installed, click on the <strong>Portal</strong> button <span class="image"><img src="_images/images/getting-started-tutorial/installation/portal-icon.png" alt="Bonita Portal icon"></span> in the toolbar.
 This should open the Bonita Portal home page in your web browser:</p>

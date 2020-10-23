@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/embed-engine.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1138,18 +1162,12 @@
 <h1 class="page">Embed Bonita Engine in your application</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><span class="image"><img src="_images/images/bonita-lab.png" alt="bonita lab"></span> </dt>
-<dd>
-<p>warning <strong>Warning</strong>: This is a Lab feature and is subject to change without warning in any version.
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/bonita-lab.png" alt="bonita lab"></span> WARNING: <strong>Warning</strong>: This is a Lab feature and is subject to change without warning in any version.
 It is not recommended for production.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+</div>
+<div class="paragraph">
 <p>Starting from version 7.9.0, new artifacts allow to start an embedded engine in your application.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1183,13 +1201,17 @@ It is not recommended for production.</p>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info If you are using Bonita subscription edition, change group id for <code>com.bonitasoft.engine</code> and artifact id for <code>bonita-engine-spring-boot-starter-sp</code> :::</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are using Bonita subscription edition, change group id for <code>com.bonitasoft.engine</code> and artifact id for <code>bonita-engine-spring-boot-starter-sp</code>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>This will embed and start Bonita Engine when your application starts.
@@ -1271,13 +1293,17 @@ These configuration properties have as prefix <code>org.bonitasoft.engine</code>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info If you are using Bonita subscription edition, change group id for <code>com.bonitasoft.engine</code> and artifact id for <code>bonita-engine-standalone-sp</code> :::</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are using Bonita subscription edition, change group id for <code>com.bonitasoft.engine</code> and artifact id for <code>bonita-engine-standalone-sp</code>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You can create a new instance of the engine like bellow</p>
@@ -1297,18 +1323,21 @@ engine.start();
 APIClient client = new APIClient()</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info If you are using subscription edition, use <code>com.bonitasoft.engine.BonitaEngineSP</code> and <code>com.bonitasoft.engine.api.APIClient</code> objects instead.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>=== Configuration</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are using subscription edition, use <code>com.bonitasoft.engine.BonitaEngineSP</code> and <code>com.bonitasoft.engine.api.APIClient</code> objects instead.
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>Configuration</h3>
 <div class="paragraph">
 <p>Configuration can be done programmatically on the <code>BonitaEngine</code> instance:</p>
 </div>
@@ -1345,15 +1374,18 @@ engine.setLicenseFileURL(/* url to the license file*/)</code></pre>
 <div class="sect1">
 <h2 id="_known_limitations"><a class="anchor" href="#_known_limitations"></a>Known limitations</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning The portal cannot be used with the embedded engine due to missing web resources when initializing the engine.
-This will be fix in future versions.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The portal cannot be used with the embedded engine due to missing web resources when initializing the engine.
+This will be fix in future versions.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

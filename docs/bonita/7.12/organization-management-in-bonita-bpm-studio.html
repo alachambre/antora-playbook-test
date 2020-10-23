@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/organization-management-in-bonita-bpm-studio.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1220,17 +1244,9 @@ You can specify the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>the group Name, which is used internally by the Bonita software.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning  <strong>NB:</strong> Bonita doesn&#8217;t support the '/' character in the group name field.
+<p>the group Name, which is used internally by the Bonita software.
+WARNING:  <strong>NB:</strong> Bonita doesn&#8217;t support the '/' character in the group name field.
 A group name that contains a '/' may lead to unstable behaviour and may be forbidden in the future.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
-</div>
 </li>
 <li>
 <p>the Display name, which is the name displayed in Bonita Portal</p>
@@ -1347,15 +1363,21 @@ After the organization is imported into Bonita Portal, you can <a href="group.ht
 <p>Deploying an organization means uploading the organization data to Bonita Portal temporarily so that you can test your process.
 + The organization that you deploy overwrites one in Bonita Portal.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Importing an organization overwrites the existing organization in Bonita Portal, which could have an impact on deployed processes.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Importing an organization overwrites the existing organization in Bonita Portal, which could have an impact on deployed processes.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>To deploy the organization data:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1372,9 +1394,6 @@ This user must be in the organization you have selected.</p>
 <p>Click <strong>Deploy</strong>.</p>
 </li>
 </ol>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>

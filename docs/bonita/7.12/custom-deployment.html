@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/custom-deployment.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1140,14 +1164,12 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>:::warning This installation procedure only specifically targets the Java EE application Servers that have been installed under a single root folder (typically, from a .zip file).
-Thus, for installations using native distribution packages (that more often than not split the binaries and the configuration files into separate folder hierarchies), it would be up to you to adapt the documented steps to your very own folder layout.
-:::</p>
+<p>warning This installation procedure only specifically targets the Java EE application Servers that have been installed under a single root folder (typically, from a .zip file).
+Thus, for installations using native distribution packages (that more often than not split the binaries and the configuration files into separate folder hierarchies), it would be up to you to adapt the documented steps to your very own folder layout.</p>
 </div>
 <div class="paragraph">
-<p>:::warning Remember that the recommended way of installing Bonita is to use the provided <a href="tomcat-bundle.html" class="page">Tomcat</a> bundle.
-+ It saves you from doing all the following configuration at hand, as the setup tool included handles it automatically.
-:::</p>
+<p>warning Remember that the recommended way of installing Bonita is to use the provided <a href="tomcat-bundle.html" class="page">Tomcat</a> bundle.
++ It saves you from doing all the following configuration at hand, as the setup tool included handles it automatically.</p>
 </div>
 </div>
 </div>
@@ -1204,7 +1226,7 @@ Includes script files to generate license request keys.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>:::warning Some of the libraries copied from the bundle <code>server/lib/bonita</code> may already exist (albeit in a different version) in your Tomcat server <code>lib</code> folder.
+<p>warning Some of the libraries copied from the bundle <code>server/lib/bonita</code> may already exist (albeit in a different version) in your Tomcat server <code>lib</code> folder.
 e.g.:</p>
 </div>
 <div class="ulist">
@@ -1219,11 +1241,10 @@ e.g.:</p>
 </div>
 <div class="paragraph">
 <p>For such libraries, you should only keep the ones copied from the bundle under <code>lib/bonita</code>, or else the Bonita server may encounter <code>NoSuchMethodError</code>-type of issues.
-::: :::warning Some configuration files from the bundle will overwrite some default tomcat configuration files.
+ warning Some configuration files from the bundle will overwrite some default tomcat configuration files.
 Proceed with care in a tomcat where other applications are already installed.
-::: :::warning There is an <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=58999">issue on tomcat 8.0.32</a> preventing the portal Look &amp; feel to be compiled.
-If you deploy bonita on an existing tomcat installation, make sure it is a different version of tomcat (preferably 8.5.x with x&gt;=23).
-:::</p>
+ warning There is an <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=58999">issue on tomcat 8.0.32</a> preventing the portal Look &amp; feel to be compiled.
+If you deploy bonita on an existing tomcat installation, make sure it is a different version of tomcat (preferably 8.5.x with x&gt;=23).</p>
 </div>
 </div>
 <div class="sect2">

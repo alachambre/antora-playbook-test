@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/datetimes-management-tutorial.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1142,18 +1166,21 @@
 <p>Manage dates and times in user interface is often difficult.
 This following howTo should help you.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info This howto applies to Bonita 7.5.0 and above.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This howto applies to Bonita 7.5.0 and above.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>To manage dates and times in the BDM and User Interfaces, Bonita comes with 3 types of data that you can manipulate through processes, APIs and user interfaces (forms/pages).
 + This page gives a step-by-step procedure to create a process with forms that allow to choose a date (with or without a time) and then display it, leveraging each of these data types.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1266,11 +1293,21 @@ Use it for birth dates for example.
 </li>
 <li>
 <p>You can delete the variable <em>formInput</em></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info The Date picker widget supports the following types for its <strong>Value</strong> property as input:</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Date picker widget supports the following types for its <strong>Value</strong> property as input:
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1284,18 +1321,11 @@ Use it for birth dates for example.
 </li>
 </ul>
 </div>
-</dd>
-</dl>
-</div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>However, to support pages designed with an older UI Designer version, the output of the widget is always a Javascript Date object.
 So it will change the type of the variable bound to the widget <strong>Value</strong> to a Date object when the user selects a date.
 + When sent in the JSON body of a request, it is serialized into an ISO 8601 formatted String variable with the time set to midnight UTC (e.g., 2016-12-31T00:00:00.000Z).
-The time information is dropped at contract level when received by the process instantiation REST API and converted to a <code>java.time.LocalDate</code>.
-:::</p>
+The time information is dropped at contract level when received by the process instantiation REST API and converted to a <code>java.time.LocalDate</code>.</p>
 </div>
 <h4 id="_retrieve_the_date_from_the_database_and_display_it" class="discrete">Retrieve the date from the database and display it</h4>
 <div class="paragraph">
@@ -1470,21 +1500,24 @@ It can be used it for stores opening hours, or flight departure and arrival days
 </li>
 <li>
 <p>You can delete the variable <em>formInput</em></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info The <strong>Date time picker</strong> widget output is an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted String (e.g.
-"2017-01-13T15:00:00").
-+ At contract level, when received by the task execution REST API, it is converted to a <code>java.time.LocalDateTime</code>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
-</div>
-<h4 id="_retrieve_the_date_and_time_from_the_database_and_display_them" class="discrete">Retrieve the date and time from the database and display them</h4>
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <strong>Date time picker</strong> widget output is an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted String (e.g.
+"2017-01-13T15:00:00").
++ At contract level, when received by the task execution REST API, it is converted to a <code>java.time.LocalDateTime</code>.
+</td>
+</tr>
+</table>
+</div>
+<h4 id="_retrieve_the_date_and_time_from_the_database_and_display_them" class="discrete">Retrieve the date and time from the database and display them</h4>
 <div class="paragraph">
 <p>In another step form (or in any other page), you may want to retrieve the date and time and display them.
 + In order to do so:</p>
@@ -1659,22 +1692,25 @@ It uses <code>java.time.OffsetDateTime</code> as Java type.</p>
 </li>
 <li>
 <p>You can delete the variable <em>formInput</em></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info The <strong>Date time picker</strong> widget output is an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted String representing the selected date and time in UTC (e.g.
-"2017-01-13T13:00:00Z").
-+ At contract level when received by the task execution REST API, it is converted to a <code>java.time.OffsetDateTime</code>.
-+ Unless the user is in the GMT time zone, there will be an offset between the time he selects and the time stored in database.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
-</div>
-<h4 id="_retrieve_the_date_and_time_from_the_database_and_display_them_2" class="discrete">Retrieve the date and time from the database and display them</h4>
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <strong>Date time picker</strong> widget output is an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formatted String representing the selected date and time in UTC (e.g.
+"2017-01-13T13:00:00Z").
++ At contract level when received by the task execution REST API, it is converted to a <code>java.time.OffsetDateTime</code>.
++ Unless the user is in the GMT time zone, there will be an offset between the time he selects and the time stored in database.
+</td>
+</tr>
+</table>
+</div>
+<h4 id="_retrieve_the_date_and_time_from_the_database_and_display_them_2" class="discrete">Retrieve the date and time from the database and display them</h4>
 <div class="paragraph">
 <p>In another step form (or in any other page) you may want to retrieve the date and time and display them.
 + In order to do so:</p>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/event-handlers.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1143,18 +1167,21 @@
 <div class="paragraph">
 <p>An event handler is an extension to the engine that is configured to run when a specified event occurs.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>You can add event handlers for several purposes and you can configure which events you want to catch.
 We strongly recommend that you add only appropriate handlers and carefully code the handler filters to handle only those events that you are interested in.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>An event is a change to any object in the database (user, activity, processDefinition,&#8230;&#8203;
@@ -1178,22 +1205,25 @@ For example:</p>
 <div class="paragraph">
 <p>At the end of this page there is a list of all the events.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Example: deploy an event handler</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In a cluster environment, Event handlers must be Serializable (implements Serializable and have all its fields serializable or transient) because they are shared with other nodes of the cluster.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_deploy_an_event_handler"><a class="anchor" href="#_example_deploy_an_event_handler"></a>Example: deploy an event handler</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This example shows an event handler that detects changes in the state of activity instances.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_create_a_maven_project_for_event_handler_jar"><a class="anchor" href="#_create_a_maven_project_for_event_handler_jar"></a>create a maven project for event handler jar</h3>
@@ -1346,6 +1376,8 @@ The list of handlers registered can be extended in the <a href="BonitaBPM_platfo
 <pre>INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: event PROCESSINSTANCE_STATE_UPDATED - asks if we are interested in handling this event instance
 ...
 INFOS: THREAD_ID=78 | HOSTNAME=gt | ExampleHandler: executing event PROCESSINSTANCE_STATE_UPDATED</pre>
+</div>
+</div>
 </div>
 </div>
 </div>

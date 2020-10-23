@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/performance-tuning.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1319,24 +1343,30 @@ In some deployments, it is possible to benefit from the best of both local and r
 <p>The HTTP access mode is available using our natively provided <a href="configure-client-of-bonita-bpm-engine">bonita-client library</a>.
 It can also be used from other technologies like PHP, .Net or Javascript (in that case, you need to develop your our client).</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning We do not guarantee to keep the http protocol stable, so we strongly recommend that you use</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We do not guarantee to keep the http protocol stable, so we strongly recommend that you use
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>the standard bonita-client library</p>
 </li>
+<li>
+<p>the same version for both the client and the server</p>
+</li>
 </ul>
 </div>
-</dd>
-<dt class="hdlist1">* the same version for both the client and the server </dt>
-<dd>
+<div class="paragraph">
 <p>This mode can be easily used inside a web container like Tomcat or Jetty.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>The bonita-client library</p>
@@ -1890,18 +1920,21 @@ effective_io_concurrency = 200
 checkpoint_completion_target = 0.9</pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Warning: properties <code>random_page_cost</code> and <code>seq_page_cost</code> should have values relative to each other thoroughly set, in order for PostgreSQL query planner to choose the right execution plan.
-+ See PostgreSQL <a href="https://www.postgresql.org/docs/11/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS">Planner Cost Constants</a> for more details on how to set those values.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Warning: properties <code>random_page_cost</code> and <code>seq_page_cost</code> should have values relative to each other thoroughly set, in order for PostgreSQL query planner to choose the right execution plan.
++ See PostgreSQL <a href="https://www.postgresql.org/docs/11/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS">Planner Cost Constants</a> for more details on how to set those values.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>If you want to be able to <strong>restore live PITR (<a href="https://www.postgresql.org/docs/11/continuous-archiving.html">Point-in-Time Recovery</a>) backup</strong> of the database, ensure archiving is activated:</p>
-</dd>
-</dl>
 </div>
 <div class="listingblock">
 <div class="content">

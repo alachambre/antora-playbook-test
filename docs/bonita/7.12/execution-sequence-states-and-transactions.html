@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/execution-sequence-states-and-transactions.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1148,16 +1172,24 @@
 <div class="paragraph">
 <p>In the sequences described in this page, some of the actions apply only to <strong>Teamwork</strong>, <strong>Efficiency</strong>, <strong>Performance</strong>, or <strong>Enterprise</strong> editions, and are marked "Subscription only".</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info In the sequences described in this page, some of the actions apply only to <strong>Teamwork</strong>, <strong>Efficiency</strong>, or <strong>Performance</strong> editions, and are marked "Subscription only".
-+ For the <strong>Community</strong> edition, these actions are not relevant, but the order of the other actions is the same.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Instantiation of a process through a user entry form</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the sequences described in this page, some of the actions apply only to <strong>Teamwork</strong>, <strong>Efficiency</strong>, or <strong>Performance</strong> editions, and are marked "Subscription only".
++ For the <strong>Community</strong> edition, these actions are not relevant, but the order of the other actions is the same.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instantiation_of_a_process_through_a_user_entry_form"><a class="anchor" href="#_instantiation_of_a_process_through_a_user_entry_form"></a>Instantiation of a process through a user entry form</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1215,9 +1247,6 @@ Above this limit, the connector execution is aborted and the process instantiati
 <p>The process is instantiated, the API call finish and the Engine executes the process flow asynchronously</p>
 </li>
 </ol>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>

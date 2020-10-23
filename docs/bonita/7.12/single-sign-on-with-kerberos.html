@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/single-sign-on-with-kerberos.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1141,8 +1165,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>:::info  <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::</p>
+<p>info  <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.</p>
 </div>
 <div class="paragraph">
 <p>This pages explains how to configure your Bonita Platform system to use the Kerberos protocol to provide single sign-on (SSO).
@@ -1157,8 +1180,7 @@ It assumes you already have a Correctly configured Windows Domain (AD/KDC/DNS se
 Each tenant can use a different authentication method (over Kerberos or not).</p>
 </div>
 <div class="paragraph">
-<p>:::info  <strong>Note:</strong> Bonita uses <a href="http://spnego.sourceforge.net/">Spnego</a> library that allows to request tickets using the Kerberos protocol.
-:::</p>
+<p>info  <strong>Note:</strong> Bonita uses <a href="http://spnego.sourceforge.net/">Spnego</a> library that allows to request tickets using the Kerberos protocol.</p>
 </div>
 </div>
 </div>
@@ -1227,21 +1249,26 @@ After obtaining a valid ticket the filter will store some information (the authe
 <ul>
 <li>
 <p>The Bonita Kerberos filter will automatically create a Bonita session and let the user through to access the Portal resources.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning +  Bonita "username" should match the authenticated user login returned in the client response.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Pre-installation Environment Checks</p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
++  Bonita "username" should match the authenticated user login returned in the client response.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pre_installation_environment_checks"><a class="anchor" href="#_pre_installation_environment_checks"></a>Pre-installation Environment Checks</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>In this section, we will describe the minimal set of configuration checks that must be performed before starting the installation on windows.</p>
 </div>
@@ -1578,10 +1605,10 @@ com.bonitasoft.engine.authentication.level = ALL</p>
 <div class="content">
 <pre>Edit the _logger_ tags which _category_ matches `org.bonitasoft.console.common.server.auth`, `org.bonitasoft.engine.authentication` and `com.bonitasoft.engine.authentication` packages: change the _level_ _name_ attribute of each _logger_ to `ALL` and add a new logger with the _category_ `net.sourceforge.spnego` (also with a _level_ _name_ set to `ALL`).
 
-::: info *Common issues :* In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`.
+NOTE: *Common issues :* In the logs, you may get a IllegalArgumentException in the class `net.sourceforge.spnego.SpnegoFilterConfig`.
 + The most probable cause for that is that the login contexts (set in `login.conf`) for Tomcat or the security domain names (set in `standalone.xml`) for Wildfly (spnego-client and spnego-server by default) do not match the values of the properties `spnego.login.client.module` and `spnego.login.server.module` set in the file `spnego-config.properties`.
 + You may also see a NullPointerException in the class `net.sourceforge.spnego.SpnegoFilterConfig` + In that case, for Tomcat, you should make sure the properties `spnego.krb5.conf` and `spnego.login.conf` of `spnego-config.properties` target the right files (the path is relative to `&lt;BUNDLE_HOME&gt;/server`) and the  system property `java.security.auth.login.config` should not be set or, if it is, it should target the file `conf/login.conf`.
-:::
+
 
 == Manage passwords
 
@@ -1596,9 +1623,9 @@ If you are using an LDAP (or AD) service and the xref:ldap-synchronizer.adoc[LDA
 It is recommended though to use the tenant admin account.
 + We recommend that you use LDAP or AD as your master source for information, synchronizing the relevant information with your Bonita platform.
 
-::: info *Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username.
+NOTE: *Note :* By default the xref:ldap-synchronizer.adoc[LDAP synchronizer] sets the password of the accounts created with the same value as the username.
 So, even if you allow standard authentication (by setting the property `kerberos.auth.standard.allowed` in *authenticationManager-config.properties*), users won't be able to log in with the portal login page directly without going through the Domain Controller.
-+ :::
++
 
 == Single sign-on with Kerberos using the REST API
 

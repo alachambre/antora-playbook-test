@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bcd/3.4/requirements-and-compatibility.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -364,7 +388,7 @@ The SSH private key has to be retrieved on your BCD controller and its path conf
 </div>
 <div class="paragraph">
 <p>The databases supported with BCD are: PostgreSQL, MySQL and Oracle.
-+ As BCD manages Bonita in the Tomcat Bundle and there is a <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/database-configuration#toc5">known issue between Bitronix and the Microsoft SQL Server</a>, SQL Server is not supported.
++ As BCD manages Bonita in the Tomcat Bundle and there is a <a href="https://documentation.bonitasoft.com/bonita/$7.12/database-configuration#toc5">known issue between Bitronix and the Microsoft SQL Server</a>, SQL Server is not supported.
 + By default, BCD provisions a database Docker container while deploying your Bonita stack.
 + But alternatively, BCD also lets you <a href="deploy-with-existing-database.html" class="page">connect your Bonita stack with an existing database server (on-premise or in the cloud)</a>.</p>
 </div>

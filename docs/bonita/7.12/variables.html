@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/variables.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1267,13 +1291,11 @@ You can use a variable to fill its value using interpolation syntax.</p>
 <p>You can use Pagination section to define the number of elements you want by page (by default 10 elements) and the page number (by default first page - index 0).</p>
 </div>
 <div class="paragraph">
-<p>:::warning Business data variables will be always an array that contains the result of query execution.
-In case of single result queries, such as find by persistence Id, you may access the values like this InvoiceVar[0], knowing that 0 is first and only element of your array.
-:::</p>
+<p>warning Business data variables will be always an array that contains the result of query execution.
+In case of single result queries, such as find by persistence Id, you may access the values like this InvoiceVar[0], knowing that 0 is first and only element of your array.</p>
 </div>
 <div class="paragraph">
-<p>:::info Read <a href="ui-designer-overview.md#integration-with-bonita-platform">Integration with Bonita Platform</a> to know how Business Data are connected with Bonita Platform.
-:::</p>
+<p>info Read <a href="ui-designer-overview.md#integration-with-bonita-platform">Integration with Bonita Platform</a> to know how Business Data are connected with Bonita Platform.</p>
 </div>
 <div class="sect2">
 <h3 id="_external_api"><a class="anchor" href="#_external_api"></a>External API</h3>
@@ -1330,8 +1352,8 @@ For example:</p>
 </div>
 <div class="paragraph">
 <p>An expression often relies on other variables as dependencies.
-::: warning <strong>Warning:</strong> Every time one of these variables changes, the whole JavaScript expression is re-evaluated and the previous value is overwritten.
-+ ::: For example, create a <code>login</code> expression variable: <code>return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()</code>.
+WARNING: <strong>Warning:</strong> Every time one of these variables changes, the whole JavaScript expression is re-evaluated and the previous value is overwritten.
++  For example, create a <code>login</code> expression variable: <code>return $data.firstname.toLowercase() + '-' + $data.lastname.toLowercase()</code>.
 Its dependencies are the two variables <code>firstname</code> and <code>lastname</code>.
 + Create two input widgets "First name" and "Last name" and bind the values to two variables <code>firstname</code> and <code>lastname</code>.
 Add a text widget "Login" to display the result of the <code>login</code> expression.

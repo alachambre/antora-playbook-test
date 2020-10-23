@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/database-configuration.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1182,18 +1206,24 @@ When building a production environment, you must switch to another RDBMS.</p>
 <div class="sect1">
 <h2 id="_steps_to_switch_to_another_rdbms"><a class="anchor" href="#_steps_to_switch_to_another_rdbms"></a>Steps to switch to another RDBMS</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Please note this procedure cannot be performed using the Bonita Studio.
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Please note this procedure cannot be performed using the Bonita Studio.
 The Bonita Studio can run only on the H2 Database.
-To use Bonita on another RDBMS, please use a <a href="#_basic-bonita-platform-installation.adoc" class="page unresolved">bundle</a> or set up a <a href="custom-deployment.html" class="page">standalone server</a>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+To use Bonita on another RDBMS, please use a <a href="#_basic-bonita-platform-installation.adoc" class="page unresolved">bundle</a> or set up a <a href="custom-deployment.html" class="page">standalone server</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Here are the steps to follow.
 They are the same for the engine database and the business data database:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1210,25 +1240,27 @@ They are the same for the engine database and the business data database:</p>
 </li>
 </ol>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>Steps 1 and 2 are detailed further down this page, steps 3 and 4 are part of the configuration part of the <a href="tomcat-bundle.html" class="page">Tomcat bundle</a> page.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning All RDBMSs require <a href="#specific_database_configuration">specific customization</a>, which must be done before you complete your installation.
-+ If you do not complete the specific configuration for your RDBMS, your installation may fail.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Jdbc drivers</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+All RDBMSs require <a href="#specific_database_configuration">specific customization</a>, which must be done before you complete your installation.
++ If you do not complete the specific configuration for your RDBMS, your installation may fail.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jdbc_drivers"><a class="anchor" href="#_jdbc_drivers"></a>Jdbc drivers</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Bonita provides out of the box the Jdbc drivers for H2, PostgreSQL, Microsoft SQL Server, Oracle and MySQL.</p>
 </div>
@@ -1275,9 +1307,8 @@ privileges to create new schema).</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>:::info CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use.
-+ If the same SQL user is used with the <a href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc" class="page unresolved">migration tool</a>, then this user needs such grants.
-:::</p>
+<p>info CREATE TABLE and CREATE INDEX privileges are not required after first start in normal use.
++ If the same SQL user is used with the <a href="migrate-from-an-earlier-version-of-bonita-bpm.html" class="page">migration tool</a>, then this user needs such grants.</p>
 </div>
 <div class="paragraph">
 <p>To create the database(s), we recommend that you refer to your RDBMS documentation:</p>
@@ -1595,18 +1626,21 @@ For example, if the users for the Bonita BPM and BDM databases are <code>bonita<
 FLUSH PRIVILEGES;</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Please note that the above command, by specifying <strong><code></strong>.<strong></code></strong>, is granting privileges for all databases.
-You may want to limit them to the Bonita BPM and BDM databases if there are additional databases in your MySQL server.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Please note that the above command, by specifying <strong><code></strong>.<strong></code></strong>, is granting privileges for all databases.
+You may want to limit them to the Bonita BPM and BDM databases if there are additional databases in your MySQL server.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Refer to the <a href="https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html">Privileges section</a> in the official MySQL documentation for further information.</p>
-</dd>
-</dl>
 </div>
 </div>
 <div class="sect4">

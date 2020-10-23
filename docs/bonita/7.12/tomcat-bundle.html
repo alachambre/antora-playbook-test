@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/tomcat-bundle.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1193,21 +1217,24 @@ We recommend the following locations:</p>
 <li>
 <p>Linux: in <code>/opt/Bonita</code>.
 Make sure that Linux user account used to execute Tomcat is the owner of the folders and files.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Whatever location you choose, <strong>do not</strong> leave blank spaces in the path to the directory, nor in the folder name.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>==== Content of the Tomcat bundle</p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Whatever location you choose, <strong>do not</strong> leave blank spaces in the path to the directory, nor in the folder name.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_content_of_the_tomcat_bundle"><a class="anchor" href="#_content_of_the_tomcat_bundle"></a>Content of the Tomcat bundle</h4>
 <div class="paragraph">
 <p>The Tomcat bundle is based on a standard Tomcat installation with the following additions:</p>
 </div>
@@ -1269,27 +1296,30 @@ Also ships a tool to centralize all the required Tomcat bundle configuration.</p
 </li>
 <li>
 <p><code>stop-bonita.sh</code>: script to stop the bundle on Linux.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the <code>CONFIGURATION</code> table.
-The initialization of this configuration happens during <code>start-bonita.bat</code> (for Windows) or <code>start.bonita.sh</code> (for Linux) execution.
-+ Once initialized, to update this configuration, use the <a href="BonitaBPM_platform_setup.html" class="page"><em>Platform setup tool</em></a> embedded in Bonita bundles.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>=== Get and install a license (Subscription editions only)</p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> Beginning with version 7.3.0, Bonita Platform configuration, including the license file, is stored in the same database as the Bonita Engine data, namely in the <code>CONFIGURATION</code> table.
+The initialization of this configuration happens during <code>start-bonita.bat</code> (for Windows) or <code>start.bonita.sh</code> (for Linux) execution.
++ Once initialized, to update this configuration, use the <a href="BonitaBPM_platform_setup.html" class="page"><em>Platform setup tool</em></a> embedded in Bonita bundles.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_and_install_a_license_subscription_editions_only"><a class="anchor" href="#_get_and_install_a_license_subscription_editions_only"></a>Get and install a license (Subscription editions only)</h3>
 <div class="paragraph">
 <p>First, request a license.
 If this is the first time you generate a license, you need to generate a request key.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_generate_the_request_key"><a class="anchor" href="#_generate_the_request_key"></a>Generate the request key</h4>
@@ -1392,11 +1422,18 @@ The tenant administrator is also known as the tenant technical user.</p>
 <p>When you create a tenant, the tenant administrator is created with the default username and password, unless you specify new values.
 Change these tenant-specific credentials for an existing tenant by updating the <code>userName</code> and <code>userPassword</code> properties in <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/current/tenants/&lt;TENANT_ID&gt;/tenant_engine/bonita-tenant-community-custom.properties</code>.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning For the <strong>default tenant</strong>, the tenant administrator username and password must also be changed in file:</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+For the <strong>default tenant</strong>, the tenant administrator username and password must also be changed in file:
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1407,12 +1444,8 @@ Change these tenant-specific credentials for an existing tenant by updating the 
 </li>
 </ul>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
-<p>For further details and a better understanding, please read the section <a href="tenant_admin_credentials.html" class="page">Tenant administrator credentials</a>.
-:::</p>
+<p>For further details and a better understanding, please read the section <a href="tenant_admin_credentials.html" class="page">Tenant administrator credentials</a>.</p>
 </div>
 <div class="paragraph">
 <p><a id="configuration"></a></p>
@@ -1421,15 +1454,19 @@ Change these tenant-specific credentials for an existing tenant by updating the 
 </div>
 <div class="sect2">
 <h3 id="_configure_the_tomcat_bundle"><a class="anchor" href="#_configure_the_tomcat_bundle"></a>Configure the Tomcat bundle</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info If you just want to try Bonita Platform with the embedded H2 database (only for development and testing phases of your project), you can skip the next paragraph.
-For production, you are recommended to use one of the supported databases, with the following steps.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you just want to try Bonita Platform with the embedded H2 database (only for development and testing phases of your project), you can skip the next paragraph.
+For production, you are recommended to use one of the supported databases, with the following steps.
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1444,10 +1481,18 @@ Beware of <a href="BonitaBPM_platform_setup.md#backslash_support">backslash char
 </li>
 </ol>
 </div>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info The <strong>start-bonita</strong> script does the following:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <strong>start-bonita</strong> script does the following:
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1484,12 +1529,8 @@ Beware of <a href="BonitaBPM_platform_setup.md#backslash_support">backslash char
 </li>
 </ol>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
-<p>For advanced server configuration needs: check out <a href="BonitaBPM_platform_setup.md#run_bundle_configure">Bundle configuration</a> to finely tune your Tomcat bundle, using templates used by Bonita.
-:::</p>
+<p>For advanced server configuration needs: check out <a href="BonitaBPM_platform_setup.md#run_bundle_configure">Bundle configuration</a> to finely tune your Tomcat bundle, using templates used by Bonita.</p>
 </div>
 <div class="paragraph">
 <p><a id="start"></a></p>
@@ -1553,11 +1594,18 @@ You can <a href="performance-tuning.html" class="page">increase the work service
 <div class="paragraph">
 <p>To update Bonita configuration after the first run, take a look at the <a href="BonitaBPM_platform_setup.md#update_platform_conf">platform setup tool</a></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1569,13 +1617,9 @@ Use <code>&lt;BUNDLE_HOME&gt;/setup/setup.sh --help</code> on Linux or <code>&lt
 </li>
 </ul>
 </div>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>=== License update</p>
-</dd>
-</dl>
 </div>
+<div class="sect2">
+<h3 id="_license_update"><a class="anchor" href="#_license_update"></a>License update</h3>
 <div class="paragraph">
 <p>To update the licenses after the first run, take a look at the <a href="BonitaBPM_platform_setup.md#update_platform_conf">platform setup tool</a></p>
 </div>

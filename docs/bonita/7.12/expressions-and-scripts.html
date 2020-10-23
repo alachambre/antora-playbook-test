@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/expressions-and-scripts.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1411,9 +1435,8 @@ For example, to get the number of overdue open tasks, choose <code>apiAccessor</
 <div class="paragraph">
 <p>Scripts can be used to define the result of the right operand of an <a href="operations.html" class="page">operation</a>.
 Those scripts are created in the same editor as the others, and can also call external methods and resources, but are designed as read-only scripts in the product.
-::: warning It means that trying to directly write data to the database in those scripts (using java API methods), while it <em>might</em> work, is considered as a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
-Data in this case, refers to documents, business objects, pages, process commentaries.
-:::</p>
+WARNING: It means that trying to directly write data to the database in those scripts (using java API methods), while it <em>might</em> work, is considered as a bad practice, and the behaviour of those scripts is not guaranteed across versions of the product.
+Data in this case, refers to documents, business objects, pages, process commentaries.</p>
 </div>
 <div class="paragraph">
 <p>For documents, you should use the <a href="documents.html" class="page">document type</a> provided in the Studio and the associated <a href="operations.html" class="page">operations</a> related to this document type.

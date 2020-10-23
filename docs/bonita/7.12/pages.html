@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/pages.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1318,11 +1342,18 @@ In debug mode, you can see changes to your custom page without importing a new z
 <div class="paragraph">
 <p>To work on a page in debug mode:</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info On a Tomcat installation, <code>&lt;java.io.tmpdir&gt;</code> points to <code>&lt;BUNDLE_HOME&gt;/temp/</code> :::</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+On a Tomcat installation, <code>&lt;java.io.tmpdir&gt;</code> points to <code>&lt;BUNDLE_HOME&gt;/temp/</code>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1340,32 +1371,34 @@ This creates a directory <code>&lt;java.io.tmpdir&gt;/bonita_portal_*/tenants/te
 </li>
 </ol>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>When you have finished developing the page, recreate the custom page zip archive, and then modify the page to import it.
 This makes your final version of the page permanently available.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info In Bonita Studio, the debug mode is enabled by default.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In Bonita Studio, the debug mode is enabled by default.
 + If you want to disable it, you need to use the setup tool provided in <code>workspace/tomcat/setup/</code> to update <code>console-config.properties</code> (Update the file database.properties first so it points to the target database.
-E.g.: h2.database.dir=../../default/h2_database).</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Constraints</p>
-</dd>
-</dl>
+E.g.: h2.database.dir=../../default/h2_database).
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_constraints"><a class="anchor" href="#_constraints"></a>Constraints</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A custom page is displayed in an iframe in the Bonita Portal, so is isolated from changes to the portal.
 When you migrate to a newer version of Bonita, your custom page definition should still be valid.
 However, this cannot be guaranteed for all future migrations.</p>
-</div>
 </div>
 </div>
 </div>

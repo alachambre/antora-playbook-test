@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/draw-bpmn-diagram.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1168,22 +1192,37 @@ We will of course drastically simplify the application in this tutorial so you c
 <li>
 <p>If the rating is lower than 3 an extra task will be assigned to the manager of the employee to work with this customer who is not really satisfied.
 Once this task is done the process will be completed</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info To design this process we will use the Business Process Model and Notation (BPMN) standard.
-You don&#8217;t need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the <a href="https://www.bonitasoft.com/library/ultimate-guide-bpmn">Ultimate Guide to BPMN 2.0</a>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning We will use an iterative approach in the process development.
-This means that in the first iteration, we will have a few limitations:</p>
-</dd>
-</dl>
-</div>
 </li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To design this process we will use the Business Process Model and Notation (BPMN) standard.
+You don&#8217;t need to learn everything about BPMN to follow this tutorial but, if you would like to know more, you can read the <a href="https://www.bonitasoft.com/library/ultimate-guide-bpmn">Ultimate Guide to BPMN 2.0</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We will use an iterative approach in the process development.
+This means that in the first iteration, we will have a few limitations:
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>a single user will perform all the tasks</p>
 </li>
@@ -1196,8 +1235,7 @@ This means that in the first iteration, we will have a few limitations:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.
-:::</p>
+<p>As we introduce data in our process definition and configure actors, a user will be able to input data in web forms, the process will follow paths that depend on data values, and different users will be involved.</p>
 </div>
 </div>
 </div>
@@ -1446,19 +1484,25 @@ Adding the end event is similar to how you added a task and a gateway:</p>
 <img src="_images/images/getting-started-tutorial/draw-bpmn-diagram/process-diagram-before-transitions-configuration.png" alt="Process diagram">
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Now you can see a validation error on the gateway.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Now you can see a validation error on the gateway.
 The error is displayed because we didn&#8217;t define the conditions for process execution when it reaches the gateway.
-Trying to execute the process will fail because the process execution engine cannot determine which path to follow.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+Trying to execute the process will fail because the process execution engine cannot determine which path to follow.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>We need to configure the conditions required to define the path to follow when executing the process.
 Conditions are defined on the gateway outgoing transitions (i.e.
 the arrows going out of the gateway):</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1480,14 +1524,21 @@ the arrows going out of the gateway):</p>
 </li>
 </ol>
 </div>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Default flow</strong> means that the transition will be activated only if all other conditions configured on the gateway outgoing transitions are <em>false</em> (boolean value).</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Default flow</strong> means that the transition will be activated only if all other conditions configured on the gateway outgoing transitions are <em>false</em> (boolean value).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>We need to configure the condition on the transition from the gateway to the <em>Deal with unsatisfied customer</em> task:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1507,23 +1558,34 @@ the arrows going out of the gateway):</p>
 </li>
 </ol>
 </div>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Due to the static value <em>true</em>, this version of the process will always go through the <em>Deal with unsatisfied customer</em> task.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info In order to make the error go away, refresh the diagram validation: at the bottom of the screen, select the <strong>Validation status</strong> tab and click on the <strong>Refresh</strong> button.
-You should have only five warnings left.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Due to the static value <em>true</em>, this version of the process will always go through the <em>Deal with unsatisfied customer</em> task.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In order to make the error go away, refresh the diagram validation: at the bottom of the screen, select the <strong>Validation status</strong> tab and click on the <strong>Refresh</strong> button.
+You should have only five warnings left.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Congratulations!
 You have now your first valid BPMN process diagram!</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1575,37 +1637,47 @@ the "eye" icon) to display the overview form with information about process exec
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/getting-started-tutorial/draw-bpmn-diagram/run-process.gif" alt="Process execution"></span></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info When you click on the <strong>Run</strong> button, the process definition and its dependencies are built, packaged and deployed in the Bonita Studio test environment.
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When you click on the <strong>Run</strong> button, the process definition and its dependencies are built, packaged and deployed in the Bonita Studio test environment.
 A user is logged in by default (username: <em>walter.bates</em>, password: <em>bpm</em>) and the auto-generated start form for the process is opened in your web browser.
 If you submit the instantiation form, it will start a new process instance (or case) and load the user task list in the Bonita Portal.
 In the task list, you can&#8217;t immediately submit a user task because, by default, all users (of the test organization) are candidates to perform the tasks of the process.
-In order to act on the task you need first to "claim" it, which then makes you the only one - among all the possible candidates - who can do perform an action on it.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info You can view process instance information in the <a href="cases.html" class="page"><strong>Cases</strong></a> section of the Bonita Portal.
+In order to act on the task you need first to "claim" it, which then makes you the only one - among all the possible candidates - who can do perform an action on it.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can view process instance information in the <a href="cases.html" class="page"><strong>Cases</strong></a> section of the Bonita Portal.
 You can switch between <strong>Open cases</strong> and <strong>Archived cases</strong> to either view the ongoing process instances or see completed ones.
 Note that if you want to start a second case (i.e.
 a process instance), you must go into the Bonita Portal <strong>Processes</strong> menu and click on the <strong>Start a new case</strong> button (i.e.
 the "play" icon in the <strong>Action</strong> column) next to the process definition name.
 If you click on the <strong>Run</strong> button from Bonita Studio, it will clean / overwrite any information related to any process with same name and version, including previous cases.
-Note that if you did any modifications to your project, you probably want to click on the <strong>Run</strong> button to be sure that the latest version is deployed.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+Note that if you did any modifications to your project, you probably want to click on the <strong>Run</strong> button to be sure that the latest version is deployed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>You successfully built and executed your first process.
 So far it is not very useful as it does not deal with any data and web forms, and  only includes a single submit button.
 In following chapters we will <a href="define-business-data-model.html" class="page">define a business data model</a> and bind it to the process to save information related to the claim submitted by the user.</p>
-</dd>
-</dl>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/single-sign-on-with-saml.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1144,8 +1168,7 @@
 <p>Bonita can be configured to use the SAML protocol to provide single sign-on (SSO), as long as you already have a SAML Identity Provider server up and running (IdP).</p>
 </div>
 <div class="paragraph">
-<p>:::info  <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
-:::</p>
+<p>info  <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.</p>
 </div>
 <div class="paragraph">
 <p>This information applies to a Bonita platform deployed from a bundle, not to the Engine launched from Bonita Studio.
@@ -1156,8 +1179,7 @@
 Each tenant can use a different authentication method (over SAML or not).</p>
 </div>
 <div class="paragraph">
-<p>:::info  <strong>Note:</strong> Bonita uses <a href="http://www.keycloak.org/">Keycloak</a> as SAML Service Provider adapter.
-:::</p>
+<p>info  <strong>Note:</strong> Bonita uses <a href="http://www.keycloak.org/">Keycloak</a> as SAML Service Provider adapter.</p>
 </div>
 </div>
 </div>
@@ -1212,27 +1234,32 @@ Each tenant can use a different authentication method (over SAML or not).</p>
 </li>
 <li>
 <p>Redirect to the initial requested resource (relayState)</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning +  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
++  Bonita "username" should match the NameId or one attribute of the subject returned by the IdP in the response.
 If some users need to be able to log in without having an account on the IDP, you can authorize it by activating an option in the file <code>authenticationManager-config.properties</code> (see 2.
 below).
-Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Configure Bonita Bundle for SAML</p>
-</dd>
-</dl>
+Users will then be able to log in using the portal login page (/login.jsp) provided they have a bonita account and their password is different from their username.
+</td>
+</tr>
+</table>
 </div>
-</li>
-</ul>
 </div>
-</li>
-</ul>
 </div>
+<div class="sect1">
+<h2 id="_configure_bonita_bundle_for_saml"><a class="anchor" href="#_configure_bonita_bundle_for_saml"></a>Configure Bonita Bundle for SAML</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You need to execute the following actions in the folder of each tenant for which you want to support authentication over SAML.
 If you want this configuration to also apply to each tenant created later, make sure to also perform those actions in the <em>template</em> tenant configuration folder: <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/current/tenant_template_*</code> (if you have not started the Bonita bundle yet, the files are located in <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/initial/tenant_template_*</code>)</p>
@@ -1351,16 +1378,26 @@ The value must be the same as in the file <strong>authenticationManager-config.p
 <li>
 <p>If your Identity Provider (IdP) requires requests to be signed, generate a private key.
 For example on linux, you can use the command ssh-keygen, then go to &#8220;cd ~/.ssh&#8221; to retrieve the key from the file id_rsa (more id_rsa, then copy the key).</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> The expected format for Keys and certificates is PEM (with or without the comment header and footer).</p>
-</dd>
-<dt class="hdlist1">+ </dt>
-</dl>
-</div>
 </li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> The expected format for Keys and certificates is PEM (with or without the comment header and footer).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>In the tenant_portal folder of each existing tenant: <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/current/tenants/&lt;TENANT_ID&gt;/tenant_portal</code>, +  edit the file <strong>keycloak-saml.xml</strong> to setup Bonita webapp as a Service provider working with your IdP.</p>
 <div class="ulist">
@@ -1523,24 +1560,49 @@ The policy can either be FROM_NAME_ID or FROM_ATTRIBUTE (in that case you need t
 </li>
 <li>
 <p><a href="http://idp.saml.binding.url.to.change" class="bare">http://idp.saml.binding.url.to.change</a></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random key which in turn is encrypted with the SP&#8217;s public key.
-+ The SP uses its private key to decrypt the random key which in turn is used to decrypt the SAML assertion.
-This ensures that only the SP can decrypt the SAML assertion.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1">::: info <strong>Note 2:</strong> <em>If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false.</em> + <em>If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false.</em> </dt>
-<dt class="hdlist1">::: info <strong>Note 3:</strong> More configuration options can be found in <a href="https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config">Keycloak official documentation</a> </dt>
-</dl>
-</div>
 </li>
 </ul>
 </div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+About SAML assertions encryption by the IdP: When the assertions encryption is active, the IdP uses a random key which in turn is encrypted with the SP&#8217;s public key.
++ The SP uses its private key to decrypt the random key which in turn is used to decrypt the SAML assertion.
+This ensures that only the SP can decrypt the SAML assertion.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note 2:</strong> <em>If your IdP neither requires the SSO requests to be signed nor encrypts its own responses, you can remove the Keys node from the SP and set the attributes signaturesRequired, signRequest and signResponse to false.</em> + <em>If your IdP responses are not signed, you can remove the Keys node from the IDP and set the attributes validateRequestSignature and validateResponseSignature to false.</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note 3:</strong> More configuration options can be found in <a href="https://www.keycloak.org/docs/latest/securing_apps/index.html#_saml-general-config">Keycloak official documentation</a>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1591,23 +1653,29 @@ This ensures that only the SP can decrypt the SAML assertion.</p>
 <p>If your Identity Provider is corectly configured (see the section <em>Configure the Identity Provider</em>), you are done.
 Then you can try to access a portal page, an app page or a form URL (or just <code><a href="http://&lt;host&gt;:&lt;port&gt;/bonita">?tenant=&lt;tenantId&gt;</a></code>) and make sure that you are redirected to your Identity Provider to log in (unless you are already logged in).
 + Note that if you try to access <code><a href="http://&lt;bundle" class="bare">http://&lt;bundle</a> host&gt;:&lt;port&gt;/bonita/login.jsp</code>, then you won&#8217;t be redirected as this page still needs to be accessible in order for the tenant administrator (or another user if you set the property <code>saml.auth.standard.allowed</code> to true) to be able to log in without an account on the Identity Provider.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Note:</strong> If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured to include the correct <code>Host:</code> header to the requests and the application server is configured to use this header (it is usually the case by default).
-This is required so that <code>HttpServletRequest.getRequestURL</code> returns the URL used by the user and not the internal URL used by the reverse proxy.
-+ For example, if you are running Apache &gt;=2.0.31 as reverse proxy, this configuration is controlled by the property <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost">ProxyPreserveHost</a>.</p>
-</dd>
-<dt class="hdlist1">If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for <a href="https://tomcat.apache.org/connectors-doc/common_howto/proxy.html">Tomcat</a> </dt>
-<dd>
-<p>== Configure the Identity Provider</p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> If your Bonita platform is behind a proxy server, You need to make sure the reverse proxy is configured to include the correct <code>Host:</code> header to the requests and the application server is configured to use this header (it is usually the case by default).
+This is required so that <code>HttpServletRequest.getRequestURL</code> returns the URL used by the user and not the internal URL used by the reverse proxy.
++ For example, if you are running Apache &gt;=2.0.31 as reverse proxy, this configuration is controlled by the property <a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost">ProxyPreserveHost</a>.
+If you need more fine tuning or if you cannot update the reverse proxy configuration, you can consult the official documentation for <a href="https://tomcat.apache.org/connectors-doc/common_howto/proxy.html">Tomcat</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_the_identity_provider"><a class="anchor" href="#_configure_the_identity_provider"></a>Configure the Identity Provider</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Your IdP should declare a Service Provider named <code>bonita</code> (or the value of the <code>entityID</code> set in the file <strong>keycloack-saml.xml</strong> of Bonita bundle if it is different) with the following configuration:</p>
 </div>
@@ -1630,23 +1698,28 @@ This is required so that <code>HttpServletRequest.getRequestURL</code> returns t
 </li>
 <li>
 <p>the Name ID or a user attribute of the user principal sent back by the IdP should match the username of the user accounts in Bonita and the PrincipalNameMapping policy (and attribute value) in <strong>keycloack-saml.xml</strong> should reflect that</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in.
-In that case, try to remove the redirect URL.
-Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn&#8217;t force this URL.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Configure logout behaviour</p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> If the IdP declares a redirect/target URL, it might override the target URL set by the Service Provider request, and you may always end up on the same page after logging in.
+In that case, try to remove the redirect URL.
+Bonita supports redirection to the URL initially requested after logging in on the IdP, provided the IdP doesn&#8217;t force this URL.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_logout_behaviour"><a class="anchor" href="#_configure_logout_behaviour"></a>Configure logout behaviour</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>If your Bonita platform is configured to manage authentication over SAML, when users log out of Bonita Portal, they do not log out of the SAML Identity Provider (IdP).
 Therefore they are not logged out of all applications that are using the IdP.
@@ -1658,15 +1731,18 @@ To avoid this, you have two options :</p>
 Users are logged in as long as they don&#8217;t close their web browser (unless their session times out).
 To do this, set the <code>logout.link.hidden</code> option to <code>true</code> in <code>authenticationManager-config.properties</code> located in <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/initial/tenant_template_portal</code> for not initialized platform or <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/current/tenant_template_portal</code> and <code>&lt;BUNDLE_HOME&gt;/setup/platform_conf/current/tenants/[TENANT_ID]/tenant_portal/</code>.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> When a user logs out from the IdP directly, Bonita Portal&#8217;s session will remain active.
-The user&#8217;s session time to live will be reset to the configured session timeout value upon each user interaction with the server.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> When a user logs out from the IdP directly, Bonita Portal&#8217;s session will remain active.
+The user&#8217;s session time to live will be reset to the configured session timeout value upon each user interaction with the server.
+</td>
+</tr>
+</table>
 </div>
 <h4 id="_setup_bonita_platform_for_saml_global_logout" class="discrete">Setup Bonita platform for SAML global logout</h4>
 <div class="paragraph">
@@ -1688,21 +1764,26 @@ To setup Bonita for global logout:</p>
 </li>
 <li>
 <p>Update your Identity Provider configuration to setup the Logout Service POST/Redirect Binding URL to <Bonita_server_URL>/bonita/samlLogout</Bonita_server_URL></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Troubleshoot</p>
-</dd>
-</dl>
-</div>
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> If the single logout flow supported by your IdP is not the same as the one supported by Bonita platform, the preferred solution to handle it anyway is to intercept the requests to /logoutService and handle the logout programmatically.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_troubleshoot"><a class="anchor" href="#_troubleshoot"></a>Troubleshoot</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To troubleshoot SSO login issues, you need to add a logging handler for the package <code>org.keycloak</code> and increase the <a href="logging.html" class="page">log level</a> to <code>ALL</code> for the packages <code>org.bonitasoft</code>, <code>com.bonitasoft</code>, and <code>org.keycloak</code> in order for errors to be displayed in the log files bonita-*.log (by default, they are not).</p>
 </div>
@@ -1854,19 +1935,27 @@ This password is ignored when logging in with the IdP.</p>
 It is recommended though to use the tenant admin account.
 We recommend that you use LDAP as your master source for information, synchronizing the relevant information with your Bonita platform.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note :</strong> By default the <a href="ldap-synchronizer.html" class="page">LDAP synchronizer</a> sets the password of the accounts created with the same value as the username.
-So, even if you allow standard authentication (by setting the property <code>saml.auth.standard.allowed</code> in <strong>authenticationManager-config.properties</strong>), users won&#8217;t be able to log in with the portal login page directly without going through the IdP.</p>
-</dd>
-<dt class="hdlist1">+ </dt>
-<dd>
-<p>== Single sign-on with SAML using the REST API</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note :</strong> By default the <a href="ldap-synchronizer.html" class="page">LDAP synchronizer</a> sets the password of the accounts created with the same value as the username.
+So, even if you allow standard authentication (by setting the property <code>saml.auth.standard.allowed</code> in <strong>authenticationManager-config.properties</strong>), users won&#8217;t be able to log in with the portal login page directly without going through the IdP.
+</td>
+</tr>
+</table>
 </div>
+<div class="paragraph">
+<p>+</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_single_sign_on_with_saml_using_the_rest_api"><a class="anchor" href="#_single_sign_on_with_saml_using_the_rest_api"></a>Single sign-on with SAML using the REST API</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>SAML is a browser-oriented protocol (based on http automatic redirection, forms, etc&#8230;&#8203;), therefore only resources that require a direct access from a web browser are handled by the SAML filter.
 Access to other resources won&#8217;t trigger an SAML authentication process.

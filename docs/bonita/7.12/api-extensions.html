@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/api-extensions.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1185,35 +1209,59 @@ The resource is added to the portal</p>
 <p>REST API Extensions use the same authorization mechanism as the standard Bonita REST APIs.
 When you import the extension, the information in <code>page.properties</code> is used to create the appropriate resource permission mappings in Bonita (see <a href="rest-api-authorization.html" class="page">REST API authorization</a> for information about REST API security configuration).</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note</strong>: It is also possible to deploy a REST API Extensions using <a href="portal-api.md#page">REST portal API / "page" resource</a>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note</strong>: The deployment of the REST API Extensions should always be made from the portal or its APIs, not directly from Engine APIs.
-Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Warning</strong>: If you are running Bonita in a cluster, after you import a REST API Extensions, you must restart the application server on all the cluster nodes.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Warning</strong>: As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to <a href="BonitaBPM_platform_setup.md#update_platform_conf">push a configuration</a> that does not contain the latest permissions updates.
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note</strong>: It is also possible to deploy a REST API Extensions using <a href="portal-api.md#page">REST portal API / "page" resource</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note</strong>: The deployment of the REST API Extensions should always be made from the portal or its APIs, not directly from Engine APIs.
+Notably, the createPage() method of the Engine PageAPI would allow you to deploy a REST API Extensions, but would not update the security settings, meaning that you would not be able to access it at runtime.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning</strong>: If you are running Bonita in a cluster, after you import a REST API Extensions, you must restart the application server on all the cluster nodes.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning</strong>: As the deployment of the REST API Extensions automatically creates the appropriate resource permission mapping, be careful not to <a href="BonitaBPM_platform_setup.md#update_platform_conf">push a configuration</a> that does not contain the latest permissions updates.
 This would overwrite the deployed configuration.
-To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+To avoid doing so, pull the latest configuration, edit the needed elements and push it back to the Bonita runtime in a pretty short amount of time.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><a id="usage"></a></p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1238,25 +1286,37 @@ This works the same way as with the other resources of the REST API.
 + However, if you need to grant access to this REST API Extensions to some users regardless of the pages they have access to, then you need to add <a href="rest-api-authorization.md#custom-permissions-mapping">custom permissions</a> for these users.
 + In order to do so, edit <code>custom-permissions-mapping.properties</code> to give the permissions (value of the property <code>apiExtension.permissions</code>) declared in the page.properties of the REST API Extensions to the required profiles or users.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note</strong>: REST API permissions are stored in the user&#8217;s session and new permissions will only be effective for a user the next time he logs in to the portal.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning In Bonita Studio, the debug mode is disabled by default.
-In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the classloader of the extension is recreated at each request.
-+ If you want to enable the debug mode, you can activate it in the Studio server preferences.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== REST API Extensions examples</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note</strong>: REST API permissions are stored in the user&#8217;s session and new permissions will only be effective for a user the next time he logs in to the portal.
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In Bonita Studio, the debug mode is disabled by default.
+In debug mode, you can see changes on your REST API Extensions without importing a new zip archive, but it means the classloader of the extension is recreated at each request.
++ If you want to enable the debug mode, you can activate it in the Studio server preferences.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rest_api_extensions_examples"><a class="anchor" href="#_rest_api_extensions_examples"></a>REST API Extensions examples</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A REST API Extensions example resource and API extension viewer page are provided in administrator portal.
 They are located in administrator portal.</p>

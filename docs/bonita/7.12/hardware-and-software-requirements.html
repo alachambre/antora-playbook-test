@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/hardware-and-software-requirements.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1147,17 +1171,20 @@
 <div class="sect1">
 <h2 id="_hardware"><a class="anchor" href="#_hardware"></a>Hardware</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> The hardware recommended for Bonita Platform is strongly dependent on your environment and processes (number of processes instances, number of current users, operations and complexity&#8230;&#8203;).</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> The hardware recommended for Bonita Platform is strongly dependent on your environment and processes (number of processes instances, number of current users, operations and complexity&#8230;&#8203;).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>Hardware required for Bonita Platform (Bonita Engine and Bonita Portal) | Type         | Minimum     | Recommended                       | | :-------- | :------- | :---------------------- | | Processors   | 4 CPU cores | 4 CPU cores or more               | | Memory (RAM) | 4 GB        | 8 GB or more                      | | Disk space   | 10 GB       | 30 GB or more, depending on usage |</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1203,14 +1230,18 @@ So from that Chrome version onwards, once Bonita Platform is installed, apply th
 <h3 id="_fixing_procedure"><a class="anchor" href="#_fixing_procedure"></a>Fixing procedure</h3>
 <div class="sect3">
 <h4 id="_subscription_users"><a class="anchor" href="#_subscription_users"></a>Subscription users</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> In order to apply this procedure, you MUST use a Chrome browser version that doesn&#8217;t suffer from the incompatibility, or you can use Firefox, Internet Explorer/Edge or Safari, for example.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> In order to apply this procedure, you MUST use a Chrome browser version that doesn&#8217;t suffer from the incompatibility, or you can use Firefox, Internet Explorer/Edge or Safari, for example.
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1275,9 +1306,6 @@ If the 'portal-theme.zip' contains a 'portal-theme' folder at the base, Bonita P
 <p>Back to the Chrome update 60 browser, empty the cache.</p>
 </li>
 </ol>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 <div class="sect3">

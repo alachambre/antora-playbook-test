@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/bonita-bpm-portal-urls.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1141,18 +1165,23 @@
 <div class="paragraph">
 <p>This page explains how to use a URL to access Bonita Portal or the form for a specific process or task.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> In these URLs, the process names, versions and the task names must be URL encoded.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== URL of Bonita Portal</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> In these URLs, the process names, versions and the task names must be URL encoded.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_url_of_bonita_portal"><a class="anchor" href="#_url_of_bonita_portal"></a>URL of Bonita Portal</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You can connect to Bonita Portal from other tools using a URL of the form <code><a href="http://`" class="bare">http://`</a><em>`host`</em></code>:`<em>`port`</em>`/bonita#?....<code>.
 Other forms of URL are liable to change in future versions.
@@ -1283,19 +1312,15 @@ You will automatically be redirected to the complete format.</p>
 <div class="sect1">
 <h2 id="_task_url"><a class="anchor" href="#_task_url"></a>Task URL</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>danger :fa-exclamation-triangle: <strong>Important:</strong> A task is not automatically assigned to the user who accesses the task form.
-There must first be a <a href="bpm-api.html" class="page">REST API call to assign the task to the user</a>.
-Otherwise, the user will not be able to execute the task.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="literalblock">
+<div class="content">
+<pre> danger :fa-exclamation-triangle: *Important:* A task is not automatically assigned to the user who accesses the task form.
+There must first be a xref:bpm-api.adoc[REST API call to assign the task to the user].
+Otherwise, the user will not be able to execute the task.</pre>
+</div>
+</div>
+<div class="paragraph">
 <p>The following code samples show how to generate a link to a human task.</p>
-</dd>
-</dl>
 </div>
 <div class="sect2">
 <h3 id="_complete_url_3"><a class="anchor" href="#_complete_url_3"></a>Complete URL</h3>

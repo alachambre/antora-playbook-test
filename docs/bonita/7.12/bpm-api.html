@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/bpm-api.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1393,14 +1417,18 @@ if there is no data with the specified name in the activity, the update will be 
 </div>
 <div class="sect3">
 <h4 id="_update_activity_variables_and_execute_a_task"><a class="anchor" href="#_update_activity_variables_and_execute_a_task"></a>Update activity variables and execute a task</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Note: if the task definition includes a connector that is executed on finish and updates the value of a variable, the value set by the REST API call is overwritten.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note: if the task definition includes a connector that is executed on finish and updates the value of a variable, the value set by the REST API call is overwritten.
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1431,9 +1459,6 @@ if there is no data with the specified name in the activity, the update will be 
 </div>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 <div class="sect3">
@@ -4454,32 +4479,40 @@ only following types are supported for <em>javaTypeclassname</em>: java.lang.Str
 <div class="paragraph">
 <p>Use the document resource to access a document in an active case.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>:fa-exclamation-triangle: Caution:</strong> This resource is deprecated and may be removed in a future release.
-Instead, use caseDocument or archivedCaseDocument.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== CaseDocument</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>:fa-exclamation-triangle: Caution:</strong> This resource is deprecated and may be removed in a future release.
+Instead, use caseDocument or archivedCaseDocument.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_casedocument"><a class="anchor" href="#_casedocument"></a>CaseDocument</h2>
+<div class="sectionbody">
 <h4 id="_description_15" class="discrete">Description</h4>
 <div class="paragraph">
 <p>Use the case document resource to access a document in an active case.
 For archived cases and previous document versions use archivedCaseDocument.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning</p>
-</dd>
-<dt class="hdlist1">* <code>author</code> in the payload is deprecated: use <code>submittedBy</code> </dt>
-</dl>
+<div class="paragraph">
+<p>WARNING:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>author</code> in the payload is deprecated: use <code>submittedBy</code></p>
+</li>
+</ul>
 </div>
 <h4 id="_identifier_13" class="discrete">Identifier</h4>
 <div class="paragraph">
@@ -4850,8 +4883,6 @@ Depending on the setting for <a href="using-list-and-search-methods.html" class=
 </div>
 </li>
 </ul>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_archivedcasedocument"><a class="anchor" href="#_archivedcasedocument"></a>ArchivedCaseDocument</h3>
@@ -5888,16 +5919,12 @@ To instantiate a process with a contract, check the <a href="#instantiate_proces
 </div>
 <div class="sect4">
 <h5 id="_create_a_case_with_variables"><a class="anchor" href="#_create_a_case_with_variables"></a>Create a case with variables</h5>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>danger :fa-exclamation-triangle: <strong>Warning:</strong> The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
+<div class="literalblock">
+<div class="content">
+<pre> danger :fa-exclamation-triangle: *Warning:* The attribute "variables" on the request payload is used to initialize the process variables (not BDM variables).
 If you want to initialize BDM variables at process instantiation, add a contract on the process and map BDM variables to the contract data.
-See <a href="#start-a-process-using-an-instantiation-contract">Start a process using an instantiation contract</a> for usage.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
+See &lt;&lt;start-a-process-using-an-instantiation-contract,Start a process using an instantiation contract&gt;&gt; for usage.</pre>
+</div>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6578,16 +6605,20 @@ For Step3, there are no flow nodes in ready state, so no counter is returned for
 <ul>
 <li>
 <p><code>userId</code></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Note: if the <code>userId</code> is not provided as a deploy parameter, the <code>userId</code> property of a comment is filled with the system user :</p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note: if the <code>userId</code> is not provided as a deploy parameter, the <code>userId</code> property of a comment is filled with the system user :
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6597,11 +6628,9 @@ For Step3, there are no flow nodes in ready state, so no counter is returned for
 }</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>==== Create a comment</p>
+</div>
+<div class="sect3">
+<h4 id="_create_a_comment"><a class="anchor" href="#_create_a_comment"></a>Create a comment</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6647,9 +6676,6 @@ For Step3, there are no flow nodes in ready state, so no counter is returned for
 </div>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 <div class="sect3">
@@ -6790,16 +6816,20 @@ Available filters are :</p>
 <ul>
 <li>
 <p><code>userId</code></p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Note: if the <code>userId</code> is not provided as a deploy parameter, the <code>userId</code> property of a comment is filled with the system user :</p>
-</dd>
-</dl>
-</div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note: if the <code>userId</code> is not provided as a deploy parameter, the <code>userId</code> property of a comment is filled with the system user :
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6809,11 +6839,9 @@ Available filters are :</p>
 }</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>==== Search for archived comments</p>
+</div>
+<div class="sect3">
+<h4 id="_search_for_archived_comments"><a class="anchor" href="#_search_for_archived_comments"></a>Search for archived comments</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -6905,9 +6933,6 @@ Available filters are :</p>
 </div>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -7138,17 +7163,22 @@ In addition, you can instantiate a process, which will create a new process inst
 <div class="paragraph">
 <p>You can delete a process based on its ID.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Warning:</strong> <strong>Beware!
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning:</strong> <strong>Beware!
 Data loss risk!</strong> Deleting a process will automatically delete all its cases (on-going and archived alike).
 Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
-This feature should only be used on non-production environments.</p>
-</dd>
-<dt class="hdlist1"><strong>Please proceed at your own risk.</strong> </dt>
-<dd>
+This feature should only be used on non-production environments.
+<strong>Please proceed at your own risk.</strong>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -7169,26 +7199,28 @@ This feature should only be used on non-production environments.</p>
 </li>
 </ul>
 </div>
-</dd>
-</dl>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_delete_processes_in_bulk"><a class="anchor" href="#_delete_processes_in_bulk"></a>Delete processes in bulk</h4>
 <div class="paragraph">
 <p>You can also delete several processes.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Warning:</strong> <strong>Beware!
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Warning:</strong> <strong>Beware!
 Data loss risk!</strong> Deleting a process will automatically delete all its cases (on-going and archived alike).
 Thus, the operation may take a long time, and fail if the transaction timeout is not large enough.
-This feature should only be used on non-production environments.</p>
-</dd>
-<dt class="hdlist1"><strong>Please proceed at your own risk.</strong> </dt>
-<dd>
+This feature should only be used on non-production environments.
+<strong>Please proceed at your own risk.</strong>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -7216,9 +7248,6 @@ This feature should only be used on non-production environments.</p>
 </div>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 <div class="sect3">

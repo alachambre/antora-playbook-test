@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/configure-maven.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1138,18 +1162,21 @@
 <h1 class="page">How to configure Maven</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>This page explains how to configure Maven for developing REST API Extensions.
 For more information on REST API Extensions, you can read the <a href="rest-api-extensions.html" class="page">reference documentation page</a>.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1179,18 +1206,21 @@ By default, the local repository is located in <code>&lt;USER_HOME&gt;/.m2/repos
 <div class="paragraph">
 <p>Refer to the offical maven documentation if you need to configure a <a href="https://maven.apache.org/guides/mini/guide-mirror-settings.html">mirror repository</a>.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Mirror configuration:</strong> When setting a mirror using a <code>&lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</code> redirection in <code>&lt;USER_HOME&gt;/.m2/settings.xml</code>, add an exception for the studio internal repository id like this: <code>&lt;mirrorOf&gt;*,!studio-internal-repository&lt;/mirrorOf&gt;</code> in your <code>settings.xml</code> (do not put spaces in this String, otherwise the exclusion won&#8217;t be considered by Maven)</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Mirror configuration:</strong> When setting a mirror using a <code>&lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</code> redirection in <code>&lt;USER_HOME&gt;/.m2/settings.xml</code>, add an exception for the studio internal repository id like this: <code>&lt;mirrorOf&gt;*,!studio-internal-repository&lt;/mirrorOf&gt;</code> in your <code>settings.xml</code> (do not put spaces in this String, otherwise the exclusion won&#8217;t be considered by Maven)
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The <code>studio-internal-repository</code> repository is used by the Studio to resolve some dependencies not available in public repositories.
-Without this exclusion, the REST API Extension build fails because of some missing dependencies.
-:::</p>
+Without this exclusion, the REST API Extension build fails because of some missing dependencies.</p>
 </div>
 </div>
 </div>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/configure-client-of-bonita-bpm-engine.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1221,11 +1245,18 @@ for a engine on the same host it can be <code>http://localhost:8080</code></p>
 <div class="paragraph">
 <p>In addition, starting from version 7.9.4, the number of connections used by the client can be configured with system property <code>org.bonitasoft.engine.api-type.connections.max</code>, the default is 20.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both the client and the server :::</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We do not guarantee to keep the http protocol stable, so we strongly recommend that you use the same version for both the client and the server
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1234,23 +1265,16 @@ If nothing is set this mode will be used.</p>
 </li>
 </ul>
 </div>
-</dd>
-</dl>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_configure_client_using_bonita_home_client"><a class="anchor" href="#_configure_client_using_bonita_home_client"></a>Configure client using Bonita Home client</h3>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>danger Deprecated, use the programmatic way instead, see <a href="http://documentation.bonitasoft.com/javadoc/api/7.12/org/bonitasoft/engine/util/APITypeManager.html">APITypeManager</a>.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="literalblock">
+<div class="content">
+<pre>danger Deprecated, use the programmatic way instead, see http://documentation.bonitasoft.com/javadoc/api/{varVersion}/org/bonitasoft/engine/util/APITypeManager.html[APITypeManager].</pre>
+</div>
+</div>
+<div class="paragraph">
 <p>This is a legacy way to configure the connection to the remote engine.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>In this case you have to create a folder containing a <code>engine-client</code> directory and a <code>conf</code> subdirectory.
@@ -1295,15 +1319,18 @@ org.bonitasoft.engine.api-type = LOCAL
 &lt;/servlet&gt;</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning This HTTP access  is not secured, it should not be exposed outside a trusted area.
-We recommend you to deactivate it if you expose directly your deployment to the outside world.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This HTTP access  is not secured, it should not be exposed outside a trusted area.
+We recommend you to deactivate it if you expose directly your deployment to the outside world.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

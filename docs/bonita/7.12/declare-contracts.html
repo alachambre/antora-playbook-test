@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/declare-contracts.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1183,22 +1207,29 @@ This wizard sets the business variable default value and generates task operatio
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/getting-started-tutorial/declare-contracts/declare-process-instantiation-contract.gif" alt="Declare process instantiation contract"></span></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info You now have a contract named <em>claimedInput</em> of type "COMPLEX" with one attribute, <em>description</em> of type "TEXT".
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You now have a contract named <em>claimedInput</em> of type "COMPLEX" with one attribute, <em>description</em> of type "TEXT".
 Also, as the description is mandatory, you can see in <span class="menuseq"><b class="menu">Execution</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Contract</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Constraints</b></span> tab that a validation rule has been created to make sure that we get a value for the description.
 Finally, if you edit the <em>claim</em> business variable, you can see that a script has been generated for you to set the variable default value.
-Setting this value will trigger an insert in the <code>CLAIM</code> table created for you in the business data database managed by Bonita.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>Now let&#8217;s create the contract for the user task <em>Review and answer claim</em>:</p>
-</dd>
-</dl>
+Setting this value will trigger an insert in the <code>CLAIM</code> table created for you in the business data database managed by Bonita.
+</td>
+</tr>
+</table>
 </div>
-</li>
+<div class="paragraph">
+<p>Now let&#8217;s create the contract for the user task <em>Review and answer claim</em>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Select the task <em>Review and answer claim</em></p>
 </li>
@@ -1225,22 +1256,29 @@ Setting this value will trigger an insert in the <code>CLAIM</code> table create
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/getting-started-tutorial/declare-contracts/declare-user-task-contract.gif" alt="Declare user task contract"></span></p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info We now have a contract for the step.
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We now have a contract for the step.
 This contract does not create a new claim but rather updates an attribute of the claim (the claim is created when we start the process).
 The attribute update is performed by an operation (generated for you) on the task.
-Select <span class="menuseq"><b class="menu">Execution</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Operations</b></span> to view the operation that updates the <em>answer</em> attribute.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>Create the contract for <em>Read the answer and rate it</em> task:</p>
-</dd>
-</dl>
+Select <span class="menuseq"><b class="menu">Execution</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Operations</b></span> to view the operation that updates the <em>answer</em> attribute.
+</td>
+</tr>
+</table>
 </div>
-</li>
+<div class="paragraph">
+<p>Create the contract for <em>Read the answer and rate it</em> task:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Do exactly as you did for <em>Review and answer claim</em> task</p>
 </li>

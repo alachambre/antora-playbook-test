@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/migration-overview.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1148,7 +1172,7 @@
 <h2 id="_migrating_your_platform_to_the_new_version"><a class="anchor" href="#_migrating_your_platform_to_the_new_version"></a>Migrating your platform to the new version</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can automatically <a href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc" class="page unresolved">migrate the platform from an earlier version of Bonita</a>.
+<p>You can automatically <a href="migrate-from-an-earlier-version-of-bonita-bpm.html" class="page">migrate the platform from an earlier version of Bonita</a>.
 You cannot migrate your platform from a version earlier than 6.0.2.
 After migration, a process continues to run unchanged.
 You can modify the process definition later to take advantage of the new features in this version of Bonita.</p>
@@ -1189,7 +1213,7 @@ Note: you cannot import a process definition <code>.bos</code> file into a versi
 <div class="paragraph">
 <p>A process definition created using a version 6.x of Bonita, or using 6.x forms or case overview pages, needs to have its task and instantiation forms modified in a previous version of Bonita (7.0.0 to 7.7.4) before migrating to this version.
 Bonita Studio 7.8 and above can&#8217;t import these forms, which may result in data loss or process malfunctions.
-For more details see <a href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc" class="page unresolved">platform migration</a>.</p>
+For more details see <a href="migrate-from-an-earlier-version-of-bonita-bpm.html" class="page">platform migration</a>.</p>
 </div>
 </div>
 </div>

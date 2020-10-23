@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/rest-api-authorization.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1247,14 +1271,18 @@ For example: <code>GET|identity/user/3=[organization_management]</code></p>
 <p>If there are conflicts between permissions, the more restrictive definition overrides the more general.
 You can see this in the example above, where the specific permission for user 3 overrides the general permission for seeing user information.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Do <strong>not</strong> modify file <code>resources-permissions-mapping.properties</code> directly, as it is reserved for default values.</p>
-</dd>
-<dt class="hdlist1">Custom values should be added manually in file <code>resources-permissions-mapping-</code><strong><code>-custom</code></strong><code>.properties</code> </dt>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do <strong>not</strong> modify file <code>resources-permissions-mapping.properties</code> directly, as it is reserved for default values.
+Custom values should be added manually in file <code>resources-permissions-mapping-</code><strong><code>-custom</code></strong><code>.properties</code>
+</td>
+</tr>
+</table>
 </div>
 <h4 id="_compound_permissions_mapping" class="discrete">Compound permissions mapping</h4>
 <div class="paragraph">
@@ -1275,17 +1303,21 @@ By default, the file <code>resources-permissions-mapping.properties</code> conta
 <p>When you install a custom page in the portal, if the page declares its resources properly, then a new compound permission will be added in an internal version of this file (<code>compound-permissions-mapping-internal.properties</code>).
 Then all the users being able to access this page (because it is part of a custom profile or Living Application they have access to) will also be automatically granted the necessary permissions to call the required REST API resources.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Do <strong>not</strong> modify file <code>compound-permissions-mapping.properties</code> directly, as it is reserved for default values.</p>
-</dd>
-<dt class="hdlist1">Custom values should be added manually in file <code>compound-permissions-mapping</code><strong><code>-custom</code></strong><code>.properties</code> </dt>
-<dd>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do <strong>not</strong> modify file <code>compound-permissions-mapping.properties</code> directly, as it is reserved for default values.
+Custom values should be added manually in file <code>compound-permissions-mapping</code><strong><code>-custom</code></strong><code>.properties</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><a id="custom-permissions-mapping"></a></p>
-</dd>
-</dl>
 </div>
 <h4 id="_custom_permissions_mapping" class="discrete">Custom permissions mapping</h4>
 <div class="paragraph">
@@ -1411,19 +1443,23 @@ These provided scripts can be used as a base for you own scripts.</p>
 </li>
 <li>
 <p>make sure this .groovy file is placed in the default directory, under 'initial/tenant_template_security_scripts/' if the platform has never been started, or under 'current/tenants/TENANT_ID/tenant_security_scripts/' if the platform has already been started</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning Do <strong>not</strong> modify file <code>dynamic-permissions-checks.properties</code> directly, as it is reserved for examples, and may be overwritten during migration to a newer version.</p>
-</dd>
-<dt class="hdlist1">Custom values should be added manually in file <code>dynamic-permissions-checks</code><strong><code>-custom</code></strong><code>.properties</code> </dt>
-</dl>
-</div>
-<h4 id="_example_dynamic_check_script" class="discrete">Example dynamic check script</h4>
 </li>
 </ul>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do <strong>not</strong> modify file <code>dynamic-permissions-checks.properties</code> directly, as it is reserved for examples, and may be overwritten during migration to a newer version.
+Custom values should be added manually in file <code>dynamic-permissions-checks</code><strong><code>-custom</code></strong><code>.properties</code>
+</td>
+</tr>
+</table>
+</div>
+<h4 id="_example_dynamic_check_script" class="discrete">Example dynamic check script</h4>
 <div class="paragraph">
 <p>This script is an example of how to write a dynamic check.
 It checks two conditions, depending on the method called for a case.
@@ -1554,18 +1590,23 @@ Note that this level of logging is only available if you <a href="logging.html" 
 It is not necessary to restart the applications server to activate security for the new custom page.
 Depending on the permissions that a user of the page already has, it might be necessary to log out and log in again to get access to the new custom page.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning If the page declares resources provided by a REST API extension (link to the REST API extention page), then the REST API extension must be deployed before the page, otherwise the compound permissions won&#8217;t be automatically created when deploying the page.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Authorization and custom profiles</p>
-</dd>
-</dl>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If the page declares resources provided by a REST API extension (link to the REST API extention page), then the REST API extension must be deployed before the page, otherwise the compound permissions won&#8217;t be automatically created when deploying the page.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authorization_and_custom_profiles"><a class="anchor" href="#_authorization_and_custom_profiles"></a>Authorization and custom profiles</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>When a new <a href="custom-profiles.html" class="page">custom profile</a> is created, the permissions mappings are updated in the configuration files and in the cache.
 It is not necessary to restart the application server to activate security for the new custom profile.</p>

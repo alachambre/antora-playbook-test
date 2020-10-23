@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonitaAPI/7.12/index.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -47,47 +71,6 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="bonitaAPI" data-version="7.12">
-  <aside class="nav">
-    <div class="panels">
-<div class="nav-panel-explore is-active" data-panel="explore">
-  <div class="context">
-    <span class="title">Bonita REST API</span>
-    <span class="version">7.12</span>
-  </div>
-  <ul class="components">
-    <li class="component">
-      <span class="title">Bonita</span>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../bonita/7.12/index.html">7.12</a>
-        </li>
-        <li class="version">
-          <a href="../../bonita/7.11/index.html">7.11</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component">
-      <span class="title">Bonita Continous Delivery</span>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../bcd/3.4/index.html">3.4</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component is-current">
-      <span class="title">Bonita REST API</span>
-      <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">7.12</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-    </div>
-  </aside>
-</div>
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
@@ -98,16 +81,21 @@
   </div>
   <div class="content">
 <article class="doc">
-<redoc spec-url='_attachments/openapi.yml'></redoc>
+<redoc spec-url='_attachments/openapi.yml'
+  menuToggle="true"
+  noAutoAuth="true"
+  requiredPropsFirst="true"
+  pathInMiddlePanel="true"
+  options={{
+    nativeScrollbars: true,
+    theme: { colors: { primary: { main: '#FF0000' } } },
+  }}
+/>
+
 <script
-    src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"
-    menuToggle="true"
-    requiredPropsFirst="true">
+    src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js">
 </script>
 </article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
   </div>
 </main>
 </div>

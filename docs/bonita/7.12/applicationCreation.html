@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/applicationCreation.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1190,19 +1214,22 @@ It represents the skeleton of an application, as it contains references to resou
 <div class="sect1">
 <h2 id="_create_and_build_an_application_descriptor"><a class="anchor" href="#_create_and_build_an_application_descriptor"></a>Create and build an Application Descriptor</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> All Bonita editions come with an .xml editor for this feature.
-Only Enterprise, Performance and Efficiency editions also come with a graphical UI.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> All Bonita editions come with an .xml editor for this feature.
+Only Enterprise, Performance and Efficiency editions also come with a graphical UI.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>From Bonita Studio, use the <strong>new</strong> button in the Studio coolbar or click on <strong>Development</strong> -&gt; <strong>Application Descriptor</strong> -&gt; <strong>New&#8230;&#8203;</strong> + It will create an empty application file with a default name and open an editor.
 You can <strong>rename</strong> this application file from the project explorer, the graphical UI or the menu <strong>Open</strong>.</p>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/applicationDescriptors/emptyApplicationFile_v2.png" alt="Empty Application File"></span> + Here is the application descriptor graphical UI provided.

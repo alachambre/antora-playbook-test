@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/share-a-repository-on-github.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1138,18 +1162,21 @@
 <h1 class="page">How to share a project on Github</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>This page explains how to push an existing Bonita project on <a href="https://github.com/">GitHub</a> to share it with teammates.
 + For more information on Git integration in Bonita Studio, you can read the <a href="workspaces-and-repositories.md#git">reference documentation page</a>.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1160,17 +1187,25 @@
 <p>To create new GitHub repository you will need a <a href="https://help.github.com/articles/signing-up-for-a-new-github-account/">GitHub account</a>.
 Then you will be able to <a href="https://help.github.com/articles/create-a-repo/">create a repository</a>.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Note:</strong> Leave the new repository empty.
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> Leave the new repository empty.
 No .gitignore, no readme.
-Do not commit in the new repository.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Share with Git</p>
+Do not commit in the new repository.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_share_with_git"><a class="anchor" href="#_share_with_git"></a>Share with Git</h2>
+<div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1213,9 +1248,6 @@ When the Push is done, a push confirmation dialog is displayed</p>
 </li>
 </ol>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>You might encounter some issues if the two factor authentiation is activated on your github account, see the <a href="workspaces-and-repositories.md#git-troubleshooting">Git trouble shooting section</a>.</p>
 </div>
@@ -1223,21 +1255,30 @@ When the Push is done, a push confirmation dialog is displayed</p>
 <ol class="arabic">
 <li>
 <p>To validate that the push has actually been done, you can check your repository on GitHub</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info You may also use the ssh authentication mechanism if you do not want to use https.
-You still do not need to select the protocol nor the port in this case.
-See <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">GitHub documentation</a> to configure ssh.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Committing with the Staging view</p>
-</dd>
-</dl>
-</div>
 </li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may also use the ssh authentication mechanism if you do not want to use https.
+You still do not need to select the protocol nor the port in this case.
+See <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">GitHub documentation</a> to configure ssh.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_committing_with_the_staging_view"><a class="anchor" href="#_committing_with_the_staging_view"></a>Committing with the Staging view</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Create a new diagram and save it.</p>
 </li>

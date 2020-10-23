@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/install-a-bonita-bpm-cluster.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1143,33 +1167,45 @@
 <div class="paragraph">
 <p>Discover how to create a cluster from scratch, convert a single node into a cluster, allow communication between nodes and manage a cluster.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> The cluster feature is a Subscription feature for <strong>Enterprise</strong> and <strong>Performance</strong> edition only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning It is possible to manage the lifecycle of a node using the API to connect directly to the node, but this bypasses the load balancer so should be done with care and only in exceptional circumstances.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== Note when using the AWS support</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> The cluster feature is a Subscription feature for <strong>Enterprise</strong> and <strong>Performance</strong> edition only.
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+It is possible to manage the lifecycle of a node using the API to connect directly to the node, but this bypasses the load balancer so should be done with care and only in exceptional circumstances.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note_when_using_the_aws_support"><a class="anchor" href="#_note_when_using_the_aws_support"></a>Note when using the AWS support</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Please read the following to ensure that Bonita Cluster works correctly on AWS.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_iam_role_configuration"><a class="anchor" href="#_iam_role_configuration"></a>IAM role configuration</h3>
 <div class="paragraph">
 <p>If you want to use IAM role for EC2 autodiscovery, you need to attach a role to your EC2 instances with a policy allowing "ec2:DescribeInstances" action.
 For details about IAM Roles for Amazon EC2 see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html">AWS documentation</a></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1295,16 +1331,24 @@ This starts Bonita Platform:</p>
 </li>
 <li>
 <p>Then start the cluster in the load balancer.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine <Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">and that the jvmRoute attribute value matches your worker name in workers.properties.
-See official documentation: <a href="https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html" class="bare">https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html</a> In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01" :::</Engine></p>
-</dd>
-</dl>
-</div>
 </li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you are using apache-tomcat load-balancer whith mod_jk, make sure that jvmRoute attribute is set at your Engine <Engine name="Catalina" defaultHost="localhost" jvmRoute="node01">and that the jvmRoute attribute value matches your worker name in workers.properties.
+See official documentation: <a href="https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html" class="bare">https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html</a> In the server.xml file, for example, change the line to: Engine name="Catalina" defaultHost="localhost" jvmRoute="node01" </Engine>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Check that the log file contains messages of the following form:</p>
 <div class="listingblock">

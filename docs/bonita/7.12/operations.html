@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/operations.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1173,25 +1197,29 @@ You can also use an operation at a task to update the value of a search index.</
 <p>Using the Expression Editor, enter the expression to define the new value of the variable.
 If you define the expression with a script, you can use the current value of the variable being updated in the script, so, for example, you can increment a counter.
 Make sure that the return type matches the type of the variable being updated.</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>warning <strong>Important note</strong>: The scripts used in the operations <em>at task level</em> are designed to be read only scripts.
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<strong>Important note</strong>: The scripts used in the operations <em>at task level</em> are designed to be read only scripts.
 It is therefor not recommended to use them to write data to the database.
 Ex: In a human task of a process, you add an operation that instantiates a business object with the result of a script.
-In the script you create and return the business object, and you also decide to update a document by calling a java API method.</p>
-</dd>
-<dt class="hdlist1">While this call <em>might</em> succeed, such a process design is considered bad practice and its behaviour is not garanteed accross Bonita versions </dt>
-<dd>
+In the script you create and return the business object, and you also decide to update a document by calling a java API method.
+While this call <em>might</em> succeed, such a process design is considered bad practice and its behaviour is not garanteed accross Bonita versions
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>You can define a sequence of operations at a task.
 The operations are performed in the order in which they are listed, at the end of the task.
 You cannot re-order operations after they are defined, so you need to define the operations in the order they are to be performed.</p>
-</dd>
-</dl>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/active-directory-or-ldap-authentication.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1143,15 +1167,21 @@
 <div class="paragraph">
 <p>Bonita can be configured to perform user authentication against an LDAP server such as Active Directory, Apache Directory Server, or OpenLDAP.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info <strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> For Enterprise, Performance, Efficiency, and Teamwork editions only.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p><strong>Important notes:</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1162,9 +1192,6 @@
 We recommend that you use the <a href="ldap-synchronizer.html" class="page">LDAP synchronizer</a> to create Bonita users in a Bonita database.</p>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
@@ -1270,9 +1297,9 @@ Based on the information described in the "Before you start" section, you can id
 </div>
 <div class="paragraph">
 <p><strong><code>userProvider</code></strong>: set this to <code>ldap://&lt;ldap server address&gt;:&lt;ldap server port&gt;/&lt;DN of the LDAP entry under which all users are located&gt;</code>.
-::: warning <strong>Warning:</strong> Spaces in the distinguished name (DN) component of the URL must be escaped using the standard mechanism of percent character ('%') followed by two hexadecimal digits: replace them with '%20'.
+WARNING: <strong>Warning:</strong> Spaces in the distinguished name (DN) component of the URL must be escaped using the standard mechanism of percent character ('%') followed by two hexadecimal digits: replace them with '%20'.
 Query components must also be omitted from the URL.
-::: For example, if your users are under <code>CN=Bonita Users,DC=MyDomain,DC=com</code>: <code>ldap://localhost:389/CN=Bonita%20Users,DC=MyDomain,DC=com</code></p>
+ For example, if your users are under <code>CN=Bonita Users,DC=MyDomain,DC=com</code>: <code>ldap://localhost:389/CN=Bonita%20Users,DC=MyDomain,DC=com</code></p>
 </div>
 <div class="paragraph">
 <p><strong><code>userFilter</code></strong> (only if needed): the value must be a search request that will find your users in the LDAP server.

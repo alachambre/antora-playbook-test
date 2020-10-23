@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/access-control-api.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1137,18 +1161,25 @@
   <div class="content">
 <article class="doc">
 <h1 class="page">Access control API</h1>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info  <strong>Note:</strong> This API is only available in Enterprise, Efficiency and Performance editions.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>== BDM</p>
-</dd>
-</dl>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> This API is only available in Enterprise, Efficiency and Performance editions.
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bdm"><a class="anchor" href="#_bdm"></a>BDM</h2>
+<div class="sectionbody">
 <h4 id="_description" class="discrete">Description</h4>
 <div class="paragraph">
 <p>Access control is available to protect the tenant BDM.
@@ -1162,22 +1193,25 @@ You can use this API to get the access control status (lastUpdatedBy, lastUpdate
 </li>
 <li>
 <p>DELETE - Remove access control</p>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info  <strong>Note:</strong> A servlet to import access control file exists.
-You can use it with this url  <code>services/bdmAccessControl/install?bdmAccessControlUpload=accessControlFileToUpload.xml</code>.
-The file upload needs to be performed before (POST portal/bdmAccessControlUpload).
-Use the file name returned in the response of the upload request to perform the import request (bdmAccessControlUpload parameter).</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
-</div>
-<h4 id="_get_access_control_status" class="discrete">Get access Control status</h4>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> A servlet to import access control file exists.
+You can use it with this url  <code>services/bdmAccessControl/install?bdmAccessControlUpload=accessControlFileToUpload.xml</code>.
+The file upload needs to be performed before (POST portal/bdmAccessControlUpload).
+Use the file name returned in the response of the upload request to perform the import request (bdmAccessControlUpload parameter).
+</td>
+</tr>
+</table>
+</div>
+<h4 id="_get_access_control_status" class="discrete">Get access Control status</h4>
 <div class="paragraph">
 <p>Make this call to get the access control status.</p>
 </div>
@@ -1210,22 +1244,25 @@ Use the file name returned in the response of the upload request to perform the 
 }</code></pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info  <strong>Note:</strong> If <code>"lastUpdatedBy": "-1"</code> it means that the access control were last installed or updated by tenant_technical_user.</p>
-</dd>
-<dt class="hdlist1"></dt>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Note:</strong> If <code>"lastUpdatedBy": "-1"</code> it means that the access control were last installed or updated by tenant_technical_user.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <h4 id="_delete_an_access_control" class="discrete">Delete an access control</h4>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>Delete the access control which are installed on the current tenant.</p>
 </div>
@@ -1248,6 +1285,8 @@ Use the file name returned in the response of the upload request to perform the 
 </div>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

@@ -7,11 +7,16 @@
     <link rel="canonical" href="http://localhost:8080/documentation/bonita/7.12/data-management.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css"
+    />
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
+      <a class="bonita-logo" href="http://localhost:8080/documentation"></a>
       <a class="navbar-item" href="http://localhost:8080/documentation">Bonita documentation 2.0</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
@@ -22,6 +27,25 @@
 
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
+
+          <input type="text" placeholder="Search Docs" class="query ds-input" id="search-query">
+
+          <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
+          <script>
+            docsearch({
+              // Your apiKey and indexName will be given to you once
+              // we create your config
+              apiKey: '8b16fe941025bb59db192dce337bc486',
+              indexName: 'test_BONITA',
+              appId: 'LMVLEZKT54', // Should be only included if you are running DocSearch on your own.
+              // Replace inputSelector with a CSS selector
+              // matching your search input
+              inputSelector: '#search-query',
+              // Set debug to true to inspect the dropdown
+              debug: false,
+            });
+          </script>
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">Bonita</a>
               <div class="navbar-dropdown">
@@ -623,7 +647,7 @@
     <a class="nav-link" href="migration-overview.html">Migration overview</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#migrate-from-an-earlier-version-of-bonita-bpm.adoc">Migrate from an earlier version of Bonita</a>
+    <a class="nav-link" href="migrate-from-an-earlier-version-of-bonita-bpm.html">Migrate from an earlier version of Bonita</a>
   </li>
 </ul>
   </li>
@@ -1162,17 +1186,22 @@ A graphical view of the relationships between business objects (with their attri
 The left part provides a way to explore the BDM tree or search a specific object or attribute.
 You can use also the graphical view to explore the model.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Note: we are using the graphql-voyager tool, which represents a GraphQL schema as an interactive graph.</p>
-</dd>
-<dt class="hdlist1"></dt>
-<dd>
-<p>image::images/uid_graphql_voyager.png[graphql_voyager]</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note: we are using the graphql-voyager tool, which represents a GraphQL schema as an interactive graph.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/uid_graphql_voyager.png" alt="graphql_voyager">
+</div>
 </div>
 <div class="paragraph">
 <p>Once you know which business object you want to use, you can either:</p>
@@ -1209,24 +1238,30 @@ The details section map each Business Object attribute to a corresponding widget
 If you need another widget for an attribute, you can <a href="widgets.html" class="page">switch the widget</a>.
 A set of variables are generated as well, to allow the user interface to operate.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"></dt>
-<dd>
-<p>info Notes:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Notes:
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>All the widgets are in read-only mode since the purpose here is to visualize data</p>
 </li>
+<li>
+<p>The pagination is not handled by the generated interface</p>
+</li>
 </ul>
 </div>
-</dd>
-<dt class="hdlist1">* The pagination is not handled by the generated interface </dt>
-<dd>
+<div class="paragraph">
 <p>You can try it with the Preview, and modify it as needed.</p>
-</dd>
-</dl>
 </div>
 </div>
 </div>
