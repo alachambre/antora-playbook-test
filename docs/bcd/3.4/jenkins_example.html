@@ -43,6 +43,9 @@
               inputSelector: '#search-query',
               // Set debug to true to inspect the dropdown
               debug: false,
+              algoliaOptions: {
+                'facetFilters': ["tags:3.4", "tags:bcd"]
+              },
             });
           </script>
 
