@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>http://localhost:8080/documentation/sitemap-bcd.xml</loc>
+<loc>https://alachambre.github.io/antora-playbook-test/bonita/7.12/sitemap-bcd.xml</loc>
 </sitemap>
 <sitemap>
-<loc>http://localhost:8080/documentation/sitemap-bonita.xml</loc>
+<loc>https://alachambre.github.io/antora-playbook-test/bonita/7.12/sitemap-bonita.xml</loc>
 </sitemap>
 <sitemap>
-<loc>http://localhost:8080/documentation/sitemap-bonitaAPI.xml</loc>
+<loc>https://alachambre.github.io/antora-playbook-test/bonita/7.12/sitemap-bonitaAPI.xml</loc>
 </sitemap>
 </sitemapindex>
