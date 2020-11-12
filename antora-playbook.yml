@@ -1,6 +1,6 @@
 site:
-  title: Bonita documentation 2.0
-  url: http://localhost:8080/documentation
+  title: Bonita documentation
+  url: https://alachambre.github.io/antora-playbook-test/bonita/7.12
   start_page: bonita::index.adoc
 content:
   sources:
@@ -10,7 +10,7 @@ content:
     - url: https://github.com/alachambre/antora-sources-test-2.git
 ui:
   bundle:
-    url: ../antora-ui/build/ui-bundle.zip
+    url: ./ui-bundle/ui-bundle.zip
 asciidoc:
   extensions:
   - ./lib/source-url-include-processor.js
